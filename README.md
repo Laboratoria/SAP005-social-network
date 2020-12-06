@@ -295,15 +295,15 @@ Este projeto está configurado para rodar por meio do servidor do Firebase. Para
 npm install -g firebase-tools
 ```
 
-Instale as dependências do projeto rodando o comando `npm install` ou `yarn`
-
-Para iniciar sua aplicação web, use o comando `npm start` ou `yarn start`
-
 E realizar o [login](https://firebase.google.com/docs/cli#sign-in-test-cli) por meio de uma conta Google.
 
 ```bash
 firebase login
 ```
+
+Instale as dependências do projeto rodando o comando `npm install` ou `yarn`
+
+Para iniciar sua aplicação web, use o comando `npm start` ou `yarn start`
 
 ### Mobile first
 
