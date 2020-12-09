@@ -301,9 +301,35 @@ E realizar o [login](https://firebase.google.com/docs/cli#sign-in-test-cli) por 
 firebase login
 ```
 
-Instale as dependências do projeto rodando o comando `npm install` ou `yarn`
+Inicie um novo projeto web no [console do Firebase](https://console.firebase.google.com/) (pode desabilitar o analytics).
 
-Para iniciar sua aplicação web, use o comando `npm start` ou `yarn start`
+Caso apareça a opção de habilitar o Hosting na tela seguinte, selecionar.
+
+Clique no menu lateral `Cloud Firestore` para criar uma nova database como `test mode` e escolher a região `us-east1`.
+
+**IMPORTANTE** rodar todos os comandos do Firebase no terminal a partir da pasta raiz do projeto.
+
+Executar o comando `firebase login` e realizar o [login](https://firebase.google.com/docs/cli#sign-in-test-cli) por meio de uma conta Google - deve abrir uma janela automaticamente, se não abrir pode clicar no link que vai aparecer no console.
+
+Executar o comando `firebase init` para iniciar o setup do projeto.
+
+Selecionar Hosting (aperte espaço para selecionar essa opção e depois enter).
+
+Selecionar `Use an existing project` (o terminal vai mostrar o nome do projeto que você acabou de criar no site do Firebase).
+
+Escrever `src` para definir como `public directory` (o padrão vai estar como `public`).
+
+Escrever `y` para selecionar como SPA.
+
+Escrever `N` para não fazer builds e deploys automáticos com GitHub.
+
+O Firebase vai dizer que `src/index.html` já existe e pergunta se quer sobrescrever. Nesse momento não tem problema fazer isso, ele vai sobrescrever o que veio no boilerplate da Lab com uma página padrão do Firebase. Sugerimos dar `N`, para não sobrescrever o `index.html`.
+
+Se der tudo certo, o Firebase vai criar o arquivo `.firebaserc` de configuração na pasta do projeto e estamos prontas pra continuar.
+
+Instale as dependências do projeto rodando o comando `npm install`.
+
+Para iniciar sua aplicação web, use o comando `npm start` que usamos nos projetos anteriores. Com esse comando, você deve ver em `http://localhost:5000` uma página padrão do Firebase, que está sendo renderizada de `src/index.html`.
 
 ### Mobile first
 
