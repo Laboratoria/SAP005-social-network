@@ -60,8 +60,6 @@ Application
       DOM](https://developer.mozilla.org/pt-BR/docs/DOM/Referencia_do_DOM/Introdu%C3%A7%C3%A3o)
 - [ ] [History
       API](https://developer.mozilla.org/pt-BR/docs/Web/API/History_API)
-- [ ]
-  [`localStorage`](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/Window.localStorage)
 
 ### Javascript
 
