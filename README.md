@@ -205,7 +205,7 @@ H.U.:
 
 - _Login_ com Firebase:
   - Para o _login_ e postagens na timeline, você pode usar
-    [Firebase Authentication](https://firebase.google.com/docs/auth) e [Cloud Storage](https://firebase.google.com/docs/storage)
+    [Firebase Authentication](https://firebase.google.com/docs/auth) e [Cloud Firestore](https://firebase.google.com/docs/firestore)
   - O usuário deve poder criar uma conta de acesso ou autenticar-se com conta de
     e-mail e senha e também com uma conta do Google.
 - Validações:
