@@ -308,7 +308,7 @@ Inicie um novo projeto web no [console do Firebase](https://console.firebase.goo
 
 Caso apareça a opção de habilitar o Hosting na tela seguinte, selecionar.
 
-Clique no menu lateral `Cloud Firestore` para criar uma nova database como `test mode` e escolher a região `us-east1`.
+Clique no menu lateral `Cloud Firestore` para criar uma nova database como `production mode` e escolher a região `us-east1`.
 
 **IMPORTANTE** rodar todos os comandos do Firebase no terminal a partir da pasta raiz do projeto.
 
