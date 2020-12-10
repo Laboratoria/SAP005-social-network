@@ -135,13 +135,18 @@ como toda a configuração de dependências:
 ├── src
 |  ├── pages (páginas)
 |  |  └── home
+|  |  |  ├── index.js
+|  |  |  └── index.spec.js
+|  |  └── login
 |  |     ├── index.js
 |  |     └── index.spec.js
 |  ├── services (serviços externos)
 |  |  ├── index.js
 |  |  └── index.spec.js
-|  ├── router.js
+|  ├── utils
+|  |  └── history.js
 |  ├── index.html
+|  ├── router.js
 |  └── style.css
 ├── README.md
 └── package.json
