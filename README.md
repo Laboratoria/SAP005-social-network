@@ -179,7 +179,7 @@ uma de suas histórias de usuário deve possuir:
 
   - Ser uma SPA.
   - Ser _responsivo_.
-  - Receber _code review_ de pelo menos uma parceira de outra equipe.
+  - Receber _code review_ de pelo menos uma parceira de sua equipe.
   - Fazer _tests_ unitários.
   - Fazer testes manuais buscando erros e imperfeições simples.
   - Fazer testes de usabilidade e incorporar o _feedback_ dos usuários como
