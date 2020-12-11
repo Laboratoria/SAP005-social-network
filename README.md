@@ -292,17 +292,7 @@ Para começar, você precisará criar um _fork_ e _clone_ deste repositório.
 
 ### Instalação de Firebase
 
-Este projeto está configurado para rodar por meio do servidor do Firebase. Para isso, será necessário possuir o [Firebase CLI](https://firebase.google.com/docs/cli#install_the_firebase_cli) instalado globalmente em sua máquina.
-
-```bash
-npm install -g firebase-tools
-```
-
-E realizar o [login](https://firebase.google.com/docs/cli#sign-in-test-cli) por meio de uma conta Google.
-
-```bash
-firebase login
-```
+Este projeto está configurado para rodar por meio do servidor do Firebase. Para isso, será necessário possuir o [Firebase CLI](https://firebase.google.com/docs/cli#install_the_firebase_cli) instalado globalmente em sua máquina. Utilize o comando `npm install -g firebase-tools`
 
 Inicie um novo projeto web no [console do Firebase](https://console.firebase.google.com/) (pode desabilitar o analytics).
 
