@@ -29,6 +29,5 @@ window.addEventListener('load', () => {
       e.preventDefault();
       onNavigate('/login')
     });
-
   routeRender();
 });

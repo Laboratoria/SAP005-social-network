@@ -2,7 +2,10 @@ export const Login = () => {
   // Coloque sua página
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
-      <h1>Login!</h1>
+    <section class="login">
+      <img class="img-logo"  src="../src/img/Logo.jpeg" alt="logo da página">
+      <button>Fazer login com o Google</button>
+    </section>
   `;
   return rootElement;
 };
