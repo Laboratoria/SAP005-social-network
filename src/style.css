@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height:100vh;
+}
+
+.login{
+  margin-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login .img-logo {
+  width: 10em;
+}
+
+.login button {
+  margin-top: 2em;
+}
+
+.post-enviar{
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post{
+    width:70vw;
+    height: 20vh;
+}
+.post-enviar button{
+    margin-left: 14em;
+    margin-top: 1em;
+}
