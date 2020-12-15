@@ -4,8 +4,10 @@ export const Login = () => {
   rootElement.innerHTML = `
     <section class="login">
       <img class="img-logo"  src="../src/img/Logo.jpeg" alt="logo da página">
-      <button>Fazer login com o Google</button>
+      <button id="login">Fazer login com o Google</button>
     </section>
   `;
+
+
   return rootElement;
 };
