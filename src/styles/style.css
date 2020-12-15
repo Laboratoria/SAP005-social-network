@@ -1,3 +1,15 @@
+/* reset css */
+@import "reset.css";
+
+/* página de cadastro */
+@import "cadastro.css";
+
+/* página de publicar */
+@import "publicar.css";
+
+/* página de visualizar publicações */
+@import "publicacoes.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -9,8 +21,6 @@ header{
     margin: 10px 0;
     padding: 0 10px;
 }
-
-
 
 .navbar {
     display: flex;
