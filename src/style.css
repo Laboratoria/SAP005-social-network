@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+
+
+.navbar {
+    display: flex;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar li {
+    padding: 0 10px;
+    text-transform: capitalize;
+}
