@@ -1,0 +1,42 @@
+.purple {
+	background: rgb(204, 59, 204);
+	background-image: linear-gradient(rgb(68, 0, 255), rgb(204, 59, 204));
+}
+.logo {
+	display: flex;
+	width: 10vw;
+	margin: 5vh;
+}
+
+.people {
+	display: flex;
+	margin-top: auto;
+	width: 20vw;
+	margin: 10vh;
+	margin-left: 40vw;
+}
+.email,
+.password {
+	display: flex;
+	margin-left: 40vw;
+	text-align: center;
+	font-family: Arial;
+	color: white;
+	border-radius: 10px;
+}
+.button {
+	text-align: center;
+	font-family: Arial;
+	font-weight: 50px;
+	border-radius: 10px;
+}
+.button :hover {
+	color: rgb(214, 116, 113);
+}
+h4 {
+	font-family: cursive;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Security Pet</title>
+  </head>
+  <body class="purple">
+
+    <nav>
+      <img src="./img/logo.png" class="logo">
+    <img src="./img/pessoas.png" class="people">
+    </nav>
+    
+    <div id="root">
+      <h4>Your Pet's ally !!!</h4>
+    </div>
+    
+    
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyAhEBnXsEXN8QjUEEyWC7CBjXs4Ti0dU1Q",
+    authDomain: "rede-social-85909.firebaseapp.com",
+    projectId: "rede-social-85909",
+    storageBucket: "rede-social-85909.appspot.com",
+    messagingSenderId: "78373282016",
+    appId: "1:78373282016:web:892344b0135afbaa72b085"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+ <section class="email">
+ 
+   <h3> <Label>E-mail:</Label>
+    <input type="text" id="e-mail">
+  </h3> <br>
+</section>
+
+<section class="password">
+  <h3>
+    <Label>Senha:</Label>
+    <input type="password" id="password"> 
+  </h3> <br>
+</section>
+
+<section class="button">
+  <h3>
+    <button onclick="register ()">Cadastrar</button>
+    <button onclick="login ()">Login</button>
+  </h3>
+  
+
+</section>
+
+
+</body>
+  
+
+</html>
