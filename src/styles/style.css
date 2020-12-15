@@ -1,0 +1,12 @@
+/* reset css */
+@import "reset.css";
+
+/* página de cadastro */
+@import "cadastro.css";
+
+/* página de publicar */
+@import "publicar.css";
+
+/* página de visualizar publicações */
+@import "publicacoes.css";
+
