@@ -1,3 +1,98 @@
-input{
-    background-color: black;
+/* Reset para todos os elementos */
+* { 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Pagina de login */
+
+div #fundo  {
+    background-image: url(./assets/sing_in_desktop.png) ;
+    background-repeat: no-repeat;
+    filter: brightness( 37% );
+    position: absolute;
+    background-size: 425px 767px;
+    width: 100%;
+    height: 100%;
+    left: -6px;
+    top: 0px;
+}
+
+input, #email, #password {
+    display: flex;
+    position: relative;
+    width: 270px;
+    height: 50px;
+    left: 45px;
+    top: 359px;
+    margin: 10px;
+    background: rgba(250, 250, 250, 0.5);
+    box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+}
+
+#email {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image:url(./assets/person.png);
+    background-repeat:no-repeat;
+}
+
+#password {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image:url(./assets/password.png);
+    background-repeat:no-repeat;
+}
+
+#redes {
+    display: inline-flex;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 100px;
+    top: 583px;
+}
+
+#redes img {
+margin: 25px;
+}
+
+.text p {
+    position: absolute;
+    margin-top: 425px;
+    margin-left: 120px;
+    color: white;
+    font-size: 20px;
+    /* text-align: center; */
+}
+
+
+/* Estilização do placeholder */
+::-webkit-input-placeholder {     
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 14px;
+    color: #FFFFFF; 
+}
+
+/* input:-moz-placeholder { color:#4C4; }
+textarea:-moz-placeholder { color:#4C4; } */
+
+#submit {
+    position: absolute;
+    width: 188px;
+    height: 50px;
+    left: 86px;
+    top: 487px;
+    color: white;
+    background: #064298;
+    border-radius: 50px;
+    margin: 10px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
 }
