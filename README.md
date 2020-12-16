@@ -179,7 +179,7 @@ Este arquivo contém a função `onNavigate()`, que recebe como parâmetro `path
 
 A manipulação de dados dependerá do servidor externo Firebase.
 
-Recomendamos que este arquivo contenha todas funcionalidades (suas funções) que correspondam a qualquer manipulação de dados (criar, ler, atualizar, deletar).
+Recomendamos que este arquivo contenha todas as funcionalidades (suas funções) que correspondam a qualquer manipulação de dados (criar, ler, atualizar, deletar).
 
 ### `src/pages`
 
