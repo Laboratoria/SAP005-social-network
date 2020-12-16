@@ -22,7 +22,7 @@ btn.addEventListener("click", (e) => {
     if (typedCpf == "" || typedCpf.length < 11 || dateBorned == "" || passwordFirst != passwordSecond || userName == "" || lastNameUser == "") {
         alert('teste')
     } else {
-        let replaceCpf = typedCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,
+        let replaceCpf = typedCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, 
             (regex, argument1, argument2, argument3, argument4) => {
                 return argument1 + '.' + argument2 + '.' + argument3 + '-' + argument4;
             })
