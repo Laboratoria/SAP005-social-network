@@ -183,7 +183,7 @@ Recomendamos que este arquivo contenha todas funcionalidades (suas funções) qu
 
 ### `src/pages`
 
-Nesta pasta estão as pastas `home` e `login` que contém um arquivo `index.js` em cada uma delas. Sugerimos que o conteúdo de cada página fique separado desta forma em funções que retornam o conteúdo `HTML` desejado. Assim, a responsabilidade de cada página fica isolada.
+Neste diretório estão as pastas `home` e `login`, e cada uma delas contém um arquivo `index.js`. Sugerimos que o conteúdo de cada página fique separado de acordo com o exemplo proposto, em forma de funções que retornam o conteúdo `HTML` desejado. Dessa maneira, a responsabilidade de cada página fica isolada.
 
 ### `src/**/**/*.spec.js`
 
