@@ -32,6 +32,12 @@ btn.addEventListener("click", (e) => {
 
     cpf.value = "";
     date.value = "";
+    name.value = "";
+    lastName.value = "";
+    email.value = "";
+    password.value = "";
+    confirmPassword.value = "";
+
 })
 
 eye.addEventListener("click", (e) => {
