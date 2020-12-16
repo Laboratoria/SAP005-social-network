@@ -6,39 +6,47 @@ const confirmPassword = document.querySelector("#passwordSecond");
 const cpf = document.querySelector('#cpf')
 const date = document.querySelector('#month')
 const btn = document.querySelector('#btn')
+const eye = document.querySelector('#eye')
 
 btn.addEventListener("click", (e) => {
     e.preventDefault();
-    const space = " ";
     let userName = name.value;
     let lastNameUser = lastName.value;
-    console.log(userName[0].toUpperCase() + userName.slice(1) + " " + lastNameUser[0].toUpperCase() + lastNameUser.slice(1))
+    let completName = userName[0].toUpperCase() + userName.slice(1) + " " + lastNameUser[0].toUpperCase() + lastNameUser.slice(1)
     let emailUser = email.value;
-    console.log(emailUser)
     let passwordFirst = password.value;
     let passwordSecond = confirmPassword.value;
     let dateBorned = date.value;
     let typedCpf = cpf.value;
 
-
-
-    if (typedCpf == "" || typedCpf.length < 11 || dateBorned == "" || passwordFirst != passwordSecond ) {
+    if (typedCpf == "" || typedCpf.length < 11 || dateBorned == "" || passwordFirst != passwordSecond || userName == "" || lastNameUser == "") {
         alert('teste')
     } else {
         let replaceCpf = typedCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,
             (regex, argument1, argument2, argument3, argument4) => {
                 return argument1 + '.' + argument2 + '.' + argument3 + '-' + argument4;
             })
-        console.log(typedCpf = replaceCpf, dateBorned, passwordFirst);
-    }   
-   
-    
-  
+        console.log(typedCpf = replaceCpf, dateBorned, passwordFirst, completName, emailUser);
+    }
+
+
 
     cpf.value = "";
     date.value = "";
 })
 
+eye.addEventListener("click", (e) => {
+    e.preventDefault();
+    const showPassword = document.querySelector("#passwordFirst");
+    const showPassword2 = document.querySelector("#passwordSecond");
+    if (showPassword.type == "password" && showPassword2.type == "password") {
+        showPassword.type = "text";
+        showPassword2.type = "text";
+    } else {
+        showPassword.type = "password";
+        showPassword2.type = "password";
+    }
+})
 
 // Este é seu ponto de entrada da sua aplicação
 // import { Home } from './pages/home/index.js';
