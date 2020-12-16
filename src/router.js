@@ -1,14 +1,42 @@
+const name = document.querySelector('#nome')
+const lastName = document.querySelector('#sobrenome')
+const email = document.querySelector('#email')
+const password = document.querySelector("#passwordFirst");
+const confirmPassword = document.querySelector("#passwordSecond");
 const cpf = document.querySelector('#cpf')
+const date = document.querySelector('#month')
 const btn = document.querySelector('#btn')
 
 btn.addEventListener("click", (e) => {
     e.preventDefault();
+    const space = " ";
+    let userName = name.value;
+    let lastNameUser = lastName.value;
+    console.log(userName[0].toUpperCase() + userName.slice(1) + " " + lastNameUser[0].toUpperCase() + lastNameUser.slice(1))
+    let emailUser = email.value;
+    console.log(emailUser)
+    let passwordFirst = password.value;
+    let passwordSecond = confirmPassword.value;
+    let dateBorned = date.value;
     let typedCpf = cpf.value;
-    let replaceCpf = typedCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,
-        (regex, argument1, argument2, argument3, argument4) => {
-            return argument1 + '.' + argument2 + '.' + argument3 + '-' + argument4;
-        })
-    console.log(typedCpf = replaceCpf);
+
+
+
+    if (typedCpf == "" || typedCpf.length < 11 || dateBorned == "" || passwordFirst != passwordSecond ) {
+        alert('teste')
+    } else {
+        let replaceCpf = typedCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,
+            (regex, argument1, argument2, argument3, argument4) => {
+                return argument1 + '.' + argument2 + '.' + argument3 + '-' + argument4;
+            })
+        console.log(typedCpf = replaceCpf, dateBorned, passwordFirst);
+    }   
+   
+    
+  
+
+    cpf.value = "";
+    date.value = "";
 })
 
 
