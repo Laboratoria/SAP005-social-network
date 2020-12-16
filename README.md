@@ -153,6 +153,42 @@ como toda a configuração de dependências:
 
 ```
 
+### `src/index.html`
+
+O arquivo `index.html` é a página que vai ser exibida ao usuário.
+
+### `src/router.js`
+
+O script de `index.html` aponta para este arquivo `router.js`, que cuida de direcionar as rotas da aplicação sem a necessidade de um novo carregamento da página.
+
+Temos a importação das páginas `Home` e `Login` como exemplo, e também da função `onNavigate` que registra cada tela adicionada ao histórico de navegação.
+
+A função `renderRouter` presente neste arquivo é acionada em dois momentos distintos:
+
+- [load](https://developer.mozilla.org/pt-BR/docs/Web/Events/load): quando há o carregamento inicial da página. Ex: ao acessar `localhost:5000` a página `Home` é renderizada, ou
+
+- [onpopstate](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/popstate_event): quando há o carregamento da página já contendo a rota desejada. Ex: ao acessar `localhost:5000/login` a página `Login` é renderizada.
+
+A função `onNavigate()` está sendo disparada quando há um `click` em qualquer uma das rotas presentes nesse boilerplate.
+
+### `src/utils/history.js`
+
+Este arquivo contém a função `onNavigate()`, que recebe como parâmetro `path` e `state`, que são armazenados no histórico do navegador. Dessa forma, mesmo sem recarregar a página (por ser SPA), se torna possível navegar entre todas páginas renderizadas por meio do botão de `back` e `forward` do navegador. [History API](https://developer.mozilla.org/pt-BR/docs/Web/API/History_API)
+
+### `src/services/index.js`
+
+A manipulação de dados dependerá do servidor externo Firebase.
+
+Recomendamos que este arquivo contenha todas funcionalidades (suas funções) que correspondam a qualquer manipulação de dados (criar, ler, atualizar, deletar).
+
+### `src/pages`
+
+Nesta pasta estão as pastas `home` e `login` que contém um arquivo `index.js` em cada uma delas. Sugerimos que o conteúdo de cada página fique separado desta forma em funções que retornam o conteúdo `HTML` desejado. Assim, a responsabilidade de cada página fica isolada.
+
+### `src/**/**/*.spec.js`
+
+Todos arquivos com terminação `.spec.js` é lido e executado com o comando `npm run test`. Como temos diversas funcionalidades distribuídas na aplicação, optamos por deixar os arquivos de teste próximos às funcionalidades testadas.
+
 ### 5.2 Definição do produto
 
 No `README.md`, conte-nos brevemente como você mapeou as necessidades dos seus
