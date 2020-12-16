@@ -187,7 +187,7 @@ Neste diretório estão as pastas `home` e `login`, e cada uma delas contém um 
 
 ### `src/**/**/*.spec.js`
 
-Todos arquivos com terminação `.spec.js` é lido e executado com o comando `npm run test`. Como temos diversas funcionalidades distribuídas na aplicação, optamos por deixar os arquivos de teste próximos às funcionalidades testadas.
+Todos os arquivos com terminação `.spec.js` são lidos e executados com o comando `npm run test`. Como temos diversas funcionalidades distribuídas na aplicação, optamos por deixar os arquivos de teste próximos às funcionalidades testadas.
 
 ### 5.2 Definição do produto
 
