@@ -1,0 +1,130 @@
+    #header-posts{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+    
+    }
+
+    #user-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: center;
+    }
+
+    .user-item{
+        padding: 10px;
+    }
+
+    #user-container > img{
+        max-width: 50px;
+    }
+
+    #option-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: center;
+    }
+
+    .option-item{
+        padding: 10px;
+    }
+
+    h4{
+        font-size: 14pt;
+        padding-left: 25px;
+    }
+
+    h5{
+        text-align: end;
+        font-size: 12pt;
+    }
+
+
+    #post-container{
+        margin: 0 auto;
+        background-color: rgb(201, 201, 201);
+        height: 100px;
+        width: 100%;
+        padding-left: 10px; 
+        display: flex;  
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .post-item > img{
+        max-width: 50px;
+        position: relative;
+        top: 40%;
+        transform: translateY(-50%);
+    }
+
+    .post-item >p{
+        margin-left: 5px;
+        font-size: 10pt;
+        position: relative;
+        top: 9%;
+        transform: translateY(-50%);
+    }
+
+    #like{
+        max-width: 20px;
+        margin-top:5px;
+        cursor: pointer;
+    }
+
+
+@media only screen and (min-width: 1382px) { 
+
+    #user-container > img{
+        max-width: 100px;
+    }
+
+    h4{
+        font-size: 20pt;
+        text-align: center;
+    }
+
+    h5{
+        text-align: end;
+        padding-right: 40px;
+        margin-right: 200px;
+    }
+
+    #post-container{
+        margin: 0 auto;
+        background-color: rgb(201, 201, 201);
+        height: 200px;
+        width: 70%;
+    }
+
+    .post-item > img{
+        max-width: 80px;
+        position: relative;
+        top: 40%;
+        transform: translateY(-50%);
+    }
+
+   .post-item >p{
+        font-size: 12pt;
+        position: relative;
+        top: 20%;
+        transform: translateY(-50%);
+        margin-left: 15px;
+    }
+
+    #like{
+        max-width: 40px;
+        margin-top:5px;
+        cursor: pointer;
+        margin-left:220px;
+    }
+
+
+}

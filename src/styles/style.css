@@ -10,10 +10,17 @@
 /* página de visualizar publicações */
 @import "publicacoes.css";
 
-* {
-    margin: 0;
-    padding: 0;
+
+/* ---------GERAL------------------------ */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    margin: 10px;
 }
+
+
+/* ----------------HEADER-------------------------- */
 
 header{
     display: flex;
@@ -22,17 +29,26 @@ header{
     padding: 0 10px;
 }
 
-.navbar {
-    display: flex;
+#logo > img{
+    max-width: 50px;
 }
 
-.navbar ul {
+#exit > img{
+    max-width: 50px;
+}
+
+/*  -----------------------NAVBAR-------------------------- * */
+
+nav > ul{
     display: flex;
-    align-items: center;
     list-style: none;
+    flex-wrap: wrap;
 }
 
-.navbar li {
-    padding: 0 10px;
-    text-transform: capitalize;
+.item-menu{
+    text-transform: uppercase;
+    text-decoration: none;
+    color:#313131;
+    display: block;
+    padding: 10px;
 }
