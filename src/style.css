@@ -1,37 +1,3 @@
-
-.container form .mensagemAlerta{
-  background: #F8D7DA;
-  padding: 8px 0;
-  border-radius: 5px;
-  color: #692128;
-  display: none;
-  text-align: center;
-  width: 300px;
-}
-.container form .mensagemAlerta.senhasCorretas{
-  background: #D4EDDA;
-  color: #21472a;
-  text-align: center;
-}
-.container form .senhas{
-  width: 100%;
-  height: 45px;
-  display: flex;
-  margin: 15px 0;
-  position: relative;
-}
-form .senhas input{
-  width: 300px;
-  height: 100%;
-}
-
-form .senhas .ver{
-  position: absolute;
-  right: 420px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  display: none;
+.eye {
+cursor: pointer;
 }
