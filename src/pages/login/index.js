@@ -9,5 +9,12 @@ export const Login = () => {
   `;
 
 
+  const loginGoogle = rootElement.querySelector("#login");
+
+  loginGoogle.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log("funciona botão")
+  });
+  
   return rootElement;
 };
