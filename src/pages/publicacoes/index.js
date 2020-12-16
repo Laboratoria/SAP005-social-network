@@ -29,7 +29,7 @@ export const publicacoes = () => {
             <p>Nome</p>
             </div>
         </section>
-        <img src="../src/img/like.png" alt="like" id="like">
+        <img src="../src/img/like.png" alt="like-user" id="like">
     </main>
     
 </body>
