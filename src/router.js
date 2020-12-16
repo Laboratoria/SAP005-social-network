@@ -30,7 +30,6 @@ btn.addEventListener("click", (e) => {
     }
 
 
-
     cpf.value = "";
     date.value = "";
 })
