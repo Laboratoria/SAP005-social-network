@@ -165,9 +165,9 @@ Temos a importação das páginas `Home` e `Login` como exemplo, e também da fu
 
 A função `renderRouter` presente neste arquivo é acionada em dois momentos distintos:
 
-- [load](https://developer.mozilla.org/pt-BR/docs/Web/Events/load): quando há o carregamento inicial da página. Ex: ao acessar `localhost:5000` a página `Home` é renderizada, ou
+- [load](https://developer.mozilla.org/pt-BR/docs/Web/Events/load): quando há o carregamento inicial da página. Ex: ao acessar `localhost:5000` a página `Home` é renderizada dentro da `div#root` dentro do `index.html`, ou
 
-- [onpopstate](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/popstate_event): quando há o carregamento da página já contendo a rota desejada. Ex: ao acessar `localhost:5000/login` a página `Login` é renderizada.
+- [popstate](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/popstate_event): quando há o carregamento da página já contendo a rota desejada. Ex: ao acessar `localhost:5000/login` a página `Login` é renderizada dentro da `div#root` dentro do `index.html`.
 
 A função `onNavigate()` está sendo disparada quando há um `click` em qualquer uma das rotas presentes nesse boilerplate.
 
