@@ -1,6 +1,7 @@
 // Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
+import { About } from './pages/about/index.js';
 import { onNavigate } from './utils/history.js';
 
 const routeRender = () => {
@@ -8,7 +9,7 @@ const routeRender = () => {
   const routes = {
     '/' : Home,
     '/login': Login,
-
+    '/about': About,
   };
 
   rootDiv.innerHTML = '';
@@ -29,6 +30,11 @@ window.addEventListener('load', () => {
       e.preventDefault();
       onNavigate('/login')
     });
-
+  document
+    .getElementById('about')  
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/about')
+    });
   routeRender();
 });
