@@ -1,4 +1,4 @@
-export const Home = () => {
+export const home = () => {
   // Coloque sua página
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
