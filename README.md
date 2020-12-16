@@ -163,7 +163,7 @@ O script de `index.html` aponta para este arquivo `router.js`, que cuida de dire
 
 Temos a importação das páginas `Home` e `Login` como exemplo, e também da função `onNavigate` que registra cada tela adicionada ao histórico de navegação.
 
-A função `renderRouter` presente neste arquivo é acionada em dois momentos distintos:
+A função `renderRouter` presente neste arquivo é responsável por renderizar as página da aplicação (`Home` e `Login`) e é acionada em dois momentos distintos:
 
 - [load](https://developer.mozilla.org/pt-BR/docs/Web/Events/load): quando há o carregamento inicial da página. Ex: ao acessar `localhost:5000` a página `Home` é renderizada dentro da `div#root` dentro do `index.html`, ou
 
@@ -179,15 +179,15 @@ Este arquivo contém a função `onNavigate()`, que recebe como parâmetro `path
 
 A manipulação de dados dependerá do servidor externo Firebase.
 
-Recomendamos que este arquivo contenha todas funcionalidades (suas funções) que correspondam a qualquer manipulação de dados (criar, ler, atualizar, deletar).
+Recomendamos que este arquivo contenha todas as funcionalidades (suas funções) que correspondam a qualquer manipulação de dados (criar, ler, atualizar, deletar).
 
 ### `src/pages`
 
-Nesta pasta estão as pastas `home` e `login` que contém um arquivo `index.js` em cada uma delas. Sugerimos que o conteúdo de cada página fique separado desta forma em funções que retornam o conteúdo `HTML` desejado. Assim, a responsabilidade de cada página fica isolada.
+Neste diretório estão as pastas `home` e `login`, e cada uma delas contém um arquivo `index.js`. Sugerimos que o conteúdo de cada página fique separado de acordo com o exemplo proposto, em forma de funções que retornam o conteúdo `HTML` desejado. Dessa maneira, a responsabilidade de cada página fica isolada.
 
 ### `src/**/**/*.spec.js`
 
-Todos arquivos com terminação `.spec.js` é lido e executado com o comando `npm run test`. Como temos diversas funcionalidades distribuídas na aplicação, optamos por deixar os arquivos de teste próximos às funcionalidades testadas.
+Todos os arquivos com terminação `.spec.js` são lidos e executados com o comando `npm run test`. Como temos diversas funcionalidades distribuídas na aplicação, optamos por deixar os arquivos de teste próximos às funcionalidades testadas.
 
 ### 5.2 Definição do produto
 
