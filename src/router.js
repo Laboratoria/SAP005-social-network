@@ -45,21 +45,3 @@ eye.addEventListener("click", () => {
 })
 
 
-// function confirmarSenhas() {
-//     if (confirmPassword.value != "") {
-//         verBtn.style.display = "block";
-//         verBtn.onclick = function() {
-//             if ((password.type == "password") && (confirmPassword.type == "password")) {
-//                 password.type = "text";
-//                 confirmPassword.type = "text";
-//                 this.textContent = "Não ver";
-//             } else {
-//                 password.type = "password";
-//                 confirmPassword.type = "password";
-//                 this.textContent = "ver";
-//             }
-//         }
-//     } else {
-//         verBtn.style.display = "none";
-//     }
-// }
