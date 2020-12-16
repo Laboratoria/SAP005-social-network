@@ -163,7 +163,7 @@ O script de `index.html` aponta para este arquivo `router.js`, que cuida de dire
 
 Temos a importação das páginas `Home` e `Login` como exemplo, e também da função `onNavigate` que registra cada tela adicionada ao histórico de navegação.
 
-A função `renderRouter` presente neste arquivo é acionada em dois momentos distintos:
+A função `renderRouter` presente neste arquivo é responsável por renderizar as página da aplicação (`Home` e `Login`) e é acionada em dois momentos distintos:
 
 - [load](https://developer.mozilla.org/pt-BR/docs/Web/Events/load): quando há o carregamento inicial da página. Ex: ao acessar `localhost:5000` a página `Home` é renderizada, ou
 
