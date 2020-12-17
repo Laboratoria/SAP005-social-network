@@ -1,3 +1,13 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ul {
+	text-align: center;
+	font-size: 20px;
+	font-family: Arial;
+}
+.container-login,
 .purple {
 	background: rgb(204, 59, 204);
 	background-image: linear-gradient(rgb(68, 0, 255), rgb(204, 59, 204));
@@ -24,15 +34,28 @@
 	color: white;
 	border-radius: 10px;
 }
-.button {
+.register,
+.login {
 	text-align: center;
 	font-family: Arial;
 	font-weight: 50px;
 	border-radius: 10px;
 }
-.button :hover {
+.register :hover {
 	color: rgb(214, 116, 113);
 }
+.login:hover {
+	color: rgb(214, 116, 113);
+}
+
+h1 {
+	font-family: cursive;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+}
+
 h4 {
 	font-family: cursive;
 	font-weight: bold;

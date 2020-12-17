@@ -1,5 +1,5 @@
 export const Login = () => {
-  // Coloque sua página
+
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
   <div class="container-login">
@@ -7,30 +7,34 @@ export const Login = () => {
     <img src="./img/logo.png" class="logo">
     <img src="./img/pessoas.png" class="people">
   
-  <section>
+  
     <div id="root">
      <h4>Your Pet's ally !!!</h4>
     </div>
   
-    <form class= "Register">
-    
-      <Label>E-mail:</Label>
-      <input type="text" id="e-mail">
-   </p>
+    <section class="email">
   
-  <p>
+    <h3> <Label>E-mail:</Label>
+      <input type="text" id="e-mail">
+    </h3> 
+  </section>
+
+  <section class="password">
+    <h3>
       <Label>Senha:</Label>
       <input type="password" id="password"> 
-  </p>
-  
-  <p>
-      <button onclick="register ()">Cadastrar</button>
-      <button onclick="login ()">Login</button>
-  </p>
-    
-  </section> 
+    </h3> 
+  </section>
+
+  <section>
+    <h3>
+      <button class="register" onclick="register ()">Cadastrar</button>
+      <button class="login" onclick="login ()">Login</button>
+    </h3>
+  </section>
   </div> 
 
   `;
   return rootElement;
 };
+
