@@ -5,21 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./style.css">
-    <title>Security Pet</title>
+    <title>Document</title>
   </head>
+  <body>
+    <nav>
+<body class="purple">
 
-    <body class="purple">
-
-      <nav>
+     
         <img src="./img/logo.png" class="logo">
-      <img src="./img/pessoas.png" class="people">
-      </nav>
-      
-      <div id="root">
-        <h4>Your Pet's ally !!!</h4>
-      </div>
            
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <ul>
+        <li id='home'>Home</li>
+        <li id='login'>Login</li>
+      </ul>
+    </nav>
+    <div id="root">
+      <h4>Your Pet's ally !!!</h4>
+    </div>
+    <div id="root"></div>
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
@@ -39,31 +43,7 @@
   };
 
   firebase.initializeApp(firebaseConfig);
-</script>
 
-
-  <section class="email">
-  
-    <h3> <Label>E-mail:</Label>
-      <input type="text" id="e-mail">
-    </h3> 
-  </section>
-
-  <section class="password">
-    <h3>
-      <Label>Senha:</Label>
-      <input type="password" id="password"> 
-    </h3> 
-  </section>
-
-  <section class="button">
-    <h3>
-      <button onclick="register ()">Cadastrar</button>
-      <button onclick="login ()">Login</button>
-    </h3>
-  </section>
-
-</body>
-
-<script type="module" src="router.js"></script>
+    <script type="module" src="router.js"></script>
+  </body>
 </html>

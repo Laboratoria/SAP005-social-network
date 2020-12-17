@@ -1,27 +1,36 @@
-// export const Login = () => {
-//   // Coloque sua página
-//   const rootElement = document.createElement('div');
-//   rootElement.innerHTML = `
-//   <div class="container-login">
+export const Login = () => {
+  // Coloque sua página
+  const rootElement = document.createElement('div');
+  rootElement.innerHTML = `
+  <div class="container-login">
   
-//   <p> 
-//       <Label>E-mail:</Label>
-//       <input type="text" id="e-mail">
-//    </p>
+    <img src="./img/logo.png" class="logo">
+    <img src="./img/pessoas.png" class="people">
   
-//   <p>
-//       <Label>Senha:</Label>
-//       <input type="password" id="password"> 
-//   </p>
+  <section>
+    <div id="root">
+     <h4>Your Pet's ally !!!</h4>
+    </div>
   
-//   <p>
-//       <button onclick="register ()">Cadastrar</button>
-//       <button onclick="login ()">Login</button>
-//   </p>
+    <form class= "Register">
     
+      <Label>E-mail:</Label>
+      <input type="text" id="e-mail">
+   </p>
   
-//   </div> 
+  <p>
+      <Label>Senha:</Label>
+      <input type="password" id="password"> 
+  </p>
+  
+  <p>
+      <button onclick="register ()">Cadastrar</button>
+      <button onclick="login ()">Login</button>
+  </p>
+    
+  </section> 
+  </div> 
 
-//   `;
-//   return rootElement;
-// };
+  `;
+  return rootElement;
+};

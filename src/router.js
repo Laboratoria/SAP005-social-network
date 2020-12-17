@@ -1,6 +1,6 @@
 // Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
-import { Login } from './pages/login/data.js';
+import { Login } from './pages/login/index.js';
 import { onNavigate } from './utils/history.js';
 
 const routeRender = () => {
@@ -17,12 +17,12 @@ const routeRender = () => {
 
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
-  // document
-  //   .getElementById('home')
-  //   .addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     onNavigate('/')
-  //   });
+  document
+    .getElementById('home')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/')
+    });
   document
     .getElementById('login')
     .addEventListener('click', (e) => {
