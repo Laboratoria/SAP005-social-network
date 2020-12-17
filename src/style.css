@@ -16,7 +16,6 @@ body {
 
 a {
   text-decoration: none;
-  color: #fff;
 }
 
 /* NAVBAR */
@@ -32,6 +31,7 @@ a {
 
 .icon-nav {
   font-size: 1.5rem;
+  color: #fff;
 }
 
 /* HOME */
