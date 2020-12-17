@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li id='home'>Home</li>
-        <li id='login'>Login</li>
-      </ul>
-    </nav>
-    <div id="root"></div>
-    <script type="module" src="router.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./style.css">
+  <!-- CDN DO FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <title>Social Network - Livros</title>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <nav class="bottom-nav">
+    <a href="/home">
+      <i class="icon-nav fas fa-home"></i>
+    </a>
+    <a href="/new-post">
+      <i class="icon-nav fas fa-plus-square"></i>
+    </a>
+    <a href="/profile">
+      <i class="icon-nav fas fa-user-circle"></i>
+    </a>
+    <!-- <ul>
+          <li id='home'>Home</li>
+          <li id='login'>Login</li>
+      </ul> -->
+  </nav>
+  <script type="module" src="router.js"></script>
+</body>
+
 </html>
