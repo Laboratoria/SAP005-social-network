@@ -8,7 +8,7 @@ const routeRender = () => {
   const routes = {
     '/' : Home,
     '/login': Login,
-
+// /nova "página" : nova,
   };
 
   rootDiv.innerHTML = '';
