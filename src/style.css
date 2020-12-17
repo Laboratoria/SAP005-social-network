@@ -1,5 +1,9 @@
 @media only screen and (max-device-width: 500px){
 
+    body {
+        background-color: rgb(241, 219, 19);
+    }
+
     .login-header {
         display: flex;
         justify-content: center;
@@ -45,6 +49,71 @@
     
         border-radius: 10px;
         border:1px solid blue;
+    }
+
+    /* Edição de Profile */
+    .profile-body {
+        background-color: rgb(78, 77, 77);
+    }
+
+    header figure {
+        display: flex;
+        justify-content: space-evenly;
+    
+        margin: 3px;
+        border-radius: 10px;
+        background-color: rgb(187, 166, 45);
+    }
+
+    .picture-profile {
+        width: 150px;
+        height: 150px;
+    
+        margin: 4px 0 4px 0;
+        border-radius:50%;
+    }
+
+    #name-profile {
+        height: 100%;
+
+        margin: 10px;
+        border-radius: 10px;
+
+        color: rgb(241, 237, 237);
+        font-size: 30px;
+        text-align: center;
+    }
+
+    #data-user {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .data-user {
+        padding: 2px;
+        
+        color: honeydew;
+        border: 1px solid rgb(225, 255, 55);
+        border-radius: 10px;
+    }
+
+    .profile-body label {
+        color: honeydew;
+    }
+    .resume {
+        width: 100%;
+        height: 100px;
+    
+        border: none;
+        border-radius: 10px;
+        outline: aquamarine;
+    }
+    
+    #change-color {
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(117, 114, 114);
+        color: rgb(232, 247, 31);
     }
 
 }
