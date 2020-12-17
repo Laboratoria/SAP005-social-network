@@ -1,5 +1,5 @@
 /* IMPORT FONTES */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* CSS RESET */
 * {
@@ -32,4 +32,56 @@ a {
 
 .icon-nav {
   font-size: 1.5rem;
+}
+
+/* HOME */
+main.homepage {
+  padding: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.review-post {
+  border: solid 1px #999;
+  margin: 1rem 0.5rem;
+}
+
+.review-meta-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: solid 1px #999;
+  background-color: #e0e0e0;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+#review-author-username {
+  font-weight: bold;
+}
+
+.review-main-info {
+  padding: 1rem;
+}
+
+.review-info-book-title,
+.review-info-book-author {
+  margin-bottom: 1rem;
+}
+
+#review-book-title,
+#review-book-author {
+  font-weight: bold;
+}
+
+.review-feedback {
+  padding: 0.5rem 1rem;
+  text-align: right;
+}
+
+.icon-heart {
+  font-size: 1.3rem;
 }
