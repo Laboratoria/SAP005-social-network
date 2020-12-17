@@ -2,10 +2,43 @@
 	padding: 0;
 	margin: 0;
 }
+.root {
+	width: 100vw;
+}
 ul {
+	list-style: none;
+}
+.nav {
+	display: flex;
+	align-items: center;
+	background-color: rgb(68, 0, 255);
+	flex: 1;
+}
+
+.home :hover {
+	color: rgb(214, 116, 113);
+}
+.login :hover {
+	color: rgb(214, 116, 113);
+}
+li {
+	text-decoration: none;
+	padding: 5px 6px;
+	border: 1px solid silver;
+	border-radius: 5px;
 	text-align: center;
-	font-size: 20px;
+	width: 50px;
+	font-size: 10px;
 	font-family: Arial;
+	color: white;
+	font-weight: bold;
+}
+ul {
+	justify-content: space-between;
+	font-size: 15px;
+	margin: auto;
+	padding: 10px;
+	background-color: rgb(68, 0, 255);
 }
 .container-login,
 .purple {
@@ -32,19 +65,23 @@ ul {
 	text-align: center;
 	font-family: Arial;
 	color: white;
-	border-radius: 10px;
+}
+.buttons {
+	display: flex;
+	justify-content: center;
 }
 .register,
 .login {
+	padding: 8px;
 	text-align: center;
 	font-family: Arial;
 	font-weight: 50px;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 .register :hover {
 	color: rgb(214, 116, 113);
 }
-.login:hover {
+.login :hover {
 	color: rgb(214, 116, 113);
 }
 

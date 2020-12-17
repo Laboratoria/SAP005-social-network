@@ -26,7 +26,7 @@ export const Login = () => {
     </h3> 
   </section>
 
-  <section>
+  <section class"buttons">
     <h3>
       <button class="register" onclick="register ()">Cadastrar</button>
       <button class="login" onclick="login ()">Login</button>
