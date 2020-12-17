@@ -44,4 +44,3 @@ function changeColor() {
         document.getElementById("background-profile").style.backgroundSize = "cover"
     }
 }
-   
