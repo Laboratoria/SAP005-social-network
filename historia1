@@ -1,0 +1,27 @@
+    LOGIN
+    
+  Criar:
+    -Inputs do tipo text que recebe o email (e compara através de algum filtro com os dados do arquivo de usuários)
+    -Inputs do tipo password que recebe a senha (e compara através de algum filtro com os dados do arquivo de senhas)
+    -Botão de logar (que direciona para o html do feed)
+    -Link para criar uma conta (Esse link deve direcionar para o html de cadastro)
+
+
+    CADASTRO
+    
+  Criar:
+      -Inputs do tipo text para receber Nome, Sobrenome, Data de nascimento (e email e armazena em um arquivo de usuários)
+      -Inputs do tipo password para receber a senha 2 vezes (e armazena em um arquivo de senhas)
+      -Botão criar conta para finalizar o cadastro e direcionar para para html de edição do perfil.
+
+
+    EDIÇÃO DO PERFIL
+
+  Criar:
+      -Div que receba um arquivo de imagem para o perfil (e armazena em um arquivo de usuários)
+      -Div que receba cor de capa que envolve a foto (e armazena em um arquivo de usuários)
+      -Input do tipo text que recebe a profissão ou área de interesse do usuário (e armazena em um arquivo de usuários)
+      -Input que receba o endereço (e armazena em um arquivo de usuários)
+      -Input que receba um texto editável para o resumo do perfil (e armazena em um arquivo de usuários)
+
+    

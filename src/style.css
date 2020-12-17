@@ -1,0 +1,50 @@
+@media only screen and (max-device-width: 500px){
+
+    .login-header {
+        display: flex;
+        justify-content: center;
+    }
+
+    .login-inputs ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .input-login { 
+        width: 100%;
+        height: 30px;
+
+        margin-top: 5px;
+
+        border: 1px solid gray;
+        border-radius: 10px;
+        background-color: white;
+    }
+
+    .button-login {
+        width: 100%;
+        height: 30px;
+    
+        margin-top: 5px;
+        background-color: rgb(255, 255, 255);
+    
+        border-radius: 10px;
+        border: 1px solid rgb(223, 105, 144);
+    }
+
+    .login-inputs ul p {
+        text-align: center;
+    }
+
+    .google-login {
+        width: 100%;
+        height: 30px;
+    
+        margin-top: 5px;
+        background-color: rgb(255, 255, 255);
+    
+        border-radius: 10px;
+        border:1px solid blue;
+    }
+
+}
