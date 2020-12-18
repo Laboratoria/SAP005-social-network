@@ -1,0 +1,35 @@
+/* IMPORT FONTES */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
+
+/* CSS RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* NAVBAR */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: #555;
+}
+
+.icon-nav {
+  font-size: 1.5rem;
+}
