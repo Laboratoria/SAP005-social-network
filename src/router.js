@@ -2,12 +2,14 @@
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
 import { onNavigate } from './utils/history.js';
+import { Subscribe } from './pages/subscribe/index.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
     '/' : Home,
     '/login': Login,
+    '/subscribe': Subscribe,
 
   };
 
@@ -28,6 +30,12 @@ window.addEventListener('load', () => {
     .addEventListener('click', (e) => {
       e.preventDefault();
       onNavigate('/login')
+    });
+    document
+    .getElementById('subscribe')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/subscribe')
     });
 
   routeRender();
