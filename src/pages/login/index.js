@@ -10,8 +10,7 @@ export const Login = () => {
             <a href="#"> <li> <button id="button-login" class="button-login">Entrar</button> </li> </a>
             <p>OU</p>
             <a href="#"> <li> <button class="google-login">Continuar com uma conta GOOGLE</button> </li> </a>
-            <a class="link-subscribe" href="src/pages/login/subscribe-steps/subscribe.html"> <p> Criar uma conta </p> </a>
-         </ul>
+        </ul>
       </nav>
    </header>
   `;

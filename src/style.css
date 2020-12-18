@@ -4,6 +4,24 @@
         background-color: rgb(241, 219, 19);
     }
 
+    #logo {
+        margin: 0 40px 0 40px;
+    }
+    .introduction {
+        font-family: 'Baloo Chettan 2', cursive;
+        text-align: center;
+    }
+
+    .main-menu {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .buttons-main-menu {
+        list-style: none;
+        font-family: 'Baloo Chettan 2', cursive;
+    }
+
     .login-header {
         display: flex;
         justify-content: center;
@@ -56,7 +74,7 @@
         background-color: rgb(78, 77, 77);
     }
 
-    header figure {
+    .figure-profile {
         display: flex;
         justify-content: space-evenly;
     
@@ -120,13 +138,17 @@
 
 /***** Versão Desktop ******/
 
+.buttons-main-menu {
+    list-style: none;
+}
+
 /*Edição do Perfil*/
 
 .profile-body {
     background-color: rgb(78, 77, 77);
 }
 
-header figure {
+.figure-profile {
     display: flex;
     justify-content: space-evenly;
 
