@@ -1,14 +1,18 @@
 // Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
+import { Feed, Profile, Notification, Message } from './services/index.js';
 import { onNavigate } from './utils/history.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
-    '/' : Home,
+    '/': Home,
     '/login': Login,
-
+    '/services': Feed,
+    '/services/profile': Profile,
+    '/services/notification': Notification,
+    '/services/message': Message,
   };
 
   rootDiv.innerHTML = '';
@@ -28,6 +32,30 @@ window.addEventListener('load', () => {
     .addEventListener('click', (e) => {
       e.preventDefault();
       onNavigate('/login')
+    });
+  document
+    .getElementById('feed')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/services')
+    });
+  document
+    .getElementById('notification')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/services/notification')
+    });
+  document
+    .getElementById('profile')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/services/profile')
+    });
+  document
+    .getElementById('message')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/services/message')
     });
 
   routeRender();
