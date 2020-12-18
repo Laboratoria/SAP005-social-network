@@ -34,6 +34,11 @@ a {
   color: #fff;
 }
 
+.hidden {
+  display: none;
+}
+
+
 /* HOME */
 main.homepage {
   padding: 1rem;
