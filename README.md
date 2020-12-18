@@ -231,6 +231,7 @@ H.U.:
   - Poder excluir uma postagem específica.
   - Solicitar confirmação antes de excluir um _post_.
   - Ao clicar em editar um _post_, você deve alterar o texto para um _input_ que
+  
     permite editar o texto e salvar as alterações.
   - Ao salvar as alterações, você deve voltar ao texto normal, mas com a
     informação editada.
