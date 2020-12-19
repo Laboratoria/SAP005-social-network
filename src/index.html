@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./style.css">
     <link rel="shortcut icon"  href="img/black_talents.png"> 
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js" ></script>
+      <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js">
+
     <title>Black Talents</title>
   </head>
   <body>
@@ -23,6 +27,7 @@
         messagingSenderId: "674608447239",
         appId: "1:674608447239:web:e98fba2157583c2e88cfa2"
       };
+      
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
     </script>
@@ -30,6 +35,10 @@
     <header> 
       <img class="imgLogo" src="./img/black_talents.png" alt="Logo black Talents">
     </header>
+
+    <div id="fb-auth">
+
+    </div>
 
       <nav>
         <ul>

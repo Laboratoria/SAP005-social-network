@@ -21,6 +21,7 @@ const routeRender = () => {
 };
 
 window.addEventListener('popstate', routeRender);
+
 window.addEventListener('load', () => {
   document
     .getElementById('home')

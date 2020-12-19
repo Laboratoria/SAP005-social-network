@@ -2,8 +2,8 @@
 
 
 export const createUser = () => {
-  const email = "rafa@rafa.com"
-  const password = "123123"
+  const email = ""
+  const password = ""
 
   firebase
   .auth()
@@ -14,14 +14,18 @@ export const createUser = () => {
   .catch((error) => {
     var errorCode = error.code;
     var errorMessage = error.message;
-    console.log("deu ruim")
+    console.log("deu ruim", errorMessage)
 
   });
 };
 
+
+
 export const Sign = () => {
-  const email = "ka@ka.com"
-  const password = "123456"
+  
+  const email = document.getElementById("emailSign").value
+  const password = document.getElementById("passwordSign").value
+
   firebase
   .auth()
   .signInWithEmailAndPassword(email, password)
@@ -30,8 +34,8 @@ export const Sign = () => {
   
   })
   .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log("deu ruim")
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    console.log("deu ruim", errorMessage, errorCode)
   });
 };
