@@ -1,34 +1,23 @@
-import { Register } from './pages/login/index.js';
+import { Register } from './pages/register/index.js';
 import { Login } from './pages/login/index.js';
 import { onNavigate } from './utils/history.js';
 
 const root = document.querySelector("#root");
 
 const routers = {
-    "/login": Login,
+    "/": Login,
     "/cadastro": Register
 }
 
 const renderRouter = () => {
     root.innerHTML = "";
-    root.appendChild(routers[window.location.pathname]());
+    if (!routers[window.location.pathname]) {
+        window.location = '/'
+    } else {
+        root.appendChild(routers[window.location.pathname]());
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.history.pushState(null, null, "/login");
-    root.appendChild(Login());
-})
-
-document.querySelector("#login").addEventListener("click", () => {
-    onNavigate("/login");
-    renderRouter();
-})
-
-document.querySelector("#register").addEventListener("click", () => {
-    onNavigate("/cadastro");
-    renderRouter();
-})
-
-window.addEventListener("popstate", () => {
     renderRouter();
 })
