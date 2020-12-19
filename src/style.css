@@ -69,6 +69,9 @@
         border:1px solid blue;
     }
 
+    #create-account-button {
+        display: none;
+    }
     /* Edição de Profile */
     .profile-body {
         background-color: rgb(78, 77, 77);
@@ -97,7 +100,7 @@
         margin: 10px;
         border-radius: 10px;
 
-        color: rgb(241, 237, 237);
+        color: black;
         font-size: 30px;
         text-align: center;
     }
@@ -110,13 +113,13 @@
     .data-user {
         padding: 2px;
         
-        color: honeydew;
+        color: black;
         border: 1px solid rgb(225, 255, 55);
         border-radius: 10px;
     }
 
     .profile-body label {
-        color: honeydew;
+        color: black;
     }
     .resume {
         width: 100%;
@@ -174,7 +177,7 @@
     margin: 10px;
     border-radius: 10px;
 
-    color: rgb(241, 237, 237);
+    color: black;
     font-size: 30px;
     text-align: center;
 }
@@ -187,13 +190,13 @@
 .data-user {
     padding: 2px;
     
-    color: honeydew;
+    color: black;
     border: 1px solid rgb(225, 255, 55);
     border-radius: 9px;
 }
 
 .profile-body label {
-    color: honeydew;
+    color:black;
 }
 .resume {
     width: 100%;
