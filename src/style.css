@@ -1,0 +1,97 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif, normal, normal;
+}
+.hidden{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.login{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.theme{
+    margin: 20px 0px 10px;
+    font-weight: 550;
+    font-size: 24px;
+    color: #231911;
+    line-height: 25px;
+    width: 200px;
+}
+.logoname{
+    color: #FF780F;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.enter-button{
+    width: 120px;
+    height: 35px;
+    border-radius: 50px;
+    border-style: none;
+    background: #FF780F;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 18px 0px;
+    outline: transparent;
+}
+.subtitle{
+    font-weight: normal;
+    font-size: 14px;
+    text-align: center;
+    color: #231911;
+}
+.button-text{
+    color: #FF780F;
+    font-size: 14px;
+    font-weight: medium;
+    border-style: none;
+    background-color: #FFFFFF;
+    margin-bottom: 15px;
+    outline: transparent;
+}
+.input-in-line{
+    width: 255px;
+    border: 1.5px solid #231911;
+    padding: 8px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline-color: #FF780F;
+}
+.login-social-media{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.button-icon{
+    border-style: none;
+    background-color: #FFFFFF;
+    padding: 10px;
+    margin: 18px 0px;
+    outline: transparent;
+}
+.button-icon img:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
