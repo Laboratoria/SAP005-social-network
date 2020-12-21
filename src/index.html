@@ -1,19 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./style.css">
-    <title>BlackTalents</title>
+    <link rel="shortcut icon"  href="img/black_talents.png"> 
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js" ></script>
+      <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js">
+
+    <title>Black Talents</title>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li id='home'>Home</li>
-        <li id='login'>Login</li>
-      </ul>
-    </nav>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1//firebase-auth.js"></script>
+    <!--https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAfUeMPAPAssdg1A4_UZuxl5fELlGnuOSA",
+        authDomain: "rede-social-eea17.firebaseapp.com",
+        projectId: "rede-social-eea17",
+        storageBucket: "rede-social-eea17.appspot.com",
+        messagingSenderId: "674608447239",
+        appId: "1:674608447239:web:e98fba2157583c2e88cfa2"
+      };
+      
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <header> 
+      <img class="imgLogo" src="./img/black_talents.png" alt="Logo black Talents">
+    </header>
+
+    <div id="fb-auth">
+
+    </div>
+
+      <nav>
+        <ul>
+          <li id='home'>Home</li>
+          <li id='login'>Login</li>
+          <li id='register'>Register</li>
+          <li id='feed'>Feed</li>
+        </ul>
+      </nav>
+   
     <div id="root"></div>
     <div id="main-container">
       <h1>Efetue seu cadastro</h1>

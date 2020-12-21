@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -106,3 +107,49 @@ input[type="submit"]{
     display: none;
     
 }
+
+  
+header{
+    width: 100%;
+    height: 100px;
+    background:#fbfbfb;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 0 3px rgba(0,0,0,0.4);
+
+}
+
+.imgLogo{
+    width: 150px;
+    height: 150px;
+}
+
+li{
+    list-style: none;
+}
+
+
+.formLogin {
+    display: grid;
+    gap: 8px;
+}
+
+.containerLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 400px;
+    height: 300px;
+    box-shadow: 1px 0 3px rgba(0,0,0,0.4);
+}
+
+button{
+    max-width: 300px;
+    padding: 10px; 
+}
+
