@@ -2,12 +2,14 @@
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
 import { onNavigate } from './utils/history.js';
+import { SingUp } from './pages/singup/index.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
-    '/' : Home,
+    '/': Home,
     '/login': Login,
+    '/singup': SingUp,
 
   };
 
