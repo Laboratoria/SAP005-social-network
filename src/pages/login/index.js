@@ -13,15 +13,25 @@ export const Login = () => {
   // Coloque sua página
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
-  <div class=" containerLogin">
-  <H2>Login</H2>
-  <form class="formLogin id="formLogin"  >
-  <input type="email" placeholder="Email" id="emailSign"></input>
-  <input type="password" placeholder="Senha" id="passwordSign" ></input>
-  <button type="submit" id="sign">login</button>
-  <button type="submit" id="loginGoogle">login com google</button>
-  <button id="cadastrar" >cadastre-se</button>
-  </form>
+  <div id="main-container" >
+    <h1>Login</h1>
+    <form id="registrer-form">
+      <div clas="full-box">
+        <label for="email"> E-mail</label>
+        <input type="email" name="email" id="email" placeholder="Digite seu email">
+      </div>
+     
+      <div clas="half-box spacing">
+        <label for="password"> Senha</label>
+        <input type="password" name="password" id="password" placeholder="Digite sua senha">
+      </div>
+     
+      <div clas="full-box">
+        <input type="submit" id="btn-submit" value="Cadastrar">
+      </div> 
+    </form>
+  
+  
   </div>
   `;
   return rootElement;

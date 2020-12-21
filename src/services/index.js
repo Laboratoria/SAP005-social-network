@@ -17,12 +17,14 @@ submit.addEventListener('click', function(e){
 }*/
 
 export const createUser = () => {
-  const email = ""
-  const password = ""
+  const email = "mayara@mayara.com"
+  const password = "123123"
+  const lastName =""
+  const name = ""
 
   firebase
   .auth()
-  .createUserWithEmailAndPassword(email, password)
+  .createUserWithEmailAndPassword(name,lastName, email, password)
   .then((user) => {
     console.log("usuário criado")
   })
@@ -54,4 +56,5 @@ export const Sign = () => {
     console.log("deu ruim", errorMessage, errorCode)
   });
 };
+
 
