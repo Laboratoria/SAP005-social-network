@@ -151,7 +151,6 @@ div.container {
 
 /* NAVBAR */
 #bottom-nav {
-  display: flex;
   justify-content: space-around;
   position: fixed;
   bottom: 0;
