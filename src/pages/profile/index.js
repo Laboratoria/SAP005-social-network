@@ -51,4 +51,5 @@ export const Profile = () => {
       </article>
     </main>
   `;
+  return profileBody;
 };
