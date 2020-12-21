@@ -5,7 +5,7 @@ export const Register = () => {
   const templateRegister = `
   <section class="section-register">
   <header class="header-register">
-    <i id="login" class="icon-nav fas fa-chevron-left"></i>
+    <i id="login" class="icon-arrow fas fa-chevron-left"></i>
     <h1 class="register-title">Vamos começar!</h1><br>
   </header>
   <form>

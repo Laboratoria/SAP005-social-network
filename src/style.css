@@ -1,9 +1,7 @@
 /* IMPORT FONTES */
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 /* CSS RESET */
-
 * {
   margin: 0;
   padding: 0;
@@ -18,9 +16,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #fff;
 }
-
 
 /* REGISTER */
 
@@ -32,6 +28,11 @@ a {
   margin: auto;
   margin-top: 3%;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.103);
+}
+
+.icon-arrow {
+  font-size: 1.5rem;
+  color: #000;
 }
 
 .header-register {
@@ -50,7 +51,7 @@ a {
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 1em 1em;
+  padding: 0.5em 0.5em;
   outline: transparent;
 }
 
@@ -62,12 +63,13 @@ a {
 .register-submit-btn {
   margin: 0;
   margin-top: 5%;
-  width: 50%;
-  height: 50%;
-  padding: 1em 1em;
+  width: 30%;
+  height: 30%;
+  padding: 0.8em 0.8em;
 }
 
-.register-submit-btn:hover {}
+.register-submit-btn:hover {
+}
 
 .register-footer {
   display: flex;
@@ -76,10 +78,8 @@ a {
   margin-top: 1em;
 }
 
-
 /* NAVBAR */
-
-.bottom-nav {
+#bottom-nav {
   display: flex;
   justify-content: space-around;
   position: fixed;
@@ -91,4 +91,56 @@ a {
 
 .icon-nav {
   font-size: 1.5rem;
+  color: #fff;
+}
+
+/* FEED */
+.feed-main {
+  margin-bottom: 4.5rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.review-post {
+  border: solid 1px #999;
+  margin: 1rem;
+}
+
+.review-meta-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: solid 1px #999;
+  background-color: #e0e0e0;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+#review-author-username {
+  font-weight: bold;
+}
+
+.review-main-info {
+  padding: 1rem;
+}
+
+.review-info-book-title,
+.review-info-book-author {
+  margin-bottom: 1rem;
+}
+
+#review-book-title,
+#review-book-author {
+  font-weight: bold;
+}
+
+.review-feedback {
+  padding: 0.5rem 1rem;
+  text-align: right;
+}
+
+.icon-heart {
+  font-size: 1.3rem;
 }
