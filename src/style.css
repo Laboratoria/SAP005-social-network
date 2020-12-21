@@ -1,13 +1,111 @@
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  Helvetica, sans-serif;
+    color: #323232;
+    border: none;
 }
 
+input, label{
+    display: block;
+    width: 100%
+    
+}
+
+input:focus, label:focus{
+    outline: none;
+}
+
+a{
+    color: rgb(214, 43, 123); /*cor dos links*/
+
+}
 body{
-    background: #fbfbfb;
-    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5vh;/*unidade de medida view heigt -> 5%da tela*/
+    background-color:rgb(12, 11, 11);
+}
+
+#main-container{
+    width:500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(248, 247, 248);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+#main-container h1{
     text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.6 rem; /*adaptada ao elemento root*/
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.full-box{
+    flex: 1 1 100%;
+    position: relative;
+}
+
+.half-box{
+    flex: 1 1 45%;
+    position: relative;
+}
+
+.spacing{
+    margin-right: 2.5%;
+}
+
+label{
+    font-weight: bold;
+    font-size: .8 rem;
+}
+
+input{
+    border-bottom: 2px solid #323232;
+    padding: 10px;
+    font-size: .9 rem;
+    margin-bottom: 40px;
+}
+
+input:focus{
+    border-color: rgb(214, 43, 123)
+}
+
+input[type="submit"]{
+    background-color: rgb(214, 43, 123);
+    color: rgb(248, 247, 248);
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#agreement{
+    margin-right: 5px;
+}
+
+#agreement, #agreement-label{
+    display: inline-block;
+    width: auto;
+}
+
+.erro-validation{
+    color: red;
+    position: absolute;
+    top: 57px;
+    font-size: .8 rem;
+}
+
+.template{
+    display: none;
+    
 }
 
   
@@ -50,14 +148,8 @@ li{
     box-shadow: 1px 0 3px rgba(0,0,0,0.4);
 }
 
-
-input{
-    max-width: 300px;
-    padding: 10px;
-    box-shadow: 1px 0 3px rgba(0,0,0,0.4);
-}
-
 button{
     max-width: 300px;
     padding: 10px; 
 }
+
