@@ -22,6 +22,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -43,6 +44,39 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 </script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : 'your-app-id',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v9.0'
+    });
+  };
+  </script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name = "google-signin-client_id" content = "security-pet.apps.googleusercontent.com ">
+
+  <!-- <div class = "g-signin2" data-onsuccess = "onSignIn" data-theme = "dark" > </div>          
+  <script>
+    function onSignIn ( googleUser ) { 
+      // Dados úteis para seus scripts do lado do cliente:
+      var profile = googleUser . getBasicProfile ();
+      console . log ( "ID:" + perfil . getId ());   // Não envie isso diretamente para o seu servidor!
+      console . log ( 'Nome completo:' + perfil . getName ()); 
+      console . log ( 'Nome dado:' + perfil . getGivenName ()); 
+      console . log ( 'Nome da família:' + profile . getFamilyName ()); 
+      console . log ( "URL da imagem:" + profile . getImageUrl ()); 
+      console . log ( "Email:" + perfil . getEmail ()); 
+
+      // O token de ID que você precisa passar para seu back-end:
+      var id_token = googleUser . getAuthResponse (). id_token ;
+      console . log ( "Token de ID:" + id_token ); 
+    }
+  </script> -->
    <script type="module" src="router.js"></script>
+
   </body>
 </html>

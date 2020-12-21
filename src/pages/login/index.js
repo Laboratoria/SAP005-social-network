@@ -2,7 +2,7 @@ export const Login = () => {
 
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
-  <div class="container-login">
+  <div  id="firebaseui-auth-container" class="container-login">
   
     <img src="./img/logo.png" class="logo">
     <img src="./img/pessoas.png" class="people">
@@ -33,28 +33,38 @@ export const Login = () => {
       <button id="login" class="login">Login</button>
     </h3>
   </section>
+  <div class = "g-signin2" data-onsuccess = "onSignIn" data-theme = "dark" > </div>       
   </div> 
 
   `;
-const registerButton= rootElement.querySelector("#register")
-const loginButton= rootElement.querySelector("#login")
+
+  const emailButton= rootElement.querySelector("#e-mail")  
+  const passwordButton= rootElement.querySelector("#password") 
+  const registerButton= rootElement.querySelector("#register")
+  const loginButton= rootElement.querySelector("#login")
 
     registerButton.addEventListener( "click",  () => {
     console.log ("oi")
-    
-    
-        // alert("Cadastrado com sucesso");
-         
-      }); 
-    
-    
-
-    loginButton.addEventListener( "click",   () => {   
-      console.log ("sim")  
+    firebase.auth().createUserWithEmailAndPassword(emailButton.value ,passwordButton.value )
+    console.log (emailButton.value)
+    console.log (passwordButton.value)
+    // then(()=> console.log("deu certo")) 
+    //     alert("Cadastrado com sucesso")   
+    // .catch((error)=> {
+    //       var errorCode = error.code;
+    //       var errorMessage = error.message;
+    //       // ..
+    // });  .
+   
       
+    }); 
+    loginButton.addEventListener( "click",   () => {   
+ 
+     console.log ("sim")        
     }) 
 
+  
+    
     
   return rootElement;
 };
-

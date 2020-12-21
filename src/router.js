@@ -1,6 +1,7 @@
 // Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
+import {Login} from './pages/login/auth.js';
 import { onNavigate } from './utils/history.js';
 
 const routeRender = () => {
