@@ -19,7 +19,7 @@ a {
 }
 
 /* NAVBAR */
-.bottom-nav {
+#bottom-nav {
   display: flex;
   justify-content: space-around;
   position: fixed;
@@ -34,10 +34,10 @@ a {
   color: #fff;
 }
 
-/* HOME */
-main.homepage {
-  padding: 1rem;
-  margin-bottom: 3.5rem;
+
+/* FEED */
+.feed-main {
+  margin-bottom: 4.5rem;
 }
 
 .title {
@@ -46,7 +46,7 @@ main.homepage {
 
 .review-post {
   border: solid 1px #999;
-  margin: 1rem 0.5rem;
+  margin: 1rem;
 }
 
 .review-meta-info {
