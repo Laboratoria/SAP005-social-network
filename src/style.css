@@ -1,5 +1,5 @@
 /* IMPORT FONTES */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 /* CSS RESET */
 * {
@@ -18,73 +18,6 @@ a {
   text-decoration: none;
 }
 
-/* NAVBAR */
-#bottom-nav {
-  display: flex;
-  justify-content: space-around;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 1rem 0;
-  background-color: #555;
-}
-
-.icon-nav {
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-
-/* FEED */
-.feed-main {
-  margin-bottom: 4.5rem;
-}
-
-.title {
-  text-align: center;
-}
-
-.review-post {
-  border: solid 1px #999;
-  margin: 1rem;
-}
-
-.review-meta-info {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem;
-  border-bottom: solid 1px #999;
-  background-color: #e0e0e0;
-  font-weight: normal;
-  font-size: 0.9rem;
-}
-
-#review-author-username {
-  font-weight: bold;
-}
-
-.review-main-info {
-  padding: 1rem;
-}
-
-.review-info-book-title,
-.review-info-book-author {
-  margin-bottom: 1rem;
-}
-
-#review-book-title,
-#review-book-author {
-  font-weight: bold;
-}
-
-.review-feedback {
-  padding: 0.5rem 1rem;
-  text-align: right;
-}
-
-.icon-heart {
-  font-size: 1.3rem;
-}
 
 /*LOGIN*/
 
@@ -154,3 +87,132 @@ div.container {
 .register-login {
   text-align: center;
 }
+
+
+/* REGISTER */
+
+.section-register {
+  background: rgb(216, 216, 216);
+  border-radius: 3px;
+  padding: 15px;
+  width: 500px;
+  margin: auto;
+  margin-top: 3%;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.103);
+}
+
+.icon-arrow {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.header-register {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.register-label {
+  display: flex;
+  margin-top: 4%;
+  margin-bottom: 1%;
+}
+
+.register-input {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 0.5em 0.5em;
+  outline: transparent;
+}
+
+.register-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.register-submit-btn {
+  margin: 0;
+  margin-top: 5%;
+  width: 30%;
+  height: 30%;
+  padding: 0.8em 0.8em;
+}
+
+.register-submit-btn:hover {
+}
+
+.register-footer {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  margin-top: 1em;
+}
+
+/* NAVBAR */
+#bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: #555;
+}
+
+.icon-nav {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* FEED */
+.feed-main {
+  margin-bottom: 4.5rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.review-post {
+  border: solid 1px #999;
+  margin: 1rem;
+}
+
+.review-meta-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: solid 1px #999;
+  background-color: #e0e0e0;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+#review-author-username {
+  font-weight: bold;
+}
+
+.review-main-info {
+  padding: 1rem;
+}
+
+.review-info-book-title,
+.review-info-book-author {
+  margin-bottom: 1rem;
+}
+
+#review-book-title,
+#review-book-author {
+  font-weight: bold;
+}
+
+.review-feedback {
+  padding: 0.5rem 1rem;
+  text-align: right;
+}
+
+.icon-heart {
+  font-size: 1.3rem;
+}
+
