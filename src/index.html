@@ -12,12 +12,20 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <button id="home">Home</button>
+  <button id="feed">Feed</button>
 
-  <nav class="bottom-nav">
-    <i id="home" class="icon-nav fas fa-home"></i>
-    <i class="icon-nav fas fa-plus-square"></i>
-    <i class="icon-nav fas fa-user-circle"></i>
+  <div id="root"></div>
+  <nav class="bottom-nav" hidden>
+    <a href="/home" id="home">
+      <i class="icon-nav fas fa-home"></i>
+    </a>
+    <a href="/new-post">
+      <i class="icon-nav fas fa-plus-circle"></i>
+    </a>
+    <a href="/profile">
+      <i class="icon-nav fas fa-user-circle"></i>
+    </a>
   </nav>
   <script type="module" src="router.js"></script>
 </body>

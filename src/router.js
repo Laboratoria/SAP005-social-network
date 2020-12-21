@@ -1,34 +1,31 @@
-// Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
-import { Login } from './pages/login/index.js';
+import { Feed } from './pages/feed/index.js';
 import { onNavigate } from './utils/history.js';
+import { Register } from './pages/register/index.js';
 
-const routeRender = () => {
-  const rootDiv = document.getElementById('root');
-  const routes = {
-    '/': Home,
-    '/login': Login,
 
-  };
+const root = document.querySelector('#root');
 
-  rootDiv.innerHTML = '';
-  rootDiv.appendChild(routes[window.location.pathname]());
+const routes = {
+  '/': Home,
+  '/feed': Feed,
+  '/register': Register
 };
 
-window.addEventListener('popstate', routeRender);
-window.addEventListener('load', () => {
-  document
-    .getElementById('home')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/');
-    });
-  document
-    .getElementById('login')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/login');
-    });
+const renderRoute = () => {
+  root.innerHTML = '';
+  root.appendChild(routes[window.location.pathname]());
+};
 
-  routeRender();
+document.querySelector('#feed').addEventListener('click', () => {
+  onNavigate('/feed');
+  renderRoute();
 });
+
+document.querySelector('#home').addEventListener('click', () => {
+  onNavigate('/');
+  renderRoute();
+});
+
+window.addEventListener('popstate', () => renderRoute());
+window.addEventListener('load', () => renderRoute());
