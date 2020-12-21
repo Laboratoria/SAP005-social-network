@@ -8,6 +8,36 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use    
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+
+    
+  <script>// Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    
+    const firebaseConfig = {
+    apiKey: "AIzaSyBK1wIWgfDa-fRPd_Wq5E8xUZ1RyxB3mTI",
+    authDomain: "sap005-social-network.firebaseapp.com",
+    projectId: "sap005-social-network",
+    storageBucket: "sap005-social-network.appspot.com",
+    messagingSenderId: "828065608032",
+    appId: "1:828065608032:web:1169bc0962ace9949eee05",
+    measurementId: "G-5MVEX1F41F"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script> 
+  <!-- Pegar todo esse script e jogar no config. que vai ser importado no services/index.js (nãoé bom ter os dados de config no git. 
+  Acrescentar o config no gitignore pra n subir no git.) -->
+    
     <nav>
       <ul>
         <li id='home'>Home</li>
@@ -16,5 +46,9 @@
     </nav>
     <div id="root"></div>
     <script type="module" src="router.js"></script>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
   </body>
 </html>
