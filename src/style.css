@@ -21,13 +21,13 @@ a {
 /* REGISTER */
 
 .section-register {
-  background: rgb(216, 216, 216);
+  background: #d8d8d8;
   border-radius: 3px;
   padding: 15px;
   width: 500px;
   margin: auto;
   margin-top: 3%;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.103);
+  box-shadow: 3px 3px 10px #0000001a;
 }
 
 .icon-arrow {
