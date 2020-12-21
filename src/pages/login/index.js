@@ -1,7 +1,10 @@
+import { onNavigate } from '../../utils/history.js';
+
 export const Login = () => {
     const rootElement = document.createElement('div');
     rootElement.innerHTML = `    
 <div  id = "login" class="textRegister">
+<img class="logoL" src="img/learning.png" alt="Logo L"> 
 <p class="textFirts">Login.</p>
 <fieldset>
     <legend> Insira seus dados. </legend>
@@ -15,21 +18,24 @@ export const Login = () => {
         </div>
     </form>
 </fieldset>
-<img class="logoL" src="img/L.png" alt="Logo L">
+<button id="btnCadastro">cadastro</button>
 </div>
 `;
+    document.querySelector('#eye').addEventListener("click", (e) => {
+        e.preventDefault();
+        const showPassword = document.querySelector("#passwordFirst");
+        const showPassword2 = document.querySelector("#passwordSecond");
+        if (showPassword.type == "password" && showPassword2.type == "password") {
+            showPassword.type = "text";
+            showPassword2.type = "text";
+        } else {
+            showPassword.type = "password";
+            showPassword2.type = "password";
+        }
+    })
+    rootElement.querySelector("#btnCadastro").addEventListener("click", (e) => {
+        e.preventDefault();
+        onNavigate("/cadastro")
+    })
     return rootElement;
 };
-
-// export const eye = document.querySelector('#eye').addEventListener("click", (e) => {
-//     e.preventDefault();
-//     const showPassword = document.querySelector("#passwordFirst");
-//     const showPassword2 = document.querySelector("#passwordSecond");
-//     if (showPassword.type == "password" && showPassword2.type == "password") {
-//         showPassword.type = "text";
-//         showPassword2.type = "text";
-//     } else {
-//         showPassword.type = "password";
-//         showPassword2.type = "password";
-//     }
-// })
