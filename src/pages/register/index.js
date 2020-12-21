@@ -3,18 +3,18 @@ export const Register = () => {
     const rootElement = document.createElement('div');
 
     const templateRegister = `
-
+  <section class="section-register">
   <header class="header-register">
       <i id="login" class="icon-nav fas fa-chevron-left"></i>
-      <h1 class="register-title">Vamos começar!</h1>
+      <h1 class="register-title">Vamos começar!</h1><br>
   </header>
   <form class="form-register-profile">
-      <div>
+      <div class="register-label-input">
         <label class="register-label" for="username">Nome:</label>
         <input class="register-input" id="username" type="text" name="username" placeholder="Insira seu nome" required>
       </div>
       <div>
-        <label class="register-label" for="email">Email:</label>
+        <label class="register-label" for="email">E-mail:</label>
         <input class="register-input" id="email" type="email" name="email" placeholder="Insira seu email" required>
       </div>
       <div>
@@ -27,13 +27,14 @@ export const Register = () => {
         <input class="register-input" id="confirm-password" type="password" name="confirm-password" 
         placeholder="Digite novamente sua senha" minlength="8" required>
       </div>
-      <div>
-        <button class="register-input" id="btn-submit" type="submit">Registrar-se</button>
+      <div class="register-btn">
+        <button class="register-submit-btn" id="btn-submit" type="submit">Registrar-se</button>
       </div>
-  </form> 
-  <footer>
+  </form>   
+  <footer class="register-footer">
       <p>Já tem uma conta? Entrar</p>
    </footer>
+   </section>
   `;
     rootElement.innerHTML = templateRegister
     return rootElement;
