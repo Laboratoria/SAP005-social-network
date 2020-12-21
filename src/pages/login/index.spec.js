@@ -1,24 +1,24 @@
 import { Login } from './index.js';
 
-const registerButton= document.querySelector("#register")
-const loginButton= document.querySelector("#login")
+const registerButton = document.querySelector("#register")
+const loginButton = document.querySelector("#login")
 
-    registerButton.addEventListener( () => {
+registerButton.addEventListener(() => {
+  document
+    .addEventListener('change', (e) => {
+      e.preventDefault();
+    });
+},
+
+  loginButton.addEventListener(() => {
     document
       .addEventListener('change', (e) => {
         e.preventDefault();
       });
-    },
-
-    loginButton.addEventListener( () => {      
-    document
-      .addEventListener('change', (e) => {
-        e.preventDefault();      
-      });
-    },
+  },
     console.log("registerButton")
 
-  
+
 
 //     firebase
 //     .auth()
@@ -47,7 +47,7 @@ const loginButton= document.querySelector("#login")
 //     });
 // };
 
-   
+
     //    var auth = null;
     //     firebase.auth().createUserWithEmmailPassword( document.getElementById("e-mail").value, document.getElementById("password").value)
     //     .then(function(user){
@@ -56,8 +56,8 @@ const loginButton= document.querySelector("#login")
     //     })  .catch(function (error){
     //         alert("Falha ao Cadastar");  
     //     });
-    
-    
+
+
     // describe('Login', () => {
 //   it('should be a function', () => {
 //     function register () {

@@ -6,9 +6,9 @@ import { onNavigate } from './utils/history.js';
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
-    '/' : Home,
+    '/': Home,
     '/login': Login,
-// /nova "página" : nova,
+
   };
 
   rootDiv.innerHTML = '';
