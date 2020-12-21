@@ -7,7 +7,7 @@ box-sizing: border-box;
 body{
     background: #fbfbfb;
     font-family: Arial, Helvetica, sans-serif;
-
+    text-align: center;
 }
 
   
@@ -34,27 +34,30 @@ li{
 
 
 .formLogin {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    gap: 8px;
 }
 
 .containerLogin{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    justify-items: center;
-    width: 400px;
-    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 400px;
+    height: 300px;
     box-shadow: 1px 0 3px rgba(0,0,0,0.4);
 }
-
 
 
 input{
-    align-items: center;
     max-width: 300px;
     padding: 10px;
-    margin: 10px;
     box-shadow: 1px 0 3px rgba(0,0,0,0.4);
 }
 
+button{
+    max-width: 300px;
+    padding: 10px; 
+}
