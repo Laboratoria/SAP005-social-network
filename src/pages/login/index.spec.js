@@ -1,5 +1,6 @@
 import { Login } from './index.js';
 
+<<<<<<< HEAD
 const registerButton = document.querySelector("#register")
 const loginButton = document.querySelector("#login")
 
@@ -64,3 +65,7 @@ registerButton.addEventListener(() => {
 //     expect(typeof Login).toBe('function');
 //   });
 // });
+=======
+// Arquivo de teste
+
+>>>>>>> 803b0fd11dbc66e121db957ac7eee5ddc94941e5
