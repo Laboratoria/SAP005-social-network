@@ -3,7 +3,7 @@ import { Feed } from './pages/feed/index.js';
 import { onNavigate } from './utils/history.js';
 import { Register } from './pages/register/index.js';
 import { Login } from './pages/login/index.js';
-
+import { Profile } from './pages/profile/index.js';
 
 const root = document.querySelector('#root');
 
@@ -11,7 +11,8 @@ const routes = {
   '/': Home,
   '/feed': Feed,
   '/login': Login,
-  '/register': Register
+  '/register': Register,
+  '/profile': Profile,
 };
 
 const renderRoute = () => {
@@ -26,6 +27,11 @@ document.querySelector('#feed').addEventListener('click', () => {
 
 document.querySelector('#home').addEventListener('click', () => {
   onNavigate('/');
+  renderRoute();
+});
+
+document.querySelector('#icon-nav-profile').addEventListener('click', () => {
+  onNavigate('/profile');
   renderRoute();
 });
 
