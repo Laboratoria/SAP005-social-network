@@ -18,6 +18,77 @@ a {
   text-decoration: none;
 }
 
+
+/*LOGIN*/
+
+div.container {
+  width: 90vw;
+  height: 90vh;
+  margin: auto;
+  padding: 1rem;
+  margin-bottom: 3.5rem;
+  margin-top: 5rem;
+}
+
+.form-login { 
+  display: flex;
+  flex-direction: column;
+  margin:auto;
+  margin-top: 3rem;
+  width: 80vw;
+  height: 60vh;
+  margin-bottom: 1rem;
+}
+
+.label-enter {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.label-email, .label-password {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.email-login, .password-login {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 1rem;
+
+}
+
+.title-login {
+  text-align: center;
+  font-weight: normal;
+}
+
+.btn-login {
+  width: 20vw;
+  height: 5vh;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.alternative {
+  margin-top: 0.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.btn-google {
+  width: 25vw;
+  height: 5vh;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.register-login {
+  text-align: center;
+}
+
+
 /* REGISTER */
 
 .section-register {
@@ -144,3 +215,4 @@ a {
 .icon-heart {
   font-size: 1.3rem;
 }
+
