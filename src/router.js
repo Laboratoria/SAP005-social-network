@@ -2,6 +2,7 @@ import { Home } from './pages/home/index.js';
 import { Feed } from './pages/feed/index.js';
 import { onNavigate } from './utils/history.js';
 import { Register } from './pages/register/index.js';
+import { Login } from './pages/login/index.js';
 
 
 const root = document.querySelector('#root');
@@ -9,6 +10,7 @@ const root = document.querySelector('#root');
 const routes = {
   '/': Home,
   '/feed': Feed,
+  '/login': Login,
   '/register': Register
 };
 
