@@ -35,12 +35,6 @@ export const Feed = () => {
         </div>
       </article>
     </main>
-
-    <nav id="bottom-nav">
-      <i class="icon-nav fas fa-home"></i>
-      <i class="icon-nav fas fa-plus-square"></i>
-      <i class="icon-nav fas fa-user-circle"></i>
-    </nav>
   `;
   return feedBody;
 };
