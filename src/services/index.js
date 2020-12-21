@@ -39,3 +39,5 @@ exports.makeUppercase = functions.firestore.document('/messages/{documentId}')
       // Setting an 'uppercase' field in Cloud Firestore document returns a Promise.
       return snap.ref.set({uppercase}, {merge: true});
     });
+
+    
