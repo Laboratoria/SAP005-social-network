@@ -8,8 +8,8 @@ export const Register = () => {
       <i id="login" class="icon-nav fas fa-chevron-left"></i>
       <h1 class="register-title">Vamos começar!</h1><br>
   </header>
-  <form class="form-register-profile">
-      <div class="register-label-input">
+  <form>
+      <div>
         <label class="register-label" for="username">Nome:</label>
         <input class="register-input" id="username" type="text" name="username" placeholder="Insira seu nome" required>
       </div>
