@@ -1,0 +1,59 @@
+html{
+    background-image: url("images/wallpaper3.jpg");
+    background-size: cover;
+    /* background-position: center;
+    background-attachment: fixed;
+    background-clip: border-box;
+    background-repeat: no-repeat; */
+    font-family: "Inconsolata", sans-serif;
+    color: white;
+}
+img{
+    background-position: center;
+    background-attachment: fixed;
+    /* background-clip: border-box; */
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: auto;
+}
+
+.conteiner{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row; 
+    border:solid 1px;
+    border-radius:10px;  
+    border-color: black;
+    
+}
+
+li:hover {
+    border:solid 1px;
+    border-radius:0px;
+}
+
+a{
+    color: rgb(0, 181, 247);
+    text-decoration: none;
+  }
+  
+  a:link{
+    text-decoration: underline;
+  }
+  
+  .footer{
+    color: white;
+    background-color: #000000;
+    border-style: groove;
+    border-color: rgb(89, 85, 85);
+    padding: 2px 2px;
+    display: block;
+    text-align: center;
+    font-family: Arial;
+    font-size: 10px;
+    letter-spacing: 2px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }

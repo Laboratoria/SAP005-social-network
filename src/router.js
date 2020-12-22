@@ -8,6 +8,7 @@ const routeRender = () => {
   const routes = {
     '/' : Home,
     '/login': Login,
+    // '/cadastro': Cadastro,
 
   };
 
