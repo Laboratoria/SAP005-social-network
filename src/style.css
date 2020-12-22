@@ -3,7 +3,9 @@
     padding: 0;
 }
 
-html, body, main {
+html,
+body,
+main {
     width: 100%;
     height: 100%;
 }
@@ -39,7 +41,8 @@ legend {
     /* border: solid 1px black; */
 }
 
-.register input, .registerLogin input {
+.register input,
+.registerLogin input {
     padding: 7px;
     margin-bottom: 5px;
     margin-left: 10px;
@@ -96,6 +99,7 @@ legend {
     background-color: #581c72;
     border-radius: 20px;
     margin: 10px 0 0 218px;
+    cursor: pointer;
 }
 
 #google {
@@ -116,14 +120,17 @@ legend {
     background-color: transparent;
     width: 120px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     color: #581c72;
     border: none;
+    cursor: pointer;
 }
+
 .btns img {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     margin-right: 50%;
+    cursor: pointer;
 }
 
 .btns {
@@ -136,6 +143,7 @@ legend {
     margin: 2% 0 2% 0;
     color: #2a0a38;
     height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .registerLogin {
@@ -147,7 +155,8 @@ legend {
     height: 210px;
 }
 
-#passwordFirst, #passwordSecond {
+#passwordFirst,
+#passwordSecond {
     width: 254px;
 }
 
@@ -158,7 +167,9 @@ legend {
     margin: 10% 0 0 30%;
 }
 
-button:focus, input:focus, select:focus {
+button:focus,
+input:focus,
+select:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
