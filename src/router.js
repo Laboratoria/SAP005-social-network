@@ -1,5 +1,5 @@
 // Este é seu ponto de entrada da sua aplicação
-import { Feed } from './pages/Feed/index.js';
+import { Feed } from './pages/feed/index.js';
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
 import { Register } from './pages/register/index.js';
@@ -27,14 +27,14 @@ window.addEventListener('load', () => {
     .getElementById('home')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/')
-    });
-  document
-    .getElementById('login')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
       onNavigate('/login')
     });
+  // document
+  //   .getElementById('login')
+  //   .addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     onNavigate('/login')
+  //   });
 
     document
     .getElementById('register')
@@ -43,12 +43,12 @@ window.addEventListener('load', () => {
       onNavigate('/register')
     });
 
-    document
-    .getElementById('feed')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/feed')
-    });
+    // document
+    // .getElementById('feed')
+    // .addEventListener('click', (e) => {
+    //   e.preventDefault();
+    //   onNavigate('/feed')
+    // });
 
   routeRender();
 });
