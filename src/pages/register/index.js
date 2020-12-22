@@ -1,10 +1,12 @@
+import {createUser} from "../../services/index.js"
+
 export const Register = () => {
     // Coloque sua página
     const rootElement = document.createElement('div');
     rootElement.innerHTML = `
     <div id="main-container">
-    <h1>Efetue seu cadastro</h1>
-    <form id="registrer-form">
+     <h1>Efetue seu cadastro</h1>
+     <form id="registrer-form">
       <div clas="full-box">
         <label for="email"> E-mail</label>
         <input type="email" name="email" id="email" placeholder="Digite seu email">
@@ -37,5 +39,25 @@ export const Register = () => {
   <p class="error-validation template"></p>
   </div>
     `;
+
+    console.log(rootElement.querySelector("#btn-submit"))
+
+    //let form = rootElement.getElementById("register-form");
+    let submit = rootElement.querySelector("#btn-submit");
+
+    console.log(submit)
+    
+    submit.addEventListener('click', function(e){
+      e.preventDefault();
+      console.log('funcionou');
+      const email = rootElement.querySelector("#email").value
+      const password = rootElement.querySelector("#password").value
+      const name = rootElement.querySelector("#name").value
+      const lastName = rootElement.querySelector("#lastname").value
+
+      createUser(email,password,name,lastName)
+     
+    });
+
     return rootElement;
   };

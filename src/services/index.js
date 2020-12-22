@@ -1,30 +1,8 @@
-// exporte suas funções
-
-
-/*export const myFunction = () => {
-  // seu código aqui
-  console.log();
-};
-
-let form = document.getElementById("register-form");
-let submit = document.getElementById("btn-submit");
-
-submit.addEventListener('click', function(e){
-
-  e.preventDefault();
-  console.log('funcionou');
-  console.log('oi');
-}*/
-
-export const createUser = () => {
-  const email = "mayara@mayara.com"
-  const password = "123123"
-  const lastName =""
-  const name = ""
-
+export const createUser = (email,password, name,lastName) => {
+  
   firebase
   .auth()
-  .createUserWithEmailAndPassword(name,lastName, email, password)
+  .createUserWithEmailAndPassword(email,password)
   .then((user) => {
     console.log("usuário criado")
   })
@@ -35,7 +13,6 @@ export const createUser = () => {
 
   });
 };
-
 
 
 export const Sign = () => {

@@ -18,12 +18,12 @@ export const Login = () => {
     <form id="registrer-form">
       <div clas="full-box">
         <label for="email"> E-mail</label>
-        <input type="email" name="email" id="email" placeholder="Digite seu email">
+        <input type="email" name="email" id="email emailSign" placeholder="Digite seu email">
       </div>
      
       <div clas="half-box spacing">
         <label for="password"> Senha</label>
-        <input type="password" name="password" id="password" placeholder="Digite sua senha">
+        <input type="password" name="password" id="password passwordSign" placeholder="Digite sua senha">
       </div>
      
       <div clas="full-box">
@@ -34,6 +34,8 @@ export const Login = () => {
   
   </div>
   `;
+
+  
   return rootElement;
 };
 
