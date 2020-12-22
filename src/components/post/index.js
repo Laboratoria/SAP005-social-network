@@ -1,6 +1,6 @@
 export const Post = () => {
   const post = document.createElement('article');
-  post.className('review-post');
+  post.className = 'review-post';
 
   post.innerHTML = `
     <h3 class="review-meta-info">
