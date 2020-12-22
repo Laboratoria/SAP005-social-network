@@ -39,5 +39,8 @@ export const Feed = () => {
       </article>
     </main>
   `;
+
+  feedBody.appendChild(Navbar());
+
   return feedBody;
 };
