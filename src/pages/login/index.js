@@ -2,8 +2,8 @@ export const Login = () => {
   // Coloque sua página
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
-      <h1>Login</h1>
-      
+      <h1>LOGIN</h1>
+
       <form>
         <fieldset>
         <label for="email"></label>
