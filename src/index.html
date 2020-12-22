@@ -11,36 +11,9 @@
 
 <body>
     <main class="formRegister">
-        <div class="textRegister">
-            <p class="textFirts">Cadastre-se.</p>
-            <fieldset>
-                <legend> É rápido e fácil </legend>
-                <form class="register">
-                    <div class="name">
-                        <input type="text" id="nome" placeholder="Nome" required autocomplete="off">
-                        <input type="text" id="sobrenome" placeholder="Sobrenome" required autocomplete="off">
-                    </div>
-                    <div class="registerColumn">
-                        <input type="email" id="email" placeholder="Email" required autocomplete="off">
-                        <input id="passwordFirst" type="password" placeholder="Digite sua senha" required autocomplete="off">
-                        <input id="passwordSecond" type="password" placeholder="Confirme sua senha" required autocomplete="off">
-                        <button id="eye"><img src="https://img.icons8.com/ios-glyphs/30/000000/visible--v1.png"/></button>
-                        <input type="text" id="cpf" maxlength="11" pattern="[0-9]{11}" placeholder="CPF (Somente números)" autocomplete="off">
-                        <input type="date" id="month" placeholder="Mês" max="2006-12-31">
-                        <button id="btn">Cadastrar</button>
-                    </div>
-                </form>
-            </fieldset>
-            <img class="logoL" src="img/L.png" alt="Logo L">
-        </div>
+        <div id="root"></div>
     </main>
-    <!-- <nav>
-        <ul>
-            <li id='home'>Home</li>
-            <li id='login'>Login</li>
-        </ul>
-    </nav> -->
-    <!-- <div id="root"></div> -->
+
     <script type="module" src="router.js"></script>
 </body>
 
