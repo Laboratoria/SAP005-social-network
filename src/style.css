@@ -95,3 +95,13 @@
     -ms-transform: scale(1.2);
     transform: scale(1.2);
 }
+.errorMessage{
+    padding: 5px;
+    font-weight: normal;
+    font-size: 11px;
+    text-align: center;
+    color: #db0b0b;
+}
+.hidden{
+    display: none;
+}
