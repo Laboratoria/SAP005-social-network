@@ -40,7 +40,6 @@ export const Register = () => {
 
 
     rootElement.querySelector('#btn').addEventListener("click", (e) => {
-        console.log("oi")
         e.preventDefault();
         let userName = name.value;
         let lastNameUser = lastName.value;

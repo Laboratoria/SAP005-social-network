@@ -10,11 +10,7 @@ export const Login = () => {
             <input type="email" id="email" placeholder="Email" required autocomplete="off">           
             <input id="passwordSecond" type="password" placeholder="Senha" required autocomplete="off">
             <button id="eye"><img src="https://img.icons8.com/ios-glyphs/30/000000/visible--v1.png"/></button>                     
-<<<<<<< HEAD
             <button id="btnCadastro">Cadastre-se</button>
-=======
-            <button id="btn">Login</button>
->>>>>>> 2c2c7920bce533b805ba6e6d838215761d1b9b0d
         </div>
     </form>
     <div class="btns">
@@ -26,14 +22,11 @@ export const Login = () => {
 `;
     rootElement.querySelector('#eye').addEventListener("click", (e) => {
         e.preventDefault();
-        const showPassword = rootElement.querySelector("#passwordFirst");
-        const showPassword2 = rootElement.querySelector("#passwordSecond");
-        if (showPassword.type == "password" && showPassword2.type == "password") {
+        const showPassword = rootElement.querySelector("#passwordSecond");
+        if (showPassword.type == "password") {
             showPassword.type = "text";
-            showPassword2.type = "text";
         } else {
             showPassword.type = "password";
-            showPassword2.type = "password";
         }
     })
     rootElement.querySelector("#btnCadastro").addEventListener("click", (e) => {
