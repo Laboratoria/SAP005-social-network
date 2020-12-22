@@ -1,3 +1,4 @@
+import { Post } from '../../components/post/index.js';
 import { Navbar } from '../../components/navbar/index.js';
 
 export const Feed = () => {
