@@ -1,3 +1,4 @@
+import { onNavigate } from '../../utils/history.js';
 //--------------------- TODO: Usar formulário HTML ---------------------\\
 export const Login = () => {
   const rootElement = document.createElement('div');
@@ -62,7 +63,7 @@ export const Login = () => {
     const promise = firebase.auth().signInWithEmailAndPassword(email, password);
     promise
       .then(() => {
-        window.location = '/';
+        onNavigate('/');
       })
       .catch(() => {
         const elementError = document.createElement("p");
@@ -78,41 +79,51 @@ export const Login = () => {
     const promise = firebase.auth().createUserWithEmailAndPassword(email, password);
     promise
       .then(() => {
-        window.location = '/';
+        onNavigate('/');
       })
       .catch(() => {
         console.log("Deu ruim")
       });
   });
-
-  //---------------- TODO: Não abrir popup / mobile first ----------------\\
   signUpGoogle.addEventListener("click", () => {
-    console.log("google");
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider)
+    firebase.auth().signInWithRedirect(provider)
       .then((result) => {
         console.log("usuario", result.user);
         console.log("token", result.credential.accessToken);
       }).catch(() => {
-        console.log("O e-mail já tem conta")
+        console.log("Deu ruim")
       });
   });
-
-  //---------------- TODO: Usar outros provedores de login ----------------\\
   signUpFb.addEventListener("click", () => {
-    console.log("facebook");
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithRedirect(provider)
+      .then((result) => {
+        console.log("usuario", result.user);
+        console.log("token", result.credential.accessToken);
+      }).catch(() => {
+        console.log("Deu ruim")
+      });
   });
   signUpGh.addEventListener("click", () => {
-    console.log("github");
+    const provider = new firebase.auth.GithubAuthProvider();
+    firebase.auth().signInWithRedirect(provider)
+      .then((result) => {
+        console.log("usuario", result.user);
+        console.log("token", result.credential.accessToken);
+      }).catch(() => {
+        console.log("Deu ruim")
+      });
   });
 
   //---------- ENCAMINHAR PARA O FORMULÁRIO DE CRIAÇÃO DE PERFIL ----------\\
   //---------------- TODO: Mudar para a página de registro ----------------\\
   register.addEventListener("click", () => {
-    window.location = '/';
+    onNavigate('/');
   });
   return rootElement;
 };
+
 //---------------- AUTENTIFICAÇÃO DO USUÁRIO EM TEMPO REAL ----------------\\
 /*
   firebase.auth().onAuthStateChange (firebaseUser => {});
