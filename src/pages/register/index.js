@@ -21,11 +21,11 @@ export const Register = () => {
               <input type="text" id="cpf" maxlength="11" pattern="[0-9]{11}" placeholder="CPF (Somente números)" autocomplete="off">
               <input type="date" id="month" placeholder="Mês" max="2006-12-31">
               <button id="btn">Cadastrar</button>
-                        
+              <button id="loginBtn">Login</button>            
           </div>
       </form>
   </fieldset>
-  <button id="loginBtn">login</button>  
+
   
 </div>
   `;
