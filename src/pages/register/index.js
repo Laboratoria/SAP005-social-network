@@ -1,7 +1,10 @@
+import { onNavigate } from '../../utils/history.js';
+
 export const Register = () => {
     const rootElement = document.createElement('div');
     rootElement.innerHTML = `    
-  <div class="textRegister">  
+  <div class="textRegister"> 
+  <img class="logoL" src="img/learning.png" alt="Logo L"> 
   <p class="textFirts">Cadastre-se.</p>
   <fieldset>
       <legend> É rápido e fácil </legend>
@@ -18,67 +21,74 @@ export const Register = () => {
               <input type="text" id="cpf" maxlength="11" pattern="[0-9]{11}" placeholder="CPF (Somente números)" autocomplete="off">
               <input type="date" id="month" placeholder="Mês" max="2006-12-31">
               <button id="btn">Cadastrar</button>
-              <a href="/">Login</a>              
+                        
           </div>
       </form>
   </fieldset>
-  <img class="logoL" src="img/L.png" alt="Logo L">
+  <button id="loginBtn">login</button>  
+  
 </div>
   `;
+    const name = rootElement.querySelector('#nome')
+    const lastName = rootElement.querySelector('#sobrenome')
+    const email = rootElement.querySelector('#email')
+    const password = rootElement.querySelector("#passwordFirst");
+    const confirmPassword = rootElement.querySelector("#passwordSecond");
+    const cpf = rootElement.querySelector('#cpf')
+    const date = rootElement.querySelector('#month')
+
+
+
+    rootElement.querySelector('#btn').addEventListener("click", (e) => {
+        console.log("oi")
+        e.preventDefault();
+        let userName = name.value;
+        let lastNameUser = lastName.value;
+        let completName = userName[0].toUpperCase() + userName.slice(1) + " " + lastNameUser[0].toUpperCase() + lastNameUser.slice(1)
+        let emailUser = email.value;
+        let passwordFirst = password.value;
+        let passwordSecond = confirmPassword.value;
+        let dateBorned = date.value;
+        let typedCpf = cpf.value;
+
+        if (typedCpf == "" || typedCpf.length < 11 || dateBorned == "" || userName == "" || lastNameUser == "") {
+            alert('teste');
+        } else if (passwordFirst != passwordSecond) {
+            confirmPassword.style.backgroundColor = "rgba(233, 12, 12, 0.308)";
+        } else {
+            let replaceCpf = typedCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,
+                (regex, argument1, argument2, argument3, argument4) => {
+                    return argument1 + '.' + argument2 + '.' + argument3 + '-' + argument4;
+                })
+            console.log(typedCpf = replaceCpf, dateBorned, passwordFirst, completName, emailUser);
+        }
+
+        cpf.value = "";
+        date.value = "";
+        name.value = "";
+        lastName.value = "";
+        email.value = "";
+        password.value = "";
+        confirmPassword.value = "";
+
+    })
+
+    rootElement.querySelector('#eye').addEventListener("click", (e) => {
+        e.preventDefault();
+        const showPassword = rootElement.querySelector("#passwordFirst");
+        const showPassword2 = rootElement.querySelector("#passwordSecond");
+        if (showPassword.type == "password" && showPassword2.type == "password") {
+            showPassword.type = "text";
+            showPassword2.type = "text";
+        } else {
+            showPassword.type = "password";
+            showPassword2.type = "password";
+        }
+    })
+
+    rootElement.querySelector("#loginBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        onNavigate("/")
+    })
     return rootElement;
 };
-// const name = document.querySelector('#nome')
-// const lastName = document.querySelector('#sobrenome')
-// const email = document.querySelector('#email')
-// const password = document.querySelector("#passwordFirst");
-// const confirmPassword = document.querySelector("#passwordSecond");
-// const cpf = document.querySelector('#cpf')
-// const date = document.querySelector('#month')
-
-
-
-// export const btn = document.querySelector('#btn').addEventListener("click", (e) => {
-//     e.preventDefault();
-//     let userName = name.value;
-//     let lastNameUser = lastName.value;
-//     let completName = userName[0].toUpperCase() + userName.slice(1) + " " + lastNameUser[0].toUpperCase() + lastNameUser.slice(1)
-//     let emailUser = email.value;
-//     let passwordFirst = password.value;
-//     let passwordSecond = confirmPassword.value;
-//     let dateBorned = date.value;
-//     let typedCpf = cpf.value;
-
-//     if (typedCpf == "" || typedCpf.length < 11 || dateBorned == "" || userName == "" || lastNameUser == "") {
-//         alert('teste');
-//     } else if (passwordFirst != passwordSecond) {
-//         confirmPassword.style.backgroundColor = "rgba(233, 12, 12, 0.308)";
-//     } else {
-//         let replaceCpf = typedCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,
-//             (regex, argument1, argument2, argument3, argument4) => {
-//                 return argument1 + '.' + argument2 + '.' + argument3 + '-' + argument4;
-//             })
-//         console.log(typedCpf = replaceCpf, dateBorned, passwordFirst, completName, emailUser);
-//     }
-
-//     cpf.value = "";
-//     date.value = "";
-//     name.value = "";
-//     lastName.value = "";
-//     email.value = "";
-//     password.value = "";
-//     confirmPassword.value = "";
-
-// })
-
-// export const eye = document.querySelector('#eye').addEventListener("click", (e) => {
-//     e.preventDefault();
-//     const showPassword = document.querySelector("#passwordFirst");
-//     const showPassword2 = document.querySelector("#passwordSecond");
-//     if (showPassword.type == "password" && showPassword2.type == "password") {
-//         showPassword.type = "text";
-//         showPassword2.type = "text";
-//     } else {
-//         showPassword.type = "password";
-//         showPassword2.type = "password";
-//     }
-// })
