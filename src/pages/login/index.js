@@ -1,6 +1,6 @@
 export const Login = () => {
-  const container = document.createElement('div');
-  container.classList.add('div-container');
+  const container = document.createElement("div");
+  container.classList.add("div-container");
   container.innerHTML = `
   <div id="fundo">
   </div>
@@ -27,4 +27,3 @@ export const Login = () => {
   `;
   return container;
 };
-

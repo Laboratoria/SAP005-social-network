@@ -1,6 +1,6 @@
 export const Home = () => {
-  const container = document.createElement('div');
-  container.classList.add('div-home');
+  const container = document.createElement("div");
+  container.classList.add("div-home");
   container.innerHTML = `
   <header>
   <h1>Meu Perfil</h1>
