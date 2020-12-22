@@ -10,7 +10,7 @@ export const Feed = () => {
     </header>
 
     <main class="feed-main">
-
+      ${Post()}
     </main>
   `;
 
