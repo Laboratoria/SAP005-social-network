@@ -1,21 +1,33 @@
-export const Feed = () => {
-  const feedBody = document.createElement('div');
+export const Profile = () => {
+  const profileBody = document.createElement('div');
   const bottomNav = document.querySelector('#bottom-nav');
   bottomNav.style.display = 'flex';
 
-  feedBody.innerHTML = `
-    <header>
-      <h1 class="title">Livros</h1>
+  profileBody.innerHTML = `
+    <header class="profile-header">
+      <div id="profile-banner">IMG-BANNER</div>
+      <div class="profile-user-info">
+        <h2 id="profile-user-name">Samara Tokki</h2>
+        <figure class="profile-favorite-quote">
+          <blockquote id="profile-quote-text">
+            Não confio em pessoas que não se amam e mesmo assim dizem "eu te amo". Eis o que diz um provérbio africano: tome cuidado quando uma pessoa nua lhe oferece uma camisa.
+          </blockquote>
+          <figcaption id="profile-quote-author">
+            &mdash; Maya Angelou
+          </figcaption>
+        </figure>
+      </div>
     </header>
 
-    <main class="feed-main">
-      <article class="review-post">
-        <h3 class="review-meta-info">
+    <main class="profile-main">
+      <h3 class="profile-user-posts-title">Publicações</h3>
+        <article class="review-post">
+        <h4 class="review-meta-info">
           <p>
             Publicado por <span id="review-author-username">Samara Tokki</span>
           </p>
           <time id="review-time-ago">18 min</time>
-        </h3>
+        </h4>
         <div class="review-main-info">
           <div class="review-info-book-title">
             Livro: <span id="review-book-title">A Coragem de Ser Imperfeito</span>
@@ -39,5 +51,5 @@ export const Feed = () => {
       </article>
     </main>
   `;
-  return feedBody;
+  return profileBody;
 };

@@ -4,7 +4,7 @@ import { onNavigate } from './utils/history.js';
 import { Register } from './pages/register/index.js';
 import { Login } from './pages/login/index.js';
 import { Review } from './pages/review/index.js';
-
+import { Profile } from './pages/profile/index.js';
 
 const root = document.querySelector('#root');
 
@@ -13,7 +13,8 @@ const routes = {
   '/feed': Feed,
   '/login': Login,
   '/register': Register,
-  '/review': Review
+  '/review': Review,
+  '/profile': Profile
 };
 
 const renderRoute = () => {
@@ -21,13 +22,18 @@ const renderRoute = () => {
   root.appendChild(routes[window.location.pathname]());
 };
 
-document.querySelector('#feed').addEventListener('click', () => {
+document.querySelector('#icon-nav-feed').addEventListener('click', () => {
   onNavigate('/feed');
   renderRoute();
 });
 
 document.querySelector('#home').addEventListener('click', () => {
   onNavigate('/');
+  renderRoute();
+});
+
+document.querySelector('#icon-nav-profile').addEventListener('click', () => {
+  onNavigate('/profile');
   renderRoute();
 });
 

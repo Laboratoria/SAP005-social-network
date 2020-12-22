@@ -1,40 +1,29 @@
 export const Register = () => {
 
   const rootElement = document.createElement('div');
-
   const templateRegister = `
-  <section class="section-register">
-  <header class="header-register">
-    <i id="login" class="icon-arrow fas fa-chevron-left"></i>
-    <h1 class="register-title">Vamos começar!</h1><br>
-  </header>
-  <form>
-    <div>
-      <label class="register-label" for="username">Nome:</label>
-      <input class="register-input" id="username" type="text" name="username" placeholder="Insira seu nome" required>
-    </div>
-    <div>
-      <label class="register-label" for="email">E-mail:</label>
-      <input class="register-input" id="email" type="email" name="email" placeholder="Insira seu email" required>
-    </div>
-    <div>
-      <label class="register-label" for"password">Senha:</label>
-      <input class="register-input" id="password" type="password" name="password" 
-      placeholder="Digite uma senha, mínimo de 8 caracteres" minlength="8" required>
-    </div>
-    <div>
-      <label class="register-label" for="confirm-password">Confirmar senha:</label>
-      <input class="register-input" id="confirm-password" type="password" name="confirm-password" 
-      placeholder="Digite novamente sua senha" minlength="8" required>
-    </div>
-    <div class="register-btn">
-      <button class="register-submit-btn" id="btn-submit" type="submit">Registrar-se</button>
-    </div>
-  </form>   
-  <footer class="register-footer">
-    <p>Já tem uma conta? Entrar</p>
-   </footer>
-   </section>
+    <header class="header-register">
+      <i class="icon-arrow fas fa-chevron-left"></i>
+      <h1 class="title-register">Vamos começar!</h1>
+    </header>
+    <section>
+      <form class="form-register">
+        <label class="label-register-name" for="username">Nome</label>
+        <input class="input-register-name" type="text" name="username" required>
+        <label class="label-register-email" for="email">E-mail</label>
+        <input class="input-register-email" type="email" name="email" required>
+        <label class="label-register-password" for"password">Senha</label>
+        <input class="input-register-password" type="password" name="password" minlength="8" required>
+        <label class="label-confirm-password" for="confirm-password">Confirmar senha</label>
+        <input class="input-confirm-password" type="password" name="confirm-password" minlength="8" required>
+        <button class="btn-register" type="submit">Registrar-se</button>
+        <label class="option-register">Ou</label>
+        <button class="btn-register" type="button">G google</button>
+      </form>
+    </section>
+    <p class="login-link">
+    Já tem uma conta? <a href="#">Entrar</a>
+    </p>
   `;
   rootElement.innerHTML = templateRegister
   return rootElement;
