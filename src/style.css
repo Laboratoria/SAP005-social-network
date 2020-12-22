@@ -18,7 +18,6 @@ a {
   text-decoration: none;
 }
 
-
 /*LOGIN*/
 
 div.container {
@@ -30,10 +29,10 @@ div.container {
   margin-top: 5rem;
 }
 
-.form-login { 
+.form-login {
   display: flex;
   flex-direction: column;
-  margin:auto;
+  margin: auto;
   margin-top: 3rem;
   width: 80vw;
   height: 60vh;
@@ -46,17 +45,18 @@ div.container {
   text-align: center;
 }
 
-.label-email, .label-password {
+.label-email,
+.label-password {
   margin-top: 1rem;
   margin-left: 1rem;
 }
 
-.email-login, .password-login {
+.email-login,
+.password-login {
   margin-top: 0.5rem;
   margin-left: 1rem;
   margin-right: 1rem;
   font-size: 1rem;
-
 }
 
 .title-login {
@@ -87,7 +87,6 @@ div.container {
 .register-login {
   text-align: center;
 }
-
 
 /* REGISTER */
 
@@ -214,4 +213,3 @@ div.container {
 .icon-heart {
   font-size: 1.3rem;
 }
-

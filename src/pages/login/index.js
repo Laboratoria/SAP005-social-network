@@ -1,5 +1,18 @@
 export const Login = () => {
   // Coloque sua página
+
+const email = "teste1@teste.com"
+const password = "teste1234"
+firebase
+  .auth()
+  .createUserWithEmailAndPassword(email, password)
+  .then(() => console.log("deu certo"))
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log("deu ruim")
+  });
+
   document.querySelector('.bottom-nav').style.display = 'none';
   const rootElement = document.createElement('div');
   rootElement.className = 'container';
