@@ -1,5 +1,4 @@
-// import { onNavigate } from './utils/history.js';
-// const change = onNavigate();
+//--------------------- TODO: Usar formulário HTML ---------------------\\
 export const Login = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
@@ -11,6 +10,7 @@ export const Login = () => {
       <section class="right">  
         <input type="email" id="email" class="input-in-line" placeholder="E-mail">
         <input type="password" id="password" class="input-in-line" placeholder="Password">
+        <section id="errorLogin" class="errorMessage"></section> 
         <section id="login-button"">
           <button class="enter-button" id="signIn">Sign In</button> 
           <button class="enter-button" id="signUp">Sign Up</button>
@@ -27,12 +27,14 @@ export const Login = () => {
       </section>
     </section>    
   `;
+  //---------------------- GUARDANDO TODOS OS INPUTS ---------------------\\
   const signIn = rootElement.querySelector('#signIn');
   const signUp = rootElement.querySelector('#signUp');
   const register = rootElement.querySelector('#register');
   const signUpGoogle = rootElement.querySelector('#google');
   const signUpFb = rootElement.querySelector('#facebook');
   const signUpGh = rootElement.querySelector('#github');
+  //------------------ EVENTOS DE MOUSE PARA USABILIDADE  ------------------\\
   signIn.addEventListener("mouseenter", () => {
     signIn.style.background = '#FEBB86';
   });
@@ -51,8 +53,8 @@ export const Login = () => {
   register.addEventListener("mouseout", () => {
     register.style.textDecoration = 'none';
   });
-
-  //TODO: mudar de página
+  //--------------------- FUNÇÕES DE AUTENTIFICAÇÃO ----------------------\\
+  //-------------- TODO: Uso correto de erros para promessas --------------\\  
   signIn.addEventListener("click", e => {
     signIn.style.background = '#FEBB86';
     const email = rootElement.querySelector("#email").value;
@@ -60,97 +62,68 @@ export const Login = () => {
     const promise = firebase.auth().signInWithEmailAndPassword(email, password);
     promise
       .then(() => {
-        console.log("Deu bom");
-        // window.history.pushState('/');
-        // onNavigate('/');
-        // change('/');
-        // return ('/');
-        window.history.pushState('/');
+        window.location = '/';
       })
       .catch(() => {
-        console.log("Deu ruim")
+        const elementError = document.createElement("p");
+        const errorMessage = document.createTextNode(`E-mail ou senha inválida. Por favor, tente novamente.`);
+        elementError.appendChild(errorMessage);
+        document.getElementById("errorLogin").appendChild(elementError);
       });
   });
-
-  //TODO: Mudar de página
   signUp.addEventListener("click", e => {
     signUp.style.background = '#FEBB86';
     const email = rootElement.querySelector("#email").value;
     const password = rootElement.querySelector("#password").value;
     const promise = firebase.auth().createUserWithEmailAndPassword(email, password);
     promise
-    .then(() => {
-      console.log("Deu bom")
-      window.history.pushState('/');
-    })
-    .catch(() => {
-      console.log("Deu ruim")
-    });
+      .then(() => {
+        window.location = '/';
+      })
+      .catch(() => {
+        console.log("Deu ruim")
+      });
   });
 
-  /*
-  //Autentificação em tempo real
-  firebase.auth().onAuthStateChange (firebaseUser => {});
-  if (firebaseUser) {
-    console.log(firebaseUser);
-  } else {
-    console.log("não está logando");
-  }
-  */
- /*
- //LogOut
- firebase.auth().signOut
- */
-
-  //TODO: Não utilizar o popup pelo celular
+  //---------------- TODO: Não abrir popup / mobile first ----------------\\
   signUpGoogle.addEventListener("click", () => {
     console.log("google");
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider)
-    .then((result) => {
-      console.log("usuario", result.user);
-      console.log("token", result.credential.accessToken);
-      window.history.pushState('/');
-    //TODO: verificar essa parte da mensagem de erros
-    }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = error.credential;
-    });
+      .then((result) => {
+        console.log("usuario", result.user);
+        console.log("token", result.credential.accessToken);
+      }).catch(() => {
+        console.log("O e-mail já tem conta")
+      });
   });
 
+  //---------------- TODO: Usar outros provedores de login ----------------\\
   signUpFb.addEventListener("click", () => {
     console.log("facebook");
   });
   signUpGh.addEventListener("click", () => {
     console.log("github");
   });
+
+  //---------- ENCAMINHAR PARA O FORMULÁRIO DE CRIAÇÃO DE PERFIL ----------\\
+  //---------------- TODO: Mudar para a página de registro ----------------\\
   register.addEventListener("click", () => {
-    console.log("register");
+    window.location = '/';
   });
   return rootElement;
 };
-
-
+//---------------- AUTENTIFICAÇÃO DO USUÁRIO EM TEMPO REAL ----------------\\
 /*
-  Próximas etapas:
-  >>>Mudar a rota das páginas<<<
-  Fazer e organizar as mensagens de erro
-  Registro pelo fb e pelo github
-  Não utilizar o popup pelo celular
-  >>>Testes unitários<<<
-  >>>Fazer um formulário HTML<<<
-  >>>Dar opção de deixar senha vísivel com checkbox<<<
-  >>>Deixar acessível<<<
-
-  Dúvidas:
-  Por que não vai com getElementById?
-  Por que eu não consigo acessar o rootElement de fora?
+  firebase.auth().onAuthStateChange (firebaseUser => {});
+  if (firebaseUser) {
+    console.log(firebaseUser);
+  } else {
+    console.log("não está logando");
+  }
 */
 
+//---------------- FUNÇÃO DE LOGOUT ----------------\\
 /*
-history.replaceState()
-replaceState() é particularmente útil quando você quer atualiza o objeto de estado ou a URL 
-da atual entrada do histórico como resposta a alguma ação do usuário.
+  firebase.auth().signOut
 */
