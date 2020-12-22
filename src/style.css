@@ -165,7 +165,8 @@ div.container {
 }
 
 /* FEED */
-.feed-main {
+.feed-main,
+.profile-main {
   margin-bottom: 4.5rem;
 }
 
@@ -215,3 +216,43 @@ div.container {
   font-size: 1.3rem;
 }
 
+
+/* PROFILE */
+
+.profile-header {
+  width: 100vw;
+}
+
+#profile-banner {
+  height: 8rem;
+  margin-bottom: 1rem;
+  background-color: #333;
+  padding: 3.5rem;     /* Remover após inserir img */
+  color: #fff;       /* Remover após inserir img */
+  text-align: center;  /* Remover após inserir img */
+}
+
+.profile-user-info {
+  margin: 1.5rem 1rem 3rem 1rem;
+}
+
+#profile-user-name {
+  margin-bottom: 0.5rem;
+}
+
+.profile-favorite-quote {
+  padding: 1rem;
+  background-color: #eeeeee;
+}
+
+#profile-quote-text {
+  margin-bottom: 0.7rem;
+  font-size: 0.9rem;
+}
+
+.profile-user-posts-title {
+  display: inline-block;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  border: solid 1px #999;
+}
