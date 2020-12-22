@@ -18,7 +18,8 @@ export const Login = () => {
         
         <p>Não tem conta?<button id="btnCadastro">Cadastre-se</button></p>
         <p>OU</p>
-        <p><button id="google"><img src="img/google.png"> </button>Conecte-se com o Google</p>
+        <p>Conecte-se com o Google</p>
+        <button id="google"><img src="img/google.png"> </button>
     </div>
 </div>
 `;
