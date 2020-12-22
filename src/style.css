@@ -15,12 +15,6 @@ ul {
 	flex: 1;
 }
 
-.home :hover {
-	color: rgb(214, 116, 113);
-}
-.login :hover {
-	color: rgb(214, 116, 113);
-}
 li {
 	text-decoration: none;
 	padding: 5px 6px;
@@ -58,8 +52,7 @@ ul {
 	margin: 10vh;
 	margin-left: 40vw;
 }
-.email,
-.password {
+.form {
 	display: flex;
 	margin-left: 40vw;
 	text-align: center;
