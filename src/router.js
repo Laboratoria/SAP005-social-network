@@ -20,20 +20,20 @@ const renderRoute = () => {
   root.appendChild(routes[window.location.pathname]());
 };
 
-document.querySelector('#icon-nav-feed').addEventListener('click', () => {
-  onNavigate('/feed');
-  renderRoute();
-});
+// document.querySelector('#icon-nav-feed').addEventListener('click', () => {
+//   onNavigate('/feed');
+//   renderRoute();
+// });
 
 document.querySelector('#home').addEventListener('click', () => {
   onNavigate('/');
   renderRoute();
 });
 
-document.querySelector('#icon-nav-profile').addEventListener('click', () => {
-  onNavigate('/profile');
-  renderRoute();
-});
+// document.querySelector('#icon-nav-profile').addEventListener('click', () => {
+//   onNavigate('/profile');
+//   renderRoute();
+// });
 
 window.addEventListener('popstate', () => renderRoute());
 window.addEventListener('load', () => renderRoute());
