@@ -14,9 +14,10 @@ export const Login = () => {
         </div>
     </form>
     <div class="btns">
-        <button id="btnLogin">Login</button> 
-        <p>ou</p>
-        <button id="google"><img src="https://img.icons8.com/color/48/000000/gmail--v1.png"/> </button>
+        
+        <p>Não tem conta?<button id="btnCadastro">Cadastre-se</button></p>
+        <p>OU</p>
+        <p><button id="google"><img src="img/google.png"> </button>Conecte-se com o Google</p>
     </div>
 </div>
 `;
