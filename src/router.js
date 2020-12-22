@@ -20,7 +20,7 @@ const renderRoute = () => {
   root.appendChild(routes[window.location.pathname]());
 };
 
-document.querySelector('#feed').addEventListener('click', () => {
+document.querySelector('#icon-nav-feed').addEventListener('click', () => {
   onNavigate('/feed');
   renderRoute();
 });
