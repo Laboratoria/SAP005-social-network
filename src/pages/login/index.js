@@ -10,7 +10,11 @@ export const Login = () => {
             <input type="email" id="email" placeholder="Email" required autocomplete="off">           
             <input id="passwordSecond" type="password" placeholder="Senha" required autocomplete="off">
             <button id="eye"><img src="https://img.icons8.com/ios-glyphs/30/000000/visible--v1.png"/></button>                     
+<<<<<<< HEAD
             <button id="btnCadastro">Cadastre-se</button>
+=======
+            <button id="btn">Login</button>
+>>>>>>> 2c2c7920bce533b805ba6e6d838215761d1b9b0d
         </div>
     </form>
     <div class="btns">
