@@ -1,5 +1,8 @@
 export const Feed = () => {
   const feedBody = document.createElement('div');
+  const bottomNav = document.querySelector('#bottom-nav');
+  bottomNav.style.display = 'flex';
+
   feedBody.innerHTML = `
     <header>
       <h1 class="title">Livros</h1>
@@ -35,12 +38,6 @@ export const Feed = () => {
         </div>
       </article>
     </main>
-
-    <nav id="bottom-nav">
-      <i class="icon-nav fas fa-home"></i>
-      <i class="icon-nav fas fa-plus-square"></i>
-      <i class="icon-nav fas fa-user-circle"></i>
-    </nav>
   `;
   return feedBody;
 };
