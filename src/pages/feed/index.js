@@ -1,3 +1,5 @@
+import { Navbar } from '../../components/navbar/index.js';
+
 export const Feed = () => {
   const feedBody = document.createElement('div');
   const bottomNav = document.querySelector('#bottom-nav');
