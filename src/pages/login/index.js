@@ -15,7 +15,7 @@ export const Login = () => {
         </div>
     </form>
 </fieldset>
-<img class="logoL" src="img/L.png" alt="Logo L">
+<img class="logoL" src="img/learning.png" alt="Logo L">
 </div>
 `;
     return rootElement;
