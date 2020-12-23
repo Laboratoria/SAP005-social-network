@@ -16,6 +16,52 @@ exports[`Render página de login carrega a página 1`] = `
     />
     
       
+    <form>
+      
+      
+      <div>
+        
+          
+        <input
+          id="inputEmail"
+          placeholder="Email"
+          type="email"
+        />
+        
+      
+      </div>
+      
+      
+      <div>
+        
+          
+        <input
+          id="inputSenha"
+          placeholder="Senha"
+          type="password"
+        />
+        
+      
+      </div>
+      
+      
+      <button
+        id="btnEmail"
+      >
+        Fazer login com Email
+      </button>
+      
+      
+      <button
+        id="btnCriar"
+      >
+        Criar conta
+      </button>
+      
+      
+    </form>
+    
+      
     <button
       id="btnGoogle"
     >
