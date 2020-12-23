@@ -61,10 +61,10 @@ body {
 .card-post {
   border: #000000 1px solid;
   width: 70vw;
-  height: 7em;
   margin-bottom: 0.5em;
   border-radius: 10px;
   padding: 1em;
+  margin-top: 2em;
 }
 
 .nome-usuario {
@@ -77,15 +77,22 @@ body {
   color: #333333;
 }
 
-#btnLogout{
+.btn-Logout{
   margin-top: 1em;
+  margin-left: 1em;
+  padding: 0.5em;
 }
 
-#btnFacebook{
+.btn-Facebook{
   width: 55vw;
 }
 
-#btnGoogle{
+.btn-Google{
   width: 55vw;
 }
 
+.btnLike {
+  margin-left:12em;
+  margin-top: 2em;
+  
+}
