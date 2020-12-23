@@ -1,5 +1,5 @@
-import { Email} from './data.js';
-import { Google, Facebook} from '../../services/index.js';
+import { Email } from './data.js';
+import { Google, Facebook } from '../../services/index.js';
 // import { renderPage } from '../../router.js';
 
 import { renderPage } from '../../router.js';
@@ -61,50 +61,40 @@ export const Login = () => {
     });
   });
 
-  const criarConta = rootElement.querySelector("#btnCriar");
+  const criarConta = rootElement.querySelector('#btnCriar');
 
-    criarConta.addEventListener('click', (event) => {
+  criarConta.addEventListener('click', (event) => {
     event.preventDefault();
-    var email = document.getElementById("inputEmail").value;
-    var senha = document.getElementById("inputSenha").value;
+    const email = document.getElementById('inputEmail').value;
+    const senha = document.getElementById('inputSenha').value;
     alert(email + senha);
-    Conta();
-    console.log("funciona botão pOOorra");
-      });
+    // Conta();
+    console.log('funciona botão pOOorra');
+  });
 
+  const loginEmail = rootElement.querySelector('#btnEmail');
 
-
-  const loginEmail = rootElement.querySelector("#btnEmail");
-
-    loginEmail.addEventListener('click', (event) => {
+  loginEmail.addEventListener('click', (event) => {
     event.preventDefault();
-    var email = document.getElementById("inputEmail").value;
-    var senha = document.getElementById("inputSenha").value;
-    alert(email+senha);
+    const email = document.getElementById('inputEmail').value;
+    const senha = document.getElementById('inputSenha').value;
+    alert(email + senha);
     Email();
-    console.log("funciona botão porra");
-      });
+    console.log('funciona botão porra');
+  });
 
+  return rootElement;
+};
 
-    return rootElement;
-  };
+// btnLogin.addEventListener("click", email);
 
+// function email(){
+//   var email = document.getElementById("email").value;
+//   var senha = document.getElementById("senha").value;
+//   firebase.auth().createUserWithEmailAndPassword(email,senha).then(user => {
+//     console.log("usuario", user);
+//     alert("usuario criado e logado");
 
+//     return rootElement;
 
-
-
-
-
- 
-  //btnLogin.addEventListener("click", email);
-
-  // function email(){
-  //   var email = document.getElementById("email").value;
-  //   var senha = document.getElementById("senha").value;
-  //   firebase.auth().createUserWithEmailAndPassword(email,senha).then(user => {
-  //     console.log("usuario", user);
-  //     alert("usuario criado e logado");
-
-  //     return rootElement;
-
-  //   });
+//   });
