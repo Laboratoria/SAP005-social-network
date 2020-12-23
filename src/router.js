@@ -1,8 +1,8 @@
 // Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
-import { onNavigate } from './utils/history.js';
 import { SingUp } from './pages/singup/index.js';
+import { onNavigate } from './utils/history.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
@@ -10,7 +10,6 @@ const routeRender = () => {
     '/': Home,
     '/login': Login,
     '/singup': SingUp,
-
   };
 
   rootDiv.innerHTML = '';
@@ -23,14 +22,19 @@ window.addEventListener('load', () => {
     .getElementById('home')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/')
+      onNavigate('/');
     });
   document
     .getElementById('login')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/login')
+      onNavigate('/login');
     });
-
+  document
+    .getElementById('singup')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/singup');
+    });
   routeRender();
 });

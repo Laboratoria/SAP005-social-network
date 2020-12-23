@@ -12,14 +12,16 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use    
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+    https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
 
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
     
-  <script>// Your web app's Firebase configuration
+  <script>
+    // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     
     const firebaseConfig = {
@@ -37,18 +39,14 @@
   </script> 
   <!-- Pegar todo esse script e jogar no config. que vai ser importado no services/index.js (nãoé bom ter os dados de config no git. 
   Acrescentar o config no gitignore pra n subir no git.) -->
-    
     <nav>
       <ul>
         <li id='home'>Home</li>
         <li id='login'>Login</li>
+        <li id='singup'>SingUp</li>
       </ul>
     </nav>
     <div id="root"></div>
     <script type="module" src="router.js"></script>
-
-
-
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
   </body>
 </html>
