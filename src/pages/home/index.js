@@ -96,7 +96,7 @@ export const Home = () => {
 
         adicionaPostATela(feed.doc.data(), feed.doc.id);
       };
-    })
+    });
   })
 
   const btnLogout = rootElement.querySelector('#btnLogout');
@@ -110,8 +110,6 @@ export const Home = () => {
     })
     
   }
-  
-  
 
-  return rootElement;
-};
+}
+
