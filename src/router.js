@@ -5,12 +5,10 @@ import { Login } from './pages/login/index.js';
 
 const routes = {
   '/home': Home,
-  '/': Login
+  '/': Login,
 };
 
 const container = document.querySelector('#root');
-
-const init = () => window.addEventListener('hashchange', renderPage);
 const validateHash = (hash) => (hash === '' ? '/' : hash.replace('#', ''));
 
 export const renderPage = () => {
@@ -19,39 +17,11 @@ export const renderPage = () => {
   container.appendChild(routes[page]());
 };
 
+const init = () => window.addEventListener('hashchange', renderPage);
+
 window.addEventListener('load', () => {
   renderPage();
   init();
 });
 
 window.addEventListener('popstate', renderPage);
-
-
-
-// const routeRender = () => {
-//   const rootDiv = document.getElementById('root');
-//   const routes = {
-//     '/' : Home,
-//     '/login': Login,
-
-//   };
-
-//   rootDiv.innerHTML = '';
-//   rootDiv.appendChild(routes[window.location.pathname]());
-// };
-
-// window.addEventListener('load', () => {
-//   document
-//     .getElementById('home')
-//     .addEventListener('click', (e) => {
-//       e.preventDefault();
-//       onNavigate('/')
-//     });
-//   document
-//     .getElementById('login')
-//     .addEventListener('click', (e) => {
-//       e.preventDefault();
-//       onNavigate('/login')
-//     });
-//   routeRender();
-// });

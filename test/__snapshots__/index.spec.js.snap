@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render página de login carrega a página 1`] = `
+<div>
+  
+    
+  <section
+    class="login"
+  >
+    
+      
+    <img
+      alt="logo da  página"
+      class="img-logo"
+      src="../img/Logo.jpeg"
+    />
+    
+      
+    <button
+      id="btnGoogle"
+    >
+      Fazer login com o Google
+    </button>
+    
+      
+    <button
+      id="btnFacebook"
+    >
+      Fazer login com o Facebook
+    </button>
+    
+    
+  </section>
+  
+  
+</div>
+`;
