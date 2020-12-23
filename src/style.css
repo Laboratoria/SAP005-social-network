@@ -44,18 +44,17 @@ div.container {
   text-align: center;
 }
 
-.label-email,
-.label-password {
+.label-login {
   margin-top: 1rem;
   margin-left: 1rem;
 }
 
-.email-login,
-.password-login {
+.input-login {
   margin-top: 0.5rem;
   margin-left: 1rem;
   margin-right: 1rem;
   font-size: 1rem;
+  padding: 0.5em;
 }
 
 .title-login {
@@ -77,7 +76,7 @@ div.container {
 }
 
 .btn-google {
-  width: 25vw;
+  width: 30vw;
   height: 5vh;
   margin: 0 auto;
   margin-bottom: 1rem;
@@ -85,6 +84,7 @@ div.container {
 
 .register-login {
   text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 /* REGISTER */
@@ -210,6 +210,53 @@ div.container {
 
 .icon-heart {
   font-size: 1.3rem;
+}
+
+/*REVIEW*/
+
+.title-review {
+  text-align: center;
+  font-weight: normal;
+}
+
+.form-review { 
+  display: flex;
+  flex-direction: column;
+  margin:auto;
+  margin-top: 3rem;
+  width: 80vw;
+  height: 60vh;
+  margin-bottom: 1rem;
+}
+
+.label-review {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.input-book {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 1rem;
+  padding: 0.5em;
+}
+
+.review {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 1rem;
+  height: 15vh;
+  padding: 0.5em;
+}
+
+.btn-review {
+  width: 26vw;
+  height: 5vh;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 /* PROFILE */
