@@ -1,4 +1,5 @@
-import { Google, Facebook, Email, Conta} from './data.js';
+import { Email} from './data.js';
+import { Google, Facebook} from '../../services/index.js';
 // import { renderPage } from '../../router.js';
 
 import { renderPage } from '../../router.js';
