@@ -1,20 +1,18 @@
 // import { firebaseConfig } from  "config/config.js"
 // // exporte suas funções
+const email = '';
+const password = '';
 
-const email = "teste2@gmail.com"
-const password = "eutomuitoputa"
-
-
-
-export const createUser = () => {
-
+export const CreateUser = () => {
   firebase
-  .auth().createUserWithEmailAndPassword(email, password)
-  .then(() => console.log("deu certo"))
-  .catch(function(error) {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    alert("deu ruim")
-    // ..
-  });
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then((response) => {
+      window.location = '#feed';
+      response('Você está logado parça!');
+    })
+    .cath((error) => {
+      error.alert('Reveja sua senha parça!');
+    });
 };
+
