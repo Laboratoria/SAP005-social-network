@@ -64,6 +64,7 @@ body {
   margin-bottom: 0.5em;
   border-radius: 10px;
   padding: 1em;
+  margin-top: 2em;
 }
 
 .nome-usuario {
@@ -88,4 +89,10 @@ body {
 
 .btn-Google{
   width: 55vw;
+}
+
+.btnLike {
+  margin-left:12em;
+  margin-top: 2em;
+  
 }
