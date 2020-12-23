@@ -31,6 +31,7 @@ export const Home = () => {
     }
   });
 
+  
   const textoPost = rootElement.querySelector('#textoPost');
   const feedArea = rootElement.querySelector('#feedArea');
   const btnPost = rootElement.querySelector('#btnPost');
@@ -39,6 +40,7 @@ export const Home = () => {
   function criarPost() {
     const uid = firebase.auth().currentUser.uid;
     const userName = firebase.auth().currentUser.displayName;
+    //const like = firebase.auth().currentUser.Likes;
     
     if (textoPost.value === "") {
       alert("Digite alguma coisa!")
@@ -48,6 +50,8 @@ export const Home = () => {
         name: userName,
         uid: uid,
         date: new Date(),
+        likes:0
+        
         // time: new Date(),
       };
   
@@ -56,24 +60,12 @@ export const Home = () => {
   
       renderPage();
     }
-
-    // const feed = {
-    //   post: textoPost.value,
-    //   name: userName,
-    //   uid: uid,
-    //   date: new Date(),
-    //   // time: new Date(),
-    // };
-
-    // firebase.firestore().collection('posts').add(feed).then(() => {
-    // });
-
-    // renderPage();
   }
 
   function adicionaPostATela(informacao) {
     let postDiv = document.createElement('div');
     postDiv.classList.add("card-post");
+    //adicionar atributo data para id dos cards
     
     let nomeUser = document.createElement('h2');
     nomeUser.classList.add("nome-usuario");
@@ -83,18 +75,62 @@ export const Home = () => {
     conteudo.classList.add("texto-post");
     conteudo.innerHTML = informacao.post;
 
+    let id = document.createElement('p');
+    id.classList.add("texto-post");
+    id.innerHTML = informacao.post;
+
+    let likes = document.createElement('div');
+    likes = document.createElement('button');
+    likes.classList.add("btnLike");
+    likes.innerHTML = "Curtir";
+
+    likes.addEventListener('click', (event,) => {
+      event.preventDefault();
+      console.log("funciona botão");
+      likes = likes.dataset.likes
+      likePost(likes) 
+      
+    });
+
     postDiv.appendChild(nomeUser);
     postDiv.appendChild(conteudo);
+    postDiv.appendChild(likes);
+    
 
     feedArea.appendChild(postDiv);
   }
   
+  function likePost(uid){
+    let like = firebase.firestore().collection('posts').doc(uid);
+    like.update({likes: firebase.firestore.FieldValue.increment(1)});
+    console.log(uid);
+  
+    console.log("oi");
+    //likes.innerHTML = "Curtir";
+    //document.body.appendChild(likes);
+    
+
+    //likesDiv.appendChild(likes);
+
+   // feedArea.appendChild(likesDiv);
+
+  }
+   
+ /* const likesNumber = (post) => {
+    let like = firebase.firestore().collection('posts').doc(post);
+    like.update({likes: firebase.firestore.FieldValue.increment(1)});
+    
+  
+    console.log(uid);
+   
+  }*/
 
   firebase.firestore().collection('posts').orderBy('date', 'desc').onSnapshot(snapshot => {
     snapshot.docChanges().forEach(feed => {
       if (feed.type == "added") {
 
         adicionaPostATela(feed.doc.data(), feed.doc.id);
+        
       };
     })
   })
@@ -111,7 +147,7 @@ export const Home = () => {
     
   }
   
-  
+
 
   return rootElement;
 };
