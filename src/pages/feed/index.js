@@ -1,7 +1,7 @@
+import { Navbar } from '../../components/navbar/index.js';
+
 export const Feed = () => {
   const feedBody = document.createElement('div');
-  const bottomNav = document.querySelector('#bottom-nav');
-  bottomNav.style.display = 'flex';
 
   feedBody.innerHTML = `
     <header>
@@ -39,5 +39,8 @@ export const Feed = () => {
       </article>
     </main>
   `;
+
+  feedBody.appendChild(Navbar());
+
   return feedBody;
 };
