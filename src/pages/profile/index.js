@@ -1,4 +1,7 @@
+import { Navbar } from '../../components/navbar/index.js';
+
 export const Profile = () => {
+  const profileBody = document.querySelector('#root');
   const profileMain = document.createElement('main');
   profileMain.className = 'profile-main';
 
@@ -50,5 +53,9 @@ export const Profile = () => {
       </article>
     </main>
   `;
-  return profileMain;
+
+  profileBody.appendChild(profileMain);
+  profileBody.appendChild(Navbar());
+
+  return profileBody;
 };
