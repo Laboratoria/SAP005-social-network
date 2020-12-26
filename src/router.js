@@ -22,6 +22,9 @@ window.addEventListener('load', () => {
 });
 
 
+
+
+
 // const renderRouter = () => {
 //     root.innerHTML = "";
 //     if (!routers[window.location.pathname]) {
