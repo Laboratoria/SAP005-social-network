@@ -76,7 +76,7 @@ div.container {
   margin-bottom: 0.5rem;
 }
 
-.btn-google {
+#btn-google {
   width: 25vw;
   height: 5vh;
   margin: 0 auto;
