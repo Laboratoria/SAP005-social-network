@@ -1,9 +1,8 @@
 export const Profile = () => {
-  const profileBody = document.createElement('div');
-  const bottomNav = document.querySelector('#bottom-nav');
-  bottomNav.style.display = 'flex';
+  const profileMain = document.createElement('main');
+  profileMain.className = 'profile-main';
 
-  profileBody.innerHTML = `
+  profileMain.innerHTML = `
     <header class="profile-header">
       <div id="profile-banner">IMG-BANNER</div>
       <div class="profile-user-info">
@@ -51,5 +50,5 @@ export const Profile = () => {
       </article>
     </main>
   `;
-  return profileBody;
+  return profileMain;
 };
