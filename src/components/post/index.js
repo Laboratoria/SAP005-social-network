@@ -1,7 +1,8 @@
 export const Post = () => {
-  const post = document.createElement('main');
+  const feedMain = document.createElement('main');
+  feedMain.className = 'feed-main';
 
-  post.innerHTML = `
+  feedMain.innerHTML = `
     <article class="review-post">
       <h3 class="review-meta-info">
         <p>
@@ -32,5 +33,5 @@ export const Post = () => {
     </article>
   `;
 
-  return post;
+  return feedMain;
 };
