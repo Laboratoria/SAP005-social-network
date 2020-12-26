@@ -5,6 +5,8 @@ export const Login = () => {
     rootElement.innerHTML = `    
 <div  id = "login" class="textRegister">
 <img class="logoL" src="img/learning.png" alt="Logo L"> 
+<div id = "notFound" class = "msgNotFound">
+  </div>
     <form class="registerLogin">        
         <div class="registerColumn">
             <input type="email" id="email" placeholder="Email" required autocomplete="off">           
@@ -45,14 +47,14 @@ export const Login = () => {
         const password = passwordInput.value;
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((user) => {
-                console.log("Bem vindo")
-                    // Signed in
-                    // ...
+
+
             })
             .catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                console.log("Dados incorretos")
+                rootElement.querySelector("#notFound").innerHTML = `
+                <h1>Ops, não encontramos essa conta.</h1>`
 
             });
         emailInput.value = ""

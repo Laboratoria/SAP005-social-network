@@ -47,7 +47,7 @@ export const Register = () => {
         let dateBorned = date.value;
 
         if (dateBorned == "" || userName == "" || lastNameUser == "") {
-            alert('teste');
+            rootElement.querySelector("#finalized").innerHTML = `<h1 class = "warning">Todos os campos devem ser preenchidos.</h1>`;
         } else if (passwordFirst != passwordSecond) {
             confirmPassword.style.backgroundColor = "rgba(233, 12, 12, 0.308)";
         } else {
