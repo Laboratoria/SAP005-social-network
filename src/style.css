@@ -20,7 +20,7 @@ main {
 }
 
 .textFirts {
-    margin: 70px 210px 0 0;
+    margin: 40px 210px 0 0;
     color: white;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
@@ -173,4 +173,13 @@ select:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
+}
+
+.msgFinalized {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 8px;
+    font-family: Arial, Helvetica, sans-serif;
 }

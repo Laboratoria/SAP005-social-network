@@ -5,8 +5,7 @@ export const Register = () => {
     rootElement.innerHTML = `    
   <div class="textRegister"> 
   <img class="logoL" src="img/learning.png" alt="Logo L"> 
-  <div id = "finalized">
-  <h1>Cadastro realizado com sucesso!</h1>
+  <div id = "finalized" class = "msgFinalized">
   </div>
   <p class="textFirts">Cadastre-se.</p>
   <fieldset>
@@ -18,7 +17,7 @@ export const Register = () => {
           </div>
           <div class="registerColumn">
               <input type="email" id="email" placeholder="Email" required autocomplete="off">
-              <input id="passwordFirst" type="password" placeholder="Digite sua senha" required autocomplete="off">
+              <input id="passwordFirst" type="password" placeholder="Digite uma senha 6 digitos" required autocomplete="off">
               <input id="passwordSecond" type="password" placeholder="Confirme sua senha" required autocomplete="off">
               <button id="eye"><img src="https://img.icons8.com/ios-glyphs/30/000000/visible--v1.png"/></button>              
               <input type="date" id="month" placeholder="Mês" max="2006-12-31">
@@ -40,8 +39,8 @@ export const Register = () => {
 
     rootElement.querySelector('#btn').addEventListener("click", (e) => {
         e.preventDefault();
-        let userName = name.value.toUpperCase();
-        let lastNameUser = lastName.value.toUpperCase();
+        let userName = name.value.toLowerCase();
+        let lastNameUser = lastName.value.toLowerCase();
         let emailUser = email.value;
         let passwordFirst = password.value;
         let passwordSecond = confirmPassword.value;
@@ -56,7 +55,7 @@ export const Register = () => {
             firebase.auth().createUserWithEmailAndPassword(emailUser, passwordFirst)
                 .then((user) => {
                     console.log("cadastrado")
-                    rootElement.querySelector("#finalized").innerHTML = `<h1>Cadastro realizado com sucesso!</h1>`
+                    rootElement.querySelector("#finalized").innerHTML = `<h1>Pronto! ${userName[0].toUpperCase() + userName.slice(1)}, seu cadastro foi efetuado.</h1>`
 
 
                 })
