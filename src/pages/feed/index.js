@@ -2,18 +2,15 @@ import { Post } from '../../components/post/index.js';
 import { Navbar } from '../../components/navbar/index.js';
 
 export const Feed = () => {
-  const feedBody = document.createElement('div');
+  const feedBody = document.querySelector('#root');
+  const feedHeader = document.createElement('header');
 
-  feedBody.innerHTML = `
-    <header>
-      <h1 class="title">Livros</h1>
-    </header>
-
-    <main class="feed-main">
-      ${Post()}
-    </main>
+  feedHeader.innerHTML = `
+    <h1 class="title">Livros</h1>
   `;
 
+  feedBody.appendChild(feedHeader);
+  feedBody.appendChild(Post());
   feedBody.appendChild(Navbar());
 
   return feedBody;
