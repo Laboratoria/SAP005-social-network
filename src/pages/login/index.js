@@ -5,6 +5,8 @@ export const Login = () => {
     rootElement.innerHTML = `    
 <div  id = "login" class="textRegister">
 <img class="logoL" src="img/learning.png" alt="Logo L"> 
+<div id = "notFound" class = "msgNotFound">
+  </div>
     <form class="registerLogin">        
         <div class="registerColumn">
             <input type="email" id="email" placeholder="Email" required autocomplete="off">           
@@ -18,7 +20,8 @@ export const Login = () => {
         
         <p>Não tem conta?<button id="btnCadastro">Cadastre-se</button></p>
         <p>OU</p>
-        <p><button id="google"><img src="img/google.png"> </button>Conecte-se com o Google</p>
+        <p>Conecte-se com o Google</p>
+        <button id="google"><img src="img/google.png"> </button>
     </div>
 </div>
 `;
@@ -35,5 +38,30 @@ export const Login = () => {
         e.preventDefault();
         onNavigate("/cadastro")
     })
+    let emailInput = rootElement.querySelector("#email")
+    let passwordInput = rootElement.querySelector("#passwordSecond")
+
+    rootElement.querySelector("#btnLogin").addEventListener("click", (e) => {
+        e.preventDefault();
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((user) => {
+
+
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                rootElement.querySelector("#notFound").innerHTML = `
+                <h1>Ops, não encontramos essa conta.</h1>`
+
+            });
+        emailInput.value = ""
+        passwordInput.value = ""
+    })
+
     return rootElement;
+
+
 };
