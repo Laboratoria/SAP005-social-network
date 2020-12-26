@@ -36,5 +36,30 @@ export const Login = () => {
         e.preventDefault();
         onNavigate("/cadastro")
     })
+    let emailInput = rootElement.querySelector("#email")
+    let passwordInput = rootElement.querySelector("#passwordSecond")
+
+    rootElement.querySelector("#btnLogin").addEventListener("click", (e) => {
+        e.preventDefault();
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((user) => {
+                console.log("Bem vindo")
+                    // Signed in
+                    // ...
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                console.log("Dados incorretos")
+
+            });
+        emailInput.value = ""
+        passwordInput.value = ""
+    })
+
     return rootElement;
+
+
 };
