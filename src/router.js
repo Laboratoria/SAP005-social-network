@@ -2,7 +2,6 @@ import { Register } from './pages/register/index.js';
 import { Login } from './pages/login/index.js';
 import { onNavigate } from './utils/history.js';
 
-
 const routeRender = () => {
     const rootDiv = document.getElementById('root');
     const routes = {
