@@ -48,11 +48,8 @@ export const Register = () => {
 
         if (dateBorned == "" || userName == "" || lastNameUser == "") {
             alert('teste')
-            name.style.backgroundColor = "rgba(233, 12, 12, 0.308)";
         } else if (passwordFirst != passwordSecond || passwordFirst > 6  ) {
-            confirmPassword.style.backgroundColor = "rgba(233, 12, 12, 0.308)"
-         } else if (passwordFirst != passwordSecond) {
-                confirmPassword.style.backgroundColor = "rgba(233, 12, 12, 0.308)"
+            confirmPassword.style.backgroundColor = "rgba(233, 12, 12, 0.308)";
         }else {
 
             firebase.auth().createUserWithEmailAndPassword(emailUser, passwordFirst)
