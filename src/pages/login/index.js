@@ -1,3 +1,5 @@
+import { googleLogin } from '../../services/index.js';
+
 export const Login = () => {
   // const email = 'teste1@teste.com';
   // const password = 'teste1234';
@@ -29,9 +31,12 @@ export const Login = () => {
         </form>
       <section>
       <p class="register-login">
-        Ainda não tem uma conta ? <a href="#">Registrar-se</a>
+        Ainda não tem uma conta? <a href="#">Registrar-se</a>
       </p>
   `;
+
+  const googleButton = rootElement.querySelector('#btn-google');
+  googleButton.addEventListener('click', googleLogin);
 
   return rootElement;
 };
