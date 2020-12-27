@@ -1,19 +1,9 @@
 import { googleLogin } from '../../services/index.js';
 
 export const Login = () => {
-  // const email = 'teste1@teste.com';
-  // const password = 'teste1234';
-  // firebase
-  //   .auth()
-  //   .createUserWithEmailAndPassword(email, password)
-  //   .then(() => console.log('deu certo'))
-  //   .catch((error) => {
-  //     var errorCode = error.code;
-  //     var errorMessage = error.message;
-  //   });
-
   const rootElement = document.createElement('div');
   rootElement.className = 'container';
+
   rootElement.innerHTML = `
       <header>
         <h2 class="title-login">Nome do app</h2>
