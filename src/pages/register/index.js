@@ -2,6 +2,7 @@ import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
     const rootElement = document.createElement('div');
+    rootElement.classList.add("formRegister")
     rootElement.innerHTML = `    
   <div class="textRegister"> 
   <img class="logoL" src="img/learning.png" alt="Logo L"> 
@@ -50,7 +51,7 @@ export const Register = () => {
             rootElement.querySelector("#finalized").innerHTML = `<h1 class = "warning">Todos os campos devem ser preenchidos.</h1>`;
         } else if (passwordFirst != passwordSecond || passwordFirst.length < 6) {
             confirmPassword.style.backgroundColor = "rgba(233, 12, 12, 0.308)";
-        }else {
+        } else {
 
             firebase.auth().createUserWithEmailAndPassword(emailUser, passwordFirst)
                 .then((user) => {
