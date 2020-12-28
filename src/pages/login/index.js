@@ -17,7 +17,10 @@ export const Login = () => {
         <input type="password" class="password-login">
         <button type="submit" class="btn-login">Entrar</button>
         <label class="alternative">Ou</label>
-        <input type="button" value="G google" id="btn-google">
+        <button id="btn-google">
+          <img class="btn-login-icon" src="../../img/google-icon.svg" alt="Google icon"/>
+          <span class="btn-login-text">Sign in with Google</span>
+        </button>
         </form>
       <section>
       <p class="register-login">
