@@ -2,6 +2,7 @@ import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
     const rootElement = document.createElement('div');
+    rootElement.classList.add("formRegister")
     rootElement.innerHTML = `    
 <div  id = "login" class="textRegister">
 <img class="logoL" src="img/learning.png" alt="Logo L"> 
@@ -24,7 +25,9 @@ export const Login = () => {
         <button id="google"><img src="img/google.png"> </button>
     </div>
 </div>
+
 `;
+
 
     rootElement.querySelector('#eye').addEventListener("click", (e) => {
         e.preventDefault();
@@ -48,7 +51,7 @@ export const Login = () => {
         const password = passwordInput.value;
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((user) => {
-
+                onNavigate("/home")
 
             })
             .catch((error) => {
