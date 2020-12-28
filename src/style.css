@@ -147,7 +147,7 @@ legend {
 }
 
 .registerLogin {
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -175,11 +175,16 @@ select:focus {
     outline: 0;
 }
 
-.msgFinalized {
+.msgFinalized,
+.msgNotFound {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-size: 8px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.warning {
+    color: #8C041D
 }
