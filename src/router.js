@@ -21,10 +21,6 @@ window.addEventListener('load', () => {
     routeRender();
 });
 
-
-
-
-
 // const renderRouter = () => {
 //     root.innerHTML = "";
 //     if (!routers[window.location.pathname]) {
