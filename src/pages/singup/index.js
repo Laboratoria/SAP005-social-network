@@ -3,33 +3,39 @@ import { CreateUser } from '../../services/index.js';
 export const SingUp = () => {
   // Coloque sua página
   const rootElement = document.createElement('div');
-  rootElement.innerHTML = `
+
+  const formHtml = `
+  <div>  
     <h1>Sing up!</h1>
     <form class="singup-form">
-      <input class="name" type="text" placeholder="Name">
-      <input class="email" type="email" placeholder="E-mail">
-      <input class="password" type="password" placeholder="Password">
-      <input class="confirm-password" type="password" placeholder="Confirm Password">
-
-      <button class="btn-create">Create your account</button>
+      <input class="name" id="name" type="text" placeholder="Name">
+      <input class="email" id="email" type="email" placeholder="E-mail">
+      <input class="password" id="password"type="password" placeholder="Password">
+      <input class="confirm-password" id="confirm-password" type="password" placeholder="Confirm Password">
+      <button class="btn-create" id="btn-crear">Create your account</button>
     </form>
+  </div>
     `;
+
+  rootElement.innerHTML = formHtml;
+
+  const singupForm = rootElement.querySelector('.btn-create');
+  singupForm.addEventListener('click', (e) => {
+    e.preventDefault();
+    const nameElement = document.querySelector('.name').value;
+    const emailElement = document.querySelector('.email').value;
+    const createPassword = rootElement.querySelector('.password').value;
+    const confirmPassword = rootElement.querySelector('.confirm-password').value;
+    const errorMessage = '';
+    if (nameElement === '' || emailElement === '' || createPassword === '' || confirmPassword === '' || nameElement === ' ' || emailElement === ' ' || createPassword === ' ' || confirmPassword === ' ') {
+      // eslint-disable-next-line no-alert
+      alert('There are blank fields!');
+    } else if (createPassword !== confirmPassword) {
+      // eslint-disable-next-line no-alert
+      alert('Passwords does not match.');
+    } else {
+      CreateUser(emailElement, createPassword);
+    }
+  });
   return rootElement;
 };
-
-const singupForm = document.querySelector('.singup-form');
-singupForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const nameElement = singupForm['.name'].value;
-  const emailElement = singupForm['.email'].value;
-  const createPassword = singupForm['.password'].value;
-  const confirmPassword = singupForm['.confirm-password'].value;
-  const errorMessage = '';
-
-  if (nameElement === '' || emailElement === '' || createPassword === '' || confirmPassword === '') {
-    errorMessage.textContent = 'There are blank fields!';
-  } else if (createPassword !== confirmPassword) {
-    errorMessage.textContent = 'Passwords does not match.';
-  }
-  return CreateUser();
-});
