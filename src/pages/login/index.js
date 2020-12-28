@@ -25,6 +25,7 @@ export const Login = () => {
     </div>
 </div>
 `;
+
     rootElement.querySelector('#eye').addEventListener("click", (e) => {
         e.preventDefault();
         const showPassword = rootElement.querySelector("#passwordSecond");
