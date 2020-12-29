@@ -61,87 +61,67 @@ export const Home = () => {
   btnPost.addEventListener('click', criarPost);
 
   function adicionaPostATela(informacao) {
-    const postDiv = document.createElement('div');
-    postDiv.classList.add('card-post');
-    // adicionar atributo data para id dos cards
+    const cardPost = `
+      <div class="card-post">
+        <h2 class="nome-usuario">${informacao.name}</h2>
+        <button class="btn-editar" id="btnEditarPost">editar post</button>
+        <p class="texto-post" id="post">${informacao.post}</p>
+        <textarea class="editar-post" id="textareaEditarPost">${informacao.post}</textarea>
+        <button class="btn-salvar-editado" id="btnSalvarEdicao">salvar</button>
+        <div>
+          <button class="btnLike" id="btnLike">curtir</button>
+        </div>
 
-    const nomeUser = document.createElement('h2');
-    nomeUser.classList.add('nome-usuario');
-    nomeUser.innerHTML = informacao.name;
+      </div>
+    `
 
-    const conteudo = document.createElement('p');
-    conteudo.classList.add('texto-post');
-    conteudo.innerHTML = informacao.post;
+    // const id = document.createElement('p');
+    // id.classList.add('texto-post');
+    // id.innerHTML = informacao.post;
 
+    // let likes = document.createElement('div');
+    // likes = document.createElement('button');
+    // likes.classList.add('btnLike');
+    // likes.innerHTML = 'Curtir';
 
-    const btnEditar = document.createElement('button');
-    btnEditar.classList.add('btn-editar');
-    btnEditar.innerHTML = "editar post";
-    btnEditar.addEventListener('click', btnEditarPost)
-    postDiv.appendChild(btnEditar);
+    // likes.addEventListener('click', (event) => {
+    //   event.preventDefault();
+    //   console.log('funciona botão');
+    //   likes = likes.dataset.likes;
+    //   likePost(likes);
+    // });
 
-    const editarPost = document.createElement('textarea');
-    editarPost.classList.add('editar-post');
-    editarPost.innerHTML = informacao.post;
-    editarPost.style.display = "none"
+    feedArea.innerHTML += cardPost;
 
-    const btnSalvarEditado = document.createElement('button');
-    btnSalvarEditado.classList.add('btn-salvar-editado');
-    btnSalvarEditado.innerHTML = "salvar";
-    btnSalvarEditado.addEventListener('click', btnSalvarEdicao)
-    btnSalvarEditado.style.display = "none";
-
-    function btnEditarPost() {
+    const textareaEditarPost = document.querySelector("#textareaEditarPost");
+    const post = document.querySelector("#post");
+    const btnEditarPost = document.querySelector("#btnEditarPost");
+    btnEditarPost.addEventListener('click', (event) => {
+      event.preventDefault();
       console.log("botão editar ok")
-      btnEditar.style.display = "none";
-      editarPost.style.display = "block"
-      btnSalvarEditado.style.display = "block";
+      btnEditarPost.style.display = "none";
+      textareaEditarPost.style.display = "block"
+      btnSalvarEdicao.style.display = "block";
+    });
 
-    };
-
-    function btnSalvarEdicao() {
+    const btnSalvarEdicao = document.querySelector("#btnSalvarEdicao");
+    btnSalvarEdicao.addEventListener('click', (event) => {
+      event.preventDefault();
       console.log("botão salvar ok")
-      // conteudo.innerHTML = editarPost.value;
+      post.innerHTML = textareaEditarPost.value;
 
-      firebase.firestore().collection('posts').doc(feed).update(post).then(() => {
-        conteudo.innerHTML = editarPost.value;
-      });
+      // firebase.firestore().collection('posts').doc(feed).update(post).then(() => {
+      //   conteudo.innerHTML = editarPost.value;
+      // });
 
       // firebase.firestore().collection('posts').doc(post.uid).update({
       //   post: editarPost.value
       // })
 
-      editarPost.style.display = "none";
-      btnSalvarEditado.style.display = "none";
-      btnEditar.style.display = "block";
-    };
-
-
-
-    const id = document.createElement('p');
-    id.classList.add('texto-post');
-    id.innerHTML = informacao.post;
-
-    let likes = document.createElement('div');
-    likes = document.createElement('button');
-    likes.classList.add('btnLike');
-    likes.innerHTML = 'Curtir';
-
-    likes.addEventListener('click', (event) => {
-      event.preventDefault();
-      console.log('funciona botão');
-      likes = likes.dataset.likes;
-      likePost(likes);
+      textareaEditarPost.style.display = "none";
+      btnSalvarEdicao.style.display = "none";
+      btnEditarPost.style.display = "block";
     });
-
-    postDiv.appendChild(nomeUser);
-    postDiv.appendChild(conteudo);
-    postDiv.appendChild(editarPost);
-    postDiv.appendChild(btnSalvarEditado);
-
-    postDiv.appendChild(likes);
-
-    feedArea.appendChild(postDiv);
   }
 
 
