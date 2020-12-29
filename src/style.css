@@ -1,40 +1,160 @@
+body {
+    background-color: rgb(241, 219, 19);
+    display: flex;
+    margin: 0 0 0 10px;
+}
+
+.header-page {
+    display: flex;
+    justify-content: space-between;
+    
+    width: 60%;
+    margin: 0;
+}
+
+.main-menu {
+    display: flex;
+    list-style: none;
+}
+
+.buttons-main-menu {
+    width: 30%;
+    text-align: center;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 27px;
+}
+
+.network-name {
+    margin: 200px 0 0 50px;
+    width: 50%;
+}
+.network-name p {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Covered By Your Grace', cursive;
+}
+.tpm-name {
+    font-family: 'Limelight', cursive;
+    font-size: 170px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+#root {
+    display: flex;
+    width: 50%;  
+    margin-right: 10px;
+}
+.introduction {
+    text-align: center;
+    font-family: 'Limelight', cursive;   
+    font-size: 30px;
+}
+#root p {
+    text-align: justify;
+    font-size: 25px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.mae-carol {
+    width: 80%;
+    border-radius: 10px;
+}
+
+#root div {
+    width: 90%;
+}
+
+.login-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.login-inputs ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+.input-login { 
+    width: 100%;
+    height: 40px;
+
+    margin-top: 5px;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.button-confirm {
+    width: 30%;
+    height: 40px;
+
+    margin-top: 5px;
+    background-color: rgb(235, 173, 5);
+
+    border-radius: 10px;
+    border: 1px solid rgb(223, 105, 144);
+
+    font-size: 20px;
+}
+
+
+
 @media only screen and (max-device-width: 500px){
 
     body {
-        background-color: rgb(241, 219, 19);
+       display: block;
+       width: 500px;
+    }
+    .header-page {
+        display: block;
+        width: 100%;
     }
 
-    #logo {
-        margin: 0 40px 0 40px;
+    .network-name {
+        margin: 0;
+        width: 100%;
     }
-    .introduction {
-        font-family: 'Baloo Chettan 2', cursive;
-        text-align: center;
+    .tpm-name {
+        font-family: 'Limelight', cursive;
+        font-size: 180px;
     }
-
-    .main-menu {
-        display: flex;
-        justify-content: space-evenly;
+    .network-name p {
+        font-family: 'Covered By Your Grace', cursive;
+        font-size: 30px;
+        margin: 0;
     }
-
-    .buttons-main-menu {
-        list-style: none;
-        font-family: 'Baloo Chettan 2', cursive;
+    #root {
+        display: block;
+        width: 100%; 
+        margin-right: 0;
     }
-
+    .mae-carol {
+        width: 80%;
+        border-radius: 10px;
+    }
+  
     .login-header {
         display: flex;
         justify-content: center;
+        width: 100%;
     }
 
     .login-inputs ul {
+        width: 100%;
         list-style: none;
         padding: 0;
     }
 
     .input-login { 
         width: 100%;
-        height: 30px;
+        height: 40px;
 
         margin-top: 5px;
 
@@ -43,173 +163,18 @@
         background-color: white;
     }
 
-    .button-login {
-        width: 100%;
-        height: 30px;
+    .button-confirm {
+        width: 30%;
+        height: 40px;
     
         margin-top: 5px;
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(235, 173, 5);
     
         border-radius: 10px;
         border: 1px solid rgb(223, 105, 144);
+
+        font-size: 20px;
     }
 
-    .login-inputs ul p {
-        text-align: center;
-    }
-
-    .google-login {
-        width: 100%;
-        height: 30px;
-    
-        margin-top: 5px;
-        background-color: rgb(255, 255, 255);
-    
-        border-radius: 10px;
-        border:1px solid blue;
-    }
-
-    #create-account-button {
-        display: none;
-    }
-    /* Edição de Profile */
-    .profile-body {
-        background-color: rgb(78, 77, 77);
-    }
-
-    .figure-profile {
-        display: flex;
-        justify-content: space-evenly;
-    
-        margin: 3px;
-        border-radius: 10px;
-        background-color: rgb(187, 166, 45);
-    }
-
-    .picture-profile {
-        width: 150px;
-        height: 150px;
-    
-        margin: 4px 0 4px 0;
-        border-radius:50%;
-    }
-
-    #name-profile {
-        height: 100%;
-
-        margin: 10px;
-        border-radius: 10px;
-
-        color: black;
-        font-size: 30px;
-        text-align: center;
-    }
-
-    #data-user {
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .data-user {
-        padding: 2px;
-        
-        color: black;
-        border: 1px solid rgb(225, 255, 55);
-        border-radius: 10px;
-    }
-
-    .profile-body label {
-        color: black;
-    }
-    .resume {
-        width: 100%;
-        height: 100px;
-    
-        border: none;
-        border-radius: 10px;
-        outline: aquamarine;
-    }
-    
-    #change-color {
-        border: none;
-        border-radius: 10px;
-        background-color: rgb(117, 114, 114);
-        color: rgb(232, 247, 31);
-    }
-
-}
-
-/***** Versão Desktop ******/
-
-.buttons-main-menu {
-    list-style: none;
-}
-
-/*Edição do Perfil*/
-
-.profile-body {
-    background-color: rgb(78, 77, 77);
-}
-
-.figure-profile {
-    display: flex;
-    justify-content: space-evenly;
-
-    width: 100%;
-    height: 208px;
-
-    margin: 3px;
-    border-radius: 10px;
-    background-color: rgb(187, 166, 45);
-}
-
-.picture-profile {
-    width: 200px;
-    height: 200px;
-
-    margin: 4px 0 4px 0;
-    border-radius:50%;
-}
-
-#name-profile {
-    height: 100%;
-
-    margin: 10px;
-    border-radius: 10px;
-
-    color: black;
-    font-size: 30px;
-    text-align: center;
-}
-
-#data-user {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.data-user {
-    padding: 2px;
-    
-    color: black;
-    border: 1px solid rgb(225, 255, 55);
-    border-radius: 9px;
-}
-
-.profile-body label {
-    color:black;
-}
-.resume {
-    width: 100%;
-    height: 100px;
-
-    border: none;
-    border-radius: 10px;
-    outline: aquamarine;
-}
-
-#change-color {
-    border: none;
-    border-radius: 10px;
-    background-color: rgb(117, 114, 114);
-    color: rgb(232, 247, 31);
+   
 }
