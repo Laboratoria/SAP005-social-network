@@ -22,7 +22,7 @@ export const Login = () => {
           <span class="btn-login-text">Sign in with Google</span>
         </button>
         </form>
-      <section>
+      </section>
       <p class="register-login">
         Ainda não tem uma conta? <a href="#">Registrar-se</a>
       </p>
