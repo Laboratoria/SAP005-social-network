@@ -1,11 +1,13 @@
 // Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
+import { Cadastro } from './pages/cadastro/index.js'
 // import { onNavigate } from './utils/history.js';
 
 const routes = {
   '/home': Home,
   '/': Login,
+  '/cadastro':Cadastro
 };
 
 const container = document.querySelector('#root');
