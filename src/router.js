@@ -3,6 +3,7 @@ import { Feed } from './pages/feed/index.js';
 import { onNavigate } from './utils/history.js';
 import { Register } from './pages/register/index.js';
 import { Login } from './pages/login/index.js';
+import { Review } from './pages/review/index.js';
 import { Profile } from './pages/profile/index.js';
 
 const root = document.querySelector('#root');
@@ -12,7 +13,8 @@ const routes = {
   '/feed': Feed,
   '/login': Login,
   '/register': Register,
-  '/profile': Profile,
+  '/review': Review,
+  '/profile': Profile
 };
 
 const renderRoute = () => {

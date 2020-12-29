@@ -11,10 +11,10 @@ export const Login = () => {
       <section>
         <form class="form-login">
         <label class="label-enter">Entrar</label>
-        <label class="label-email">E-mail</label>
-        <input type="email" class="email-login">
-        <label class="label-password">Senha</label>
-        <input type="password" class="password-login">
+        <label class="label-login">E-mail</label>
+        <input type="email" class="input-login" name="email-login" required>
+        <label class="label-login">Senha</label>
+        <input type="password" class="input-login" minlength="8" name="password-login" required>
         <button type="submit" class="btn-login">Entrar</button>
         <label class="alternative">Ou</label>
         <button id="btn-google">
