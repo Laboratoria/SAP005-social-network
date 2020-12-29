@@ -73,6 +73,51 @@ export const Home = () => {
     conteudo.classList.add('texto-post');
     conteudo.innerHTML = informacao.post;
 
+
+    const btnEditar = document.createElement('button');
+    btnEditar.classList.add('btn-editar');
+    btnEditar.innerHTML = "editar post";
+    btnEditar.addEventListener('click', btnEditarPost)
+    postDiv.appendChild(btnEditar);
+
+    const editarPost = document.createElement('textarea');
+    editarPost.classList.add('editar-post');
+    editarPost.innerHTML = informacao.post;
+    editarPost.style.display = "none"
+
+    const btnSalvarEditado = document.createElement('button');
+    btnSalvarEditado.classList.add('btn-salvar-editado');
+    btnSalvarEditado.innerHTML = "salvar";
+    btnSalvarEditado.addEventListener('click', btnSalvarEdicao)
+    btnSalvarEditado.style.display = "none";
+
+    function btnEditarPost() {
+      console.log("botão editar ok")
+      btnEditar.style.display = "none";
+      editarPost.style.display = "block"
+      btnSalvarEditado.style.display = "block";
+
+    };
+
+    function btnSalvarEdicao() {
+      console.log("botão salvar ok")
+      // conteudo.innerHTML = editarPost.value;
+
+      firebase.firestore().collection('posts').doc(feed).update(post).then(() => {
+        conteudo.innerHTML = editarPost.value;
+      });
+
+      // firebase.firestore().collection('posts').doc(post.uid).update({
+      //   post: editarPost.value
+      // })
+
+      editarPost.style.display = "none";
+      btnSalvarEditado.style.display = "none";
+      btnEditar.style.display = "block";
+    };
+
+
+
     const id = document.createElement('p');
     id.classList.add('texto-post');
     id.innerHTML = informacao.post;
@@ -91,10 +136,14 @@ export const Home = () => {
 
     postDiv.appendChild(nomeUser);
     postDiv.appendChild(conteudo);
+    postDiv.appendChild(editarPost);
+    postDiv.appendChild(btnSalvarEditado);
+
     postDiv.appendChild(likes);
 
     feedArea.appendChild(postDiv);
   }
+
 
   function likePost(uid) {
     const like = firebase.firestore().collection('posts').doc(uid);
