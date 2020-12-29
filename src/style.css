@@ -77,6 +77,11 @@ body {
   color: #333333;
 }
 
+.editar-post,
+.btn-salvar-editado {
+  display: none;
+}
+
 .btn-Logout{
   margin-top: 1em;
   margin-left: 1em;
