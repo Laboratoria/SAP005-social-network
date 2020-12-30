@@ -27,14 +27,14 @@ window.addEventListener('load', () => {
     .getElementById('home')
     .addEventListener('click', (e) => {
       e.preventDefault();
+      onNavigate('/home')
+    });
+  document
+    .getElementById('login')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
       onNavigate('/login')
     });
-  // document
-  //   .getElementById('login')
-  //   .addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     onNavigate('/login')
-  //   });
 
     document
     .getElementById('register')
@@ -43,12 +43,12 @@ window.addEventListener('load', () => {
       onNavigate('/register')
     });
 
-    // document
-    // .getElementById('feed')
-    // .addEventListener('click', (e) => {
-    //   e.preventDefault();
-    //   onNavigate('/feed')
-    // });
+    document
+    .getElementById('feed')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/feed')
+    });
 
   routeRender();
 });
