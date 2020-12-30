@@ -3,10 +3,10 @@ import { onNavigate } from '../../utils/history.js';
 export const Login = () => {
     const rootElement = document.createElement('div');
     rootElement.classList.add("formRegister")
-    rootElement.innerHTML = `    
+    rootElement.innerHTML = `   
 <div  id = "login" class="textRegister">
 <img class="logoL" src="img/learning.png" alt="Logo L"> 
-<div id = "notFound" class = "msgNotFound">
+<div id = "notFound" class="msgNotFound">
   </div>
     <form class="registerLogin">        
         <div class="registerColumn">
@@ -25,7 +25,6 @@ export const Login = () => {
         <button id="google"><img src="img/google.png"> </button>
     </div>
 </div>
-
 `;
     rootElement.querySelector('#eye').addEventListener("click", (e) => {
         e.preventDefault();
@@ -36,10 +35,12 @@ export const Login = () => {
             showPassword.type = "password";
         }
     })
+
     rootElement.querySelector("#btnCadastro").addEventListener("click", (e) => {
         e.preventDefault();
         onNavigate("/cadastro")
     })
+
     let emailInput = rootElement.querySelector("#email")
     let passwordInput = rootElement.querySelector("#passwordSecond")
 
@@ -71,17 +72,17 @@ export const Login = () => {
             // var token = result.credential.accessToken;
             // The signed-in user info.
             // var user = result.user;
-            console.log(result)
             onNavigate("/home")
         }).catch(function(error) {
-            // Handle Errors here.
-            // var errorCode = error.code;
-            // var errorMessage = error.message;
-            // The email of the user's account used.
-            // var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            // var credential = error.credential;
-            // ...
+            console.log(error)
+                // Handle Errors here.
+                // var errorCode = error.code;
+                // var errorMessage = error.message;
+                // The email of the user's account used.
+                // var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                // var credential = error.credential;
+                // ...
         });
 
     });
