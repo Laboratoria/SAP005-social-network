@@ -1,11 +1,6 @@
-
+import {Login} from "../login/index.js "
 
 export const Home = () => {
-  // Coloque sua página
-  const rootElement = document.createElement('div');
-  rootElement.innerHTML = `
-  Oiiiiii
-  `;
-
-  return rootElement;
+  
+  return Login();
 };

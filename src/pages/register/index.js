@@ -13,7 +13,7 @@ export const Register = () => {
       </div>
       <div clas="half-box spacing">
         <label for="name"> Nome</label>
-        <input type="name" name="name" id="name" placeholder="Digite seu nome">
+        <input type="name" name="name" id="name" placeholder="Digite seu nome" >
       </div>
       <div clas="half-box">
         <label for="lastname"> Sobrenome</label>
@@ -40,23 +40,17 @@ export const Register = () => {
   </div>
     `;
 
-    console.log(rootElement.querySelector("#btn-submit"))
-
-    //let form = rootElement.getElementById("register-form");
     let submit = rootElement.querySelector("#btn-submit");
-
-    console.log(submit)
     
     submit.addEventListener('click', function(e){
       e.preventDefault();
-      console.log('funcionou');
+      
       const email = rootElement.querySelector("#email").value
       const password = rootElement.querySelector("#password").value
       const name = rootElement.querySelector("#name").value
       const lastName = rootElement.querySelector("#lastname").value
 
       createUser(email,password,name,lastName)
-     
     });
 
     return rootElement;
