@@ -1,3 +1,5 @@
+import { onNavigate } from '../../utils/history.js';
+
 export const Home = () => {
     // Coloque sua página
     const rootElement = document.createElement('div');
@@ -29,5 +31,14 @@ export const Home = () => {
     <button class = "buttonPost">Publicar</button>
     `;
     rootElement.classList.add("feed")
+
+    rootElement.querySelector("#exit").addEventListener("click", (e) => {
+        e.preventDefault()
+        firebase.auth().signOut().then(function() {
+            onNavigate("/")
+        }).catch(function(error) {
+            // An error happened.
+        });
+    })
     return rootElement;
 }
