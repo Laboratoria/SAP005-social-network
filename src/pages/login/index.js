@@ -1,5 +1,5 @@
 // import { } from './data.js';
-import { Google, Facebook,Conta,Email} from '../../services/index.js';
+import { Google, Facebook,Email} from '../../services/index.js';
 // import { renderPage } from '../../router.js';
 
 import { renderPage } from '../../router.js';
@@ -22,7 +22,7 @@ export const Login = () => {
       <button id="btnGoogle">Google</button>
       <button id="btnFacebook">Facebook</button>
       <p>Não tem uma conta?<p/>
-      <button id="criarConta">Criar Conta</button>
+     
       <button id="criarCadastro">Cadastre-se</button>
 
       
@@ -66,15 +66,7 @@ export const Login = () => {
     });
   });
 
-  const criarConta = rootElement.querySelector('#criarConta');
-
-  criarConta.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    let email = document.getElementById('inputEmail').value;
-    let senha = document.getElementById('inputSenha').value;
-    Conta(email,senha);
-  });
+ 
 
   const loginEmail = rootElement.querySelector('#btnEmail');
 

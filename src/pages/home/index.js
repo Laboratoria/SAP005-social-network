@@ -1,4 +1,5 @@
 import { renderPage } from '../../router.js';
+
 // import { nomeUsuario } from './data.js';
 
 export const Home = () => {
@@ -23,7 +24,7 @@ export const Home = () => {
 
   const nomeUsuario = () => firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      // User is signed in.
+      
       document.querySelector('#userName').innerHTML = `Olá, ${user.displayName}`;
     } else {
       // No user is signed in.

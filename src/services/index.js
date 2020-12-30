@@ -8,11 +8,21 @@ export const Facebook = () => {
   return firebase.auth().signInWithPopup(provider);
 };
 
-export const Conta = (email, senha) => {
+export const Conta = (email, senha, name) => {
   
-  firebase.auth().createUserWithEmailAndPassword(email,senha).then(user => { 
-    console.log('usuario', user);
+  firebase.auth().createUserWithEmailAndPassword(email,senha).then(userReturn => { 
+    userReturn.user.updateProfile({
+      displayName: name
+  }).then(function() {
+      // Update successful.
+     alert('usuario Update successful.', userReturn);
+  }, function(error) {
+      // An error happened.
+      alert('An error happened.', error);
+  });     
+    console.log('usuario', userReturn);
     alert('usuario criado e logado');
+
   })
 };
 
