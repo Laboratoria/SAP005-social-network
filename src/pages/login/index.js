@@ -31,10 +31,11 @@ export const Login = () => {
 
     </form>
 
-    <label for="agreement" id="agreement-label">Não está cadastrado? <a href="http://localhost:5005/register">Registre-se.</a> </label>
+    <label for="agreement" id="agreement-label">Não está cadastrado? <a id="registerU">Registre-se.</a> </label>
   
   </div>
   `;
+
 
 
   let loginUser = rootElement.querySelector("#btn-submit-email");
@@ -61,6 +62,11 @@ export const Login = () => {
     onNavigate("/home");
   });
 
+  let registerU = rootElement.querySelector("#registerU");
+  registerU.addEventListener("click", function (e) {
+    e.preventDefault();
+    onNavigate("/register");
+  });
 
 
   return rootElement;
