@@ -18,7 +18,7 @@ export const Home = () => {
       </div>    
     </div>  
     <div>
-      <img class="perfil" src="img/perfil.png" alt="Foro Perfil">
+      <img class="perfil" src="img/perfil.png" alt="Foto Perfil">
     </div>  
     <div class = "nameHome">    
       <h1>Priscila Souza</h1>      
@@ -27,7 +27,12 @@ export const Home = () => {
     <input type="text" id="textPost" placeholder="O que você quer compartilhar?" autocomplete="off">  
     </div>
     <button class = "buttonPost">Publicar</button>
+
+    <input type="file" id="uploud">
+    <img id"imgProfile">
     `;
     rootElement.classList.add("feed")
     return rootElement;
+
+    
 }
