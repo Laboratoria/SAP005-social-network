@@ -20,13 +20,7 @@ export const Cadastro = () => {
         </div>
           
           <button id="criarConta">Cadastrar e entrar</button>
-
-         
-     
       </form>
-      
-
-      
     </section>
   `;
 
