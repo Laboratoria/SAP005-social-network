@@ -23,6 +23,10 @@ body {
 
     font-family: 'Quicksand', sans-serif;
     font-size: 27px;
+    transition: 1s;
+}
+.buttons-main-menu:hover {
+    background-color: rgb(226, 191, 33);
 }
 
 .network-name {
@@ -73,7 +77,9 @@ body {
     justify-content: center;
     width: 100%;
 }
-
+.login-inputs{
+    margin-top: 260px;
+}
 .login-inputs ul {
     width: 100%;
     list-style: none;
@@ -145,7 +151,9 @@ body {
         justify-content: center;
         width: 100%;
     }
-
+    .login-inputs{
+        margin-top: 0;
+    }
     .login-inputs ul {
         width: 100%;
         list-style: none;

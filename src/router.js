@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
       e.preventDefault();
       onNavigate('/login')
       document.getElementById('logo-name').style.display = "none"
-      document.getElementById('button-login')
+      document.getElementById('login-button')
 
       .addEventListener('click', (e) => {
       e.preventDefault();
