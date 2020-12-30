@@ -1,4 +1,9 @@
-if(document.getElementById('post') !== null){
+/*document.getElementById('logout').addEventListener("click", logOut)
+    function logOut() {
+
+    } */
+
+/* if(document.getElementById('post') !== null){
     document.getElementById('post').addEventListener("click", showPost)
      function showPost(e){
         e.preventDefault()
@@ -8,4 +13,4 @@ if(document.getElementById('post') !== null){
      }
     } else {
     console.log("Deu não")
-}
+} */

@@ -7,6 +7,7 @@ export const Subscribe = () => {
         <li> <form action=""> <input id='new-password' class="input-login" autocomplete="on" type="password" placeholder="Senha"> </form> </li>
         <li> <button id="subscribe-button" class="button-confirm">Cadastre</button> </li>
       </ul>
+      <p id='alert'></p>
     </nav>
     `
     ;

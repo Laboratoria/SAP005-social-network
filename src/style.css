@@ -23,6 +23,8 @@ body {
 
     font-family: 'Quicksand', sans-serif;
     font-size: 27px;
+
+    border-radius: 10px;
     transition: 1s;
 }
 .buttons-main-menu:hover {
@@ -81,7 +83,7 @@ body {
     margin-top: 260px;
 }
 .login-inputs ul {
-    width: 100%;
+    width: 90%;
     list-style: none;
     padding: 0;
 }
@@ -109,8 +111,88 @@ body {
 
     font-size: 20px;
 }
+#alert {
+    color: red;
+}
+
+/* Feed */
+
+#root div {
+    width: 100%;
+}
+.nav-bar ul {
+    display: flex;
+    justify-content: space-evenly;
+
+    list-style: none;
+}
+.nav-bar li {
+    width: 20%;
+    text-align: center;
+
+    padding: 2px;
+    border-radius: 10px;
+    transition: 1s;
+}
+.nav-bar li:hover {
+    background-color:  rgb(226, 191, 33);;
+}
 
 
+.figure-profile {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin: 3px;
+    border-radius: 10px;
+    background-color: rgb(187, 166, 45);
+}
+.picture-profile {
+    width: 200px;
+    height: 200px;
+
+    margin: 4px 0 4px 0;
+    border-radius:50%;
+}
+
+.write-post {
+    width: 500px;
+    height: 100px;
+
+    border: none;
+    border-radius: 10px;
+    outline: aquamarine;
+}
+.button-feed {
+    width: 80px;
+    height: 40px;
+
+    margin-top: 5px;
+    background-color: rgb(226, 191, 33);;
+
+    border-radius: 10px;
+    border: 1px solid rgb(184, 156, 1);
+
+    font-size: 20px;
+    transition: 1s;
+}
+.button-feed:hover {
+    background-color:  rgb(232, 247, 102);
+}
+
+#posts {
+    background-color: white;
+    border-radius: 10px;
+}
+#posts p {
+    padding: 10px;
+}
+.friends-post {
+    display: flex;
+    justify-content: space-evenly;
+
+    list-style: none;
+}
 
 @media only screen and (max-device-width: 500px){
 
@@ -184,5 +266,17 @@ body {
         font-size: 20px;
     }
 
-   
+   /* Feed */
+
+   #profile {
+    width: 100%;
+   }
+   .nav-bar ul {
+    display: flex;
+    justify-content: space-evenly;
+
+    padding: 0;
+    list-style: none;
+}
+
 }

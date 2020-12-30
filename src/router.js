@@ -4,7 +4,8 @@ import { Login } from './pages/login/index.js';
 import { onNavigate } from './utils/history.js';
 import { Subscribe } from './pages/subscribe/index.js';
 import { Feed } from './pages/feed/index.js';
-
+import { authentication } from './pages/subscribe/subscribe.js';
+import { loginFeed } from './pages/login/login.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
@@ -34,15 +35,7 @@ window.addEventListener('load', () => {
       e.preventDefault();
       onNavigate('/login')
       document.getElementById('logo-name').style.display = "none"
-      document.getElementById('login-button')
-
-      .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/feed')
-      document.getElementById('header-document').style.display = "none"
-      document.getElementById('root').style.width = "100%"
-      
-      }); 
+      loginFeed()
     });
   document
     .getElementById('subscribe')
@@ -50,15 +43,7 @@ window.addEventListener('load', () => {
       e.preventDefault();
       onNavigate('/subscribe');
       document.getElementById('logo-name').style.display = "none"
-
-      document.getElementById('subscribe-button').addEventListener("click", saveData)
-        function saveData(){
-           let email = document.getElementById('new-email').value;
-           let password = document.getElementById('new-password').value;
-
-           firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
-           console.log('usuário', user) 
-        })}
+      authentication()
     });
   routeRender();
 });

@@ -6,10 +6,11 @@ export const Feed = () => {
    <nav>
      <ul>
         <li>TPM</li> 
+        <li>Meu perfil</li>
         <li>Feed</li> 
         <li>Comunidades</li> 
         <li>Bate-papo</li>
-        <li>Meu perfil</li>  
+        <li id='logout'>Sair</li>
      </ul>
    </nav>
   </div>
@@ -20,8 +21,8 @@ export const Feed = () => {
       </figure>
       
       <form>
-        <input class="resume" type="text" placeholder="Poste uma ideia, uma dica ou uma oportunidade">
-        <input type="submit" id='post' class="button-feed" value="Postar">
+        <input class="write-post" type="text" placeholder="Poste uma ideia, uma dica ou uma oportunidade">
+        <input type="submit" id='post-it' class="button-feed" value="Postar">
       </form>
     </div>
      <div id='posts'>
