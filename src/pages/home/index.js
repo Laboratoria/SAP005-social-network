@@ -74,7 +74,7 @@ export const Home = () => {
         <textarea class="editar-post" id="textareaEditarPost">${informacao.post}</textarea>
         <button class="btn-salvar-editado" id="btnSalvarEdicao">salvar</button>
         <div>
-          <button class="btnLike" id="btnLike">curtir</button>
+          <button class="btnLike" id="btnLike" data-id =${informacao.id}>curtir</button>
         </div>
 
       </div>
@@ -148,6 +148,24 @@ export const Home = () => {
       });
     };
 
+    const likeBtn = document.querySelector("#btnLike");
+      likeBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("eai")
+        likePost();
+      })
+
+    function likePost(uid) {
+      const like = firebase.firestore().collection('posts').doc(uid);
+      like.update({ likes: firebase.firestore.FieldValue.increment(1) });
+      console.log(uid);
+  
+      console.log('oi');
+      
+    }
+
+    
+
   }
 
 
@@ -155,27 +173,9 @@ export const Home = () => {
   
 
 
-  function likePost(uid) {
-    const like = firebase.firestore().collection('posts').doc(uid);
-    like.update({ likes: firebase.firestore.FieldValue.increment(1) });
-    console.log(uid);
 
-    console.log('oi');
-    // likes.innerHTML = "Curtir";
-    // document.body.appendChild(likes);
 
-    // likesDiv.appendChild(likes);
 
-    // feedArea.appendChild(likesDiv);
-  }
-
-  /* const likesNumber = (post) => {
-    let like = firebase.firestore().collection('posts').doc(post);
-    like.update({likes: firebase.firestore.FieldValue.increment(1)});
-
-    console.log(uid);
-
-  } */
 
   firebase.firestore().collection('posts').orderBy('date', 'desc').onSnapshot((snapshot) => {
     snapshot.docChanges().forEach((feed) => {
