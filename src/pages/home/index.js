@@ -38,7 +38,7 @@ export const Home = () => {
   const btnPost = rootElement.querySelector('#btnPost');
 
   function criarPost() {
-    const uid = firebase.auth().currentUser.uid;
+    // const uid = firebase.auth().currentUser.uid;
     const userName = firebase.auth().currentUser.displayName;
 
     if (textoPost.value === '') {
@@ -47,7 +47,7 @@ export const Home = () => {
       const feed = {
         post: textoPost.value,
         name: userName,
-        uid,
+        id: firebase.auth().currentUser.uid,
         date: new Date(),
         likes: 0,
 
@@ -61,11 +61,15 @@ export const Home = () => {
   }
   btnPost.addEventListener('click', criarPost);
 
+
+
+
   function adicionaPostATela(informacao) {
     const cardPost = `
       <div class="card-post">
+        <button  class="btn-excluir" id="btnExcluirPost">excluir post</button>
         <h2 class="nome-usuario">${informacao.name}</h2>
-        <button class="btn-editar" id="btnEditarPost">editar post</button>
+        <button  class="btn-editar" id="btnEditarPost">editar post</button>
         <p class="texto-post" id="post">${informacao.post}</p>
         <textarea class="editar-post" id="textareaEditarPost">${informacao.post}</textarea>
         <button class="btn-salvar-editado" id="btnSalvarEdicao">salvar</button>
@@ -96,34 +100,59 @@ export const Home = () => {
 
     const textareaEditarPost = document.querySelector("#textareaEditarPost");
     const post = document.querySelector("#post");
-    const btnEditarPost = document.querySelector("#btnEditarPost");
-    btnEditarPost.addEventListener('click', (event) => {
-      event.preventDefault();
-      console.log("botão editar ok")
-      btnEditarPost.style.display = "none";
-      textareaEditarPost.style.display = "block"
-      btnSalvarEdicao.style.display = "block";
+    const areaPosts = document.querySelectorAll(".posts-enviados");
+    for (let cadaBtn of areaPosts) {
+      cadaBtn = document.querySelectorAll("#btnEditarPost");
+      cadaBtn.forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+          event.preventDefault();
+          console.log("btn editar OK")
+          textareaEditarPost.style.display = "block"
+          // btnSalvarEdicao.style.display = "block";
+          document.querySelector("#btnSalvarEdicao").style.display = "block"
+        });
     });
+    };
 
-    const btnSalvarEdicao = document.querySelector("#btnSalvarEdicao");
-    btnSalvarEdicao.addEventListener('click', (event) => {
-      event.preventDefault();
-      console.log("botão salvar ok")
-      post.innerHTML = textareaEditarPost.value;
+    for (let btnSalvarEdicao of areaPosts) {
+      btnSalvarEdicao = document.querySelector("#btnSalvarEdicao");
+      btnSalvarEdicao.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log("botão salvar ok")
+        post.innerHTML = textareaEditarPost.value;
 
-      // firebase.firestore().collection('posts').doc(feed).update(post).then(() => {
-      //   conteudo.innerHTML = editarPost.value;
-      // });
+        // firebase.firestore().collection('posts').doc(feed).update(post).then(() => {
+        //   conteudo.innerHTML = editarPost.value;
+        // });
 
-      // firebase.firestore().collection('posts').doc(post.uid).update({
-      //   post: editarPost.value
-      // })
+        // firebase.firestore().collection('posts').doc(post.uid).update({
+        //   post: editarPost.value
+        // })
 
-      textareaEditarPost.style.display = "none";
-      btnSalvarEdicao.style.display = "none";
-      btnEditarPost.style.display = "block";
-    });
+        textareaEditarPost.style.display = "none";
+        // btnSalvarEdicao.style.display = "none";
+        document.querySelector("#btnSalvarEdicao").style.display = "none"
+      });
+    };
+
+    for (let btnExcluirPost of areaPosts) {
+      btnExcluirPost = document.querySelectorAll("#btnExcluirPost");
+      btnExcluirPost.forEach((btnExluir) => {
+        btnExluir.addEventListener('click', (event) => {
+          event.preventDefault();
+          console.log("botão excluir ok");
+          if (confirm("Tem certeza que deseja excluir esse post?")) {
+            document.querySelector(".card-post").style.display = "none";
+          }
+        });
+      });
+    };
+
   }
+
+
+    
+  
 
 
   function likePost(uid) {

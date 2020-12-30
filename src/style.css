@@ -78,7 +78,8 @@ body {
 }
 
 .editar-post,
-.btn-salvar-editado {
+.btn-salvar-editado
+/* .btn-editar  */{
   display: none;
 }
 
