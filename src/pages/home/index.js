@@ -73,7 +73,7 @@ export const Home = () => {
         <textarea class="editar-post" id="textareaEditarPost">${informacao.post}</textarea>
         <button class="btn-salvar-editado" id="btnSalvarEdicao">salvar</button>
         <div>
-          <button class="btnLike" id="btnLike" data-id = "1">curtir</button>
+          <button class="btnLike" id="btnLike" data-id =${informacao.id}>curtir</button>
         </div>
 
       </div>
@@ -162,6 +162,8 @@ export const Home = () => {
       console.log('oi');
       
     }
+
+    
 
   }
 
