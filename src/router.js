@@ -3,16 +3,17 @@ import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
 import { onNavigate } from './utils/history.js';
 import { Subscribe } from './pages/subscribe/index.js';
-import { ProfileEdit } from './pages/subscribe/profile-edit.js';
+import { Feed } from './pages/feed/index.js';
+import { authentication } from './pages/subscribe/subscribe.js';
+import { loginFeed } from './pages/login/login.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
     '/' : Home,
     '/login': Login,
-    '/subscribe/index.js': Subscribe,
-    '/subscribe/profile-edit.js': ProfileEdit,
-
+    '/subscribe': Subscribe, 
+    '/feed' : Feed
   };
 
   rootDiv.innerHTML = '';
@@ -26,26 +27,23 @@ window.addEventListener('load', () => {
     .addEventListener('click', (e) => {
       e.preventDefault();
       onNavigate('/')
+      document.getElementById('logo-name').style.display = "none"
     });
   document
     .getElementById('login')
     .addEventListener('click', (e) => {
       e.preventDefault();
       onNavigate('/login')
+      document.getElementById('logo-name').style.display = "none"
+      loginFeed()
     });
-    document
+  document
     .getElementById('subscribe')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/subscribe/index.js');
-      document.getElementById('create-account-button').style.display = "block";
-    });
-    document
-    .getElementById('create-account-button')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/subscribe/profile-edit.js')
-      document.getElementById('create-account-button').innerHTML = "Concluir cadastro"
+      onNavigate('/subscribe');
+      document.getElementById('logo-name').style.display = "none"
+      authentication()
     });
   routeRender();
 });
