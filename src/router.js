@@ -56,9 +56,9 @@ window.addEventListener('load', () => {
            let email = document.getElementById('new-email').value;
            let password = document.getElementById('new-password').value;
 
-         firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
-         console.log('usuário', user) 
-      })}
+           firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
+           console.log('usuário', user) 
+        })}
     });
   routeRender();
 });

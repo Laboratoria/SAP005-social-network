@@ -14,21 +14,21 @@ export const Feed = () => {
    </nav>
   </div>
     <div id="profile">
-        <figure class='figure-profile'>
-            <img class="picture-profile" src="/src/pages/feed/img-profile/profile/profile-exemple.jpg" alt=""> 
-            <p id="name-profile">Keiti Peurri</p>
-        </figure>
-        
+      <figure class='figure-profile'>
+        <img class="picture-profile" src="/src/pages/feed/img-profile/profile/profile-exemple.jpg" alt=""> 
+        <p id="name-profile">Keiti Peurri</p>
+      </figure>
+      
       <form>
         <input class="resume" type="text" placeholder="Poste uma ideia, uma dica ou uma oportunidade">
         <input type="submit" id='post' class="button-feed" value="Postar">
       </form>
     </div>
      <div id='posts'>
-        <p>
-            Olá, garotas! Parabéns por participarem dessa maravilhosa iniciativa. <br>
-            Vamos mudar nossas vidas e evoluir juntas!!! 
-        </p>
+      <p>
+        Olá, garotas! Parabéns por participarem dessa maravilhosa iniciativa. <br>
+        Vamos mudar nossas vidas e evoluir juntas!!! 
+      </p>
      <nav>
        <ul class='friends-post'>
          <li><img src='/src/pages/feed/reacts/like.png' alt='like-it'></li> 
