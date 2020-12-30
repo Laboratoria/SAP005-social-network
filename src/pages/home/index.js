@@ -1,7 +1,7 @@
 export const Home = () => {
-    // Coloque sua página
-    const rootElement = document.createElement('div');
-    rootElement.innerHTML = `
+  // Coloque sua página
+  const rootElement = document.createElement('div');
+  rootElement.innerHTML = `
     <div class = "header">     
         <img class="logoHome" src="img/learning.png" alt="Logo Learning">
 
@@ -28,11 +28,10 @@ export const Home = () => {
     </div>
     <button class = "buttonPost">Publicar</button>
 
-    <input type="file" id="uploud">
-    <img id"imgProfile">
     `;
-    rootElement.classList.add("feed")
-    return rootElement;
 
-    
+
+  rootElement.classList.add("feed")
+  return rootElement;
+
 }

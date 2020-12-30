@@ -1,3 +1,4 @@
+
 import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
@@ -13,7 +14,6 @@ export const Login = () => {
             <input type="email" id="email" placeholder="Email" required autocomplete="off">           
             <input id="passwordSecond" type="password" placeholder="Senha" required autocomplete="off">
             <button id="eye"><img src="https://img.icons8.com/ios-glyphs/30/000000/visible--v1.png"/></button>                     
-
             <button id="btnLogin">Login</button> 
         </div>
     </form>
@@ -25,10 +25,7 @@ export const Login = () => {
         <button id="google"><img src="img/google.png"> </button>
     </div>
 </div>
-
 `;
-
-
     rootElement.querySelector('#eye').addEventListener("click", (e) => {
         e.preventDefault();
         const showPassword = rootElement.querySelector("#passwordSecond");
