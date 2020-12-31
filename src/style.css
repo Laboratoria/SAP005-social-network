@@ -9,6 +9,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    display: none;
 }
 .login{
     display: flex;
@@ -17,6 +18,7 @@
     justify-content: space-evenly;
     align-items: center;
     height: 100vh;
+    margin: 15px 0px;
 }
 .left{
     display: flex;
@@ -34,7 +36,7 @@
 .logoname{
     color: #FF780F;
 }
-.right{
+.right, .form{
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -57,6 +59,9 @@
     margin: 18px 0px;
     outline: transparent;
 }
+.enter-button:hover{
+    background-color:#FEBB86;
+}
 .subtitle{
     font-weight: normal;
     font-size: 14px;
@@ -69,16 +74,15 @@
     font-weight: medium;
     border-style: none;
     background-color: #FFFFFF;
-    margin-bottom: 15px;
     outline: transparent;
+}
+.button-text:hover{
+    text-decoration: underline;
 }
 .input-in-line{
     width: 255px;
-    border: 1.5px solid #231911;
+    border-bottom: 1.5px solid #231911;
     padding: 8px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
     outline-color: #FF780F;
 }
 .button-icon{
@@ -88,12 +92,8 @@
     margin: 18px 0px;
     outline: transparent;
 }
-.button-icon img:hover {
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
+.button-icon:hover{
+    opacity: .60;
 }
 .errorMessage{
     padding: 5px;
@@ -101,7 +101,4 @@
     font-size: 11px;
     text-align: center;
     color: #db0b0b;
-}
-.hidden{
-    display: none;
 }
