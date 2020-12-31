@@ -4,6 +4,9 @@
     padding: 0;
     font-family: 'Roboto', sans-serif, normal, normal;
 }
+fieldset{
+    border: none;
+}
 .hidden{
     display: flex;
     flex-direction: row;
@@ -45,9 +48,10 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 .enter-button{
-    width: 110px;
+    width: 240px;
     height: 35px;
     border-radius: 50px;
     border-style: none;
