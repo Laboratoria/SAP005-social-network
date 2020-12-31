@@ -1,7 +1,6 @@
 import { onNavigate } from '../../utils/history.js';
-//--------------------- TODO: Usar formulário HTML ---------------------\\
 export const Login = () => {
-  const rootElement = document.createElement('div');
+  const rootElement = document.createElement("div");
   rootElement.innerHTML = `
     <section class="login">  
       <section class="left">  
@@ -9,13 +8,15 @@ export const Login = () => {
         <p class="theme"><span class="logoname">[Ada]</span> Programe como uma mulher.</p>
       </section>
       <section class="right">
-        <input type="email" id="email" class="input-in-line" placeholder="E-mail" required>
-        <input type="password" id="password" class="input-in-line" placeholder="Password" required>
-        <section id="errorLogin" class="errorMessage"></section> 
-        <section id="login-button"">
-          <button class="enter-button" id="signIn">Sign In</button> 
-          <button class="enter-button" id="signUp">Sign Up</button>
-        </section>
+        <form id="signIn">
+          <fieldset class="right">
+            <input type="email" id="email" class="input-in-line" placeholder="E-mail" required>
+            <input type="password" id="password" class="input-in-line" placeholder="Password" required>
+            <section id="errorLogin" class="errorMessage"></section>
+          </fieldset>
+          <fieldset class="login-button"">
+            <button type="submit" class="enter-button">Sign In</button> 
+            </fieldset>
         <p class="subtitle">_______________ OU _______________</p>
         <section class="login-button">
           <button id="google" class="button-icon"><img src='../../img/google.svg' height="50px" width="50px" alt="Logo Google na cor laranja"></button>
@@ -29,12 +30,11 @@ export const Login = () => {
     </section>    
   `;
   //---------------------- GUARDANDO TODOS OS INPUTS ---------------------\\
-  const signIn = rootElement.querySelector('#signIn');
-  const signUp = rootElement.querySelector('#signUp');
-  const register = rootElement.querySelector('#register');
-  const signUpGoogle = rootElement.querySelector('#google');
-  const signUpFb = rootElement.querySelector('#facebook');
-  const signUpGh = rootElement.querySelector('#github');
+  const signIn = rootElement.querySelector("#signIn");
+  const register = rootElement.querySelector("#register");
+  const signUpGoogle = rootElement.querySelector("#google");
+  const signUpFb = rootElement.querySelector("#facebook");
+  const signUpGh = rootElement.querySelector("#github");
   //------------------------- MENSAGENS DE ERRO ------------------------- \\
   const verifyErrorCode = {
     "auth/invalid-email": "O endereço de e-mail não é válido. Por favor, preencha novamente.",
@@ -45,9 +45,9 @@ export const Login = () => {
     "default": "Ocorreu algum erro. Por favor, tente novamente",
   }
   const errorMessageEmptyInput = "O preenchimento dos campos de e-mail e senha é obrigatório.";
-  //------------------------------- EVENTOS -------------------------------\\
   //---------------------- FUNÇÕES DE AUTENTIFICAÇÃO ----------------------\\
-  signIn.addEventListener("click", e => {
+  signIn.addEventListener("submit", event => {
+    event.preventDefault();
     const email = rootElement.querySelector("#email").value;
     const password = rootElement.querySelector("#password").value;
     if (email === "" || password === "") {
@@ -60,29 +60,8 @@ export const Login = () => {
         })
         .catch(err => {
           const errorCode = err.code;
-          let errorMessage = verifyErrorCode[errorCode];
-          if (errorMessage == null) {
-            errorMessage = err.Message;
-          }
-          printMessageError(errorMessage);
-        });
-    }
-  });
-  //-------------- TODO: Validação de e-mail e não permitir usuários repetidos ---------------\\
-  signUp.addEventListener("click", e => {
-    const email = rootElement.querySelector("#email").value;
-    const password = rootElement.querySelector("#password").value;
-    if (email === "" || password === "") {
-      printMessageError(errorMessageEmptyInput);
-    } else {
-      const promise = firebase.auth().createUserWithEmailAndPassword(email, password);
-      promise
-        .then(() => {
-          onNavigate('/');
-        }).catch(err => {
-          const errorCode = err.code;
-          let errorMessage = verifyErrorCode[errorCode];
-          if (errorMessage == null) {
+          const errorMessage = verifyErrorCode[errorCode];
+          if (errorMessage === null) {
             errorMessage = err.Message;
           }
           printMessageError(errorMessage);
@@ -96,8 +75,8 @@ export const Login = () => {
         onNavigate('/');
       }).catch(err => {
         const errorCode = err.code;
-        let errorMessage = verifyErrorCode[errorCode];
-        if (errorMessage == null) {
+        const errorMessage = verifyErrorCode[errorCode];
+        if (errorMessage === null) {
           errorMessage = err.Message;
         }
         printMessageError(errorMessage);
@@ -110,8 +89,8 @@ export const Login = () => {
         onNavigate('/');
       }).catch(err => {
         const errorCode = err.code;
-        let errorMessage = verifyErrorCode[errorCode];
-        if (errorMessage == null) {
+        const errorMessage = verifyErrorCode[errorCode];
+        if (errorMessage === null) {
           errorMessage = err.Message;
         }
         printMessageError(errorMessage);
@@ -124,8 +103,8 @@ export const Login = () => {
         onNavigate('/');
       }).catch(err => {
         const errorCode = err.code;
-        let errorMessage = verifyErrorCode[errorCode];
-        if (errorMessage == null) {
+        const errorMessage = verifyErrorCode[errorCode];
+        if (errorMessage === null) {
           errorMessage = err.Message;
         }
         printMessageError(errorMessage);
@@ -145,3 +124,33 @@ function printMessageError(message) {
   document.getElementById("errorLogin").innerHTML = "";
   document.getElementById("errorLogin").appendChild(elementError);
 }
+
+/*
+//-------------- Fazer a validação do registro ---------------\\
+  const signUp = rootElement.querySelector('#signUp');
+  signUp.addEventListener("click", e => {
+    const email = rootElement.querySelector("#email").value;
+    const password = rootElement.querySelector("#password").value;
+    if (email === "" || password === "") {
+      printMessageError(errorMessageEmptyInput);
+    } else {
+      const promise = firebase.auth().createUserWithEmailAndPassword(email, password);
+      promise
+        .then(() => {
+          onNavigate('/');
+        }).catch(err => {
+          const errorCode = err.code;
+          const errorMessage = verifyErrorCode[errorCode];
+          if (errorMessage == null) {
+            errorMessage = err.Message;
+          }
+          printMessageError(errorMessage);
+        });
+    }
+  });
+  Dúvida: 
+  *Não haver usuários repetidos (só e-mail ou nome também?).
+  Definir um formato de senha (número de caracteres, strings, number, etc.). 
+  E inserir uma mensagem de erro, caso a mensagem não atenda aos requisitos. 
+  //"auth/weak-password": "A senha é muito fraca.",
+  */
