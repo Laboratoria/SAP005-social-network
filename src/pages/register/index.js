@@ -1,3 +1,5 @@
+import { createRegister } from '../../services/index.js';
+
 export const Register = () => {
 
   const rootElement = document.createElement('div');
@@ -11,12 +13,12 @@ export const Register = () => {
         <label class="label-register-name" for="username">Nome</label>
         <input class="input-register-name" type="text" name="username" required>
         <label class="label-register-email" for="email">E-mail</label>
-        <input class="input-register-email" type="email" name="email" required>
+        <input class="input-register-email" type="email" name="email" id="register-email" required> 
         <label class="label-register-password" for"password">Senha</label>
-        <input class="input-register-password" type="password" name="password" minlength="8" required>
+        <input class="input-register-password" type="password" name="password" minlength="8" id="register-password" placeholder="A senha deve conter no mínimo 8 caracteres" required>
         <label class="label-confirm-password" for="confirm-password">Confirmar senha</label>
-        <input class="input-confirm-password" type="password" name="confirm-password" minlength="8" required>
-        <button class="btn-register" type="submit">Registrar-se</button>
+        <input class="input-confirm-password" type="password" name="confirm-password" minlength="8" id="confirm-password" placeholder="A senha deve conter no mínimo 8 caracteres" required>
+        <button class="btn-register" type="submit" id="btn-register">Registrar-se</button>
         <label class="option-register">Ou</label>
         <button class="btn-register" type="button">G google</button>
       </form>
@@ -26,5 +28,9 @@ export const Register = () => {
     </p>
   `;
   rootElement.innerHTML = templateRegister
+
+  const registerButton = rootElement.querySelector('#btn-register');
+  registerButton.addEventListener('click', createRegister);
+
   return rootElement;
 };
