@@ -39,7 +39,7 @@ export const Register = () => {
   <p class="error-validation template"></p>
   </div>
     `;
-
+ 
     console.log(rootElement.querySelector("#btn-submit"))
 
     //let form = rootElement.getElementById("register-form");
@@ -54,6 +54,10 @@ export const Register = () => {
       const password = rootElement.querySelector("#password").value
       const name = rootElement.querySelector("#name").value
       const lastName = rootElement.querySelector("#lastname").value
+
+      /* se email digitado igual email return cadastrado
+nos imput colocar obrigatório email e senha*/
+
 
       createUser(email,password,name,lastName)
      
