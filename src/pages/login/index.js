@@ -19,7 +19,7 @@ export const Login = () => {
     </div>
     <div class="new-register">
       <p>Não tem uma conta?</p>
-      <a href="#">Cadastre-se</a>
+      <a id="register" href="/register">Cadastre-se</a>
     </div>
   </div>
   `;
