@@ -50,6 +50,10 @@ export const Register = () => {
       const name = rootElement.querySelector("#name").value
       const lastName = rootElement.querySelector("#lastname").value
 
+      /* se email digitado igual email return cadastrado
+nos imput colocar obrigatório email e senha*/
+
+
       createUser(email,password,name,lastName)
     });
 

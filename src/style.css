@@ -8,6 +8,7 @@
     border: none;
 }
 
+
 input, label{
     display: block;
     width: 100%
@@ -20,19 +21,25 @@ input:focus, label:focus{
 
 a{
     color: rgb(214, 43, 123); /*cor dos links*/
-
 }
+
 body{
     background-color:rgb(12, 11, 11);
 }
 
+.container {
+    padding: 1.5%;
+
+}
+
 #main-container{
-    width: 500px;
+
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     background-color: rgb(248, 247, 248);
     border-radius: 10px;
-    padding: 25px;
+    padding: 10%;
 }
 
 #main-container h1{
@@ -112,8 +119,8 @@ input[type="submit"]{
 
   
 .imgLogo{
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
 
 li{

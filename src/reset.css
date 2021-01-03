@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    font-size:100%;
+    color: #555;
+}
+
+.container, header, section, footer, h1, h2, img, figure, figcaption{
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+
+header, section, footer{
+    margin-top: 5px;
+    background-color: cornsilk;
+}
+
+.container {
+    background-color: cadetblue;
+}
