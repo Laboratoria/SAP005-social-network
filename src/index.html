@@ -10,30 +10,26 @@
     <title>Black Talents</title>
   </head>
   <body>
-          <header> 
+      <header> 
+        <div>
           <img class="imgLogo" src="./img/black_talents.png" alt="Logo black Talents">
-          </header>
+        </div>
+        <nav>
+          <ul>
+            <li id='home'>Home</li>
+            <li id='register'>Cadastre-se</li>
+            <li id='login'>Login</li>
+            <li id='feed'>Feed</li>
+          </ul>
+        </nav>
+      </header>
 
-    <div id="fb-auth">
-
-    </div>
-
-      <nav>
-        <ul>
-          <li id='home'>Home</li>
-          <li id='login'>Login</li>
-          <li id='register'>Register</li>
-          <li id='feed'>Feed</li>
-        </ul>
-      </nav>
-   
     <div id="root"></div>
 
     <script  src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script  src="https://www.gstatic.com/firebasejs/8.2.1//firebase-auth.js"></script>
-    <!--https://firebase.google.com/docs/web/setup#available-libraries -->
     <script>
-      // Your web app's Firebase configuration
+      
       const firebaseConfig = {
         apiKey: "AIzaSyAfUeMPAPAssdg1A4_UZuxl5fELlGnuOSA",
         authDomain: "rede-social-eea17.firebaseapp.com",
@@ -43,7 +39,6 @@
         appId: "1:674608447239:web:e98fba2157583c2e88cfa2"
       };
       
-      // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
     </script>
     
