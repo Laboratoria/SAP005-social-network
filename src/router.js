@@ -8,32 +8,29 @@ import { onNavigate } from './utils/history.js';
 //   onNavigate,
 //   };
 
-  const routeRender = () => {
-    const rootDiv = document.getElementById('root');
-    const routes = {
-      '/' : Home,
-      '/login': Login,
-  
-    };
-  
-    rootDiv.innerHTML = '';
-    rootDiv.appendChild(routes[window.location.pathname]());
+const routeRender = () => {
+  const rootDiv = document.getElementById('root');
+  const routes = {
+    '/home': Home,
+    '/login': Login,
   };
-  
-  window.addEventListener('popstate', routeRender);
-  window.addEventListener('load', () => {
-    document
-      .getElementById('home')
-      // .addEventListener('click', (e) => {
-      //   e.preventDefault();
-      //   onNavigate('/')
-      // });
-    document
-      .getElementById('login')
-      // .addEventListener('click', (e) => {
-      //   e.preventDefault();
-      //   onNavigate('/login')
-      // });
-  
-    routeRender();
-  });
+
+  rootDiv.innerHTML = '';
+  rootDiv.appendChild(routes[window.location.pathname]());
+};
+
+window.addEventListener('popstate', routeRender);
+window.addEventListener('load', () => {
+  document.getElementById('home')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/home');
+    });
+  document.getElementById('login')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/login');
+    });
+
+  routeRender();
+});
