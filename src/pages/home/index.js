@@ -1,5 +1,6 @@
 import { onNavigate } from '../../utils/history.js';
 export const Home = () => {
+  //----------------- TODO: TRATAR ERROS ----------------\\
   //----- FUNÇÃO DE VERIFICAR SE O USUÁRIO TÁ LOGADO -----\\
   window.addEventListener("load", event => {
     event.preventDefault();
@@ -103,17 +104,16 @@ function printPosts(post) {
         </button>
       </section>  
     </ul>
-  `
-//------------ CRIANDO O TEMPLATE DA PÁGINA -------------\\   
-//---------------- EVENTOS QUE CHAMAM AS FUNÇÕES DO FEED ----------------\\
+  `  
+//-------- EVENTOS QUE CHAMAM AS FUNÇÕES DO FEED ---------\\
   document.querySelector("#feed").innerHTML += templatePost;
   document.querySelector("#like").addEventListener("click", likePost);
   document.querySelector("#delete").addEventListener("click", deletePost);
 }
-//---------------- FUNÇÃO DE CARREGAR TODAS AS PUBLICAÇÕES ----------------\\
+//------------ FUNÇÃO DE CARREGAR PUBLICAÇÕES ------------\\
 function loadPosts() {
   const postCollection = firebase.firestore().collection("posts");
-//---------------- TODO: Animação de carregando a página ----------------\\
+//-------- TODO: Animação de carregando a página ---------\\
   document.querySelector("#feed").innerHTML = "Carregando...";
   postCollection.orderBy("time", "desc").get().then(snapshot => {
     document.querySelector("#feed").innerHTML = "";
@@ -122,9 +122,9 @@ function loadPosts() {
     });
   });
 }
-//---------------- FUNÇÃO DE EXCLUIR ----------------\\
-//---- Só tá funcionando o botão do primeiro post ----\\
-//---------------- TODO: pegar a ID do post, confirmar que quer excluir, não tá funcionando (rever) ----------------\\
+//----------------- FUNÇÃO DE EXCLUIR -----------------\\
+//----- Só tá funcionando o botão do primeiro post -----\\ 
+// TODO: pegar a ID do post e confirmar que quer excluir \\
 function deletePost(postID){
   console.log("o erro não é o botão")
   const postCollection = firebase.firestore().collection("posts");
@@ -133,21 +133,22 @@ function deletePost(postID){
   });
   deletePost();
 }
-//----------------- FUNÇÃO DE LIKE -----------------\\
-//---- Só tá funcionando o botão do primeiro post ----\\
+//--------------------- FUNÇÃO DE LIKE -------------------\\
+//------- Só tá funcionando o botão do primeiro post ------\\
 function likePost(){
   console.log("deixou o joinha");
 }
-//----------------- FUNÇÃO DE EDITAR ----------------\\
-
-//------------------ HACKER EDITION ------------------\\
-//----------------- FUNÇÃO DE COMENTAR ----------------\\
-//-------------------- POSTAR IMAGEM -------------------\\
-//------------------ PÚBLICO OU PRIVADO -----------------\\
+//------------------- FUNÇÃO DE EDITAR ------------------\\
 
 
 
-
+//-------------------- HACKER EDITION --------------------\\
+//------------------- FUNÇÃO DE COMENTAR ------------------\\
+//---------------------- POSTAR IMAGEM ---------------------\\
+//--------------- ADICIONAR OU EXCLUIR AMIGOS ---------------\\
+//-------------------- PÚBLICO OU PRIVADO --------------------\\
+//----------------------- EDITAR PERFIL -----------------------\\
+//---------------- TIMELINE PERFIL PERSONALIZADA ---------------\\
 
 
 
