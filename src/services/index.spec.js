@@ -1,8 +1,8 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from './index';
+import { Feed } from './index';
 
-describe('myFunction', () => {
+describe('Feed', () => {
   it('should be a function', () => {
-    expect(typeof myFunction).toBe('function');
+    expect(typeof Feed).toBe('function');
   });
 });
