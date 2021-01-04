@@ -114,15 +114,16 @@ function printPosts(post) {
 function loadPosts() {
   const postCollection = firebase.firestore().collection("posts");
 //---------------- TODO: Animação de carregando a página ----------------\\
-  document.querySelector("#feed").innerHTML = "Carregando..";
-  postCollection.get().then(snap => {
+  document.querySelector("#feed").innerHTML = "Carregando...";
+  postCollection.orderBy("time", "desc").get().then(snapshot => {
     document.querySelector("#feed").innerHTML = "";
-    snap.forEach(post => {
+    snapshot.forEach(post => {
       printPosts(post);
     });
   });
 }
 //---------------- FUNÇÃO DE EXCLUIR ----------------\\
+//---- Só tá funcionando o botão do primeiro post ----\\
 //---------------- TODO: pegar a ID do post, confirmar que quer excluir, não tá funcionando (rever) ----------------\\
 function deletePost(postID){
   console.log("o erro não é o botão")
