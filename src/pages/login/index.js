@@ -4,24 +4,25 @@ export const Login = () => {
   rootElement.innerHTML = `
     <section class="login">  
       <section class="left">  
-        <img src='../../img/ada-lovelace.svg' width="175px" height="175px" alt="Desenho do rosto de Ada Lovelace em preto com um fundo redondo alaranjado">
+        <img src="../../img/ada-lovelace.svg" width="175px" height="175px" alt="Desenho do rosto de Ada Lovelace em preto com um fundo redondo alaranjado">
         <p class="theme"><span class="logoname">[Ada]</span> Programe como uma mulher.</p>
       </section>
       <section class="right">
         <form id="signIn">
           <fieldset class="right">
             <input type="email" id="email" class="input-in-line" placeholder="E-mail" required>
-            <input type="password" id="password" class="input-in-line" placeholder="Password" required>
+            <input type="password" id="password" class="input-in-line" placeholder="Senha" required>
             <section id="errorLogin" class="errorMessage"></section>
           </fieldset>
-          <fieldset class="login-button"">
-            <button type="submit" class="enter-button">Sign In</button> 
-            </fieldset>
+          <fieldset class="login-button">
+            <button type="submit" class="enter-button">Entrar</button> 
+          </fieldset>
+        </form>    
         <p class="subtitle">_______________ OU _______________</p>
         <section class="login-button">
-          <button id="google" class="button-icon"><img src='../../img/google.svg' height="50px" width="50px" alt="Logo Google na cor laranja"></button>
-          <button id="facebook" class="button-icon"><img src='../../img/facebook.svg' height="50px" width="50px" alt="Logo Facebook na cor laranja"></button>
-          <button id="github" class="button-icon"><img src='../../img/github.svg' height="50px" width="50px" alt="Logo GitHub na cor laranja"></button>
+          <button id="google" class="button-icon"><img src="../../img/google.svg" height="50px" width="50px" alt="Logo Google na cor laranja"></button>
+          <button id="facebook" class="button-icon"><img src="../../img/facebook.svg" height="50px" width="50px" alt="Logo Facebook na cor laranja"></button>
+          <button id="github" class="button-icon"><img src="../../img/github.svg" height="50px" width="50px" alt="Logo GitHub na cor laranja"></button>
         </section>  
         <p class="subtitle">Não tem uma conta?
         <button id="register" class="button-text">Registre-se</button>
@@ -124,33 +125,3 @@ function printMessageError(message) {
   document.getElementById("errorLogin").innerHTML = "";
   document.getElementById("errorLogin").appendChild(elementError);
 }
-
-/*
-//-------------- Fazer a validação do registro ---------------\\
-  const signUp = rootElement.querySelector('#signUp');
-  signUp.addEventListener("click", e => {
-    const email = rootElement.querySelector("#email").value;
-    const password = rootElement.querySelector("#password").value;
-    if (email === "" || password === "") {
-      printMessageError(errorMessageEmptyInput);
-    } else {
-      const promise = firebase.auth().createUserWithEmailAndPassword(email, password);
-      promise
-        .then(() => {
-          onNavigate('/');
-        }).catch(err => {
-          const errorCode = err.code;
-          const errorMessage = verifyErrorCode[errorCode];
-          if (errorMessage == null) {
-            errorMessage = err.Message;
-          }
-          printMessageError(errorMessage);
-        });
-    }
-  });
-  Dúvida: 
-  *Não haver usuários repetidos (só e-mail ou nome também?).
-  Definir um formato de senha (número de caracteres, strings, number, etc.). 
-  E inserir uma mensagem de erro, caso a mensagem não atenda aos requisitos. 
-  //"auth/weak-password": "A senha é muito fraca.",
-  */
