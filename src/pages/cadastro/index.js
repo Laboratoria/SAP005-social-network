@@ -23,8 +23,6 @@ export const Cadastro = () => {
 
      
       </form>
-
-      
     </section>
   `;
 
