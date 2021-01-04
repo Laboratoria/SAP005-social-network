@@ -2,12 +2,6 @@ import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
 import { onNavigate } from './utils/history.js';
 
-// export default {
-//   Login,
-//   Home,
-//   onNavigate,
-//   };
-
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
