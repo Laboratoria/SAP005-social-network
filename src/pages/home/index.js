@@ -1,7 +1,5 @@
-
 import {onNavigate} from "../../utils/history.js"
 export const Home = () => {
-
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
       <div class="slider">
@@ -41,4 +39,3 @@ export const Home = () => {
   })
   return rootElement;
 };
-
