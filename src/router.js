@@ -21,42 +21,5 @@ const routeRender = () => {
 
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
-  document
-    .getElementById('home')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/')
-    });
-  document
-    .getElementById('login')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/login')
-    });
-  document
-    .getElementById('feed')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/services')
-    });
-  document
-    .getElementById('notification')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/services/notification')
-    });
-  document
-    .getElementById('profile')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/services/profile')
-    });
-  document
-    .getElementById('message')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/services/message')
-    });
-
   routeRender();
 });

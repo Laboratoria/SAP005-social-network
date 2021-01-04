@@ -1,84 +1,95 @@
-.dysplay-template{
+body {
+    font-family: 'Fjalla Um', sans-serif;
+}
+.dysplay-template {
     display: flex;
 }
-.icon-page{
+.icon-page {
     width: 150px;
 }
-.slider{
+.slider {
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.8);
     position: relative;
 }
-.slider figure{
+.slider figure {
     position: relative;
     width: 500%;
     margin: 5px;
-    animation: 15s slider infinite ;
+    animation: 15s slider infinite;
 }
-.slider figure img{
+.slider figure img {
     width: 20%;
-    height: 85vh;
+    height: 80vh;
     float: left;
     opacity: 0.5;
     object-fit: cover;
-
 }
-.slider button{
+.slider button {
     position: absolute;
     top: 5%;
-    right: 5vw; 
+    right: 5vw;
+    width: 120px;
+    height: 30px;
+    background-color: rgb(224, 105, 8);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
 }
-.banner{
+.banner {
     position: absolute;
-    top: 20%;
-    left: 15vw;  
+    top: 15%;
+    left: 15vw;
 }
-.banner p{
+.banner p {
+    font-size: 1.5rem;
     color: white;
     text-transform: uppercase;
 }
-.banner img{
-    width: 200px;
-    margin-right: 0;
+.banner img {
+    width: 250px;
+    margin-left: -30px;
 }
-.container{
-    justify-content: space-evenly;
+.container {
     text-align: center;
+    width: 95vw;
 }
-.icon{
-   width: 50px;
-   margin: 15px;
+.icon {
+    width: 50px;
+    margin: 15px;
 }
-.arrow{
+.arrow {
     margin-left: 45%;
 }
-.social-media{
+.social-media {
     position: absolute;
     width: 95vw;
     justify-content: center;
 }
-.social-media a{
-    text-decoration: none;
-    color: rgb(206, 134, 0);
+.colorText {
+    color: rgb(224, 105, 8);
 }
-
-@keyframes slider{
-    0%{
+.social-media a {
+    text-decoration: none;
+}
+@keyframes slider {
+    0% {
         left: 0;
     }
     20% {
         left: 0;
     }
-    25%{
+    25% {
         left: -100%;
     }
-    45%{
+    45% {
         left: -100%;
     }
-    50%{
+    50% {
         left: -200%;
     }
-    70%{
+    70% {
         left: 0;
     }
 }
