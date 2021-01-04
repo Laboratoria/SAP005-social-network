@@ -59,7 +59,7 @@ export const Login = () => {
   logoutUser.addEventListener("click", function (e) {
     e.preventDefault();
     userLogout()
-    onNavigate("/home");
+    onNavigate("/");
   });
 
   let registerU = rootElement.querySelector("#registerU");
