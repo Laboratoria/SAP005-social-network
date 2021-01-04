@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
     .getElementById('home')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/home')
+      onNavigate('/')
     });
   document
     .getElementById('login')
