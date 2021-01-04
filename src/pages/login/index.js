@@ -22,8 +22,7 @@ export const Login = () => {
       <button id="btnGoogle">Google</button>
       <button id="btnFacebook">Facebook</button>
       <p>Não tem uma conta?<p/>
-     
-      <button id="criarCadastro">Cadastre-se</button>
+      <button class= "link" id="criarCadastro">Cadastre-se</button>
 
       
     </section>
@@ -91,7 +90,7 @@ export const Login = () => {
 
   irParaPaginaCadastro.addEventListener('click', (event) => {
     event.preventDefault();
-
+    
     window.history.pushState(null, null, '/cadastro');
     renderPage();
 
