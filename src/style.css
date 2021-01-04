@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(241, 219, 19);
+    background-color:  rgb(255, 253, 154);
     display: flex;
     margin: 0 0 0 10px;
 }
@@ -32,39 +32,33 @@ body {
 }
 
 .network-name {
-    margin: 200px 0 0 50px;
-    width: 50%;
+    width: 100%;
 }
 .network-name p {
     text-align: center;
     font-size: 30px;
-    font-family: 'Covered By Your Grace', cursive;
+    font-family: 'Quicksand', sans-serif;
 }
 .tpm-name {
-    font-family: 'Limelight', cursive;
-    font-size: 170px;
+    font-family: 'Limelight', cursive; 
+    
+    font-size: 100px;
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: rgb(24, 24, 24);
 
     margin-block-start: 0;
     margin-block-end: 0;
+}
+#subtitle-one {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Covered By Your Grace', cursive;
 }
 #root {
     display: flex;
     width: 50%;  
     margin-right: 10px;
 }
-.introduction {
-    text-align: center;
-    font-family: 'Limelight', cursive;   
-    font-size: 30px;
-}
-#root p {
-    text-align: justify;
-    font-size: 25px;
-    font-family: 'Quicksand', sans-serif;
-}
-
 .mae-carol {
     width: 80%;
     border-radius: 10px;
@@ -131,14 +125,20 @@ body {
     text-align: center;
 
     padding: 2px;
+    padding-top: 10px;
     border-radius: 10px;
     transition: 1s;
 }
 .nav-bar li:hover {
     background-color:  rgb(226, 191, 33);;
 }
-
-
+#logo-feed {
+    padding-top: 0;
+    font-family: 'Limelight', cursive;
+}
+#logo-feed:hover {
+    background-color: rgb(241, 219, 19);
+}
 .figure-profile {
     display: flex;
     justify-content: space-evenly;
@@ -154,7 +154,6 @@ body {
     margin: 4px 0 4px 0;
     border-radius:50%;
 }
-
 .write-post {
     width: 500px;
     height: 100px;
@@ -164,6 +163,7 @@ body {
     outline: aquamarine;
 }
 .button-feed {
+    display: block;
     width: 80px;
     height: 40px;
 
@@ -179,19 +179,35 @@ body {
 .button-feed:hover {
     background-color:  rgb(232, 247, 102);
 }
+.another-user-post{
+    background-color: rgb(233, 233, 229);
+    display: flex;
+    border-radius: 10px 10px 0 0;
+}
+.another-user-photo{
+    height: 100px;
+    width: 100px;
 
+    padding: 10px;
+    border-radius: 50%;
+}
 #posts {
     background-color: white;
+    margin-top: 7px;
     border-radius: 10px;
 }
 #posts p {
-    padding: 10px;
+    padding-left: 20px;
 }
 .friends-post {
     display: flex;
     justify-content: space-evenly;
 
     list-style: none;
+}
+.react-button {
+    background-color: rgb(252, 251, 247);
+    border-radius: 10px;
 }
 
 @media only screen and (max-device-width: 500px){

@@ -4,7 +4,7 @@ export const out = function (){
     function logOut() {
         firebase.auth().signOut().then(() => {
 
-         document.getElementById('root').style.display = "none"
+         document.getElementById('root').innerHTML= " "
          document.getElementById('logo-name').style.display = "block"
 
          if(window.innerWidth <= 500){
