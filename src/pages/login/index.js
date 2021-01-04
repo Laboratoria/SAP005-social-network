@@ -13,13 +13,13 @@ export const Login = () => {
         <button class="login-input" type="submit">LOGIN</button>
       </form>
     </div>
-    <h2>OU</h2>
+    <h4>OU<h4>
     <div class="google-github-login">
-      <button type="submit">Entrar com GOOGLE</button>
-      <button type="submit">Entrar com GITHUB</button>
+      <button class="login-google" type="submit">Entrar com GOOGLE</button>
+      <button class="login-github" type="submit">Entrar com GITHUB</button>
     </div>
     <div class="new-register">
-      <p>Não tem uma conta?</p>
+      <p id="without-register">Não tem uma conta?</p>
       <a id="register" href="/register">Cadastre-se</a>
     </div>
   </div>
