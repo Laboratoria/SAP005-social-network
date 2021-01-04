@@ -2,7 +2,7 @@ import { Post } from '../../components/post/index.js';
 import { Navbar } from '../../components/navbar/index.js';
 
 export const Feed = () => {
-  const feedBody = document.querySelector('#root');
+  const feedBody = document.createElement('div');
   const feedHeader = document.createElement('header');
 
   feedHeader.innerHTML = `

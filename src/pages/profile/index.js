@@ -1,8 +1,8 @@
-import { Navbar } from '../../components/navbar/index.js';
 import { Post } from '../../components/post/index.js';
+import { Navbar } from '../../components/navbar/index.js';
 
 export const Profile = () => {
-  const profileBody = document.querySelector('#root');
+  const profileBody = document.createElement('div');
   const profileHeader = document.createElement('header');
   profileHeader.className = 'profile-header';
 
