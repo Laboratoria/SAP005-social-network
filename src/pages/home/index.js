@@ -36,6 +36,7 @@ export const Home = () => {
   const textoPost = rootElement.querySelector('#textoPost');
   const feedArea = rootElement.querySelector('#feedArea');
   const btnPost = rootElement.querySelector('#btnPost');
+  btnPost.addEventListener('click', criarPost);
 
   function criarPost() {
     // const uid = firebase.auth().currentUser.uid;
@@ -59,9 +60,7 @@ export const Home = () => {
       renderPage();
     }
 
-
   }
-  btnPost.addEventListener('click', criarPost);
 
 
   //  function renderizarPosts() {
@@ -79,28 +78,38 @@ export const Home = () => {
   function renderizarPosts() {
     firebase.firestore().collection('posts').orderBy('date', 'desc').get().then((snapshot) => {
       const cardsOk = adicionaPostATela(snapshot.docs);
+
       feedArea.innerHTML = cardsOk;
-      feedArea.querySelector("#btnEditar").addEventListener("click", (event) => {
-        event.preventDefault();
-        console.log("btn editar OK")
-        // textareaEditarPost.style.display = "block"
-        // document.querySelector(`#${doc.id}`).style.display = "block"
-      });
+
+      const btnEditar = ".btn-editar";
+
+      feedArea.addEventListener("click", function (event) {
+        let closestEditar = event.target.closest(btnEditar);
+        if (closestEditar && feedArea.contains(closestEditar)) {
+          console.log("botão editar ok")
+          const closestTextarea = closestEditar.parentNode.querySelector(".editar-post");
+          closestTextarea.style.display = "block"
+          console.log(closestTextarea)
+          const closestBtnSalvarEdicao = closestEditar.parentNode.querySelector(".btn-salvar-editado");
+          closestBtnSalvarEdicao.style.display = "block"
+
+          closestBtnSalvarEdicao.addEventListener("click", function (event) {
+            console.log("botão salvar ok")
+            closestTextarea.style.display = "none"
+            closestBtnSalvarEdicao.style.display = "none"
+            const closestPost = closestEditar.parentNode.querySelector(".texto-post");
+            closestPost.innerHTML = closestTextarea.value
+          })
+        }
+      })
+
     })
   }
-
   renderizarPosts()
-
-  // firebase.firestore().collection('posts').orderBy('date', 'desc').onSnapshot((snapshot) => {
-  //   snapshot.docChanges().forEach((feed) => {
-  //     if (feed.type === 'added') {
-  //       // renderPage();
-  //     }
-  //   });
-  // });
 
   function adicionaPostATela(data) {
     let cards = "";
+
     data.forEach(doc => {
       const informacao = doc.data();
       const idPost = doc.id;
@@ -108,7 +117,7 @@ export const Home = () => {
       <div class="card-post">
         <button  class="btn-excluir" id="btnExcluirPost">excluir post</button>
         <h2 class="nome-usuario">${informacao.name}</h2>
-        <button data-ip="${idPost}" class="btn-editar" id="btnEditar">editar post</button>
+        <button class="btn-editar" id="btnEditar">editar post</button>
         <p class="texto-post" id="post">${informacao.post}</p>
         <textarea class="editar-post" id="textareaEditarPost">${informacao.post}</textarea>
         <button class="btn-salvar-editado" id="btnSalvarEdicao">salvar</button>
@@ -120,82 +129,16 @@ export const Home = () => {
 
       cards += cardPost;
       // console.log(idPost)
+      // const buttonEdit = document.querySelector(".btn-editar");
+      // const buttonDelet = document.querySelector(".btn-excluir");
 
-      if(informacao.uid === firebase.auth().currentUser.uid){
-        console.log(`É você: ${informacao.name}`, idPost)
-        // document.querySelector(".nome-usuario").innerHTML = "É VOCÊ!";
-      }
-
-      if(informacao.uid != firebase.auth().currentUser.uid){
-        console.log(`Não é você: ${informacao.name}`, idPost)
-      }
-
-      // const listaPosts = document.querySelectorAll(".posts-enviados");
-      // for(let btnEditar of listaPosts){
-      //   btnEditar = document.querySelectorAll(`#btnEditar`);
-      //   btnEditar.addEventListener("click", mostrarId);
+      // if (informacao.uid != firebase.auth().currentUser.uid) {
+      //   buttonEdit.style.display = "block"
+      //   buttonDelet.style.display = "block"
       // }
-
-      // function mostrarId(){
-      //   console.log("botão ok")
-      // }
-
-      // const textareaEditarPost = document.querySelector("#textareaEditarPost");
-      // // const post = document.querySelector("#post");
-      // const btnEditar = document.querySelector("#btnEditar");
-      // btnEditar.addEventListener('click', (event) => {
-      //   event.preventDefault();
-      //   console.log("btn editar OK")
-      //   textareaEditarPost.style.display = "block"
-      //   // document.querySelector(`#${doc.id}`).style.display = "block"
-      // });
     });
 
     return cards;
-
-    // feedArea.innerHTML += cards;
-
-
-    // const id = document.createElement('p');
-    // id.classList.add('texto-post');
-    // id.innerHTML = informacao.post;
-
-    // let likes = document.createElement('div');
-    // likes = document.createElement('button');
-    // likes.classList.add('btnLike');
-    // likes.innerHTML = 'Curtir';
-
-    // likes.addEventListener('click', (event) => {
-    //   event.preventDefault();
-    //   console.log('funciona botão');
-    //   likes = likes.dataset.likes;
-    //   likePost(likes);
-    // });
-
-
-
-    // const textareaEditarPost = document.querySelector("#textareaEditarPost");
-    // const post = document.querySelector("#post");
-    // const areaPosts = document.querySelectorAll(".posts-enviados");
-    // for (let cadaBtn of areaPosts) {
-    //   cadaBtn = document.querySelectorAll(`#${doc.id}`);
-    //   cadaBtn.forEach((btn) => {
-    //     btn.addEventListener('click', (event) => {
-    //       event.preventDefault();
-    //       console.log("btn editar OK")
-    //       textareaEditarPost.style.display = "block"
-    //       // btnSalvarEdicao.style.display = "block";
-    //       document.querySelector("#btnSalvarEdicao").style.display = "block"
-    //     });
-    // });
-    // };
-
-    // for (let btnSalvarEdicao of areaPosts) {
-    //   btnSalvarEdicao = document.querySelector("#btnSalvarEdicao");
-    //   btnSalvarEdicao.addEventListener('click', (event) => {
-    //     event.preventDefault();
-    //     console.log("botão salvar ok")
-    //     post.innerHTML = textareaEditarPost.value;
 
     //     // firebase.firestore().collection('posts').doc(feed).update(post).then(() => {
     //     //   conteudo.innerHTML = editarPost.value;
@@ -205,11 +148,6 @@ export const Home = () => {
     //     //   post: editarPost.value
     //     // })
 
-    //     textareaEditarPost.style.display = "none";
-    //     // btnSalvarEdicao.style.display = "none";
-    //     document.querySelector("#btnSalvarEdicao").style.display = "none"
-    //   });
-    // };
 
     // for (let btnExcluirPost of areaPosts) {
     //   btnExcluirPost = document.querySelectorAll("#btnExcluirPost");
