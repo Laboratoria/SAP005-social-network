@@ -19,12 +19,10 @@ export const Cadastro = () => {
           <input type="password" id="inputSenha"  placeholder="Senha"/>
         </div>
           
-          <button id="criarConta">Cadastrar e entrar</button>
+          <button class="link" id="criarConta"> Cadastrar </button>
 
-         
      
       </form>
-      
 
       
     </section>
@@ -35,6 +33,7 @@ export const Cadastro = () => {
   rootElement.innerHTML = pageCadastro;
 
   const criarConta = rootElement.querySelector('#criarConta');
+  
 
   criarConta.addEventListener('click', (event) => {
     event.preventDefault();
@@ -43,23 +42,13 @@ export const Cadastro = () => {
     let email = document.getElementById('inputEmail').value;
     let senha = document.getElementById('inputSenha').value;
     Conta(email,senha, name);
-    window.history.pushState(null, null, '/home');
+    alert('Usuario criado com sucesso, faça o login');
+    window.history.pushState(null, null, '/');
     renderPage();
+   
     
 });
 
-//var user = firebase.auth().currentUser;
-//var name;
-
-//if (user != null) {
-  //name = user.displayName;
-  // email = user.email;
-  // photoUrl = user.photoURL;
-  // emailVerified = user.emailVerified;
-  // uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-                   // this value to authenticate with your backend server, if
-                   // you have one. Use User.getToken() instead.
-//}
 
 return rootElement;
   };
