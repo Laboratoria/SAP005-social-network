@@ -11,7 +11,8 @@ export const Home = () => {
         onNavigate('/login')
       }
     });
-  })  
+  })
+  //------------ CRIANDO O TEMPLATE DA PÁGINA -------------\\ 
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
       <section class="timeline">
@@ -45,24 +46,28 @@ export const Home = () => {
         </ul>
       </section>
   `;
-  //---------------------- GUARDANDO TODOS OS INPUTS ---------------------\\
+  //-------------- GUARDANDO TODOS OS INPUTS -------------\\
   const publish = rootElement.querySelector("#postForm");
   const logOut = rootElement.querySelector("#logout");
-  //---------------- FUNÇÃO DE LOGOUT ----------------\\
+  //------------------- FUNÇÃO DE LOGOUT -------------------\\
   logOut.addEventListener("click", () => {
     const promise = firebase.auth().signOut();
     promise.then(() => { onNavigate('/login') });
   });
-  //---------------- FUNÇÃO DE CRIAR PUBLICAÇÃO ----------------\\
+  //-------------- FUNÇÃO DE CRIAR PUBLICAÇÃO --------------\\
   publish.addEventListener("submit", event => {
     event.preventDefault();
     const text = rootElement.querySelector("#postText").value;
-    //---------------- TODO: pegar nome, avatar e ID do usuário, imagem, privado/público, data da postagem ----------------\\
+  //-------- TODO: pegar nome, avatar e ID do usuário --------\\
+    const now = new Date;
     const post = {
       userID: "",
       userName: "",
       avatar: "",
-      data: "",
+      time: Date.now(),
+      date: now.getDate(), 
+      month: now.getMonth() + 1, 
+      year: now.getFullYear(),
       text: text,
       picture: "",
       likes: 0,
@@ -76,8 +81,8 @@ export const Home = () => {
   });
   return rootElement;
 };
-//---------------- FUNÇÃO DE PRINTAR PUBLICAÇÃO ----------------\\
-//---------- TODO: Completar os dados e ajustar o HTML ----------\\
+//------------- FUNÇÃO DE PRINTAR PUBLICAÇÃO -------------\\
+//------- TODO: Completar os dados e ajustar o HTML -------\\
 function printPosts(post) {
   const templatePost = `
     <ul class="postFeed" id="${post.id}">
@@ -88,6 +93,7 @@ function printPosts(post) {
       <p class="text-posts">${post.data().text}</p>
       <p class="text-posts">${(post.data().comments)}</p>
       <p class="text-posts">${post.data().likes}</p>
+      <p class="text-posts">${post.data().date}/${post.data().month}/${post.data().year}</p>
       <section class="buttons-posts"> 
         <button id="like" class="icon-post">
           <img src="../../img/heart.png" height="20px" width="20px"> 
@@ -98,9 +104,11 @@ function printPosts(post) {
       </section>  
     </ul>
   `
+//------------ CRIANDO O TEMPLATE DA PÁGINA -------------\\   
 //---------------- EVENTOS QUE CHAMAM AS FUNÇÕES DO FEED ----------------\\
   document.querySelector("#feed").innerHTML += templatePost;
   document.querySelector("#like").addEventListener("click", likePost);
+  document.querySelector("#delete").addEventListener("click", deletePost);
 }
 //---------------- FUNÇÃO DE CARREGAR TODAS AS PUBLICAÇÕES ----------------\\
 function loadPosts() {
@@ -115,8 +123,9 @@ function loadPosts() {
   });
 }
 //---------------- FUNÇÃO DE EXCLUIR ----------------\\
-//---------------- TODO: botão de deletar, pegar a ID do post, confirmar que quer excluir ----------------\\
+//---------------- TODO: pegar a ID do post, confirmar que quer excluir, não tá funcionando (rever) ----------------\\
 function deletePost(postID){
+  console.log("o erro não é o botão")
   const postCollection = firebase.firestore().collection("posts");
   postCollection.doc(postID).delete().then(doc => {
    loadPosts(); 
@@ -124,13 +133,16 @@ function deletePost(postID){
   deletePost();
 }
 //----------------- FUNÇÃO DE LIKE -----------------\\
+//---- Só tá funcionando o botão do primeiro post ----\\
 function likePost(){
   console.log("deixou o joinha");
 }
 //----------------- FUNÇÃO DE EDITAR ----------------\\
+
 //------------------ HACKER EDITION ------------------\\
 //----------------- FUNÇÃO DE COMENTAR ----------------\\
 //-------------------- POSTAR IMAGEM -------------------\\
+//------------------ PÚBLICO OU PRIVADO -----------------\\
 
 
 
