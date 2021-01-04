@@ -74,3 +74,22 @@ a#register {
     color: #000000bb;
     font-size: 10px;
 }
+
+@media screen and (min-width: 1024px) {
+
+    div.main-login {
+        display: flex;
+        flex-direction: row;
+    }
+
+    div.div.login-images {
+        display: flex;
+        flex-direction: column;
+    }
+
+    img.image-desktop {
+        display: initial;
+        width: 478px;
+        height: 435px;
+    }
+}
