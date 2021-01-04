@@ -18,3 +18,15 @@ window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
     routeRender();
 });
+
+// const renderRouter = () => {
+//     root.innerHTML = "";
+//     if (!routers[window.location.pathname]) {
+//         window.location = '/'
+//     } else {
+//         root.appendChild(routers[window.location.pathname]());
+//     }
+// }
+// document.addEventListener('DOMContentLoaded', () => {
+//     renderRouter();
+// })

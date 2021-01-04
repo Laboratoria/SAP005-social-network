@@ -2,9 +2,9 @@ import { onNavigate } from '../../utils/history.js';
 //import Login from '../pages/login/index.js';
 
 export const Home = () => {
-    // Coloque sua página
-    const rootElement = document.createElement('div');
-    rootElement.innerHTML = `
+  // Coloque sua página
+  const rootElement = document.createElement('div');
+  rootElement.innerHTML = `
     <div class = "header">     
         <img class="logoHome" src="img/learning.png" alt="Logo Learning">
 
@@ -21,7 +21,7 @@ export const Home = () => {
       </div>    
     </div>  
     <div>
-      <img class="perfil" src="img/perfil.png" alt="Foro Perfil">
+      <img class="perfil" src="img/perfil.png" alt="Foto Perfil">
     </div>  
     <div class = "nameHome">    
       <h1>Priscila Souza</h1>      
@@ -31,6 +31,10 @@ export const Home = () => {
     </div>
     <button class = "buttonPost">Publicar</button>
     <div id="postedValue"></div>
+    <input type="file" id="upload">
+    <img src="" width="100" id="imgProfile">
+    <button class = "profilePhoto" id="profilePhoto">Carregar foto</button>
+
     `;
 
 
@@ -73,6 +77,54 @@ export const Home = () => {
         }).catch(function(error) {
             // An error happened.
         });
+      });
+   
+  rootElement.classList.add("feed")
+
+  rootElement.querySelector("#exit").addEventListener("click", (e) => {
+    e.preventDefault()
+    firebase.auth().signOut().then(function () {
+      onNavigate("/")
+    }).catch(function (error) {
+      // An error happened.
+    });
+  })
+
+  let storage = firebase.storage();
+  let profile = rootElement.querySelector('#upload')
+
+  profile.addEventListener("change", e => {
+    const file = e.target.files[0]
+    const fileReader = new FileReader()
+    
+
+    fileReader.onloadend = () => {
+
+      rootElement.querySelector("#imgProfile").setAttribute("src", fileReader.result)
+
+
+    }
+    fileReader.readAsDataURL(file)
+
+    rootElement.querySelector("#profilePhoto").addEventListener("click", () => {
+
+      const namePhoto = "photoUser"
+      const upload = storage.ref().child("ProfilePhoto").child(namePhoto + ".pnj").put(file)
+
+      upload.on("state_changed", function () {
+
+        console.log("Imagem Salva")
+
+      }, function (error) {
+
+        console.log("Erro ao salvar imagem")
+
+      })
+
     })
-    return rootElement;
-}
+
+
+  })
+    
+  return rootElement;
+    }
