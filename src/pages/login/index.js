@@ -1,8 +1,9 @@
+/* eslint-disable indent */
 import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
     const rootElement = document.createElement('div');
-    rootElement.classList.add("formRegister")
+    rootElement.classList.add("formRegister");
     rootElement.innerHTML = `   
 <div  id = "login" class="textRegister">
 <img class="logoL" src="img/learning.png" alt="Logo L"> 
@@ -26,50 +27,48 @@ export const Login = () => {
 </div>
 `;
     rootElement.querySelector('#eye').addEventListener("click", (e) => {
-        e.preventDefault();
-        const showPassword = rootElement.querySelector("#passwordSecond");
-        if (showPassword.type == "password") {
-            showPassword.type = "text";
-        } else {
-            showPassword.type = "password";
-        }
+    e.preventDefault();
+    const showPassword = rootElement.querySelector("#passwordSecond");
+    if (showPassword.type == "password") {
+    showPassword.type = "text";
+    } else {
+    showPassword.type = "password";
+    }
     })
 
     rootElement.querySelector("#btnCadastro").addEventListener("click", (e) => {
-        e.preventDefault();
-        onNavigate("/cadastro")
+    e.preventDefault();
+    onNavigate("/cadastro")
     })
 
     let emailInput = rootElement.querySelector("#email")
     let passwordInput = rootElement.querySelector("#passwordSecond")
 
     rootElement.querySelector("#btnLogin").addEventListener("click", async (e) => {
-        e.preventDefault();
-        const email = emailInput.value;
-        const password = passwordInput.value;
-        await firebase
-            .auth()
-            .signInWithEmailAndPassword(email, password)
+    e.preventDefault();
+    const email = emailInput.value;
+    const password = passwordInput.value;
+    await firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
 
-        const userId = await firebase.auth().currentUser.uid
-        writeUserData()
-        onNavigate('/home')
+    const userId = await firebase.auth().currentUser.uid
+    writeUserData()
+    onNavigate('/home')
 
-
-        emailInput.value = ""
-        passwordInput.value = ""
-    })
+    emailInput.value = ""
+    passwordInput.value = '';
+    });
 
     rootElement.querySelector("#google").addEventListener("click", (e) => {
-        e.preventDefault()
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function (result) {
+    e.preventDefault()
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function (result) {
 
-            onNavigate("/home")
-        }).catch(function (error) {
-            console.log(error)
-
-        });
+        onNavigate("/home")
+    }).catch(function (error) {
+        console.log(error)
+    });
 
     });
     return rootElement;

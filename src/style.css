@@ -78,7 +78,7 @@
         height: 15px;
     }
     
-    #btn {
+    #btn {  
         width: 100px;
         height: 30px;
         border: solid 1px white;
@@ -334,7 +334,7 @@
         height: 20px;
         margin-left: 10px;
     }
-      
+    
     .likeBtn {
         padding: 5px 5px;
         font-size: 10px;
