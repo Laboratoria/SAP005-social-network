@@ -1,16 +1,55 @@
-import {onNavigate} from "../../utils/history.js"
+import { onNavigate } from "../../utils/history.js"
 export const Login = () => {
-  // Coloque sua página
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
-      <div>
-      <h1>Login!</h1>
-      <button id="homeFeed" class="">Ok</button>
+      <div class="container-login">
+    <img class="logo-img" src="./images/logo.jpeg" alt="logo Olimpo">
+    <section >
+    <h1 class='title' id='homeFeed'>[Olimpo]</h1>
+    <h3 class='subtitle'>Entre agora!</h3>
+  
+    <input id='txtEmail' type='email', placeholder='Email'>
+    <input id='txtPassword' type='password' placeholder='Senha'>
+    <button id='login-btn' class='login-btn'> Log in </button><br />
+  
+    <button id= 'signup-btn' class = 'sign-btn'> Registre-se </button>
+    <button id = 'logout-btn' class = 'btn btn-action-hide'> Log Out </button>
+    </section>
+
       </div>
   `;
   const bottunLogin = rootElement.querySelector("#homeFeed")
   bottunLogin.addEventListener("click", () => {
     onNavigate("/services")
   })
+  const txtEmail = rootElement.querySelector('#txtEmail');
+  const txtPassword = rootElement.querySelector('#txtPassword');
+  const btnLogin = rootElement.querySelector('#login-btn');
+  const btnSignUp = rootElement.querySelector('#signup-btn');
+  // const btnLogOut = document.getElementById('logout-btn');
+
+  // adicionar o evento no login
+
+  btnLogin.addEventListener('click', () => {
+    // pegando os valores do email e senha
+    const email = txtEmail.value;
+    const senha = txtPassword.value;
+    const auth = firebase.auth();
+    // Entrar
+    const promise = auth.signInWithEmailAndPassword(email, senha);
+    promise.catch((e) => console.log(e.message));
+  });
+
+  // adicionando evento no Sign In - Registre-se
+
+  btnSignUp.addEventListener('click', () => {
+    // pegando os valores do email e senha
+    const email = txtEmail.value;
+    const senha = txtPassword.value;
+    const auth = firebase.auth();
+    // Registrar
+    const promise = auth.createUserWithEmailAndPassword(email, senha);
+    promise.catch((e) => console.log(e.message));
+  });
   return rootElement;
 };
