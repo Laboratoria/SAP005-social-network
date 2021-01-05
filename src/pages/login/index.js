@@ -30,26 +30,26 @@ const btnSignUp = document.getElementById('signup-btn');
 
 // adicionar o evento no login
 
-btnLogin.addEventListener('click', e => {
+btnLogin.addEventListener('click', () => {
   // pegando os valores do email e senha
   const email = txtEmail.value;
   const senha = txtPassword.value;
   const auth = firebase.auth();
   // Entrar
   const promise = auth.signInWithEmailAndPassword(email, senha);
-  promise.catch(e => console.log(e.message));
+  promise.catch((e) => console.log(e.message));
 });
 
 // adicionando evento no Sign In - Registre-se
 
-btnSignUp.addEventListener('click', e => {
+btnSignUp.addEventListener('click', () => {
   // pegando os valores do email e senha
   const email = txtEmail.value;
   const senha = txtPassword.value;
   const auth = firebase.auth();
   // Registrar
   const promise = auth.createUserWithEmailAndPassword(email, senha);
-  promise.catch(e => console.log(e.message));
+  promise.catch((e) => console.log(e.message));
 });
 
 // export const LoginGoogle = () => {
