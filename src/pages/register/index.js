@@ -1,4 +1,4 @@
-import {createUser} from "../../services/index.js"
+import { createUser } from "../../services/index.js"
 
 export const Register = () => {
     // Coloque sua página
@@ -24,7 +24,7 @@ export const Register = () => {
         <input type="password" name="password" id="password" placeholder="Digite sua senha">
       </div>
       <div clas="half-box">
-        <label for="passconfirmation"> Senha</label>
+        <label for="passconfirmation"> Confirme sua senha</label>
         <input type="password" name="passconfirmation" id="passconfirmation" placeholder="Confirme sua senha">
       </div>  
       <div clas="full-box">
@@ -41,21 +41,21 @@ export const Register = () => {
     `;
 
     let submit = rootElement.querySelector("#btn-submit");
-    
-    submit.addEventListener('click', function(e){
-      e.preventDefault();
-      
-      const email = rootElement.querySelector("#email").value
-      const password = rootElement.querySelector("#password").value
-      const name = rootElement.querySelector("#name").value
-      const lastName = rootElement.querySelector("#lastname").value
 
-      /* se email digitado igual email return cadastrado
+    submit.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const email = rootElement.querySelector("#email").value
+        const password = rootElement.querySelector("#password").value
+        const name = rootElement.querySelector("#name").value
+        const lastName = rootElement.querySelector("#lastname").value
+
+        /* se email digitado igual email return cadastrado
 nos imput colocar obrigatório email e senha*/
 
 
-      createUser(email,password,name,lastName)
+        createUser(email, password, name, lastName)
     });
 
     return rootElement;
-  };
+};
