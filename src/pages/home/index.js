@@ -1,6 +1,9 @@
-import {Login} from "../login/index.js "
 
 export const Home = () => {
-  
-  return Login();
+  const rootElement = document.createElement("div");
+  rootElement.innerHTML = ` `
+
+  return rootElement;
 };
+
+

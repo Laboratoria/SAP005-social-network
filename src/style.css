@@ -45,7 +45,7 @@ body{
     text-align: center;
     margin-top: 25px ;
     margin-bottom: 25px;
-    font-size: 1.6 rem; /adaptada ao elemento root/
+    font-size: 1.6 rem; /*adaptada ao elemento root*/
 }
 
 form{
@@ -152,4 +152,11 @@ header{
     margin: 0 auto;
     padding: 10px;
     height: 200px;
+}
+
+#btn-submit-gmail{
+    color:  rgb(214, 43, 123);
+    background-color: rgb(248, 247, 248);
+    border-radius: 20px;
+    border:1px solid  rgb(214, 43, 123);
 }
