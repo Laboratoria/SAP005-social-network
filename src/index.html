@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="/src/img/rocket-icon.png">
+    <link rel="icon" href="./img/rocket-icon.png">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Limelight&family=Quicksand&display=swap" rel="stylesheet">
+    
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
     <title>TPM</title>
   </head>
   <body> 
@@ -24,6 +28,9 @@
         <div id='logo-name' class='network-name'>
           <h1 class='tpm-name'>TPM</h1>
           <p id='subtitle-one'>Tudo é possível para Maes</p>
+
+          <img class="mae-carol" src="./img/mcarol.jpg" alt="Desenho de Mae Carol Jemison astronauta">
+
           <p>Essa é uma rede destinada a você mulher que pretende confiar mais
             em si mesma para ingressar na área que você sempre sonhou!  <br><br>
             
@@ -32,8 +39,6 @@
             em um lugar seguro.  <br><br>
       
             Afinal tudo é possível para Maes!  <br> </p>
-      
-            <img class="mae-carol" src="/src/img/mcarol.jpg" alt="Desenho de Mae Carol Jemison astronauta">
       
            <p> Mae Carol Jemison é uma médica, engenheira e ex-astronauta estadunidense. 
             Foi a primeira mulher negra a ir para o espaço, quando serviu como especialista 
@@ -45,13 +50,25 @@
           </p>
         </div>
       </header>
+    <div id='firebaseui-auth-container'></div>
+    <div class='subscribe'> 
+      <form action="">
+        <label for="" >Escolha um email</label> <input id='new-email' type="text" autocomplete="off">  
+        <label for="">Crie uma senha</label> <input id='new-password' type="password" autocomplete="off"> 
+        <button id='create-account'>Criar conta</button>   
+        <p id='alert'></p>
+    </form>
+    </div>
 
-    <div id="root"></div>
+    <div id='root'></div>
                        
-    <script type="module" src="/src/pages/feed/feed.js"></script>
-    <script type="module" src="/src/pages/login/login.js"></script>
-    <script type="module" src="pages/subscribe/subscribe.js"></script>
+   <!-- <script type="module" src="/src/pages/feed/feed.js"></script>
+    <script type="module" src="pages/subscribe/subscribe.js"></script> -->
+
+    <script type="module" src="login.js"></script>
     <script type="module" src="router.js"></script>
+    <script type="module" src="subscribe.js"></script>
+    
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
@@ -74,5 +91,17 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 </script>
+
+
+<script>
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  ui.start('#firebaseui-auth-container',
+       {
+        signInOptions: [
+           firebase.auth.EmailAuthProvider.PROVIDER_ID,
+           firebase.auth.GoogleAuthProvider.PROVIDER_ID ]
+       }
+     ) 
+     </script>
   </body>
 </html>
