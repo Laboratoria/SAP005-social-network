@@ -24,47 +24,47 @@ export const Home = () => {
       <p>Não tem uma conta? <a href="/cadastro">Cadastre-se</a></p>
       </div>
       `;
-  const submitHome = document.querySelector('#submit-home');
-  const googleHome = document.querySelector('#google-home');
 
-  submitHome.addEventListener('click', (event) => {
-    event.preventDefault();
-    const email = document.querySelector('#email-input').value;
-    const password = document.querySelector('#password-home').value;
-    let homeLogin = login.signIn(email, password)
-    homeLogin
-    .then(()=>{
-      window.location.href = '#post'
-    }).catch(()=> {
-      let msnError = erro.message
-      
-//   //       if (error === 'auth/wrong-passaword') {
-//   //         error-message = 'Senha inválida';
-//   //     } else if (error === 'auth/invalid-email'){
-//   //         error-message = 'E-mail Inválido'
-//   //     }
-//   //     const putError = home.querySelector('#message-error');
-//   //     putError.innerHTML = error-message;
-//   // };
-//     console.log('mensagemdeautentificaçãoerrada');
-//   });
-// googleHome.addEventListener('click', ()=>{ 
-//   singGoogle()
-//   .then(()=> {
-//       const user = 
+  return home;
+};
+
+// submitHome.addEventListener('click', (event) => {
+//   event.preventDefault();
+//   const email = document.querySelector('#email-input').value;
+//   const password = document.querySelector('#password-home').value;
+//   let homeLogin = login.signIn(email, password)
+//   homeLogin
+//   .then(()=>{
+//     window.location.href = '#post'
+//   }).catch(()=> {
+//     let msnError = erro.message
+
+//       if (error === 'auth/wrong-passaword') {
+//         error-message = 'Senha inválida';
+//     } else if (error === 'auth/invalid-email'){
+//         error-message = 'E-mail Inválido'
+//     }
+//     const putError = home.querySelector('#message-error');
+//     putError.innerHTML = error-message;
+// };
+//   console.log('mensagemdeautentificaçãoerrada');
+// });
+// googleHome.addEventListener('click', ()=>{
+// singGoogle()
+// .then(()=> {
+//     const user =
 // Colocar aqui as constantes que queremos colocar no firebase
-//   };
-//   firebase
-//   .firestore()
-//   .collecttion()
-//   .add(nome da const lá em cima);
-//   window.location.href = '#timeline';
+// };
+// firebase
+// .firestore()
+// .collecttion()
+// .add(nome da const lá em cima);
+// window.location.href = '#timeline';
 // })
 // .catch
-//   //     const putError = home.querySelector('#message-error');
-//   //     putError.innerHTML = error-message;
-//   // };
-// })
-// return home;
-    })
-})
+//     const putError = home.querySelector('#message-error');
+//     putError.innerHTML = error-message;
+// };
+// }
+// const submitHome = document.querySelector('#submit-home');
+// const googleHome = document.querySelector('#google-home');
