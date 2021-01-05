@@ -1,4 +1,5 @@
 // Este é seu ponto de entrada da sua aplicação
+import { Feed } from './pages/feed/index.js';
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
 import { SingUp } from './pages/singup/index.js';
@@ -10,6 +11,7 @@ const routeRender = () => {
     '/': Home,
     '/login': Login,
     '/singup': SingUp,
+    '/feed': Feed,
   };
 
   rootDiv.innerHTML = '';
