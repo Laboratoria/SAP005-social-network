@@ -40,16 +40,19 @@ const signUpButton = rootElement.querySelector("#sgnUp-btn");
 
 function clear () {
   email.value = "";
-  password.value = "";
-  
+  password.value = ""; 
 };
 
 loginButton.addEventListener("click", (e) =>{
   e.preventDefault();
   firebase.auth().signInWithEmailAndPassword(email.value, password.value)
   .catch((error) => {
-    var errorCode = error.code;
     var errorMessage = error.message;
+    if (errorMessage == "The email address is badly formatted.") {
+      alert("Email incorreto")} 
+    else {
+      alert("Senha incorreta")
+    }
   });
   clear();
 });
