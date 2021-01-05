@@ -44,22 +44,20 @@ export const Login = () => {
     let emailInput = rootElement.querySelector("#email")
     let passwordInput = rootElement.querySelector("#passwordSecond")
 
-    rootElement.querySelector("#btnLogin").addEventListener("click", (e) => {
+    rootElement.querySelector("#btnLogin").addEventListener("click", async (e) => {
         e.preventDefault();
         const email = emailInput.value;
         const password = passwordInput.value;
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .then((user) => {
-                onNavigate("/home")
+         let database = firebase.database();
+        await firebase
+        .auth()
+            .signInWithEmailAndPassword(email, password)
 
-            })
-            .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                rootElement.querySelector("#notFound").innerHTML = `
-                <h1>Ops, não encontramos essa conta.</h1>`
+        const userId = await firebase.auth().currentUser.uid 
+        writeUserData()
+         onNavigate('/home')
 
-            });
+    
         emailInput.value = ""
         passwordInput.value = ""
     })
@@ -68,21 +66,11 @@ export const Login = () => {
         e.preventDefault()
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function(result) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            // var token = result.credential.accessToken;
-            // The signed-in user info.
-            // var user = result.user;
+         
             onNavigate("/home")
         }).catch(function(error) {
             console.log(error)
-                // Handle Errors here.
-                // var errorCode = error.code;
-                // var errorMessage = error.message;
-                // The email of the user's account used.
-                // var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
-                // var credential = error.credential;
-                // ...
+         
         });
 
     });
