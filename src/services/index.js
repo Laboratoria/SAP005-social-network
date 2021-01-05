@@ -4,12 +4,13 @@
 export const CreateUser = (email, password) => {
   firebase
     .auth()
-    .createUserWithEmailAndPassword(email, password)
+    .createUserWithEmailAndPassword(email.trim(), password)
     .then((response) => {
-      window.location = '#singup';
+      window.location.pathname = 'feed';
       response('Você está logado parça!');
     })
-    .cath((error) => {
-      error.alert('Reveja sua senha parça!');
+    .catch((error) => {
+      // eslint-disable-next-line no-alert
+      alert(error.message);
     });
 };
