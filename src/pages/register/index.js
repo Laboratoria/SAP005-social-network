@@ -2,20 +2,20 @@ export const Register = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
   <div class="main-register">
-  <img src="/images/logo-deva.png">
+  <img class="logo" src="/images/logo-deva.png">
   <div class="register">
-    <form>
-      <input type="text" placeholder="Nome completo">
+    <form class="register-input">
+      <input class="register-input" type="text" placeholder="Nome completo">
       </input>
-      <input type="text" placeholder="Nome de usuária">
+      <input class="register-input" type="text" placeholder="Nome de usuária">
       </input>
-      <input type="text" placeholder="Insira seu email">
+      <input class="register-input" type="text" placeholder="Insira seu email">
       </input>
-      <input type="text" placeholder="Insira sua senha">
+      <input class="register-input" type="text" placeholder="Insira sua senha">
       </input>
-      <input type="text" placeholder="Confirmar senha">
+      <input class="register-input" type="text" placeholder="Confirmar senha">
       </input>
-      <button type="submit">CADASTRE-SE</button>
+      <button class="register-input" type="submit">CADASTRE-SE</button>
     </form>
   </div>
 </div>

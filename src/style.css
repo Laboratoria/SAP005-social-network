@@ -12,21 +12,21 @@ img.image-desktop{
     display: none;
 }
 
-div.main-login, div.google-github-login {
+div.main-login, div.google-github-login, div.main-register, div.register{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-form.login-input {
+form.login-input, form.register-input {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-input.login-input {
+input.login-input, input.register-input {
     width: 300px;
     height: 35px;
     background-color: #c9ddf58c;
@@ -38,7 +38,7 @@ input.login-input {
     font-size: 16px;
 }
 
-button.login-input, button.login-google, button.login-github{
+button.login-input, button.login-google, button.login-github, button.register-input {
     width: 300px;
     height: 35px;
     background-color: #8293A8;
@@ -49,7 +49,7 @@ button.login-input, button.login-google, button.login-github{
     font-size: 16px;
 }
 
-button.login-input, button.login-github {
+button.login-input, button.login-github, button.register-input {
     margin-top: 40px;
 }
 
