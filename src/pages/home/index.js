@@ -31,6 +31,40 @@ export const Home = () => {
     event.preventDefault();
     const email = document.querySelector('#email-input').value;
     const password = document.querySelector('#password-home').value;
-  }
-
-};
+    let homeLogin = login.signIn(email, password)
+    homeLogin
+    .then(()=>{
+      window.location.href = '#post'
+    }).catch(()=> {
+      let msnError = erro.message
+      
+//   //       if (error === 'auth/wrong-passaword') {
+//   //         error-message = 'Senha inválida';
+//   //     } else if (error === 'auth/invalid-email'){
+//   //         error-message = 'E-mail Inválido'
+//   //     }
+//   //     const putError = home.querySelector('#message-error');
+//   //     putError.innerHTML = error-message;
+//   // };
+//     console.log('mensagemdeautentificaçãoerrada');
+//   });
+// googleHome.addEventListener('click', ()=>{ 
+//   singGoogle()
+//   .then(()=> {
+//       const user = 
+// Colocar aqui as constantes que queremos colocar no firebase
+//   };
+//   firebase
+//   .firestore()
+//   .collecttion()
+//   .add(nome da const lá em cima);
+//   window.location.href = '#timeline';
+// })
+// .catch
+//   //     const putError = home.querySelector('#message-error');
+//   //     putError.innerHTML = error-message;
+//   // };
+// })
+// return home;
+    })
+})
