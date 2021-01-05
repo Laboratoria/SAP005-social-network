@@ -6,6 +6,8 @@ import { onNavigate } from './utils/history.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
+  const rootDivChild = document.getElementById('rootChild');
+
   const routes = {
     '/': Home,
     '/login': Login,

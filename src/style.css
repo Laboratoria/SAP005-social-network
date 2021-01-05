@@ -73,6 +73,7 @@ body {
 .social-media a {
     text-decoration: none;
 }
+
 @keyframes slider {
     0% {
         left: 0;
