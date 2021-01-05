@@ -57,19 +57,19 @@ h4 {
     margin-bottom: 0;
 }
 
-div.new-register {
+div.new-register, div.agreement{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
 }
 
-p#without-register {
+p.without-register {
     color: #00000070;
     font-size: 10px;
 }
 
-a#register {
+a.register {
     text-decoration: none;
     color: #000000bb;
     font-size: 10px;

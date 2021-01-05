@@ -21,10 +21,14 @@ export const Login = () => {
         <button class="login-google" type="submit">Entrar com GOOGLE</button>
         <button class="login-github" type="submit">Entrar com GITHUB</button>
       </div>
-    </div>
-    <div class="new-register">
-      <p id="without-register">Não tem uma conta?</p>
-      <a id="register" href="/register">Cadastre-se</a>
+      <div class="new-register">
+        <p class="without-register">Não tem uma conta?</p>
+        <a class="register" href="/register">Cadastre-se</a>
+      </div>
+      <div class="agreement">
+        <p class="without-register">ao cadastrar-se você concorda com nosso</p>
+        <a class="register" href="#">código de conduta</a>
+      </div>
     </div>
   </div>
   `;
