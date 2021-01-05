@@ -77,11 +77,15 @@ body {
   color: #333333;
 }
 
-/* .btn-excluir,
-.btn-editar, */
+.uid-escondido,
+.id-escondido, /*{
+  visibility: hidden;
+} */
+
+/* .btn-excluir,*/
 .editar-post,
 .btn-salvar-editado
-/* .btn-editar  */{
+/* .btn-editar */ {
   display: none;
 }
 
