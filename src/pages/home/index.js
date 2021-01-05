@@ -2,8 +2,11 @@ import { onNavigate } from '../../utils/history.js';
 //import Login from '../pages/login/index.js';
 
 export const Home = () => {
-  // Coloque sua página
+
   const rootElement = document.createElement('div');
+  // const user = await firebase.auth().currentUser
+
+  // if(user != null){
   rootElement.innerHTML = `
     <div class = "header">     
         <img class="logoHome" src="img/learning.png" alt="Logo Learning">
@@ -33,7 +36,7 @@ export const Home = () => {
     <button class = "profilePhoto" id="profilePhoto">Carregar foto</button>
 
     `;
-
+  
 
     const textPost = rootElement.querySelector("#textPost");
     let feed = ''; 
@@ -47,23 +50,39 @@ export const Home = () => {
           text: postValue 
       }
       textPost.value = '';
+
+      let clicked = false;
+
       firebase.firestore().collection('post').add(post)
-      
      rootElement.querySelector("#postedValue").innerHTML = 
      feed += 
       `<div class="containerFeed">
         <div class="postFeed"><p>${post.text}   </p> 
         </div>
         <div class="containerButton">
-            <button class="like"><img src="https://img.icons8.com/nolan/64/like.png"/></button>
+        <button class="likeBtn" onclick=${like()}>
+        <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
+        <span id="score">0</span> Like
         </div>
-      </div>`
+        </div>`
+        let likeIcon = document.querySelector("#like");
+        score = document.querySelector("#score");
+            
+    function like() {
+      if (!clicked) {
+      likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/50/filled-like.png"/>`;
+      score.textContent++;
+      } else {
+      clicked = false;
+      likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/64/like.png"/>`;
+      score.textContent--;
+      }
+      };
+
+ 
       return feed
     });
     
-
-  
-
 
     rootElement.classList.add("feed")
 
@@ -126,6 +145,13 @@ export const Home = () => {
 
 
   })
+  // } else {
+  //     rootElement.innerHTML =
+  //      ` <h1>Ops, faça um login!.</h1>`
+  // }
+  // Coloque sua página
+ 
+  console.log(rootElement)
     
   return rootElement;
     }
