@@ -1,13 +1,13 @@
 import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
-  const rootElement = document.createElement('div');
-  rootElement.classList.add("formRegister")
-  rootElement.innerHTML = `   
+    const rootElement = document.createElement('div');
+    rootElement.classList.add("formRegister")
+    rootElement.innerHTML = `   
 <div  id = "login" class="textRegister">
 <img class="logoL" src="img/learning.png" alt="Logo L"> 
 <div id = "notFound" class="msgNotFound">
-  </div>
+</div>
     <form class="registerLogin">        
         <div class="registerColumn">
             <input type="email" id="email" placeholder="Email" required autocomplete="off">           
@@ -25,8 +25,8 @@ export const Login = () => {
     </div>
 </div>
 `;
-  rootElement.querySelector('#eye').addEventListener("click", (e) => {
-   e.preventDefault();
+    rootElement.querySelector('#eye').addEventListener("click", (e) => {
+        e.preventDefault();
         const showPassword = rootElement.querySelector("#passwordSecond");
         if (showPassword.type == "password") {
             showPassword.type = "text";
@@ -47,13 +47,12 @@ export const Login = () => {
         e.preventDefault();
         const email = emailInput.value;
         const password = passwordInput.value;
-        //  let database = firebase.database();
         await firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
 
         const userId = await firebase.auth().currentUser.uid
-        // writeUserData()
+        writeUserData()
         onNavigate('/home')
 
 
