@@ -1,10 +1,29 @@
-import {onNavigate} from "../../utils/history.js"
+import { onNavigate } from "../../utils/history.js"
+
+export const Nav = () => {
+  const oi = document.createElement('div');
+  oi.innerHTML = `
+    <h1 id="profile">Perfil!</h1>
+    <p>meu nome é ana </p>
+    `;
+  return oi
+}
+
 export const Feed = () => {
+  const teste = Nav()
+
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
-  <h1>Post!</h1>
-  <nav>${oi}</nav>
+  <h1>Post teste!</h1>
+  <nav>${teste.innerHTML}</nav>
   `;
+
+  const bottunPorfile = rootElement.querySelector("#profile")
+  bottunPorfile.addEventListener("click", () => {
+    onNavigate("/services/profile")
+
+  });
+
   return rootElement;
 };
 
@@ -31,8 +50,3 @@ export const Message = () => {
   `;
   return rootElement;
 };
-
-const oi = `
-<h1>Post!</h1>
-<p>meu nome é ana </p>
-`;
