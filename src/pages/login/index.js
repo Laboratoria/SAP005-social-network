@@ -66,11 +66,11 @@ signUpButton.addEventListener("click", (e)=>{
   // clear();
 });
 
-const logoutButton = rootElement.querySelector("#sgnOutBtn")
-logoutButton.addEventListener("click", (e)=>{
-  e.preventDefault();
-  firebase.auth().signOut();
-});
+//const logoutButton = rootElement.querySelector("#sgnOutBtn")
+//logoutButton.addEventListener("click", (e)=>{
+//  e.preventDefault();
+//  firebase.auth().signOut();
+//});
 
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 .then(function() {
