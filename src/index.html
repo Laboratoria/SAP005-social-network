@@ -9,31 +9,42 @@
   <title>Coletivo</title>
 </head>
 <body>
-  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
-  <div class="container" id="root">
-    <header>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+  
+    <div id="root">
+      <header>
+        <nav>
+          <ul>
+            <li id="home">Home</li>
+            <li id="login">Login</li>
+            <li id="timeline">Timeline</li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+        <!-----------------------------ELEMENTOS COLOCADOS NO HOME------------------------------------------------------
         <figure class="img-wrapper">
           <img src="images/background.jpg">
         </figure>
         <div class="banner">
-          <h1 class="logo">Coletivo</h1>
-          <p class="content">Consideramos justas toda forma de amor.</p>
-          <div class="container-btn">
-          <button onclick="googleSignin()">Entrar com Google</button>
-          <button onclick="signIn()">Já tenho conta</button>
-          <!--<button onclick="signUp()">Cadastre-se</button>-->
-          </div>
-    </header>
-    <footer class="footer-content">
-      <figure class="page-icons">
-        <img src="" alt="">
-        <img  src="" alt="">
-        <img src="" alt="">
-      </figure>
-      <h2>Todos os direitos reservados 2020</h2>
-    </footer>
-  </div>
-  <script src="main.js"></script>
+            <h1 class="logo">Coletivo</h1>
+            <p class="content">Consideramos justas toda forma de amor.</p>
+            <button class="caller" id="callerBtn">Entrar</button>
+        </div>
+      </header>
+      <footer class="footer-content">
+        <h2>Coletivo © 2020.</h2>
+            <div class="page-devs">
+                <a href="https://github.com/CamilaKikuchi" target="_blank"><img src="images/githublogo.png"alt="github"></a>
+                <a href="https://github.com/karina1602" target="_blank"><img src="images/githublogo.png"alt="github"></a>
+                <a href="https://github.com/carinarocha" target="_blank"><img src="images/githublogo.png"alt="github"></a>
+            </div>
+        </footer>
+      </div>
+    ------------------------------------------------------------------------------------------------->
+  <script src="firebase.js"></script>
+  <script type="module" src="./pages/home/index.js"></script>
+  <script type="module" src="router.js"></script>
 </body>
 </html>
