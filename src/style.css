@@ -12,7 +12,7 @@ img.image-desktop{
     display: none;
 }
 
-div.main-login, div.google-github-login, div.main-register, div.register{
+div.main-login, div.google-github-login, div.main-register, div.register, div.login-data{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,10 +53,6 @@ button.login-input, button.login-github, button.register-input {
     margin-top: 40px;
 }
 
-h4 {
-    margin-bottom: 0;
-}
-
 div.new-register, div.agreement{
     display: flex;
     align-items: center;
@@ -80,16 +76,35 @@ a.register {
     div.main-login {
         display: flex;
         flex-direction: row;
+        justify-content: space-around;
     }
 
-    div.div.login-images {
+    div.login-images, div.login-data {
         display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+
+    img.logo{
+        width: 175px;
+    }
+
+    div.login-data {
+        background-image: linear-gradient(rgb(255, 255, 255), rgb(153, 129, 167, 0.5));
+        width: 500px;
+        height: 550px;
     }
 
     img.image-desktop {
         display: initial;
-        width: 478px;
-        height: 435px;
+        width: 400px;
+    }
+
+    div.agreement {
+        margin-top: 0;
+    }
+
+    a.register {
+        margin-left: 3px;
     }
 }
