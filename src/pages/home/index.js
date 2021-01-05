@@ -1,8 +1,6 @@
 export const Home = () => {
   const home = document.createElement('div');
-
   home.classList.add('div-home');
-
   home.innerHTML = `
   <div class='head-home' alt='Runner|Home'>'Runner|Home'</div>
       <figure class='logo-login'>
@@ -26,14 +24,13 @@ export const Home = () => {
       <p>Não tem uma conta? <a href="/cadastro">Cadastre-se</a></p>
       </div>
       `;
+  const submitHome = document.querySelector('#submit-home');
+  const googleHome = document.querySelector('#google-home');
 
-const submitHome = document.querySelector('#submit-home');
-const googleHome = document.querySelector('#google-home');
-
-submitHome.addEventListener('click', (event) => {
+  submitHome.addEventListener('click', (event) => {
     event.preventDefault();
     const email = document.querySelector('#email-input').value;
     const password = document.querySelector('#password-home').value;
-},
-console.log(email))
+  }
+
 };
