@@ -12,6 +12,26 @@
 </head>
 
 <body>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCzKW8zfQda_OtbHRNodo8F7vd0GTWnOgc",
+      authDomain: "rede-social-db4df.firebaseapp.com",
+      projectId: "rede-social-db4df",
+      storageBucket: "rede-social-db4df.appspot.com",
+      messagingSenderId: "730822213821",
+      appId: "1:730822213821:web:f7fac101eaac3511ccb7d4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <div id="root"></div>
   <script type="module" src="router.js"></script>
 </body>
