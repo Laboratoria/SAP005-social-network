@@ -1,5 +1,4 @@
 export const Login = () => {
-  // Coloque sua página
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
   <div class="container-login">
