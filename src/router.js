@@ -7,8 +7,14 @@ const routeRender = () => {
     const routes = {
         "/": Login,
         "/cadastro": Register,
-        "/home": Home
+        "/home": Home,
     };
+
+    if (!routes[window.location.pathname]) {
+        window.location = '/'
+    } else {
+        root.appendChild(routes[window.location.pathname]());
+    }
 
     rootDiv.innerHTML = '';
     rootDiv.appendChild(routes[window.location.pathname]());

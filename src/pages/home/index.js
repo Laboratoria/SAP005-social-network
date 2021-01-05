@@ -20,7 +20,8 @@ export const Home = () => {
       </div>    
     </div>  
     <div>
-      <img class="perfil" src="img/perfil.png" alt="Foro Perfil">
+      <input type = "file" name = "file" id  = "file">
+      <img  class="perfil" src="" />
     </div>  
     <div class = "nameHome">    
       <h1>Priscila Souza</h1>      
@@ -32,6 +33,7 @@ export const Home = () => {
     `;
     rootElement.classList.add("feed")
 
+
     rootElement.querySelector("#exit").addEventListener("click", (e) => {
         e.preventDefault()
         firebase.auth().signOut().then(function() {
@@ -40,5 +42,7 @@ export const Home = () => {
             // An error happened.
         });
     })
+
+
     return rootElement;
 }
