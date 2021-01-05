@@ -23,7 +23,7 @@ export const createUser = (person) => {
       firebase.auth().currentUser.updateProfile({ displayName: person.name })
         .firestore()
         .collection('users')
-        .doc(firebase.auth().currentUser.uid)
+        .doc(firebase.auth().currentUser.id)
         .set(person))
-    .catch((error) => console.log(error));
+    .catch("setar erro");
 };
