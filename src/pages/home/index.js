@@ -39,65 +39,65 @@ export const Home = () => {
     <button class = "profilePhoto" id="profilePhoto">Carregar foto</button>
 
     `;
-  
 
-    const textPost = rootElement.querySelector("#textPost");
-    let feed = ''; 
-    rootElement.querySelector('.buttonPost').addEventListener("click", (event)=> {
-      event.preventDefault();
-      // const email = Login.email;
-      // console.log(email)
-      let postValue = textPost.value;
-      let post = {
-          //email
-          text: postValue 
-      }
-      textPost.value = '';
 
-      let clicked = false;
+  const textPost = rootElement.querySelector("#textPost");
+  let feed = '';
+  rootElement.querySelector('.buttonPost').addEventListener("click", (event) => {
+    event.preventDefault();
+    // const email = Login.email;
+    // console.log(email)
+    let postValue = textPost.value;
+    let post = {
+      //email
+      text: postValue
+    }
+    textPost.value = '';
 
-      firebase.firestore().collection('post').add(post)
-     rootElement.querySelector("#postedValue").innerHTML = 
-     feed += 
+    let clicked = false;
+
+    firebase.firestore().collection('post').add(post)
+    rootElement.querySelector("#postedValue").innerHTML =
+      feed +=
       `<div class="containerFeed">
         <div class="postFeed"><p>${post.text}   </p> 
         </div>
         <div class="containerButton">
-        <button class="likeBtn" onclick=${like()}>
+       <button class="likeBtn" onclick=${like()}>
         <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
         <span id="score">0</span> Like
         </div>
         </div>`
-        let likeIcon = document.querySelector("#like");
-        score = document.querySelector("#score");
-            
+    let likeIcon = document.querySelector("#like");
+    score = document.querySelector("#score");
+
     function like() {
       if (!clicked) {
-      likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/50/filled-like.png"/>`;
-      score.textContent++;
+        likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/50/filled-like.png"/>`;
+        score.textContent++;
       } else {
-      clicked = false;
-      likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/64/like.png"/>`;
-      score.textContent--;
+        clicked = false;
+        likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/64/like.png"/>`;
+        score.textContent--;
       }
-      };
+    };
 
- 
-      return feed
+
+    return feed
+  });
+
+
+  rootElement.classList.add("feed")
+
+  rootElement.querySelector("#exit").addEventListener("click", (e) => {
+    e.preventDefault()
+    firebase.auth().signOut().then(function () {
+      onNavigate("/")
+    }).catch(function (error) {
+      // An error happened.
     });
-    
+  });
 
-    rootElement.classList.add("feed")
-
-    rootElement.querySelector("#exit").addEventListener("click", (e) => {
-        e.preventDefault()
-        firebase.auth().signOut().then(function() {
-            onNavigate("/")
-        }).catch(function(error) {
-            // An error happened.
-        });
-      });
-   
   rootElement.classList.add("feed")
 
   rootElement.querySelector("#exit").addEventListener("click", (e) => {
@@ -115,7 +115,7 @@ export const Home = () => {
   profile.addEventListener("change", e => {
     const file = e.target.files[0]
     const fileReader = new FileReader()
-    
+
 
     fileReader.onloadend = () => {
 
@@ -149,8 +149,8 @@ export const Home = () => {
   //      ` <h1>Ops, faça um login!.</h1>`
   // }
   // Coloque sua página
- 
+
   console.log(rootElement)
-    
+
   return rootElement;
-    }
+}
