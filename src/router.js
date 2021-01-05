@@ -25,6 +25,15 @@ window.addEventListener('load', () => {
     routeRender();
 });
 
+// const user = await firebase.auth().currentUser
+// if(user != null){
+// onNavigate('/home')
+// } else {
+//     rootElement.querySelector("#notFound").innerHTML =
+//      ` <h1>Ops, faça um login!.</h1>`
+// }
+
+
 // const renderRouter = () => {
 //     root.innerHTML = "";
 //     if (!routers[window.location.pathname]) {

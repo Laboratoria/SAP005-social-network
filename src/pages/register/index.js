@@ -54,8 +54,7 @@ export const Register = () => {
         } else {
 
             firebase.auth().createUserWithEmailAndPassword(emailUser, passwordFirst)
-                .then((user) => {
-                    console.log("cadastrado")
+                .then((user) => { 
                     rootElement.querySelector("#finalized").innerHTML = `<h1>Pronto! ${userName[0].toUpperCase() + userName.slice(1)}, seu cadastro foi efetuado.</h1>`
 
 
@@ -91,7 +90,9 @@ export const Register = () => {
 
     rootElement.querySelector("#loginBtn").addEventListener("click", (e) => {
         e.preventDefault();
+    
         onNavigate("/")
+     
     })
     return rootElement;
 };
