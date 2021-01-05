@@ -14,3 +14,16 @@ export const CreateUser = (email, password) => {
       alert(error.message);
     });
 };
+
+export const SingIn = (email, password) => {
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email.trim(), password)
+    .then((response) => {
+      window.location.pathname = 'login';
+      response('Bem-vindo!');
+    })
+    .catch((error) => {
+      error.alert('Ocorreu um erro ao realizar login');
+    });
+};
