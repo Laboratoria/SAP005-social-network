@@ -1,4 +1,4 @@
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyDNMVcpnbjVDYMArJM5XabYX5spXB8ANuw',
   authDomain: 'rede-social-2c561.firebaseapp.com',
   databaseURL: 'https://rede-social-2c561-default-rtdb.firebaseio.com',

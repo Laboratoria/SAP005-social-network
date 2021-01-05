@@ -1,6 +1,7 @@
 import { Home } from './pages/home/index.js';
 import { Register } from './pages/register/index.js';
 import { Post } from './pages/post/index.js';
+import { Profile } from './pages/profile/index.js';
 import { onNavigate } from './utils/history.js';
 
 const routeRender = () => {
@@ -9,6 +10,7 @@ const routeRender = () => {
     '/': Home,
     '/register': Register,
     '/post': Post,
+    '/profile': Profile,
   };
   rootDiv.innerHTML = '';
   rootDiv.appendChild(routes[window.location.pathname]());
