@@ -48,16 +48,16 @@ export const Login = () => {
         e.preventDefault();
         const email = emailInput.value;
         const password = passwordInput.value;
-         let database = firebase.database();
+        let database = firebase.database();
         await firebase
-        .auth()
+            .auth()
             .signInWithEmailAndPassword(email, password)
 
-        const userId = await firebase.auth().currentUser.uid 
+        const userId = await firebase.auth().currentUser.uid
         writeUserData()
-         onNavigate('/home')
+        onNavigate('/home')
 
-    
+
         emailInput.value = ""
         passwordInput.value = ""
     })
@@ -65,12 +65,12 @@ export const Login = () => {
     rootElement.querySelector("#google").addEventListener("click", (e) => {
         e.preventDefault()
         var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-         
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+
             onNavigate("/home")
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.log(error)
-         
+
         });
 
     });

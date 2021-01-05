@@ -226,7 +226,7 @@
         font-family: Arial, Helvetica, sans-serif;
         color: #2a0a38;
     }
-    
+
     .post, .containerFeed {
         display: flex;
         justify-content: center;
@@ -237,7 +237,7 @@
         flex-direction: column;
         align-items: center;
     }
-    
+
     #textPost {
         width: 80%;
         height: 80px;
@@ -247,7 +247,7 @@
         text-align: center;
     }
 
-    .postFeed{
+    .postFeed {
         width: 80%;
         height: 100%;
         padding: 2% 0 2% 0;
@@ -262,8 +262,8 @@
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    .containerButton{
-    margin-left: 60%;
+    .containerButton {
+        margin-left: 60%;
     }
 
     .buttonPost {
@@ -325,7 +325,7 @@
         height: 20px;
         margin-left: 10px;
     }
-      
+
     .likeBtn {
         padding: 5px 5px;
         font-size: 10px;
@@ -335,11 +335,8 @@
         outline: none;
         border: none;
         cursor: pointer;
-        }
-        
-        .likeBtn img{
+    }
+
+    .likeBtn img {
         width: 30px;
-        
-        }
-        
-        
+    }

@@ -9,9 +9,11 @@ const routeRender = () => {
         "/cadastro": Register,
         "/home": Home
     };
-    if (!routes[window.location.pathname]) { window.location = '/' 
-    } else { root.appendChild(routes[window.location.pathname]()); 
-    } 
+    if (!routes[window.location.pathname]) {
+        window.location = '/'
+    } else {
+        root.appendChild(routes[window.location.pathname]());
+    }
     rootDiv.innerHTML = '';
     rootDiv.appendChild(routes[window.location.pathname]());
 };
