@@ -5,7 +5,7 @@ import { onNavigate } from './utils/history.js';
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
-    '/home': Home,
+    '/': Home,
     '/login': Login,
   };
 
@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
   document.getElementById('home')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/home');
+      onNavigate('/');
     });
   document.getElementById('login')
     .addEventListener('click', (e) => {
