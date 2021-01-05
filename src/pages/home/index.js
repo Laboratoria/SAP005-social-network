@@ -103,6 +103,7 @@ export const Home = () => {
       //   uids = closestUid.innerText;
       //   console.log(uids)
       // }
+      const btnLike = ".btnLike"
 
       feedArea.addEventListener("click", function (event) {
         let closestEditar = event.target.closest(btnEditar);
@@ -136,7 +137,21 @@ export const Home = () => {
             });
 
           })
+
         }
+
+        let closestLike = event.target.closest(btnLike);
+        if (closestLike && feedArea.contains(closestLike)){
+          console.log("Curtiu tá Top")
+          const closestIdLike = closestLike.parentNode.querySelector(".id-escondido").innerText;
+            console.log(closestIdLike)
+            const likeBtn  = firebase.firestore().collection('posts').doc(closestIdLike);
+             likeBtn.update({ likes: firebase.firestore.FieldValue.increment(1) });
+            console.log(likeBtn)
+
+        }
+      
+
       })
 
     })
@@ -176,6 +191,7 @@ export const Home = () => {
         <p class="id-escondido">${idPost}</p>
         <p class="uid-escondido">${informacao.uid}</p>
         <div>
+        <p class="id-escondido">${idPost}</p>
           <button class="btnLike" id="btnLike" data-id =${informacao.id}>curtir</button>
         </div>
       </div>
