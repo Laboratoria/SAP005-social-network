@@ -36,6 +36,7 @@ export const Login = () => {
       </section>
     </section>    
   `;
+
   const singIn = rootElement.querySelector('#login');
   const singUp = rootElement.querySelector('#createAccount');
   const singUpGoogle = rootElement.querySelector('#google');
