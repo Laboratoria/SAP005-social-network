@@ -1,4 +1,5 @@
 import { onNavigate } from '../../utils/history.js';
+//import Login from '../pages/login/index.js';
 
 export const Home = () => {
   // Coloque sua página
@@ -19,12 +20,6 @@ export const Home = () => {
         </div>
       </div>    
     </div>  
-    <div>      
-    <label for="profile">Enviar foto</label>
-    <input type="file" name="profile" id="upload">
-    <img src="" width="100"  id="imgProfile">
-    <button class = "profilePhoto" id="profilePhoto">Carregar foto</button>
-    </div>  
     <div class = "nameHome">    
       <h1>Priscila Souza</h1>      
     </div>
@@ -32,9 +27,55 @@ export const Home = () => {
     <input type="text" id="textPost" placeholder="O que você quer compartilhar?" autocomplete="off">  
     </div>
     <button class = "buttonPost">Publicar</button>
-    
+    <div id="postedValue"></div>
+    <input type="file" id="upload">
+    <img src="" width="100" id="imgProfile">
+    <button class = "profilePhoto" id="profilePhoto">Carregar foto</button>
 
     `;
+
+
+    const textPost = rootElement.querySelector("#textPost");
+    let feed = ''; 
+    rootElement.querySelector('.buttonPost').addEventListener("click", (event)=> {
+      event.preventDefault();
+      // const email = Login.email;
+      // console.log(email)
+      let postValue = textPost.value;
+      let post = {
+          //email
+          text: postValue 
+      }
+      textPost.value = '';
+      firebase.firestore().collection('post').add(post)
+      
+     rootElement.querySelector("#postedValue").innerHTML = 
+     feed += 
+      `<div class="containerFeed">
+        <div class="postFeed"><p>${post.text}   </p> 
+        </div>
+        <div class="containerButton">
+            <button class="like"><img src="https://img.icons8.com/nolan/64/like.png"/></button>
+        </div>
+      </div>`
+      return feed
+    });
+    
+
+  
+
+
+    rootElement.classList.add("feed")
+
+    rootElement.querySelector("#exit").addEventListener("click", (e) => {
+        e.preventDefault()
+        firebase.auth().signOut().then(function() {
+            onNavigate("/")
+        }).catch(function(error) {
+            // An error happened.
+        });
+      });
+   
   rootElement.classList.add("feed")
 
   rootElement.querySelector("#exit").addEventListener("click", (e) => {
@@ -85,6 +126,6 @@ export const Home = () => {
 
 
   })
-
+    
   return rootElement;
-}
+    }
