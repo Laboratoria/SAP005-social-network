@@ -10,11 +10,9 @@ const routeRender = () => {
     '/login': Login,
     '/about': About,
   };
-
   rootDiv.innerHTML = '';
   rootDiv.appendChild(routes[window.location.pathname]());
 };
-
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
   document
@@ -37,3 +35,4 @@ window.addEventListener('load', () => {
     });
   routeRender();
 });
+routeRender();

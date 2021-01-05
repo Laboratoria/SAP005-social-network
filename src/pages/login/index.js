@@ -1,41 +1,36 @@
-/*
-const email = "teste@teste.com"
-const password = "chocolate"
-
-firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then(() => {
-    console.log("hello")
-  })
-  .catch((error) => {
-    console.log("deu ruim")
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
-*/
+import { onNavigate } from '../../utils/history.js';
 export const Login = () => {
-  const rootElement = document.createElement('div');
+  const rootElement = document.createElement("div");
   rootElement.innerHTML = `
     <section class="login">  
       <section class="left">  
-        <img src='../../img/ada-lovelace.svg' width="175px" height="175px" alt="Desenho do rosto de Ada Lovelace em preto com um fundo redondo alaranjado">
+        <img src="../../img/ada-lovelace.svg" width="175px" height="175px" alt="Desenho do rosto de Ada Lovelace em preto com um fundo redondo alaranjado">
         <p class="theme"><span class="logoname">[Ada]</span> Programe como uma mulher.</p>
       </section>
-      <section class="right">  
-        <input type="email" id="email" class="input-in-line" placeholder="E-mail">
-        <input type="password" id="password" class="input-in-line" placeholder="Password">
-        <button class="enter-button" id="login">Login</button> <button class="enter-button" id="singUp">Sing Up</button>
+      <section class="right">
+        <form id="signIn">
+          <fieldset class="right">
+            <input type="email" id="email" class="input-in-line" placeholder="E-mail" required>
+            <input type="password" id="password" class="input-in-line" placeholder="Senha" required>
+            <section id="errorLogin" class="errorMessage"></section>
+          </fieldset>
+          <fieldset class="login-button">
+            <button type="submit" class="enter-button">Entrar</button> 
+          </fieldset>
+        </form>    
         <p class="subtitle">_______________ OU _______________</p>
-        <section class="login-social-media">
-          <button id="google" class="button-icon"><img src='../../img/google.svg' height="50px" width="50px" alt="Logo Google na cor laranja"></button>
-          <button id="facebook" class="button-icon"><img src='../../img/facebook.svg' height="50px" width="50px" alt="Logo Facebook na cor laranja"></button>
-          <button id="github" class="button-icon"><img src='../../img/github.svg' height="50px" width="50px" alt="Logo GitHub na cor laranja"></button>
+        <section class="login-button">
+          <button id="google" class="button-icon"><img src="../../img/google.svg" height="50px" width="50px" alt="Logo Google na cor laranja"></button>
+          <button id="facebook" class="button-icon"><img src="../../img/facebook.svg" height="50px" width="50px" alt="Logo Facebook na cor laranja"></button>
+          <button id="github" class="button-icon"><img src="../../img/github.svg" height="50px" width="50px" alt="Logo GitHub na cor laranja"></button>
         </section>  
         <p class="subtitle">Não tem uma conta?
-        <button id="createAccount" class="button-text">Registre-se</button>
+        <button id="register" class="button-text">Registre-se</button>
         </p>
       </section>
     </section>    
   `;
+<<<<<<< HEAD
 
   const singIn = rootElement.querySelector('#login');
   const singUp = rootElement.querySelector('#createAccount');
@@ -47,72 +42,100 @@ export const Login = () => {
   });
   singIn.addEventListener("mouseout", () => {
     singIn.style.background = '#FF780F';
-  });
-  singUp.addEventListener("mouseenter", () => {
-    singUp.style.textDecoration = 'underline';
-  });
-  singUp.addEventListener("mouseout", () => {
-    singUp.style.textDecoration = 'none';
-  });
-  singIn.addEventListener("click", e => {
-    singIn.style.background = '#FEBB86';
+=======
+  //---------------------- GUARDANDO TODOS OS INPUTS ---------------------\\
+  const signIn = rootElement.querySelector("#signIn");
+  const register = rootElement.querySelector("#register");
+  const signUpGoogle = rootElement.querySelector("#google");
+  const signUpFb = rootElement.querySelector("#facebook");
+  const signUpGh = rootElement.querySelector("#github");
+  //------------------------- MENSAGENS DE ERRO ------------------------- \\
+  const verifyErrorCode = {
+    "auth/invalid-email": "O endereço de e-mail não é válido. Por favor, preencha novamente.",
+    "auth/invalid-password": "Senha incorreta. Por favor, tente novamente.",
+    "auth/email-already-in-use": "O e-mail fornecido já está cadastrado. Por favor, forneça um novo endereço.",
+    "auth/user-not-found": "Não há registro desse usuário. Por favor, registre-se para ter acesso à nossa rede.",
+    "auth/account-exists-with-different-credential": "E-mail já associado a outra conta. Por favor, tente com um novo endereço.",
+    "default": "Ocorreu algum erro. Por favor, tente novamente",
+  }
+  const errorMessageEmptyInput = "O preenchimento dos campos de e-mail e senha é obrigatório.";
+  //---------------------- FUNÇÕES DE AUTENTIFICAÇÃO ----------------------\\
+  signIn.addEventListener("submit", event => {
+    event.preventDefault();
     const email = rootElement.querySelector("#email").value;
     const password = rootElement.querySelector("#password").value;
-    const auth = firebase.auth();
-    //vai retornar uma promessa e dá pra trabalhar de maneira assíncrona
-    const promise = auth.signInWithEmailAndPassword(email, password);
-    promise.catch(e => console.log (e.message));
-
-
-    auth.createUsernWithEmailAndPassword(email, password);
-    auth.onAuthStateChange (firebaseUser => {});
-
-
-
+    if (email === "" || password === "") {
+      printMessageError(errorMessageEmptyInput);
+    } else {
+      const promise = firebase.auth().signInWithEmailAndPassword(email, password);
+      promise
+        .then(() => {
+          onNavigate('/');
+        })
+        .catch(err => {
+          const errorCode = err.code;
+          const errorMessage = verifyErrorCode[errorCode];
+          if (errorMessage === null) {
+            errorMessage = err.Message;
+          }
+          printMessageError(errorMessage);
+        });
+    }
+>>>>>>> master
   });
-  singUpGoogle.addEventListener("click", loginGoogle);
-  singUpFb.addEventListener("click", loginFacebook);
-  singUpGh.addEventListener("click", loginGitHub);
-  singUp.addEventListener("click", () => {
-    console.log('create an account');
+  signUpGoogle.addEventListener("click", () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(provider)
+      .then(() => {
+        onNavigate('/');
+      }).catch(err => {
+        const errorCode = err.code;
+        const errorMessage = verifyErrorCode[errorCode];
+        if (errorMessage === null) {
+          errorMessage = err.Message;
+        }
+        printMessageError(errorMessage);
+      });
+  });
+  signUpFb.addEventListener("click", () => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithRedirect(provider)
+      .then(() => {
+        onNavigate('/');
+      }).catch(err => {
+        const errorCode = err.code;
+        const errorMessage = verifyErrorCode[errorCode];
+        if (errorMessage === null) {
+          errorMessage = err.Message;
+        }
+        printMessageError(errorMessage);
+      });
+  });
+  signUpGh.addEventListener("click", () => {
+    const provider = new firebase.auth.GithubAuthProvider();
+    firebase.auth().signInWithRedirect(provider)
+      .then(() => {
+        onNavigate('/');
+      }).catch(err => {
+        const errorCode = err.code;
+        const errorMessage = verifyErrorCode[errorCode];
+        if (errorMessage === null) {
+          errorMessage = err.Message;
+        }
+        printMessageError(errorMessage);
+      });
+  });
+  //---------- ENCAMINHAR PARA O FORMULÁRIO DE CRIAÇÃO DE PERFIL ----------\\
+  //---------------- TODO: Mudar para a página de registro ----------------\\
+  register.addEventListener("click", () => {
+    onNavigate('/');
   });
   return rootElement;
 };
-
-
-
-
-
-
-
-
-
-function loginGoogle() {
-  console.log('google');
+function printMessageError(message) {
+  const elementError = document.createElement("p");
+  const errorMessage = document.createTextNode(message);
+  elementError.appendChild(errorMessage);
+  document.getElementById("errorLogin").innerHTML = "";
+  document.getElementById("errorLogin").appendChild(elementError);
 }
-function loginFacebook() {
-  console.log('facebook');
-}
-function loginGitHub() {
-  console.log('github');
-}
-
-
-
-
-  /*
-  Etapas importantes:
-  >>>Autentificação com Firebase<<<
-  >>>Mudar a rota das páginas<<<
-  >>>Testes unitários<<<
-  
-  Dúvidas:
-  Por que não vai com getElementById? 
-  Por que eu não consigo acessar o rootElement de fora?
-  
-  UI - UX:
-  Opção de deixar vísivel a senha (com um checkbox)
-  Input e-mail tá ficando azul
-  Mandar mensagem de campo vazio
-  Acessibilidade
-  */
