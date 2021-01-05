@@ -274,18 +274,6 @@
     margin-left: 60%;
     }
 
-    .like{
-        border: none;
-        background:transparent;
-        width: 30px;
-        height: 30px;
-    }
-
-    .like img{
-        width: 30px;
-        height: 30px;
-    }
-    
     .buttonPost {
         width: 100px;
         height: 30px;
@@ -346,4 +334,21 @@
         height: 20px;
         margin-left: 10px;
     }
-
+      
+    .likeBtn {
+        padding: 5px 5px;
+        font-size: 10px;
+        border-radius: 5px;
+        background-color: transparent;
+        color: #3e1444;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        }
+        
+        .likeBtn img{
+        width: 30px;
+        
+        }
+        
+        
