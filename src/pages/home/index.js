@@ -3,11 +3,11 @@ import { onNavigate } from '../../utils/history.js';
 
 export const Home = () => {
 
-  const rootElement = document.createElement('div');
-  // const user = await firebase.auth().currentUser
+    const rootElement = document.createElement('div');
+    // const user = await firebase.auth().currentUser
 
-  // if(user != null){
-  rootElement.innerHTML = `
+    // if(user != null){
+    rootElement.innerHTML = `
     <div class = "header">     
         <img class="logoHome" src="img/learning.png" alt="Logo Learning">
 
@@ -30,62 +30,42 @@ export const Home = () => {
       <h1>Priscila Souza</h1>      
     </div>
     <div class = "post">
-    <input type="text" id="textPost" placeholder="O que você quer compartilhar?" autocomplete="off">  
+      <input type="text" id="textPost" placeholder="O que você quer compartilhar?" autocomplete="off">  
     </div>
-    <button class = "buttonPost">Publicar</button>
+      <button class = "buttonPost">Publicar</button>
     <div id="postedValue"></div>
-    <input type="file" id="upload">
-    <img src="" width="100" id="imgProfile">
-    <button class = "profilePhoto" id="profilePhoto">Carregar foto</button>
+      <input type="file" id="upload">
+      <img src="" width="100" id="imgProfile">
+      <button class = "profilePhoto" id="profilePhoto">Carregar foto</button>`;
 
-    `;
-  
 
     const textPost = rootElement.querySelector("#textPost");
-    let feed = ''; 
-    rootElement.querySelector('.buttonPost').addEventListener("click", (event)=> {
-      event.preventDefault();
-      // const email = Login.email;
-      // console.log(email)
-      let postValue = textPost.value;
-      let post = {
-          //email
-          text: postValue 
-      }
-      textPost.value = '';
+    let feed = '';
+    rootElement.querySelector('.buttonPost').addEventListener("click", (event) => {
+        event.preventDefault();
+        let postValue = textPost.value;
+        let post = {
+            text: postValue
+        }
+        textPost.value = '';
 
-      let clicked = false;
+        firebase.firestore().collection('post').add(post)
+        rootElement.querySelector("#postedValue").innerHTML =
+            feed +=
+            `<div class="containerFeed">
+                 <div class="postFeed"><p>${post.text}</p> 
+                 </div>
+                 <div class="containerButton">
+                   <button class="likeBtn">
+                  <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
+                  <span id="score">0</span> Like
+                </div>
+                </div>`
 
-      firebase.firestore().collection('post').add(post)
-     rootElement.querySelector("#postedValue").innerHTML = 
-     feed += 
-      `<div class="containerFeed">
-        <div class="postFeed"><p>${post.text}   </p> 
-        </div>
-        <div class="containerButton">
-        <button class="likeBtn" onclick=${like()}>
-        <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
-        <span id="score">0</span> Like
-        </div>
-        </div>`
-        let likeIcon = document.querySelector("#like");
-        score = document.querySelector("#score");
-            
-    function like() {
-      if (!clicked) {
-      likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/50/filled-like.png"/>`;
-      score.textContent++;
-      } else {
-      clicked = false;
-      likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/64/like.png"/>`;
-      score.textContent--;
-      }
-      };
 
- 
-      return feed
+        return feed
     });
-    
+
 
     rootElement.classList.add("feed")
 
@@ -96,61 +76,61 @@ export const Home = () => {
         }).catch(function(error) {
             // An error happened.
         });
-      });
-   
-  rootElement.classList.add("feed")
-
-  rootElement.querySelector("#exit").addEventListener("click", (e) => {
-    e.preventDefault()
-    firebase.auth().signOut().then(function () {
-      onNavigate("/")
-    }).catch(function (error) {
-      // An error happened.
     });
-  })
 
-  let storage = firebase.storage();
-  let profile = rootElement.querySelector('#upload')
+    rootElement.classList.add("feed")
 
-  profile.addEventListener("change", e => {
-    const file = e.target.files[0]
-    const fileReader = new FileReader()
-    
-
-    fileReader.onloadend = () => {
-
-      rootElement.querySelector("#imgProfile").setAttribute("src", fileReader.result)
-
-
-    }
-    fileReader.readAsDataURL(file)
-
-    rootElement.querySelector("#profilePhoto").addEventListener("click", () => {
-
-      const namePhoto = "photoUser"
-      const upload = storage.ref().child("ProfilePhoto").child(namePhoto + ".pnj").put(file)
-
-      upload.on("state_changed", function () {
-
-        console.log("Imagem Salva")
-
-      }, function (error) {
-
-        console.log("Erro ao salvar imagem")
-
-      })
-
+    rootElement.querySelector("#exit").addEventListener("click", (e) => {
+        e.preventDefault()
+        firebase.auth().signOut().then(function() {
+            onNavigate("/")
+        }).catch(function(error) {
+            // An error happened.
+        });
     })
 
+    let storage = firebase.storage();
+    let profile = rootElement.querySelector('#upload')
 
-  })
-  // } else {
-  //     rootElement.innerHTML =
-  //      ` <h1>Ops, faça um login!.</h1>`
-  // }
-  // Coloque sua página
- 
-  console.log(rootElement)
-    
-  return rootElement;
-    }
+    profile.addEventListener("change", e => {
+            const file = e.target.files[0]
+            const fileReader = new FileReader()
+
+
+            fileReader.onloadend = () => {
+
+                rootElement.querySelector("#imgProfile").setAttribute("src", fileReader.result)
+
+
+            }
+            fileReader.readAsDataURL(file)
+
+            rootElement.querySelector("#profilePhoto").addEventListener("click", () => {
+
+                const namePhoto = "photoUser"
+                const upload = storage.ref().child("ProfilePhoto").child(namePhoto + ".pnj").put(file)
+
+                upload.on("state_changed", function() {
+
+                    console.log("Imagem Salva")
+
+                }, function(error) {
+
+                    console.log("Erro ao salvar imagem")
+
+                })
+
+            })
+
+
+        })
+        // } else {
+        //     rootElement.innerHTML =
+        //       <h1>Ops, faça um login!.</h1>
+        // }
+        // Coloque sua página
+
+    console.log(rootElement)
+
+    return rootElement;
+}

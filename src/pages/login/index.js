@@ -1,4 +1,3 @@
-
 import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
@@ -44,20 +43,19 @@ export const Login = () => {
     let emailInput = rootElement.querySelector("#email")
     let passwordInput = rootElement.querySelector("#passwordSecond")
 
-    rootElement.querySelector("#btnLogin").addEventListener("click", async (e) => {
+    rootElement.querySelector("#btnLogin").addEventListener("click", async(e) => {
         e.preventDefault();
         const email = emailInput.value;
         const password = passwordInput.value;
-         let database = firebase.database();
         await firebase
-        .auth()
+            .auth()
             .signInWithEmailAndPassword(email, password)
 
-        const userId = await firebase.auth().currentUser.uid 
+        const userId = await firebase.auth().currentUser.uid
         writeUserData()
-         onNavigate('/home')
+        onNavigate('/home')
 
-    
+
         emailInput.value = ""
         passwordInput.value = ""
     })
@@ -66,11 +64,11 @@ export const Login = () => {
         e.preventDefault()
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function(result) {
-         
+
             onNavigate("/home")
         }).catch(function(error) {
             console.log(error)
-         
+
         });
 
     });
