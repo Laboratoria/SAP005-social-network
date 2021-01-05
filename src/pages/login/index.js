@@ -1,7 +1,7 @@
 export const Login = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
-  <div class="container-login">
+      <div class="container-login">
     <img class="logo-img" src="./images/logo.jpeg" alt="logo Olimpo">
     <section >
     <h1 class='title'>[Olimpo]</h1>
@@ -15,9 +15,10 @@ export const Login = () => {
     <button id = 'logout-btn' class = 'btn btn-action-hide'> Log Out </button>
     </section>
     <div>
-    `;
+  `;
   return rootElement;
 };
+
 
 // pegar os elementos para enviar para o firebase
 
@@ -57,3 +58,4 @@ btnSignUp.addEventListener('click', () => {
 //   firebase.auth().signInWithPopup(provider);
 // }
 // socorroooo
+

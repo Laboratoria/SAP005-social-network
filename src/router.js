@@ -21,21 +21,6 @@ const routeRender = () => {
 
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
-  routeRender();
-});
-window.addEventListener('load', () => {
-  document
-  .getElementById('home')
-  .addEventListener('click', (e) => {
-  e.preventDefault();
-  onNavigate('/')
-  });
-  document
-  .getElementById('login')
-  .addEventListener('click', (e) => {
-  e.preventDefault();
-  onNavigate('/login')
-  });
 
   routeRender();
   });
