@@ -1,8 +1,8 @@
-import { onNavigate } from "../../utils/history.js";
+console.log('oieeeeeeeee')
+document.getElementById('create-account').addEventListener("click", dataSave)
 
-export const authentication = function dataSave() {
-      document.getElementById('subscribe-button').addEventListener("click", saveData)
-      function saveData(){
+   function dataSave(e) {
+         e.preventDefault()
          let email = document.getElementById('new-email').value;
          let password = document.getElementById('new-password').value;
 
@@ -14,10 +14,9 @@ export const authentication = function dataSave() {
 
          firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
          console.log('usuário', user) })
-         onNavigate('/feed')
+        /* onNavigate('/feed')
          document.getElementById('header-document').style.display = "none"
-         document.getElementById('root').style.width = "100%"
+         document.getElementById('root').style.width = "100%" */
          }
         }
-       } 
-      
+       

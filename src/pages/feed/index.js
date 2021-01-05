@@ -5,7 +5,7 @@ export const Feed = () => {
     <div class='nav-bar'> 
    <nav>
      <ul>
-        <li id='logo-feed'></><img src='/src/pages/feed/img/nav-bar/rocket-icon.png' alt'rocket-logo'>TPM</li>
+        <li id='logo-feed'></><img src='./pages/feed/img/nav-bar/rocket-icon.png' alt'rocket-logo'>TPM</li>
         <li>Meu perfil</li>
         <li>Feed</li> 
         <li>Comunidades</li> 
@@ -15,7 +15,7 @@ export const Feed = () => {
   </div>
     <div id="profile">
       <figure class='figure-profile'>
-        <img class="picture-profile" src="/src/pages/feed/img/profile/profile-exemple.jpg" alt="foto do perfil"> 
+        <img class="picture-profile" src="./pages/feed/img/profile/profile-exemple.jpg" alt="foto do perfil"> 
         <p id="name-profile">Keiti Peurri</p>
       </figure>
       
@@ -35,10 +35,10 @@ export const Feed = () => {
         </p>
      <nav>
        <ul class='friends-post'>
-         <li><button title='Curti' class='react-button'><img src='/src/pages/feed/img/reacts/like.png' alt='botao de curtir'></button></li> 
-         <li><button title='Amei' class='react-button'><img src='/src/pages/feed/img/reacts/heart.png' alt='botao de amar'></button></li> 
-         <li><button title='Hahaha' class='react-button'><img src='/src/pages/feed/img/reacts/haha.png' alt='botao para rir'></button></li> 
-         <li><button title='Parabéns' class='react-button'><img src='/src/pages/feed/img/reacts/claps.png' alt='botao para parabenizar'></button></li> 
+         <li><button title='Curti' class='react-button'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'></button></li> 
+         <li><button title='Amei' class='react-button'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'></button></li> 
+         <li><button title='Hahaha' class='react-button'><img src='./pages/feed/img/reacts/haha.png' alt='botao para rir'></button></li> 
+         <li><button title='Parabéns' class='react-button'><img src='./pages/feed/img/reacts/claps.png' alt='botao para parabenizar'></button></li> 
       </ul>
    </nav>
      </div>
