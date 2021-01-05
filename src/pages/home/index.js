@@ -19,8 +19,11 @@ export const Home = () => {
         </div>
       </div>    
     </div>  
-    <div>
-      <img class="perfil" src="img/perfil.png" alt="Foto Perfil">
+    <div>      
+    <label for="profile">Enviar foto</label>
+    <input type="file" name="profile" id="upload">
+    <img src="" width="100"  id="imgProfile">
+    <button class = "profilePhoto" id="profilePhoto">Carregar foto</button>
     </div>  
     <div class = "nameHome">    
       <h1>Priscila Souza</h1>      
@@ -29,9 +32,7 @@ export const Home = () => {
     <input type="text" id="textPost" placeholder="O que você quer compartilhar?" autocomplete="off">  
     </div>
     <button class = "buttonPost">Publicar</button>
-    <input type="file" id="upload">
-    <img src="" width="100" id="imgProfile">
-    <button class = "profilePhoto" id="profilePhoto">Carregar foto</button>
+    
 
     `;
   rootElement.classList.add("feed")
@@ -51,7 +52,7 @@ export const Home = () => {
   profile.addEventListener("change", e => {
     const file = e.target.files[0]
     const fileReader = new FileReader()
-    
+
 
     fileReader.onloadend = () => {
 
@@ -68,7 +69,11 @@ export const Home = () => {
 
       upload.on("state_changed", function () {
 
-        console.log("Imagem Salva")
+        upload.snapshot.ref.getDownloadURL().then(function (url_imagem) {
+
+          console.log("Url:" + url_imagem)
+
+        })
 
       }, function (error) {
 

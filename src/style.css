@@ -2,15 +2,12 @@
         margin: 0;
         padding: 0;
     }
-    
-    html,
-    body,
-    main,
-    #root {
+
+    html, body, main, #root {
         width: 100%;
         height: 100%;
     }
-    
+
     .formRegister {
         display: flex;
         flex-direction: column;
@@ -19,7 +16,7 @@
         width: 100%;
         background-color: #8136b2;
     }
-    
+
     .textFirts {
         margin: 40px 210px 0 0;
         color: white;
@@ -27,12 +24,12 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 16px;
     }
-    
+
     legend {
         color: white;
         font-family: Arial, Helvetica, sans-serif;
     }
-    
+
     .register {
         display: flex;
         flex-direction: column;
@@ -41,9 +38,8 @@
         height: 350px;
         /* border: solid 1px black; */
     }
-    
-    .register input,
-    .registerLogin input {
+
+    .register input, .registerLogin input {
         padding: 7px;
         margin-bottom: 5px;
         margin-left: 10px;
@@ -51,20 +47,20 @@
         border: none;
         border-radius: 5px;
     }
-    
+
     .name {
         margin-left: 10px;
     }
-    
+
     .name input {
         width: 136px;
         margin-left: 0;
     }
-    
+
     .registerColumn input {
         width: 290px;
     }
-    
+
     .registerColumn button {
         cursor: pointer;
         width: 20px;
@@ -72,12 +68,12 @@
         border: none;
         background-color: #8136b2;
     }
-    
+
     .registerColumn img {
         width: 20px;
         height: 15px;
     }
-    
+
     #btn {
         width: 100px;
         height: 30px;
@@ -89,7 +85,7 @@
         background-color: #581c72;
         border-radius: 20px;
     }
-    
+
     #btnLogin {
         width: 100px;
         height: 30px;
@@ -102,13 +98,13 @@
         margin: 10px 0 0 218px;
         cursor: pointer;
     }
-    
+
     #google {
         height: 30px;
         background-color: transparent;
         border: none;
     }
-    
+
     #loginBtn {
         width: 100px;
         margin: 10px 0 0 218px;
@@ -116,7 +112,7 @@
         font-size: 17px;
         color: #581c72;
     }
-    
+
     #btnCadastro {
         background-color: transparent;
         width: 120px;
@@ -126,27 +122,27 @@
         border: none;
         cursor: pointer;
     }
-    
+
     .btns img {
         width: 25px;
         height: 25px;
         margin-right: 50%;
         cursor: pointer;
     }
-    
+
     .btns {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
+
     .btns p {
         margin: 2% 0 2% 0;
         color: #2a0a38;
         height: 30px;
         font-family: Arial, Helvetica, sans-serif;
     }
-    
+
     .registerLogin {
         margin-top: 20px;
         display: flex;
@@ -155,29 +151,25 @@
         width: 330px;
         height: 210px;
     }
-    
-    #passwordFirst,
-    #passwordSecond {
+
+    #passwordFirst, #passwordSecond {
         width: 254px;
     }
-    
+
     .logoL {
         width: 40%;
         height: 15%;
         align-items: center;
         margin: 10% 0 0 30%;
     }
-    
-    button:focus,
-    input:focus,
-    select:focus {
+
+    button:focus, input:focus, select:focus {
         box-shadow: 0 0 0 0;
         border: 0 none;
         outline: 0;
     }
-    
-    .msgFinalized,
-    .msgNotFound {
+
+    .msgFinalized, .msgNotFound {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -185,15 +177,15 @@
         font-size: 8px;
         font-family: Arial, Helvetica, sans-serif;
     }
-    
+
     .warning {
         color: #8C041D
     }
-    
+
     .home {
         display: flex;
     }
-    
+
     .header {
         display: flex;
         align-items: center;
@@ -202,7 +194,7 @@
         /* justify-content: center; */
         background-color: #8136b2;
     }
-    
+
     .perfil {
         height: 90px;
         width: 90px;
@@ -211,19 +203,19 @@
         position: absolute;
         margin: -35px 0 0 10px;
     }
-    
+
     .logoHome {
         height: 80px;
         width: 120px;
         margin-left: 30%;
     }
-    
+
     .menu {
         height: 50px;
         width: 50px;
         /* margin-left: 40%; */
     }
-    
+
     .nameHome {
         width: 100%;
         background-color: white;
@@ -234,13 +226,13 @@
         font-family: Arial, Helvetica, sans-serif;
         color: #2a0a38;
     }
-    
+
     .post {
         display: flex;
         justify-content: center;
         margin-top: 60px;
     }
-    
+
     #textPost {
         width: 80%;
         height: 80px;
@@ -249,7 +241,7 @@
         background-color: #d9d9d9;
         text-align: center;
     }
-    
+
     .buttonPost {
         width: 100px;
         height: 30px;
@@ -261,7 +253,7 @@
         border-radius: 20px;
         margin: 10px 0 0 61%
     }
-    
+
     .barra-menu {
         margin-top: 115px;
         background-color: #8136b2;
@@ -273,15 +265,15 @@
         position: absolute;
         transition: all .2s ease;
     }
-    
+
     #check:checked~.barra-menu {
         transform: translatex(-2000px);
     }
-    
+
     #check {
         display: none;
     }
-    
+
     .itensMenu {
         color: white;
         font-family: Arial, Helvetica, sans-serif;
@@ -289,9 +281,8 @@
         flex-direction: row;
         justify-content: center;
     }
-    
-    .edit,
-    .exit {
+
+    .edit, .exit {
         width: 80px;
         height: 30px;
         background-color: transparent;
@@ -299,14 +290,16 @@
         color: white;
         cursor: pointer;
     }
-    
+
     .exit {
         width: 20px;
         margin-left: 5px;
     }
-    
+
     .itensMenu img {
         width: 20px;
         height: 20px;
         margin-left: 10px;
     }
+
+   
