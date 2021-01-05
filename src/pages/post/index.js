@@ -1,18 +1,18 @@
 export const Post = () => {
-    const container = document.createElement("div");
-    container.classList.add("div-post");
-    container.innerHTML = `
+  const container = document.createElement('div');
+  container.classList.add('div-post');
+  container.innerHTML = `
     
         <div class="">
             <input type="text" class="name" id="name">
             <input type="text" class="post" id="post">
-            <button type="button" class="btn" onclick="creatPost()">Postar</button>
+            <button type="button" class="btn" onclick="creatPost()">Postar</button> 
         </div>
         <div class="post-container">
         </div>
     
 `;
-    return container;
+  return container;
 };
 
 // const post_container = document.getElementsByClassName('post-container')[0];
