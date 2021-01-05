@@ -56,3 +56,4 @@ btnSignUp.addEventListener('click', () => {
 //   provider.setCustomParameters({ prompt: 'select-_account' });
 //   firebase.auth().signInWithPopup(provider);
 // }
+// socorro
