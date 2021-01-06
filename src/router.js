@@ -9,9 +9,9 @@ import { onNavigate } from './utils/history.js';
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
-    '/' : Home,
+    '/': Home,
     '/login': Login,
-    '/register' : Register,
+    '/register': Register,
     '/feed': Feed,
 
   };
@@ -27,27 +27,27 @@ window.addEventListener('load', () => {
     .getElementById('home')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/')
+      onNavigate('/');
     });
   document
     .getElementById('login')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/login')
+      onNavigate('/login');
     });
 
-    document
+  document
     .getElementById('register')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/register')
+      onNavigate('/register');
     });
 
-    document
+  document
     .getElementById('feed')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/feed')
+      onNavigate('/feed');
     });
 
   routeRender();

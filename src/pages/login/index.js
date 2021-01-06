@@ -1,28 +1,20 @@
-import { userLogin, userLogout, gmailLogin } from "../../services/index.js";
-import { onNavigate } from "../../utils/history.js";
+import { userLogin, userLogout, gmailLogin } from '../../services/index.js';
+import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
-  const rootElement = document.createElement("div");
+  const rootElement = document.createElement('div');
   rootElement.innerHTML = `
   <div id="main-container" >
     <h1>Black Talents</h1>
     <form id="login-form">
       <div class="full-box">
         <label for="email"> E-mail</label>
-        <input 
-        type="email" 
-        name="email" 
-        id="email" required
-        placeholder="Digite seu email" >
+        <input type="email" name="email" id="email" placeholder="Digite seu email" >
       </div>
      
-      <div class="half-box spacing">
+      <div class="full-box">
         <label for="password"> Senha</label>
-        <input 
-        type="password" 
-        name="password" 
-        id="password" required
-        placeholder="Digite sua senha">
+        <input type="password" name="password" id="password" placeholder="Digite sua senha">
       </div>
      
       <div class="full-box">
@@ -44,33 +36,33 @@ export const Login = () => {
   </div>
   `;
 
-  let loginUser = rootElement.querySelector("#btn-submit-email");
-  loginUser.addEventListener("click", function (e) {
+  const loginUser = rootElement.querySelector('#btn-submit-email');
+  loginUser.addEventListener('click', (e) => {
     e.preventDefault();
-    const email = rootElement.querySelector("#email").value;
-    const password = rootElement.querySelector("#password").value;
+    const email = rootElement.querySelector('#email').value;
+    const password = rootElement.querySelector('#password').value;
     userLogin(email, password);
-    //onNavigate("/feed")
+    // onNavigate("/feed")
   });
 
-  let gmail = rootElement.querySelector("#btn-submit-gmail");
-  gmail.addEventListener("click", function (e) {
+  const gmail = rootElement.querySelector('#btn-submit-gmail');
+  gmail.addEventListener('click', (e) => {
     e.preventDefault();
     gmailLogin();
-    //onNavigate("/feed");
+    // onNavigate("/feed");
   });
 
-  let logoutUser = rootElement.querySelector("#btn-submit-logout");
-  logoutUser.addEventListener("click", function (e) {
+  const logoutUser = rootElement.querySelector('#btn-submit-logout');
+  logoutUser.addEventListener('click', (e) => {
     e.preventDefault();
     userLogout();
-    //onNavigate("/");
+    // onNavigate("/");
   });
 
-  let registerUser = rootElement.querySelector("#registerUser");
-  registerUser.addEventListener("click", function (e) {
+  const registerUser = rootElement.querySelector('#registerUser');
+  registerUser.addEventListener('click', (e) => {
     e.preventDefault();
-    onNavigate("/register");
+    onNavigate('/register');
   });
 
   return rootElement;
