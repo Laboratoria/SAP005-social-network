@@ -8,7 +8,7 @@ export const Home = () => {
           <img src="images/slidebg2.jpg">
           <img src="images/slidebg3.jpg">
         </figure>
-        <button id="login" class="buttonLogin ">Entrar</button>
+        <button id="login" class="buttonPage">Entrar</button>
         <div class="banner">
           <img src="images/olimpo.png" >
           <p> <b><span class="colorText">Siga</span></b> o que for de seu interrese</p>
@@ -17,10 +17,10 @@ export const Home = () => {
         </div>
       </div>
 
-      <figure><img src="images/seta.png" class="icon arrow"></figure>
+      <a href="#about"><figure><img src="images/seta.png" class="icon arrow"></figure></a>
 
       <div class="container">
-        <p> Olimpo é um aplicativo direcionado a pessoas que praticam esporte, tem como objetivo ser um espaço para troca de informações, novas amizades e compartilhamento de dicas. 
+        <p id="about"> Olimpo é um aplicativo direcionado a pessoas que praticam esporte, tem como objetivo ser um espaço para troca de informações, novas amizades e compartilhamento de dicas. 
          Faça parte, encontre amigos que amam praticar esportes.
          <br>
          Esse projeto foi desenvolvido por: 
@@ -33,9 +33,9 @@ export const Home = () => {
       </div>
       `;
 
-  const bottunLogin = rootElement.querySelector("#login")
-  bottunLogin.addEventListener("click", () => {
-    onNavigate("/login")
+  const bottunLogin = rootElement.querySelector('#login');
+  bottunLogin.addEventListener('click', () => {
+    onNavigate('/login');
   })
   return rootElement;
 };

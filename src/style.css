@@ -1,6 +1,19 @@
 body {
     font-family: 'Fjalla Um', sans-serif;
+    margin: 0;
+    padding: 0;
 }
+html {
+    scroll-behavior: smooth;
+}
+.gif{
+    background-color: black;
+    width: 50vw;
+    height: 30vh;
+    margin-top: 20%;
+    margin-left: 25%;
+}
+
 .dysplay-template {
     display: flex;
 }
@@ -20,13 +33,15 @@ body {
 }
 .slider figure img {
     width: 20%;
-    height: 80vh;
+    height: 85vh;
     float: left;
     opacity: 0.5;
     object-fit: cover;
 }
-.slider button {
+.slider button{
     position: absolute;
+}
+.buttonPage {
     top: 5%;
     right: 5vw;
     width: 120px;
@@ -36,6 +51,7 @@ body {
     border-radius: 10px;
     border: none;
     font-size: 1rem;
+    margin: 5px;
 }
 .banner {
     position: absolute;
@@ -54,6 +70,7 @@ body {
 .container {
     text-align: center;
     width: 95vw;
+    margin: 10px;
 }
 .icon {
     width: 50px;
@@ -93,4 +110,76 @@ body {
     70% {
         left: 0;
     }
+}
+
+.container-login{
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center; 
+    
+}
+.box-login img{
+    width: 100%;
+    height: 100%;
+    max-width: 450px;
+    max-height: 250px;
+    
+}
+.box-login{
+    width: 100%;
+    padding: 30px;
+    box-shadow: 0 0 8px rgba(0,0,0,1);
+    border-radius: 20px;
+    max-width: 400px;
+    max-height: 500px; 
+
+}
+.box-login form{
+    text-align: center;
+    margin: 10px;
+    font-size: 1rem;
+}
+.box-login form img{
+    width: 16px;
+    height: 16px;
+}
+.box-login p{
+    font-size: 0.7rem;
+}
+.btn{
+    width: 90%;
+    height: 30px;
+    border-radius: 20px ;
+    margin: 5px
+}
+.btnGoogle{
+    width: 200px;
+    background-color: black;
+}
+.btnSing{
+    background-color: rgba(0, 0, 0, 0.603) ;
+}
+.navigation {
+    background-color:  rgb(224, 105, 8);
+    width: 100vw;
+    height: 40px;
+    display: flex;
+}
+
+.menu-icon{
+    margin-top: 5px;
+    height: 30px;
+    margin-right: 10vw;
+}
+.logOut{
+    margin-right: 0;
+}
+.navMenu{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    width: 100vw;
+    margin:0;
+    
 }
