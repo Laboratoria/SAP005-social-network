@@ -13,9 +13,9 @@ export const Register = () => {
       </input>
       <input class="register-input" id="register-email" type="text" placeholder="Insira seu email">
       </input>
-      <input class="register-input" id="register-pass" type="text" placeholder="Insira sua senha">
+      <input class="register-input" id="register-pass" type="password" placeholder="Insira sua senha">
       </input>
-      <input class="register-input" id="register-passConfirm" type="text" placeholder="Confirmar senha">
+      <input class="register-input" id="register-passConfirm" type="password" placeholder="Confirmar senha">
       </input>
       <p id="doesntMatch"></p>
       <button class="register-input" id="btn-register-confirm" type="submit">CADASTRE-SE</button>
