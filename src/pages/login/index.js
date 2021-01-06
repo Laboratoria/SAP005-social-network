@@ -1,4 +1,3 @@
-
 import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
@@ -48,7 +47,6 @@ export const Login = () => {
         e.preventDefault();
         const email = emailInput.value;
         const password = passwordInput.value;
-        let database = firebase.database();
         await firebase
             .auth()
             .signInWithEmailAndPassword(email, password)

@@ -7,7 +7,7 @@ const routeRender = () => {
     const routes = {
         "/": Login,
         "/cadastro": Register,
-        "/home": Home
+        "/home": Home,
     };
     if (!routes[window.location.pathname]) {
         window.location = '/'
