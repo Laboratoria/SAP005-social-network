@@ -56,7 +56,7 @@ export const Home = () => {
                  <div class="postFeed"><p>${post.text}</p> 
                  </div>
                  <div class="containerButton">
-                   <button class="likeBtn">
+                  <button class="likeBtn">
                   <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
                   <span id="score">0</span> Like
                 </div>
@@ -123,7 +123,7 @@ export const Home = () => {
             })
 
 
-        
+        })
         // } else {
         //     rootElement.innerHTML =
         //       <h1>Ops, faça um login!.</h1>
@@ -133,4 +133,4 @@ export const Home = () => {
     console.log(rootElement)
 
     return rootElement;
-      })
+}
