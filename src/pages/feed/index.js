@@ -9,8 +9,7 @@ export const Feed = () => {
         <input class="text-post" id="text-post" type="textarea">
         <button class="btn-submit" id="btn-submit" type="submit">Submit</button>
       </form>
-    </div>
-  `;
+    </div> `;
 
   rootElement.innerHTML = postHtml;
 

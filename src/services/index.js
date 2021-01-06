@@ -5,9 +5,21 @@ export const CreateUser = (email, password) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email.trim(), password)
-    .then((response) => {
+    .then(() => {
       window.location.pathname = 'feed';
-      response('Você está logado parça!');
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-alert
+      alert(error.message);
+    });
+};
+
+export const SingIn = (email, password) => {
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email.trim(), password)
+    .then(() => {
+      window.location.pathname = 'feed';
     })
     .catch((error) => {
       // eslint-disable-next-line no-alert
