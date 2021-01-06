@@ -1,4 +1,5 @@
 // importamos la funcion que vamos a testear
+// eslint-disable-next-line import/named
 import { myFunction } from './index';
 
 describe('myFunction', () => {
