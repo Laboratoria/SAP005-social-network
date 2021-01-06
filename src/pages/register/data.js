@@ -1,12 +1,14 @@
 export const createProfile = (email, password) => {
-  userRegister(email, password){
-    return firebase
-    .auth()
-    .createUserWithEmailAndPassword(email, password);
-  }
+    userRegister(email, password){
+        firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password);
+    }
 };
 export const createUser = (email, city, date) => {
-  userNew(email, city, date) {
-    return Firebase
-  }
-}
+    userNew(email, city, date) {
+    firebase
+    }
+};
+
+// Não precisa de RETURN nesta função

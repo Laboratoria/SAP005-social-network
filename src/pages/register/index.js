@@ -30,7 +30,7 @@ export const Register = () => {
   const confPassword = container.querySelector('#confirmPwd').value;
   const name = container.querySelector('#name').value;
   const msgError = container.querySelector('#registerError').value;
-  
+
   btnRegister.addEventListener('click', (event) => {
     event.preventDefault();
     const email = container.querySelector('#email').value;
@@ -39,12 +39,12 @@ export const Register = () => {
     const date = container.querySelector('#date').value;
     const registerPf = createProfile.userRegister(email, password);
     registerPf
-    .then(()=> {
+      .then(() => {
 
-    })
-    .catch((error) => {
-      msgError.innerHTML = error.message;
-    });
+      })
+      .catch((error) => {
+        msgError.innerHTML = error.message;
+      });
   });
 
   return container;
