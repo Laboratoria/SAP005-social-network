@@ -5,8 +5,8 @@ export const Home = () => {
   const home = document.createElement('div');
   home.classList.add('div-home');
   home.innerHTML = `
-  <div class='head-home' alt='Runner|Home'>'Runner|Home'</div>
-      <figure class='logo-login'>
+  <div class='head-home' alt='Runner|Home'>Runner|Home</div>
+      <figure class='logo'>
       <img src=''alt='Logo Runners' id='logo'>
       </figure>
       <div class='home-box'>
@@ -19,7 +19,7 @@ export const Home = () => {
             <button id='submit-home'>Entrar</button>
             <p>Logar com:</p>
             <div class='button-social' id='authGoogle'>
-            <input type="button" class="google" alt='Logo Google' id='authGoogle'/>
+            <input type='button' class='google' alt='Logo Google' id='authGoogle'/>
             </div>
           </div>
         </form>
