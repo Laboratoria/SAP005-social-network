@@ -6,7 +6,7 @@ export const Register = () => {
   container.innerHTML = `
   <div class='head-register' alt='Runner|Cadastro'>Runner|Cadastro</div>
   <figure class='container-logo'>
-    <img src='' class='logo' alt='Logo Runners'>
+    <img src='a/logo_runners.png' class='logo' alt='Logo Runners'>
   </figure>
 
   <form> 
@@ -38,7 +38,7 @@ export const Register = () => {
     const registerPf = 
     then()
 
-  })
+  });
 
   return container;
 };

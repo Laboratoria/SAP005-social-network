@@ -7,7 +7,7 @@ export const Home = () => {
   home.innerHTML = `
   <div class='head-home' alt='Runner|Home'>Runner|Home</div>
       <figure class='logo'>
-      <img src=''alt='Logo Runners' id='logo'>
+      <img src='a/logo_runners.png'alt='Logo Runners' id='logo'>
       </figure>
       <div class='home-box'>
         <form class='login'>
