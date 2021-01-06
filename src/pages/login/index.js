@@ -1,4 +1,5 @@
-import { onNavigate } from "../../utils/history.js"
+import { onNavigate } from '../../utils/history.js';
+
 export const Login = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
@@ -13,9 +14,10 @@ export const Login = () => {
          <button id="login-btn" class="buttonPage"> Login </button><br>
          <button id="googleLogin" class="buttonPage btnGoogle"> <img src="images/google.png" class="login-icon"> Login Google </button>
          <button id="registry" class="buttonPage btnSing"> Registre-se </button>
+         <button id= 'googleLogin' class = 'google-login'> Conta Google </button>
+
        </form>
-      </div>
-    <div>
+     <div>
   `;
   
   const bottunRegistry = rootElement.querySelector('#registry');
@@ -28,10 +30,14 @@ export const Login = () => {
   bottunLogin.addEventListener('click', () => {
     onNavigate('/feed');
   })
+  
+
+  const btnGoogle = rootElement.querySelector('#googleLogin');
   const txtEmail = rootElement.querySelector('#txtEmail');
   const txtPassword = rootElement.querySelector('#txtPassword');
   const btnLogin = rootElement.querySelector('#login-btn');
-  
+  const btnSignUp = rootElement.querySelector('#signup-btn');
+
   // adicionar o evento no login
 
   btnLogin.addEventListener('click', (event) => {
@@ -40,14 +46,32 @@ export const Login = () => {
     const email = txtEmail.value;
     const senha = txtPassword.value;
     const auth = firebase.auth();
-    // Entrar
+
+    console.log(email, senha);
+    // Registrar
+
     const promise = auth.createUserWithEmailAndPassword(email, senha);
     promise.catch((e) => console.log(e.message));
   });
 
   // adicionando evento no Sign In - Registre-se
 
-  
-  return rootElement;
 
+  btnSignUp.addEventListener('click', () => {
+    // pegando os valores do email e senha
+    const email = txtEmail.value;
+    const senha = txtPassword.value;
+    const auth = firebase.auth();
+    // Entrar
+    const promise = auth.signInWithEmailAndPassword(email, senha);
+    promise.catch((e) => console.log(e.message));
+  });
+
+
+  btnGoogle.addEventListener('click', () => {
+    const proverAcesso = new firebase.auth.GoogleAuthProvider();
+    proverAcesso.addScope('https://www.googleapis.com/auth/plus.login');
+    firebase.auth().signInWithRedirect(proverAcesso);
+  });
+  return rootElement;
 };

@@ -1,6 +1,7 @@
 // Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
+
 import { Feed } from './pages/feed/index.js';
 import { Profile } from './pages/profile/index.js';
 import { Notification } from './pages/notification/index.js';
@@ -26,6 +27,6 @@ const routeRender = () => {
 
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
-
   routeRender();
   });
+
