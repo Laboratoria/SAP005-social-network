@@ -1,24 +1,28 @@
 // exporte suas funções
 
+import { onNavigate } from "../utils/history.js";
+
 export const validation = (person) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(person.email, person.password)
-    .then((user) => {
-      console.log('usuario', user);
-    })
-    .catch('lascou');
+    .then(onNavigate('/home'))
+    .catch((error) => {
+      var errorMessage = error.message;
+      if (errorMessage == 'The email address is badly formatted.') {
+        alert('Email incorreto');
+      } else {
+        alert('Senha incorreta');
+      }
+    });
 };
 
-export const persist = (person) => {
+export const persist = () => {
   firebase
     .auth()
-    .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-    .then(() =>
-      firebase.auth().signInWithEmailAndPassword(person.email, person.password),
-    )
-    .catch('setar erro');
+    .setPersistence(firebase.auth.Auth.Persistence.SESSION)
 };
+
 
 export const createUser = (person) => {
   firebase
@@ -37,3 +41,10 @@ export const createUser = (person) => {
       console.error("Error writing document: ", error);
   });
 };
+
+export const logOut = () => {
+  firebase
+   .auth()
+   .signOut()
+   .then(onNavigate('/'));
+}

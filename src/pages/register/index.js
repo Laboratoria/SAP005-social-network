@@ -1,5 +1,6 @@
 import { createUser } from '../../services/index.js';
 import { newUser } from './standard.js';
+import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
   const registerPage = document.createElement('div');
@@ -11,8 +12,7 @@ export const Register = () => {
   submitBTN.addEventListener('click', (event) => {
     event.preventDefault();
     const pass = registerPage.querySelector('#register-pass').value;
-    const passConfirm = registerPage.querySelector('#register-passConfirm')
-      .value;
+    const passConfirm = registerPage.querySelector('#register-passConfirm').value;
     const errorDoesntMatch = registerPage.querySelector('#doesntMatch');
 
     if (pass !== passConfirm) {
@@ -25,7 +25,7 @@ export const Register = () => {
         email: registerPage.querySelector('#register-email').value,
         password: registerPage.querySelector('#register-pass').value,
       };
-      createUser(person);
+      createUser(person).then(onNavigate('/home'));
     }
   });
 

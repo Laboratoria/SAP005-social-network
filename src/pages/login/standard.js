@@ -10,11 +10,10 @@ export const loginTags = () => {
         <form class="login-input">
           <input class="login-input" id="email-login" type="text" placeholder="Email ou nome de usuária">
           </input>
-          <input class="login-input" id="password-login" type="text" placeholder="Insira sua senha">
+          <input class="login-input" id="password-login" type="password" placeholder="Insira sua senha">
           </input>
-          <button class="login-input" id="lgn-btn" type="submit">
-          <a href="/">LOGIN</a>
-          </button>
+          <button class="login-input" id="lgn-btn" type="submit">LOGIN</button>
+          
         </form>
       </div>
       <h4>OU</h4>

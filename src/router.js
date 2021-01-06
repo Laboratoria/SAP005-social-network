@@ -7,8 +7,8 @@ import { onNavigate } from './utils/history.js';
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
-    '/' : Home,
-    '/login': Login,
+    '/' : Login,
+    '/home': Home,
     '/register': Register,
   };
 
@@ -17,25 +17,25 @@ const routeRender = () => {
 };
 
 window.addEventListener('popstate', routeRender);
-window.addEventListener('load', () => {
-  document
-    .getElementById('home')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/')
-    });
-  document
-    .getElementById('login')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/login')
-    });
-  document
-    .getElementById('register')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/register')
-    });
+// window.addEventListener('load', () => {
+//   document
+//     .getElementById('login')
+//     .addEventListener('click', (e) => {
+//       e.preventDefault();
+//       onNavigate('/')
+//     });
+//   document
+//     .getElementById('home')
+//     .addEventListener('click', (e) => {
+//       e.preventDefault();
+//       onNavigate('/home')
+//     });
+//   document
+//     .getElementById('register')
+//     .addEventListener('click', (e) => {
+//       e.preventDefault();
+//       onNavigate('/register')
+//     });
 
   routeRender();
-});
+// });

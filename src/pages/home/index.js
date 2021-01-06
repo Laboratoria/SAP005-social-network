@@ -1,4 +1,4 @@
-// import { Login } from './pages/login/index.js';
+import { logOut } from '../../services/index.js';
 
 export const Home = () => {
   // Coloque sua página
@@ -11,7 +11,7 @@ export const Home = () => {
   const logoutButton = rootElement.querySelector('#sgnOutBtn')
   logoutButton.addEventListener('click', (e)=>{
    e.preventDefault();
-   firebase.auth().signOut();
+   logOut();
   });
 
   return rootElement;
