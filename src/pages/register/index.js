@@ -26,15 +26,15 @@ export const Register = () => {
   `;
 
   const btnRegister = container.querySelector('#btnRegister');
+  const confirmPwd = container.querySelector('#confirmPwd').value;
+  const date = container.querySelector('#date').value;
+  const city = container.querySelector('#city').value;
+  const name = container.querySelector('#name').value;
   
   btnRegister.addEventListener('click', (event) => {
     event.preventDefault();
-    const name = container.querySelector('#name').value;
     const email = container.querySelector('#email').value;
-    const date = container.querySelector('#date').value;
-    const city = container.querySelector('#city').value;
     const pwd = container.querySelector('#password').value;
-    const confirmPwd = container.querySelector('#confirmPwd').value;
     const registerPf = 
     then()
 
