@@ -20,8 +20,24 @@ export const Feed = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
   <nav class='navigation'>${menu.innerHTML}</nav>
-  <h1>Post teste!</h1>
+  <h1>Post</h1>
+  <form>
+    <textarea name="" id="textPost" cols="70" rows="5" placeholder="escreva aqui..."></textarea>
+    <button id="creatPost" >Post</button>
+  </form>
+  <p id="outputPost"></p>
   `;
+
+  const textPost = rootElement.querySelector("#textPost")
+  const creatPost = rootElement.querySelector("#creatPost")
+  const outputPost = rootElement.querySelector("#outputPost")
+
+  creatPost.addEventListener("click", (event)=>{
+    event.preventDefault()
+    const saveTextPost = textPost.value;
+    console.log("post: " + saveTextPost);
+  })
+
 
   const bottunNotification = rootElement.querySelector("#notification")
   bottunNotification.addEventListener("click", () => {
