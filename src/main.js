@@ -26,35 +26,4 @@ googleSignin=()=>{
   })
 }
 
-////Precisa dos ids dos inputs Email e senha e value (botão já tenho conta)
-signIn=()=>{
-  firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((user) => {
-    // Signed in 
-    // ...
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
-}
-
-
-//Precisa dos ids dos inputs Email e senha e value
-/*signUp=()=>{
-    var email = "test@example.com";
-    var password = "hunter2";
-    // [START auth_signup_password]
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((user) => {
-        // Signed in 
-        // ...
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ..
-      });
-}*/
-
 
