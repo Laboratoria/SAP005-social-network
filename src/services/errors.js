@@ -2,26 +2,20 @@ export const errors = (errorCode) => {
   let message = ' ';
   switch (errorCode) {
     case 'auth/email-already-exists':
-      message = 'bla';
+      message = 'E-mail já existe na Deva';
       break;
     case 'auth/email-already-in-use':
-      message = 'bla bla';
+      message = 'E-mail já está em uso na Deva';
       break;
     case 'auth/user-not-found':
-      message = 'bla bla';
+      message = 'Usuário não encontrado';
       break;
     case 'auth/uid-already-exists':
-      message = 'bla bla bla';
-      break;
-    case 'ha':
-      message = 'lalala';
-      break;
-    case '':
-      message = 'losoododd';
+      message = 'UID já existe';
       break;
     default:
-      console.log('Não implementado');
+      message = 'Não implementado';
   }
 
-  return message;
+  console.log(message);
 };

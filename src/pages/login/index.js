@@ -21,6 +21,7 @@ export const Login = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email.value, password.value)
+      // .then(onNavigate('/'))
       .catch((error) => {
         var errorMessage = error.message;
         if (errorMessage == 'The email address is badly formatted.') {
