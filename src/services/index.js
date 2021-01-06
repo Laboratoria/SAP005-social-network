@@ -24,19 +24,16 @@ export const createUser = (person) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(person.email, person.password)
-    .then(() =>
-      firebase
-        .auth()
-        .currentUser.updateProfile({ displayName: person.name })
-        .firestore()
-        .collection('users')
-        .doc(firebase.auth().currentUser.id)
-        .set(person),
-    )
-    .then(() => {
-      alert('Document successfully written!');
+    .then(function () {
+      firebase.auth().currentUser.updateProfile({
+        displayName: person.name,
+      });
+      firebase.firestore().collection("users").doc(firebase.auth().currentUser.uid).set(person);
     })
-    .catch((error) => {
-      console.error('Error writing document: ', error);
-    });
+    .then(function() {
+      alert("Document successfully written!");
+  })
+  .catch(function(error) {
+      console.error("Error writing document: ", error);
+  });
 };
