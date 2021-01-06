@@ -1,8 +1,10 @@
 // Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
-import { Feed, Profile, Notification, Message } from './services/index.js';
-import { onNavigate } from './utils/history.js';
+import {
+  Feed, Profile, Notification, Message,
+} from './services/index.js';
+// import { onNavigate } from './utils/history.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
@@ -22,8 +24,5 @@ const routeRender = () => {
 
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
-
   routeRender();
-  });
-
-  // socorroooo
+});
