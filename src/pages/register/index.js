@@ -58,13 +58,26 @@ export const Register = () => {
             firebase.auth().createUserWithEmailAndPassword(emailUser, passwordFirst)
                 .then((user) => {
                     rootElement.querySelector("#finalized").innerHTML = `<h1>Pronto! ${userName[0].toUpperCase() + userName.slice(1)}, seu cadastro foi efetuado.</h1>`
+                    const userId = firebase.auth().currentUser.uid
+
+                    db.collection("users").doc(userId).set({
+                        name: userName,
+                        email: emailUser
+                    })
+
+                    .then(function(docRef) {
+                            console.log("Document written with ID: ");
+                        })
+                        .catch(function(error) {
+                            console.error("Error adding document: ", error);
+                        });
 
 
                 })
                 .catch((error) => {
-                    var errorCode = error.code;
+                    let errorCode = error.code;
                     console.log(errorCode)
-                    var errorMessage = error.message;
+                    let errorMessage = error.message;
                     console.log(errorMessage)
 
                 });
