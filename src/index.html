@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="imagem/png" href="./img/book.png" />
     <title>Learning</title>
 </head>
 
@@ -21,10 +22,11 @@
     <script src="/__/firebase/7.23.0/firebase-firestore.js"></script>
 
 
+
     <!---------------------- Firebase Storage -------------------->
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
 
-
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
     <script>
         // Your web app's Firebase configuration
         let firebaseConfig = {
@@ -39,6 +41,8 @@
         // Initialize Firebase
 
         firebase.initializeApp(firebaseConfig);
+        console.log(firebase)
+        var database = firebase.database();
     </script>
 
     <div id="root"></div>
