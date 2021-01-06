@@ -11,11 +11,9 @@ export const Login = () => {
          <input id="txtPassword" class="btn" type="password" placeholder="Senha" autocomplete="off" >     
          <p>Esqueceu sua senha ?<a href="images/construc.gif" target="_blank">Clique aqui.</a>
          <p>
-         <button id="login-btn" class="buttonPage"> Login </button><br>
+         <button id="signup-btn" class="buttonPage"> Login </button><br>
          <button id="googleLogin" class="buttonPage btnGoogle"> <img src="images/google.png" class="login-icon"> Login Google </button>
          <button id="registry" class="buttonPage btnSing"> Registre-se </button>
-         <button id= 'googleLogin' class = 'google-login'> Conta Google </button>
-
        </form>
      <div>
   `;
@@ -31,33 +29,20 @@ export const Login = () => {
     onNavigate('/feed');
   })
   
-
   const btnGoogle = rootElement.querySelector('#googleLogin');
-  const txtEmail = rootElement.querySelector('#txtEmail');
-  const txtPassword = rootElement.querySelector('#txtPassword');
-  const btnLogin = rootElement.querySelector('#login-btn');
-  const btnSignUp = rootElement.querySelector('#signup-btn');
-
-  // adicionar o evento no login
-
-  btnLogin.addEventListener('click', (event) => {
+  btnGoogle.addEventListener('click', (event) => {
     event.preventDefault();
-    // pegando os valores do email e senha
-    const email = txtEmail.value;
-    const senha = txtPassword.value;
-    const auth = firebase.auth();
-
-    console.log(email, senha);
-    // Registrar
-
-    const promise = auth.createUserWithEmailAndPassword(email, senha);
-    promise.catch((e) => console.log(e.message));
+    const proverAcesso = new firebase.auth.GoogleAuthProvider();
+    proverAcesso.addScope('https://www.googleapis.com/auth/plus.login');
+    firebase.auth().signInWithRedirect(proverAcesso);
   });
 
-  // adicionando evento no Sign In - Registre-se
+  const txtEmail = rootElement.querySelector('#txtEmail');
+  const txtPassword = rootElement.querySelector('#txtPassword');
+  const btnSignUp = rootElement.querySelector('#signup-btn');
 
-
-  btnSignUp.addEventListener('click', () => {
+  btnSignUp.addEventListener('click', (event) => {
+    event.preventDefault()
     // pegando os valores do email e senha
     const email = txtEmail.value;
     const senha = txtPassword.value;
@@ -67,11 +52,5 @@ export const Login = () => {
     promise.catch((e) => console.log(e.message));
   });
 
-
-  btnGoogle.addEventListener('click', () => {
-    const proverAcesso = new firebase.auth.GoogleAuthProvider();
-    proverAcesso.addScope('https://www.googleapis.com/auth/plus.login');
-    firebase.auth().signInWithRedirect(proverAcesso);
-  });
   return rootElement;
 };
