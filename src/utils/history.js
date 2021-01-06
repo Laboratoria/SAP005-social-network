@@ -5,6 +5,6 @@ export const onNavigate = (path, state = {}) => {
     path,
   );
 
-  const popStateEvent = new PopStateEvent('popstate', { state: state });
+  const popStateEvent = new PopStateEvent('popstate', { state });
   dispatchEvent(popStateEvent);
 };

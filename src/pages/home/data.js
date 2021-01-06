@@ -1,13 +1,12 @@
-export const login = {
-  singIn(email, passaword) {
-    return firebase
-      .auth()
-      .singInWithEmailAndPassword(email, passaword);
-  },
+export const login = (email, password) => {
+  firebase
+    .auth()
+    .singInWithEmailAndPassword(email, password);
 };
-export const signGoogle = () => {
+
+export const authGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  return firebase
+  firebase
     .auth()
     .signInWithPopup(provider);
 };
