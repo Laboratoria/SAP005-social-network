@@ -13,12 +13,12 @@ export const Register = () => {
     const pass = registerPage.querySelector('#register-pass').value;
     const passConfirm = registerPage.querySelector('#register-passConfirm')
       .value;
-    let erroDoesntMatch = registerPage.querySelector('#doesntMatch');
+    const errorDoesntMatch = registerPage.querySelector('#doesntMatch');
 
     if (pass !== passConfirm) {
-      erroDoesntMatch.innerHTML = 'Senha não Confere';
+      errorDoesntMatch.innerHTML = 'Senha não Confere';
     } else {
-      erroDoesntMatch.innerHTML = ' ';
+      errorDoesntMatch.innerHTML = ' ';
       const person = {
         userName: registerPage.querySelector('#register-name').value,
         userId: registerPage.querySelector('#register-userID').value,

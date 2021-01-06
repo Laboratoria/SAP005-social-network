@@ -1,4 +1,5 @@
 import { loginTags } from './standard.js';
+// import { validation , persist } from '../../services/index.js';
 
 export const Login = () => {
   const rootElement = document.createElement('div');
@@ -10,10 +11,10 @@ export const Login = () => {
   const loginButton = rootElement.querySelector('#lgn-btn');
   const signUpButton = rootElement.querySelector('#sgnUp-btn');
 
-  function clear() {
+  const clear = () => {
     email.value = '';
     password.value = '';
-  }
+  };
 
   loginButton.addEventListener('click', (e) => {
     e.preventDefault();
