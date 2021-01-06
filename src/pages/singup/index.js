@@ -5,17 +5,17 @@ export const SingUp = () => {
   const rootElement = document.createElement('div');
 
   const formHtml = `
-  <div>  
-    <h1>Sing up!</h1>
-    <form class="singup-form">
-      <input class="name" id="name" type="text" placeholder="Name">
-      <input class="email" id="email" type="email" placeholder="E-mail">
-      <input class="password" id="password"type="password" placeholder="Password">
-      <input class="confirm-password" id="confirm-password" type="password" placeholder="Confirm Password">
-      <button class="btn-create" id="btn-crear">Create your account</button>
-    </form>
-  </div>
-    `;
+    <div>  
+      <h1 class="singup">Sing up!</h1>
+      <form class="singup-form" id="singup-form">
+        <input class="name" id="name" type="text" placeholder="Name">
+        <input class="email" id="email" type="email" placeholder="E-mail">
+        <input class="password" id="password"type="password" placeholder="Password">
+        <input class="confirm-password" id="confirm-password" type="password" placeholder="Confirm Password">
+        <button class="btn-create" id="btn-crear">Create your account</button>
+      </form>
+    </div>
+  `;
 
   rootElement.innerHTML = formHtml;
 

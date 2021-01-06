@@ -23,6 +23,7 @@ export const SingIn = (email, password) => {
       window.location.pathname = 'feed';
     })
     .catch((error) => {
+
       alert(error.message);
     });
 };
@@ -42,3 +43,4 @@ export const SingInGoogle = () => {
       alert(error.message);
     });
 };
+
