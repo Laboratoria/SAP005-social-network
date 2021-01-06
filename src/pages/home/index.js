@@ -33,9 +33,9 @@ export const Home = () => {
       </div>
       `;
 
-  const bottunLogin = rootElement.querySelector("#login")
-  bottunLogin.addEventListener("click", () => {
-    onNavigate("/login")
+  const bottunLogin = rootElement.querySelector('#login');
+  bottunLogin.addEventListener('click', () => {
+    onNavigate('/login');
   })
   return rootElement;
 };

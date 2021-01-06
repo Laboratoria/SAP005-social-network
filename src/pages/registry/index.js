@@ -7,19 +7,19 @@ export const Registry = () => {
              <img src="images/olimpo.png" class="login-icon" id='homeFeed'> 
              <form  id ="formLogin" class="login">
                  <h1 >Registre-se!</h1>
-                 <input  class='btn'  type='name', placeholder='Nome' >
-                 <input id='txtEmail' class='btn' type='email', placeholder='Email' >
-                 <input id='txtPassword' class='btn'type='password' placeholder='Senha' autocomplete="off" >   
-                 <button id='login-btn' class='buttonPage'> Criar conta </button>
+                 <input  class="btn"  type="name" placeholder="Nome" >
+                 <input id="txtEmail" class="btn" type="email" placeholder="Email" >
+                 <input id="txtPassword" class="btn" type="password" placeholder="Senha" autocomplete="off" >   
+                 <button id="login-btn" class="buttonPage"> Criar conta </button>
              </form>
          </div>
      <div>
     `;
   
 
-  const bottunLogin = rootElement.querySelector("#homeFeed")
-  bottunLogin.addEventListener("click", () => {
-    onNavigate("/login")
+  const bottunLogin = rootElement.querySelector('#homeFeed');
+  bottunLogin.addEventListener('click', () => {
+    onNavigate('/login');
   })
   
   return rootElement;

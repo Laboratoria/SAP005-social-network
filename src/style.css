@@ -7,9 +7,13 @@ html {
     scroll-behavior: smooth;
 }
 .gif{
-    width: 100vw;
-    height: 100vh;
+    background-color: black;
+    width: 50vw;
+    height: 30vh;
+    margin-top: 20%;
+    margin-left: 25%;
 }
+
 .dysplay-template {
     display: flex;
 }
