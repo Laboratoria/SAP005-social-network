@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+    font-family: sans-serif; 
+    color: #000;
+}
+header{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+nav{
+    visibility: hidden;
+    display: none;
+}
+.img-wrapper{
+    width: 100%;
+    height: 100%;
+}
+.img-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1.5px);
+}
+.banner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.logo{
+    font-family: Rubik Mono One, sans-serif;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 5px 5px 0 rgb(46, 46, 46);
+}
+.content{
+    font-size: 1.5rem;
+    color:  white;
+    font-family: sans-serif;
+    margin-bottom: 1em;
+}
+.caller{
+    width: 10em;
+    outline: none;
+    background: rgba(56, 55, 55);
+    font-family: Rubik Mono One, sans-serif;
+    color: white;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-radius: 30px;
+}
+.caller:active{
+    background-color: #fff;
+    color: rgba(56, 55, 55);;
+}
+.footer-content{
+    background-color: #000;
+    height: 3rem;
+    font-size: 0.6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-content h2{
+    color: rgba(201, 193, 193, 0.473);
+    font-size: 1rem;
+    margin-left: 1em;
+    
+}
+.page-devs img{
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(201, 193, 193, 0.473);
+    margin-right: 1rem;
+}
+.page-devs img:hover{
+    background: linear-gradient(rgb(248, 49, 49),rgb(247, 126, 46),rgb(250, 250, 119),rgb(103, 247, 103),rgb(110, 241, 228),rgb(84, 84, 233),purple);
+}
+.box-login{
+    width: 100%;
+    height: 100vh;
+    background-color: brown;
+    position: relative;
+}
+.box-img{
+    display: flex;
+    justify-content: left;
+}
+.box-img img{
+    width: 9em;
+    margin-left: 23%;
+}
+.box-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+.box-title{
+    font-family: Rubik Mono One, sans-serif;
+    text-shadow: 1px 2px 0 rgb(46, 46, 46);
+    margin-left: 9%;
+    font-size: 1.5em;
+}
+.box-subtitle{
+    margin-left: 11%;
+    font-size: 0.8em;
+}
+button{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-left: 25%;
+}
