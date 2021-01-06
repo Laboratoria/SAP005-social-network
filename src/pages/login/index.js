@@ -19,12 +19,10 @@ export const Login = () => {
   `;
   
   const bottunRegistry = rootElement.querySelector('#registry')
-  bottunRegistry.addEventListener("click", (event)=>{
-    event.preventDefault()
-    rootElement.querySelector("#formLogin").innerHTML = Registry()
+  bottunRegistry.addEventListener("click", ()=>{
+    onNavigate("/registry")
     ;
   })
-
 
   const bottunLogin = rootElement.querySelector("#homeFeed")
   bottunLogin.addEventListener("click", () => {
@@ -53,14 +51,3 @@ export const Login = () => {
   return rootElement;
 
 };
-
-export const Registry = () => {
-  const Sing =  `
-   <button id= 'googleLogin' class = 'buttonPage btnGoogle'> <img src="images/google.png" class="login-icon"> Login Google </button>
-   <input  class='btn'  type='name', placeholder='Nome' >
-   <input id='txtEmail' class='btn' type='email', placeholder='Email' >
-   <input id='txtPassword' class='btn'type='password' placeholder='Senha' autocomplete="off" >   
-   <button id='login-btn' class='buttonPage'> Criar conta </button>
-  `;
-  return Sing
-}

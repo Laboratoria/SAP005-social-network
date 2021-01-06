@@ -6,6 +6,10 @@ body {
 html {
     scroll-behavior: smooth;
 }
+.gif{
+    width: 100vw;
+    height: 100vh;
+}
 .dysplay-template {
     display: flex;
 }
