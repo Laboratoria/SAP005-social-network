@@ -1,19 +1,14 @@
 import { onNavigate } from '../../utils/history.js';
-//import Login from '../pages/login/index.js';
 
 export const Home = () => {
 
   const rootElement = document.createElement('div');
-  // const user = await firebase.auth().currentUser
 
-  // if(user != null){
   rootElement.innerHTML = `
     <div class = "header">     
         <img class="logoHome" src="img/learning.png" alt="Logo Learning">
-
         <input type="checkbox" id="check">
         <label id="icone" for="check"><img class = "menu"src="https://img.icons8.com/nolan/64/menu.png"/></label>  
-
       <div class="barra-menu">
         <div class = "itensMenu">            
             <input type="file" id="upload" >  
@@ -27,7 +22,7 @@ export const Home = () => {
     <img class="perfil" src="./img/avatar2.png" width="100" id="imgProfile" >                
     </div>  
     <div class = "nameHome">    
-      <h1>Priscila Souza</h1>      
+      <h1>Nome Usuário</h1>      
     </div>
     <div class = "post">
       <input type="text" id="textPost" placeholder="O que você quer compartilhar?" autocomplete="off">  
@@ -37,54 +32,37 @@ export const Home = () => {
     `;
 
 
+  const userId = localStorage.getItem("uid");
+  db.collection('users').doc(userId).collection("post").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      postFeed(doc.data())
+      console.log(`${doc.id} => ${doc.data()}`);
+    });
+  });
+
+
   const textPost = rootElement.querySelector("#textPost");
   let feed = '';
-  rootElement.querySelector('.buttonPost').addEventListener("click", (event) => {
+  rootElement.querySelector('.buttonPost').addEventListener("click", async (event) => {
     event.preventDefault();
     let postValue = textPost.value;
     let post = {
       text: postValue
     }
-
-
     textPost.value = '';
-
-    firebase.firestore().collection('post').add(post)
-    rootElement.querySelector("#postedValue").innerHTML =
-      feed +=
-      `<div class="containerFeed">
-                 <div class="postFeed"><p>${post.text}</p> 
-                 </div>
-                 <div class="containerButton">
-                 <button class="editBtn"><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button>
-                  <button class="likeBtn">
-                  <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
-                  <span id="score">0</span> Like
-                </div>
-                </div>`
-
-    //onload = function () {
-    //  function editTitle() {
-    let edit = rootElement.querySelector('.postFeed');
-    let span = edit.firstChild;
-
-    rootElement.querySelector('.editBtn').addEventListener('click', (event) => {
-
-      console.log("passou")
-
-    })
-
-    //  }
-    //}
-
-
+    const userId = firebase.auth().currentUser.uid
+    localStorage.setItem("uid", userId);
+    postFeed(post)
+    db.collection('users').doc(userId).collection("post").add(post)
     return feed
   });
+
 
   rootElement.classList.add("feed")
 
   rootElement.querySelector("#exit").addEventListener("click", (e) => {
     e.preventDefault()
+    localStorage.removeItem("uid");
     firebase.auth().signOut().then(function () {
       onNavigate("/")
     }).catch(function (error) {
@@ -113,31 +91,33 @@ export const Home = () => {
       const namePhoto = "photoUser"
       const upload = storage.ref().child("ProfilePhoto").child(namePhoto + ".pnj").put(file)
 
-      upload.snapshot.ref.getDownloadURL().then(function (url_imagem) {
+      upload.on("state_changed", function () {
 
-        console.log("Url:" + url_imagem)
+        console.log("Imagem Salva")
+
+      }, function (error) {
+
+        console.log("Erro ao salvar imagem")
 
       })
 
-      console.log("Imagem Salva")
-
-    }, function (error) {
-
-      console.log("Erro ao salvar imagem")
-
     })
 
+
   })
-
-
-
-  // } else {
-  //     rootElement.innerHTML =
-  //       <h1>Ops, faça um login!.</h1>
-  // }
-  // Coloque sua página
-
-  console.log(rootElement)
+  const postFeed = (post) => {
+    rootElement.querySelector("#postedValue").innerHTML =
+      feed +=
+      `<div class="containerFeed">
+                 <div class="postFeed"><p>${post.text}</p> 
+                 </div>
+                 <div class="containerButton">
+                  <button class="likeBtn">
+                  <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
+                  <span id="score">0</span> Like
+                </div>
+                </div>`
+  };
 
   return rootElement;
 }

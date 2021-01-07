@@ -3,6 +3,7 @@ import { Login } from './pages/login/index.js';
 import { Home } from './pages/home/index.js'
 
 const routeRender = () => {
+    let myItem = localStorage.getItem("uid");
     const rootDiv = document.getElementById('root');
     const routes = {
         "/": Login,
@@ -11,35 +12,15 @@ const routeRender = () => {
     };
     if (!routes[window.location.pathname]) {
         window.location = '/'
+    } else if (window.location.pathname !== "/" && window.location.pathname !== "/cadastro" && !myItem) {
+        window.location = '/'
     } else {
+        rootDiv.innerHTML = '';
         root.appendChild(routes[window.location.pathname]());
     }
-    rootDiv.innerHTML = '';
-    rootDiv.appendChild(routes[window.location.pathname]());
 };
 
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
     routeRender();
 });
-
-// const user = await firebase.auth().currentUser
-// if(user != null){
-// onNavigate('/home')
-// } else {
-//     rootElement.querySelector("#notFound").innerHTML =
-//      ` <h1>Ops, faça um login!.</h1>`
-// }
-
-
-// const renderRouter = () => {
-//     root.innerHTML = "";
-//     if (!routers[window.location.pathname]) {
-//         window.location = '/'
-//     } else {
-//         root.appendChild(routers[window.location.pathname]());
-//     }
-// }
-// document.addEventListener('DOMContentLoaded', () => {
-//     renderRouter();
-// })

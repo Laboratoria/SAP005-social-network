@@ -52,9 +52,8 @@ export const Login = () => {
         await firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
-
         const userId = await firebase.auth().currentUser.uid
-        writeUserData()
+        localStorage.setItem("uid", userId);
         onNavigate('/home')
 
 
@@ -65,8 +64,15 @@ export const Login = () => {
     rootElement.querySelector("#google").addEventListener("click", (e) => {
         e.preventDefault()
         var provider = new firebase.auth.GoogleAuthProvider();
+<<<<<<< HEAD
         firebase.auth().signInWithPopup(provider).then(function (result) {
 
+=======
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            const userId = firebase.auth().currentUser.uid
+            localStorage.setItem("uid", userId);
+            console.log(userId)
+>>>>>>> ffce8ed7ed74e638be986eb5f6d74a77447de4cd
             onNavigate("/home")
         }).catch(function (error) {
             console.log(error)
