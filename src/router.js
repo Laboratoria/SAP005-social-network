@@ -1,10 +1,11 @@
 // Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
-import {
-  Feed, Profile, Notification, Message,
-} from './services/index.js';
-// import { onNavigate } from './utils/history.js';
+import { Feed } from './pages/feed/index.js';
+import { Profile } from './pages/profile/index.js';
+import { Notification } from './pages/notification/index.js';
+import { Message } from './pages/message/index.js';
+import { Registry } from './pages/registry/index.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
@@ -12,10 +13,11 @@ const routeRender = () => {
   const routes = {
     '/': Home,
     '/login': Login,
-    '/services': Feed,
-    '/services/profile': Profile,
-    '/services/notification': Notification,
-    '/services/message': Message,
+    '/feed': Feed,
+    '/profile': Profile,
+    '/notification': Notification,
+    '/message': Message,
+    '/registry': Registry,
   };
 
   rootDiv.innerHTML = '';
@@ -25,4 +27,5 @@ const routeRender = () => {
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
   routeRender();
-});
+  });
+

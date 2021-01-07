@@ -3,62 +3,46 @@ import { onNavigate } from '../../utils/history.js';
 export const Login = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
-    <div class="container-login">
-    <img class="logo-img" src="./images/logo.jpeg" alt="logo Olimpo">
-    <section >
-
-    <h1 class='title' id='homeFeed'>[Olimpo]</h1>
-
-    <h3 class='subtitle'>Entre agora!</h3>
-  
-    <input id='txtEmail' type='email', placeholder='Email cadastrado'>
-    <input id='txtPassword' type='password' placeholder='Senha'>
-    <button id='login-btn' class='login-btn'> Entrar </button><br />
-    <p> Ainda não possui uma conta? </p>
-    <button id= 'signup-btn' class = 'sign-btn'> Registre-se agora mesmo! </button>
-    <p> Acesse sua conta pelo Google: </p>  
-    <button id='googleLogin' class ='google-login'> Conta Google </button>
-    </section>
-
-    <div>
-
+      <div class="container-login dysplay-template">
+      <div class="box-login">
+       <img src="images/olimpo.png" class="login-icon" id='homeFeed'> 
+       <form  id ="formLogin" class="login">
+         <input id="txtEmail" class="btn" type="text"  placeholder="Email" >
+         <input id="txtPassword" class="btn" type="password" placeholder="Senha" autocomplete="off" >     
+         <p>Esqueceu sua senha ?<a href="images/construc.gif" target="_blank">Clique aqui.</a>
+         <p>
+         <button id="signup-btn" class="buttonPage"> Login </button><br>
+         <button id="googleLogin" class="buttonPage btnGoogle"> <img src="images/google.png" class="login-icon"> Login Google </button>
+         <button id="registry" class="buttonPage btnSing"> Registre-se </button>
+       </form>
+     <div>
   `;
+  
+  const bottunRegistry = rootElement.querySelector('#registry');
+  bottunRegistry.addEventListener('click', ()=>{
+    onNavigate('/registry');
+    ;
+  })
+
   const bottunLogin = rootElement.querySelector('#homeFeed');
   bottunLogin.addEventListener('click', () => {
-    onNavigate('/services');
+    onNavigate('/feed');
+  })
+  
+  const btnGoogle = rootElement.querySelector('#googleLogin');
+  btnGoogle.addEventListener('click', (event) => {
+    event.preventDefault();
+    const proverAcesso = new firebase.auth.GoogleAuthProvider();
+    proverAcesso.addScope('https://www.googleapis.com/auth/plus.login');
+    firebase.auth().signInWithRedirect(proverAcesso);
   });
 
-  const btnGoogle = rootElement.querySelector('#googleLogin');
   const txtEmail = rootElement.querySelector('#txtEmail');
   const txtPassword = rootElement.querySelector('#txtPassword');
-  const btnLogin = rootElement.querySelector('#login-btn');
   const btnSignUp = rootElement.querySelector('#signup-btn');
 
-  const user = firebase.auth().currentUser;
-  // const name, email, photoUrl, emailVerified;
-
-  // if (user != null) {
-  // name = user.displayName;
-  // email = user.email;
-  // photoUrl = user.photoURL;
-  // emailVerified = user.emailVerified
-  // }
-  // adicionar o evento no login
-
-  btnLogin.addEventListener('click', () => {
-    // pegando os valores do email e senha
-    const email = txtEmail.value;
-    const senha = txtPassword.value;
-    const auth = firebase.auth();
-    console.log(email, senha);
-    // Registrar
-    const promise = auth.createUserWithEmailAndPassword(email, senha);
-    promise.catch((e) => console.log(e.message));
-  });
-
-  // adicionando evento no Sign In - Registre-se
-
-  btnSignUp.addEventListener('click', () => {
+  btnSignUp.addEventListener('click', (event) => {
+    event.preventDefault()
     // pegando os valores do email e senha
     const email = txtEmail.value;
     const senha = txtPassword.value;
@@ -68,10 +52,5 @@ export const Login = () => {
     promise.catch((e) => console.log(e.message));
   });
 
-  btnGoogle.addEventListener('click', () => {
-    const proverAcesso = new firebase.auth.GoogleAuthProvider();
-    proverAcesso.addScope('https://www.googleapis.com/auth/plus.login');
-    firebase.auth().signInWithRedirect(proverAcesso);
-  });
   return rootElement;
 };
