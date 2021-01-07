@@ -1,4 +1,5 @@
-// exporte suas funções
+import { onNavigate } from '../utils/history.js';
+import { errors } from './errors.js';
 
 import { onNavigate } from "../utils/history.js";
 
@@ -28,19 +29,19 @@ export const createUser = (person) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(person.email, person.password)
-    .then(function () {
-      firebase.auth().currentUser.updateProfile({
-        displayName: person.name,
-      });
-      firebase.firestore().collection("users").doc(firebase.auth().currentUser.uid).set(person);
-    })
-    .then(function() {
-      alert("Document successfully written!");
-  })
-  .catch(function(error) {
-      console.error("Error writing document: ", error);
-  });
+    .then(
+      console.log(person.name),
+      () => firebase.auth().currentUser.updateProfile({ displayName: person.name }),
+      () => firebase
+        .firestore()
+        .collection('users')
+        .doc(firebase.auth().currentUser.uid)
+        .set(person),
+    )
+    .then(onNavigate('/'))
+    .catch((error) => errors(error));
 };
+
 
 export const logOut = () => {
   firebase
