@@ -1,5 +1,4 @@
-console.log('oieeeeeeeee')
-document.getElementById('create-account').addEventListener("click", dataSave)
+/*document.getElementById('create-account').addEventListener("click", dataSave)
 
    function dataSave(e) {
          e.preventDefault()
@@ -14,9 +13,9 @@ document.getElementById('create-account').addEventListener("click", dataSave)
 
          firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
          console.log('usuário', user) })
-        /* onNavigate('/feed')
+         onNavigate('/feed')
          document.getElementById('header-document').style.display = "none"
-         document.getElementById('root').style.width = "100%" */
+         document.getElementById('root').style.width = "100%" 
          }
         }
-       
+       */

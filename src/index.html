@@ -14,60 +14,12 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 
-    <title>TPM</title>
-  </head>
-  <body> 
-      <header id='header-document' class='header-page'>
-      <!--  <nav id='menu-main'>
-           <ul class='main-menu'>
-              <li class='buttons-main-menu' id='home'>Home</li>
-              <li class='buttons-main-menu' id='login'>Login</li>
-              <li class='buttons-main-menu' id='subscribe'>Subscribe</li>
-          </ul>
-        </nav> -->
-        <div id='logo-name' class='network-name'>
-          <h1 class='tpm-name'>TPM</h1>
-          <p id='subtitle-one'>Tudo é possível para Maes</p>
-
-          <img class="mae-carol" src="./img/mcarol.jpg" alt="Desenho de Mae Carol Jemison astronauta">
-
-          <p>Essa é uma rede destinada a você mulher que pretende confiar mais
-            em si mesma para ingressar na área que você sempre sonhou!  <br><br>
-            
-            Aqui você pode compartilhar ideias, oportunidades, cursos e qualquer
-            outra contribuição para várias outras mulheres, formando uma rede de apoio
-            em um lugar seguro.  <br><br>
-      
-            Afinal tudo é possível para Maes!  <br> </p>
-      
-           <p> Mae Carol Jemison é uma médica, engenheira e ex-astronauta estadunidense. 
-            Foi a primeira mulher negra a ir para o espaço, quando serviu como especialista 
-            de missão a bordo do ônibus espacial Endeavour. Jemison se uniu ao grupo de astronautas 
-            da NASA de 1987 e serviu na missão STS-47, na qual orbitou a Terra dos dias 12 a 20 de setembro de 1992. <br><br>
-      
-            Mae foi tudo o que ela desejou ser, e você? O que deseja? 
-            Então você vai conseguir!
-          </p>
-        </div>
-      </header>
+    
     <div id='firebaseui-auth-container'></div>
-    <div class='subscribe'> 
-      <form action="">
-        <label for="" >Escolha um email</label> <input id='new-email' type="text" autocomplete="off">  
-        <label for="">Crie uma senha</label> <input id='new-password' type="password" autocomplete="off"> 
-        <button id='create-account'>Criar conta</button>   
-        <p id='alert'></p>
-    </form>
-    </div>
 
     <div id='root'></div>
-                       
-   <!-- <script type="module" src="/src/pages/feed/feed.js"></script>
-    <script type="module" src="pages/subscribe/subscribe.js"></script> -->
 
-    <script type="module" src="login.js"></script>
     <script type="module" src="router.js"></script>
-    <script type="module" src="subscribe.js"></script>
     
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -92,16 +44,6 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 
-
-<script>
-  var ui = new firebaseui.auth.AuthUI(firebase.auth());
-  ui.start('#firebaseui-auth-container',
-       {
-        signInOptions: [
-           firebase.auth.EmailAuthProvider.PROVIDER_ID,
-           firebase.auth.GoogleAuthProvider.PROVIDER_ID ]
-       }
-     ) 
-     </script>
+<script type="module" src="login.js"></script>
   </body>
 </html>
