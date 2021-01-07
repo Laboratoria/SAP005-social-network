@@ -17,7 +17,7 @@ export const Login = () => {
     <p> Ainda não possui uma conta? </p>
     <button id= 'signup-btn' class = 'sign-btn'> Registre-se agora mesmo! </button>
     <p> Acesse sua conta pelo Google: </p>  
-    <button id= 'googleLogin' class = 'google-login'> Conta Google </button>
+    <button id='googleLogin' class ='google-login'> Conta Google </button>
     </section>
 
     <div>
@@ -34,6 +34,15 @@ export const Login = () => {
   const btnLogin = rootElement.querySelector('#login-btn');
   const btnSignUp = rootElement.querySelector('#signup-btn');
 
+  const user = firebase.auth().currentUser;
+  // const name, email, photoUrl, emailVerified;
+
+  // if (user != null) {
+  // name = user.displayName;
+  // email = user.email;
+  // photoUrl = user.photoURL;
+  // emailVerified = user.emailVerified
+  // }
   // adicionar o evento no login
 
   btnLogin.addEventListener('click', () => {
