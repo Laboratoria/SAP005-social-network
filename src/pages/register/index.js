@@ -1,17 +1,16 @@
 import { createProfile } from './data.js';
 
 export const Register = () => {
-  const container = document.createElement('div');
-  container.classList.add('div-register');
-  container.innerHTML = `
-  <div class='head-register' alt='Runner|Cadastro'>Runner|Cadastro</div>
+  const register = document.createElement('div');
+  register.classList.add('div-register');
+  register.innerHTML = `
+  <div class='head-register' alt='Runner|Cadastro'>Runner | Cadastro</div>
   <figure class='container-logo'>
-    <img src='a/logo_runners.png' class='logo' alt='Logo Runners'>
+    <img src='./assets/logo_runners.png' class='logo-register' alt='Logo Runners'>
   </figure>
 
   <form> 
     <div class="form-container">
-    <h1>Cadastro</h1>
     <h3 class='error' id='registerError'></h3>
       <input type='text' id='name' placeholder='Nome'/>
       <input type='email' id='email' placeholder='E-mail'/>
@@ -19,33 +18,40 @@ export const Register = () => {
       <input type="text" id="city" placeholder="Cidade"/>
       <input type="password" id="password" placeholder="Senha"/>
       <input type="password" id="confirmPwd" placeholder="Confirmar Senha"/>
+      <button id="btnRegister">Registrar</button>
+    <a href='./src/home/index.js' class='link-exit'>Voltar</a> 
     </div>
-
   </form>
-  <button id="btnRegister">Registrar</button>
-  <a href="./src/home/index.js"><b>Voltar</b></a> 
   `;
 
-  const btnRegister = container.querySelector('#btnRegister');
-  const confPassword = container.querySelector('#confirmPwd').value;
-  const name = container.querySelector('#name').value;
-  const msgError = container.querySelector('#registerError').value;
+  const btnRegister = register.querySelector('#btnRegister');
+  const confPassword = register.querySelector('#confirmPwd').value;
+  const name = register.querySelector('#name').value;
+  const mensage = register.querySelector('#registerError').value;
+  const password = register.querySelector('#password').value;
+  const email = register.querySelector('#email').value;
+  const city = register.querySelector('#city').value;
+  const date = register.querySelector('#date').value;
 
-  btnRegister.addEventListener('click', (event) => {
-    event.preventDefault();
-    const email = container.querySelector('#email').value;
-    const password = container.querySelector('#password').value;
-    const city = container.querySelector('#city').value;
-    const date = container.querySelector('#date').value;
-    const registerPf = createProfile.userRegister(email, password);
-    registerPf
-      .then(() => {
+  const confirmPassword = () => {
+    if (password.value !== confPassword.value) {
+      mensage.innerHTML = 'Senha informada, esta divergente.';
+    } else {
+      mensage.innerHTML = '';
+    }
+  };
 
+  btnRegister.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (confirmPassword()) {
+      createProfile(email.value, password.value).then(() => {
+        mensage.innerHTML = 'Cadastro realizado.';
       })
-      .catch((error) => {
-        msgError.innerHTML = error.message;
-      });
+        .catch((error) => {
+          mensage.innerHTML = error.message;
+        });
+    }
   });
 
-  return container;
+  return register;
 };

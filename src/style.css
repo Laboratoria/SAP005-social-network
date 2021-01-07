@@ -223,3 +223,60 @@ select:focus {
   /* border: 0 none; */
   /* outline: 0; */
 /* } */ 
+
+/* Estilização da register */
+div.head-register{
+  font-family: 'Architects Daughter', cursive;
+  border: 2px solid black;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+img.logo-register{
+  width: 25%;
+  height: 25%;
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  border: 1px solid black;
+  padding: 25px;
+}
+
+input#email, input#name, input#date, input#city, input#password, input#confirmPwd{
+  height: 50px;
+  width: 300px;
+  margin: 5px;
+  border: 1px solid black;
+  margin-left: 60px;
+}
+
+button#btnRegister {
+  background-color: #2196f3;
+  font-size: 20px;
+  border-radius: 10px;
+  width: 100px;
+  font-weight: bold;
+  height: 50px;
+  margin-left: 60px;
+  margin-top: 10px;
+  color: white;
+  font-family: 'Architects Daughter', cursive;
+}
+
+a.link-exit{
+  border: 1px solid black;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 20px;
+  width: 100px;
+  font-weight: bold;
+  margin-left: 85px;
+  color: white;
+  background-color: #2196f3;
+  text-decoration: none;
+}
