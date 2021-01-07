@@ -14,7 +14,7 @@ export const Home = () => {
           <div class='input-form'>
             <p class='login' alt='Login'>Login</p>
             <h3 class='error' id='msgError'></h3>
-            <input type='email' id='email-input' placeholder='@ E-mail' required></input>
+            <input type='email' id='email-input' placeholder='@E-mail' required></input>
             <input type='password' id='password-home' placeholder='Senha' required></input>
             <button id='submit-home'>Entrar</button>
             <p class='text'>Logar com:</p>
