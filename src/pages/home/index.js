@@ -135,23 +135,6 @@ export const Home = () => {
         });
 
     };
-    // const like = () => {
-    //     const likeBtn = document.querySelector(".likeBtn");
-    //     let likeIcon = document.querySelector("#like"),
-    //         score = document.querySelector("#score");
-    //     let clicked = false;
-    //     likeBtn.addEventListener("click", () => {
-    //         if (!clicked) {
-    //             clicked = true;
-    //             likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/50/filled-like.png"/>`;
-    //             score.textContent++;
-    //         } else {
-    //             clicked = false;
-    //             likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/64/like.png"/>`;
-    //             score.textContent--;
-    //         }
-    //     });
-    // }
 
 
     return rootElement;
