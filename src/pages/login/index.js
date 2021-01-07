@@ -46,31 +46,33 @@ export const Login = () => {
     let emailInput = rootElement.querySelector("#email")
     let passwordInput = rootElement.querySelector("#passwordSecond")
 
-    rootElement.querySelector("#btnLogin").addEventListener("click", async (e) => {
-    e.preventDefault();
-    const email = emailInput.value;
-    const password = passwordInput.value;
-    await firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-
-    const userId = await firebase.auth().currentUser.uid
-    writeUserData()
-    onNavigate('/home')
+    rootElement.querySelector("#btnLogin").addEventListener("click", async(e) => {
+        e.preventDefault();
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        await firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+        const userId = await firebase.auth().currentUser.uid
+        localStorage.setItem("uid", userId);
+        onNavigate('/home')
 
     emailInput.value = ""
     passwordInput.value = '';
     });
 
     rootElement.querySelector("#google").addEventListener("click", (e) => {
-    e.preventDefault()
-    var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function (result) {
+        e.preventDefault()
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            const userId = firebase.auth().currentUser.uid
+            localStorage.setItem("uid", userId);
+            console.log(userId)
+            onNavigate("/home")
+        }).catch(function(error) {
+            console.log(error)
 
-        onNavigate("/home")
-    }).catch(function (error) {
-        console.log(error)
-    });
+        });
 
     });
     return rootElement;
