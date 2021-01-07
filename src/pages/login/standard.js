@@ -23,7 +23,7 @@ export const loginTags = () => {
       </div>
       <div class="new-register">
         <p class="without-register">Não tem uma conta?</p>
-        <a class="register" href="/register">Cadastre-se</a>
+        <a class="register" id="btn-register">Cadastre-se</a>
       </div>
       <div class="agreement">
         <p class="without-register">ao cadastrar-se você concorda com nosso</p>

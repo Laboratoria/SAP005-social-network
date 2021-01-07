@@ -1,7 +1,6 @@
 import { onNavigate } from '../utils/history.js';
 import { errors } from './errors.js';
 
-
 export const validation = (person) => {
   firebase
     .auth()
