@@ -14,15 +14,14 @@ export const Login = () => {
   // const clear = () => {
   //   email.value = '';
   //   password.value = '';
-  // };  
+  // };
 
   loginButton.addEventListener('click', (e) => {
     e.preventDefault();
     const person = {
       email: rootElement.querySelector('#email-login').value,
       password: rootElement.querySelector('#password-login').value,
-    }
-    console.log(person);
+    };
     validation(person);
     persist(person);
   });
@@ -31,7 +30,7 @@ export const Login = () => {
     e.preventDefault();
     rootElement.innerHTML = '';
   });
-  
+
   register.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/register');

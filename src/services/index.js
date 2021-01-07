@@ -5,9 +5,15 @@ export const validation = (person) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(person.email, person.password)
-    .then(onNavigate('/home'))
+    .then(() => {
+      if (firebase.auth().currentUser == null) {
+        onNavigate('/');
+      } else {
+        onNavigate('/home');
+      }
+    })
     .catch((error) => {
-      var errorMessage = error.message;
+      const errorMessage = error.message;
       if (errorMessage == 'The email address is badly formatted.') {
         alert('Email incorreto');
       } else {
@@ -19,31 +25,24 @@ export const validation = (person) => {
 export const persist = () => {
   firebase
     .auth()
-    .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    .setPersistence(firebase.auth.Auth.Persistence.SESSION);
 };
 
-
 export const createUser = (person) => {
-  firebase
-    .auth()
-    .createUserWithEmailAndPassword(person.email, person.password)
+  firebase.auth().createUserWithEmailAndPassword(person.email, person.password)
     .then(
-      console.log(person.name),
-      () => firebase.auth().currentUser.updateProfile({ displayName: person.name }),
-      () => firebase
-        .firestore()
-        .collection('users')
-        .doc(firebase.auth().currentUser.uid)
-        .set(person),
+      () => { firebase.auth().currentUser.updateProfile({ displayName: person.userName }); },
     )
-    
+    .then(
+      () => { firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).set(person); },
+    )
+    .then(onNavigate('/home'))
     .catch((error) => errors(error));
 };
 
-
 export const logOut = () => {
   firebase
-   .auth()
-   .signOut()
-   .then(onNavigate('/'));
-}
+    .auth()
+    .signOut()
+    .then(onNavigate('/'));
+};

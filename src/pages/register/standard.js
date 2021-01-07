@@ -1,7 +1,7 @@
 export const newUser = () => {
   const template = `
   <div class="main-register">
-  <img class="logo" src="/images/logo-deva.png">
+  <img class="logo" src="../../images/logo-deva.png"/>
   <div class="register">
     <form class="register-input">
       <input class="register-input" id="register-name" type="text" placeholder="Nome completo">

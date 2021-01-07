@@ -14,8 +14,8 @@ export const errors = (errorCode) => {
       message = 'UID já existe';
       break;
     default:
-      message = 'Não implementado';
+      message = errorCode;
   }
 
-  console.log(message);
+  return (alert(message));
 };
