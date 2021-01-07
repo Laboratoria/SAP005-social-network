@@ -186,7 +186,7 @@
     }
     
     .warning {
-        color: #8C041D
+        color: orange
     }
     
     .home {
@@ -381,7 +381,7 @@
             margin: 0 0 0 0;
         }
         .textFirts {
-            margin: 50% 70% 0 0;
+            margin: 20% 70% 0 0;
         }
         .formRegister {
             margin-right: 25%;
@@ -399,12 +399,10 @@
             width: 50%;
             height: 100%;
         }
-        /* .likeBtn {
-            margin-right: 30%;
+        .msgFinalized,
+        .msgNotFound {
+            margin-top: 30%;
         }
-        .likeBtn img {
-            width: 30px;
-        } */
     }
     
     @media (min-width:1500px) {
@@ -420,7 +418,7 @@
             align-items: center;
         }
         .textFirts {
-            margin: 50% 70% 0 0;
+            margin: 10% 70% 0 0;
         }
         .formRegister {
             margin-right: 25%;
@@ -437,5 +435,9 @@
         .postFeed {
             width: 50%;
             height: 100%;
+        }
+        .msgFinalized,
+        .msgNotFound {
+            margin-top: 40%;
         }
     }
