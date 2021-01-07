@@ -25,6 +25,16 @@ export const Profile = () => {
       <button id='savebtn'>Salvar</button>
     </div>
   `;
-  
+  const saveBtn = profile.querySelector('#savebtn');
+  const cancelBtn = profile.querySelector('#cancelbtn');
+
+  saveBtn.addEventListener('click', () => {
+
+  });
+
+  cancelBtn.addEventListener('click', () => {
+    window.location.href = '#post';
+  });
+
   return profile;
 };
