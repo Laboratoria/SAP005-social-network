@@ -6,9 +6,11 @@ export const Register = () => {
     rootElement.innerHTML = `    
   <div class="textRegister"> 
   <img class="logoL" src="img/learning.png" alt="Logo L"> 
+  
+  
+  <div class = "formRegister">
   <div id = "finalized" class = "msgFinalized">
   </div>
-  <div class = "formRegister">
   <p class="textFirts">Cadastre-se.</p>
   <fieldset>
       <legend> É rápido e fácil </legend>
