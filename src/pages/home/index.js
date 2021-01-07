@@ -15,13 +15,16 @@ export const Home = () => {
         <label id="icone" for="check"><img class = "menu"src="https://img.icons8.com/nolan/64/menu.png"/></label>  
 
       <div class="barra-menu">
-        <div class = "itensMenu">
-            <img src="https://img.icons8.com/wired/64/ffffff/edit.png"/>
-            <button id ="edit" class = "edit"> Editar perfil</button>
-            <img src="https://img.icons8.com/metro/26/ffffff/exit.png"/>
-            <button id = "exit" class = "exit"> Sair</button>          
+        <div class = "itensMenu">            
+            <input type="file" id="upload" >  
+            <label for="upload" class = "labelPhoto"><img src="https://img.icons8.com/ios-filled/50/ffffff/photo-editor.png"/></label>            
+            <button class = "profilePhoto" id="profilePhoto" for = "upload"><img src="https://img.icons8.com/ios/50/ffffff/save--v1.png"/></button>    
+            <button id = "exit" class = "exit"><img src="https://img.icons8.com/ios-filled/50/ffffff/logout-rounded-up.png"/></button>                              
         </div>
       </div>    
+    </div>  
+    <div>
+    <img class="perfil" src="./img/avatar2.png" width="100" id="imgProfile" >                
     </div>  
     <div class = "nameHome">    
       <h1>Priscila Souza</h1>      
@@ -29,11 +32,9 @@ export const Home = () => {
     <div class = "post">
       <input type="text" id="textPost" placeholder="O que você quer compartilhar?" autocomplete="off">  
     </div>
-      <button class = "buttonPost">Publicar</button>
-    <div id="postedValue"></div>
-        <input type="file" id="upload">
-        <img src="" width="100" id="imgProfile">
-        <button class = "profilePhoto" id="profilePhoto">Carregar foto</button>`;
+      <button class = "buttonPost"><img src="https://img.icons8.com/material-outlined/24/ffffff/speech-bubble-with-dots.png"/></button>
+      <div id="postedValue"></div>
+    `;
 
 
   const textPost = rootElement.querySelector("#textPost");
@@ -44,35 +45,40 @@ export const Home = () => {
     let post = {
       text: postValue
     }
+
+
     textPost.value = '';
 
     firebase.firestore().collection('post').add(post)
     rootElement.querySelector("#postedValue").innerHTML =
       feed +=
-      `< div class="containerFeed" >
+      `<div class="containerFeed">
                  <div class="postFeed"><p>${post.text}</p> 
                  </div>
                  <div class="containerButton">
-                   <button class="likeBtn">
+                 <button class="editBtn"><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button>
+                  <button class="likeBtn">
                   <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
                   <span id="score">0</span> Like
                 </div>
                 </div>`
 
+    //onload = function () {
+    //  function editTitle() {
+    let edit = rootElement.querySelector('.postFeed');
+    let span = edit.firstChild;
+
+    rootElement.querySelector('.editBtn').addEventListener('click', (event) => {
+
+      console.log("passou")
+
+    })
+
+    //  }
+    //}
+
 
     return feed
-  });
-
-
-  rootElement.classList.add("feed")
-
-  rootElement.querySelector("#exit").addEventListener("click", (e) => {
-    e.preventDefault()
-    firebase.auth().signOut().then(function () {
-      onNavigate("/")
-    }).catch(function (error) {
-      // An error happened.
-    });
   });
 
   rootElement.classList.add("feed")

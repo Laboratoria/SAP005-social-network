@@ -6,8 +6,9 @@ export const Login = () => {
     rootElement.innerHTML = `   
 <div  id = "login" class="textRegister">
 <img class="logoL" src="img/learning.png" alt="Logo L"> 
-<div id = "notFound" class="msgNotFound">
-  </div>
+    <div id = "notFound" class="msgNotFound">
+    </div>
+    <div class = "formBtn">
     <form class="registerLogin">        
         <div class="registerColumn">
             <input type="email" id="email" placeholder="Email" required autocomplete="off">           
@@ -22,6 +23,7 @@ export const Login = () => {
         <p>OU</p>
         <p>Conecte-se com o Google</p>
         <button id="google"><img src="img/google.png"> </button>
+    </div>
     </div>
 </div>
 `;
