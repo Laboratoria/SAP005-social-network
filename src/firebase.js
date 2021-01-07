@@ -1,5 +1,5 @@
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyB9qenNuKsIhxK43eC3C6FOGrd4u4Wymso",
   authDomain: "rede-social-1adf7.firebaseapp.com",
   projectId: "rede-social-1adf7",
@@ -9,3 +9,6 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+
+
