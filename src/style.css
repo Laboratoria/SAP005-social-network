@@ -7,6 +7,73 @@
   position: absolute;
   background-size: 425px 767px;
 }
+/* Estilização da Home */
+div.head-home{
+  font-family: 'Architects Daughter', cursive;
+  border: 2px solid black;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+img#logo {
+  width: 65%;
+  height: 65%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  border: 1px solid black;
+  padding: 50px;
+}
+
+div#home-box {
+  border: 1px solid black;
+}
+
+p.login {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 10px;
+  font-family: 'Architects Daughter', cursive;
+}
+
+input#email-input, input#password-home{
+  height: 50px;
+  width: 300px;
+  margin: 5px;
+  border: 1px solid black;
+}
+
+p.text{
+  font-weight: bold;
+  font-size: 20px;
+  margin: 5px;
+}
+
+p.sub-text{
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: 'Architects Daughter', cursive;
+  margin: 5px;
+}
+
+button#submit-home{
+  font-size: 20px;
+  background-color: rgb(33 150 243);
+  border-radius: 10px;
+  width: 100px;
+  font-weight: bold;
+  height: 50px;
+  margin: 10px;
+  color: white;
+  font-family: 'Architects Daughter', cursive;
+}
 
 /* Plano de fundo da tela de Home e Login */
 /* div#fundo {
@@ -32,18 +99,31 @@
   font-weight: bold;
 } */
 
-/* Estilização do placeholder dos iputs de login*/
-/* ::-webkit-input-placeholder {
-  text-align: center;
+/* Estilização do placeholder dos iputs */
+ ::-webkit-input-placeholder {
+  text-align: left;
+  padding: 5px;
   font-style: normal;
   font-size: 16px;
   line-height: 14px;
-  color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: black;
+  font-family: 'Architects Daughter', cursive;
   font-weight: bold;
 }
 
+div.input-form{
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Architects Daughter', cursive;
+
+}
+
+/* 
 input#email,
 input#password {
   display: flex;
@@ -91,12 +171,14 @@ input {
  
 input.google {
   background-image: url(./assets/google.png);
-  background-color: rgba(237, 237, 245, 0);
+  background-color: #1d8cfa;
   background-repeat: no-repeat;
   background-position: center;
-  border-color: white;
-  border-radius: 30px;
-  width: 50px;
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  margin: 0 auto;
+  display: block;
 }
 
 /*  

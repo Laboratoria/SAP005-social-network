@@ -7,24 +7,25 @@ export const Home = () => {
   home.innerHTML = `
   <div class='head-home' alt='Runner|Home'>Runner|Home</div>
       <figure class='logo'>
-      <img src='a/logo_runners.png'alt='Logo Runners' id='logo'>
+      <img src='./assets/logo_runners.png'alt='Logo Runners' id='logo'>
       </figure>
       <div class='home-box'>
         <form class='login'>
           <div class='input-form'>
             <p class='login' alt='Login'>Login</p>
             <h3 class='error' id='msgError'></h3>
-            <input type='email' id='email-input' placeholder='E-mail' required></input>
+            <input type='email' id='email-input' placeholder='@ E-mail' required></input>
             <input type='password' id='password-home' placeholder='Senha' required></input>
             <button id='submit-home'>Entrar</button>
-            <p>Logar com:</p>
+            <p class='text'>Logar com:</p>
             <div class='button-social' id='authGoogle'>
             <input type='button' class='google' alt='Logo Google' id='authGoogle'/>
             </div>
           </div>
         </form>
+      </div>
       <div class='register-home'>
-      <p>Não tem uma conta? <a href="/register">Cadastre-se</a></p>
+      <p class='sub-text'>Não tem uma conta? <a href="/register">Cadastre-se</a></p>
       </div>
   `;
 
