@@ -1,4 +1,5 @@
 import { onNavigate } from "../../utils/history.js"
+
 export const Registry = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
@@ -7,7 +8,7 @@ export const Registry = () => {
              <img src="images/olimpo.png" class="login-icon" id='homeFeed'> 
              <form  id ="formLogin" class="login">
                  <h1 >Registre-se!</h1>
-                 <input  class="btn"  type="name" placeholder="Nome" >
+                 <input  class="btn"  type="name" placeholder="Digite seu nome" >
                  <input id="txtEmail" class="btn" type="email" placeholder="Email" >
                  <input id="txtPassword" class="btn" type="password" placeholder="Senha" autocomplete="off" >   
                  <button id="login-btn" class="buttonPage"> Criar conta </button>
@@ -15,8 +16,6 @@ export const Registry = () => {
          </div>
      <div>
     `;
-
-
   const bottunLogin = rootElement.querySelector('#homeFeed');
   bottunLogin.addEventListener('click', () => {
     onNavigate('/login');
@@ -26,19 +25,20 @@ export const Registry = () => {
   const txtPassword = rootElement.querySelector('#txtPassword');
   const btnLogin = rootElement.querySelector('#login-btn');
 
+  const registro = (email, senha) => {
+    firebase.auth().createUserWithEmailAndPassword(email, senha)
+      .then((user) => {
+        onNavigate('/login');
+      })
+      .catch((error) => console.log(error));
+  };
+
   btnLogin.addEventListener('click', (event) => {
     event.preventDefault();
     // pegando os valores do email e senha
     const email = txtEmail.value;
     const senha = txtPassword.value;
-    const auth = firebase.auth();
-
-    console.log(email, senha);
-    // Registrar
-
-    const promise = auth.createUserWithEmailAndPassword(email, senha);
-    promise.catch((e) => console.log(e.message));
+    registro(email, senha);
   });
-
   return rootElement;
 };
