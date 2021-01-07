@@ -119,4 +119,60 @@ button{
     align-content: center;
     margin-left: 25%;
 }
-
+.header-tml{
+    background-color: #fff000;
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.2em solid #D3D3D3;
+}
+.logo-tml{
+    font-family: Rubik Mono One,sans-serif;
+    text-shadow: 2px 2px 0 #696969;
+    font-size: 1.5em; 
+}
+.main-tml{
+    background-color: #FAFAFA;
+    height: 100vh;
+    width: 100vw;
+    padding: 1vw;
+}
+.user{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 0.8em;
+}
+.user-avatar img{
+    width: 4em;
+}
+.user-name{
+    font-size: 1em;
+    margin-left: 0.2em;
+    cursor: pointer;
+}
+.posted-at{
+    font-size: 0.8em;
+    margin-left: 0.5em;
+    /*quebra a linha*/
+}
+.post{
+    background-color: #fff;
+    max-width: 500px;
+    padding: 20px;
+    padding-top: 40px;
+    border: solid thin #D3D3D3;
+}
+.post-img img{
+    width: 100%;
+    object-fit: contain;
+}
+.post-captions{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 0.8em;
+}

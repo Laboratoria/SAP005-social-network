@@ -1,3 +1,5 @@
+import { onNavigate } from '../../utils/history.js';
+
 export const Home = () => {
   // Coloque sua página
   const rootElement = document.createElement('div');
@@ -25,7 +27,8 @@ export const Home = () => {
 
   const loginStart = rootElement.querySelector("#callerBtn");
   loginStart.addEventListener("click", (e) =>{
-    window.location.href = "/login"; 
+    //window.location.href = "/login"; 
+    onNavigate('/login ')
   })
   return rootElement;
 };

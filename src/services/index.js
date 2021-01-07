@@ -1,4 +1,4 @@
-const googleSignIn=()=>{
+googleSignIn=()=>{
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
     console.log(result);
@@ -12,3 +12,5 @@ const googleSignIn=()=>{
     alert("404-Algo deu errado. Verifique sua solicitação");
   })
 }
+
+
