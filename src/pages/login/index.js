@@ -1,14 +1,17 @@
-import { SingIn } from '../../services/index.js';
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
+import { SingIn, SingInGoogle } from '../../services/index.js';
 
 export const Login = () => {
   const rootElement = document.createElement('div');
   const formHtml = `
-    <div class="container-form" id="login-form">
+    <div class="container-form">
       <h1>Login!</h1>
       <form class="login-form">
-        <input class="email-login" id="email-login" type="email" placeholder="E-mail" required>
-        <input class="psw-login" id="psw-login" type="password" placeholder="Password" required>
-        <button class="btn-login" id="btn-login">Login</button>
+        <input class="email-login" type="email" placeholder="E-mail" required>
+        <input class="psw-login" type="password" placeholder="Password" required>
+        <button class="btn-login" >Login</button>
+        <button class="btn-google" >Login with Google</button>
       </form>
     </div> `;
   rootElement.innerHTML = formHtml;
@@ -18,17 +21,18 @@ export const Login = () => {
     e.preventDefault();
     const userEmail = document.querySelector('.email-login').value;
     const userPassword = document.querySelector('.psw-login').value;
-    const errorMessage = '';
 
     if (userEmail === '' || userPassword === '') {
-      errorMessage.alert('There are blank fields');
+      alert('There are blank fields');
     } else {
       SingIn(userEmail, userPassword);
-      // eslint-disable-next-line no-console
-      console.log('você está logado parça!');
     }
   });
-  // eslint-disable-next-line no-console
-  console.log(rootElement);
+
+  const loginGoogle = rootElement.querySelector('.btn-google');
+  loginGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    return SingInGoogle();
+  });
   return rootElement;
 };

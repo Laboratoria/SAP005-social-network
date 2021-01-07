@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 // import { firebaseConfig } from  "config/config.js"
 // // exporte suas funções
 
@@ -9,7 +11,6 @@ export const CreateUser = (email, password) => {
       window.location.pathname = 'feed';
     })
     .catch((error) => {
-      // eslint-disable-next-line no-alert
       alert(error.message);
     });
 };
@@ -22,7 +23,24 @@ export const SingIn = (email, password) => {
       window.location.pathname = 'feed';
     })
     .catch((error) => {
-      // eslint-disable-next-line no-alert
+
       alert(error.message);
     });
 };
+
+export const SingInGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then(() => {
+      const credential = firebase.auth().currentUser;
+      window.location.pathname = 'feed';
+
+      return credential;
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};
+
