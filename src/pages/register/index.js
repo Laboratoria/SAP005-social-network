@@ -8,8 +8,9 @@ export const Register = () => {
     <img class="logoL" src="img/learning.png" alt="Logo L"> 
     <div id = "finalized" class = "msgFinalized">
     </div>
-    <p class="textFirts">Cadastre-se.</p>
-    <fieldset>
+    <div class = "formRegister">
+        <p class="textFirts">Cadastre-se.</p>
+        <fieldset>
         <legend> É rápido e fácil </legend>
         <form class="register">
             <div class="name">
@@ -26,7 +27,8 @@ export const Register = () => {
                 <button id="loginBtn">Login</button>            
             </div>
         </form>
-    </fieldset>  
+    </fieldset> 
+    </div> 
 
 </div>
     `;
@@ -54,8 +56,8 @@ export const Register = () => {
         } else {
 
             firebase.auth().createUserWithEmailAndPassword(emailUser, passwordFirst)
-                .then((user) => { 
-                    rootElement.querySelector('#finalized').innerHTML = `<h1>Pronto! ${userName[0].toUpperCase() + userName.slice(1)}, seu cadastro foi efetuado.</h1>`
+                .then((user) => {
+                    rootElement.querySelector("#finalized").innerHTML = `<h1>Pronto! ${userName[0].toUpperCase() + userName.slice(1)}, seu cadastro foi efetuado.</h1>`
 
 
                 })
@@ -90,8 +92,9 @@ export const Register = () => {
 
     rootElement.querySelector('#loginBtn').addEventListener('click', (e) => {
         e.preventDefault();
-    
-        onNavigate('/')  
+
+        onNavigate("/")
+
     })
     return rootElement;
 };

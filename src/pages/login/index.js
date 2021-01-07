@@ -3,12 +3,13 @@ import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
     const rootElement = document.createElement('div');
-    rootElement.classList.add("formRegister");
+    rootElement.classList.add('formRegister');
     rootElement.innerHTML = `   
 <div  id = "login" class="textRegister">
 <img class="logoL" src="img/learning.png" alt="Logo L"> 
-<div id = "notFound" class="msgNotFound">
-</div>
+    <div id = "notFound" class="msgNotFound">
+    </div>
+    <div class = "formBtn">
     <form class="registerLogin">        
         <div class="registerColumn">
             <input type="email" id="email" placeholder="Email" required autocomplete="off">           
@@ -24,11 +25,12 @@ export const Login = () => {
         <p>Conecte-se com o Google</p>
         <button id="google"><img src="img/google.png"> </button>
     </div>
+    </div>
 </div>
 `;
-    rootElement.querySelector('#eye').addEventListener("click", (e) => {
+    rootElement.querySelector('#eye').addEventListener('click', (e) => {
     e.preventDefault();
-    const showPassword = rootElement.querySelector("#passwordSecond");
+    const showPassword = rootElement.querySelector('#passwordSecond');
     if (showPassword.type == "password") {
     showPassword.type = "text";
     } else {
