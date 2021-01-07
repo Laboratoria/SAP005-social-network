@@ -1,29 +1,33 @@
 import { onNavigate } from '../utils/history.js';
 import { errors } from './errors.js';
 
+
 export const validation = (person) => {
   firebase
     .auth()
-    .createUserWithEmailAndPassword(person.email, person.password)
-    .then((user) => {
-      console.log('usuario', user);
-    })
-    .catch('lascou');
+    .signInWithEmailAndPassword(person.email, person.password)
+    .then(onNavigate('/home'))
+    .catch((error) => {
+      var errorMessage = error.message;
+      if (errorMessage == 'The email address is badly formatted.') {
+        alert('Email incorreto');
+      } else {
+        alert('Senha incorreta');
+      }
+    });
 };
 
-export const persist = (person) => {
+export const persist = () => {
   firebase
     .auth()
-    .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-    .then(() => firebase.auth().signInWithEmailAndPassword(person.email, person.passwor))
-    .catch('setar erro');
+    .setPersistence(firebase.auth.Auth.Persistence.SESSION)
 };
+
 
 export const createUser = (person) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(person.email, person.password)
-
     .then(
       console.log(person.name),
       () => firebase.auth().currentUser.updateProfile({ displayName: person.name }),
@@ -33,6 +37,14 @@ export const createUser = (person) => {
         .doc(firebase.auth().currentUser.uid)
         .set(person),
     )
-    .then(onNavigate('/'))
+    
     .catch((error) => errors(error));
 };
+
+
+export const logOut = () => {
+  firebase
+   .auth()
+   .signOut()
+   .then(onNavigate('/'));
+}
