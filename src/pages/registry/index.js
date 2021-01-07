@@ -15,14 +15,30 @@ export const Registry = () => {
          </div>
      <div>
     `;
-  
+
 
   const bottunLogin = rootElement.querySelector('#homeFeed');
   bottunLogin.addEventListener('click', () => {
     onNavigate('/login');
-  })
-  
+  });
+
+  const txtEmail = rootElement.querySelector('#txtEmail');
+  const txtPassword = rootElement.querySelector('#txtPassword');
+  const btnLogin = rootElement.querySelector('#login-btn');
+
+  btnLogin.addEventListener('click', (event) => {
+    event.preventDefault();
+    // pegando os valores do email e senha
+    const email = txtEmail.value;
+    const senha = txtPassword.value;
+    const auth = firebase.auth();
+
+    console.log(email, senha);
+    // Registrar
+
+    const promise = auth.createUserWithEmailAndPassword(email, senha);
+    promise.catch((e) => console.log(e.message));
+  });
+
   return rootElement;
-
 };
-
