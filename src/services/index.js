@@ -1,7 +1,6 @@
 import { onNavigate } from '../utils/history.js';
 import { errors } from './errors.js';
 
-import { onNavigate } from "../utils/history.js";
 
 export const validation = (person) => {
   firebase
@@ -38,7 +37,7 @@ export const createUser = (person) => {
         .doc(firebase.auth().currentUser.uid)
         .set(person),
     )
-    .then(onNavigate('/'))
+    
     .catch((error) => errors(error));
 };
 
