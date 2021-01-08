@@ -7,7 +7,7 @@ export const Feed = () => {
   rootElement.appendChild(nav);
 
   const content = () => {
-    const contentElement = document.createElement("div");
+    const contentElement = document.createElement('div');
     contentElement.innerHTML = `
     <h1>Post</h1>
     <form>
@@ -28,7 +28,7 @@ export const Feed = () => {
     event.preventDefault();
     const saveTextPost = textPost.value;
     console.log("post: " + saveTextPost);
-  })
+  });
 
   return rootElement;
 };
