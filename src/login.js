@@ -1,3 +1,4 @@
+
 const modal = document.getElementById('boxLogin');
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -37,3 +38,4 @@ function loginGoogle() {
     console.log('erro', erro);
   })
 }
+
