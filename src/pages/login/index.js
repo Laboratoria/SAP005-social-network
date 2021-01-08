@@ -1,13 +1,11 @@
-import {
-  onNavigate
-} from '../../utils/history.js';
+import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
       <div class="container-login dysplay-template">
       <div class="box-login">
-       <img src="images/olimpo.png" class="login-icon" id='homeFeed'> 
+       <img src="images/olimpo.png" class="login-icon"> 
        <form  id ="formLogin" class="login">
          <input id="txtEmail" class="btn" type="text"  placeholder="Email" >
          <input id="txtPassword" class="btn" type="password" placeholder="Senha" autocomplete="off" >     
@@ -23,11 +21,6 @@ export const Login = () => {
   const bottunRegistry = rootElement.querySelector('#registry');
   bottunRegistry.addEventListener('click', () => {
     onNavigate('/registry');
-  });
-
-  const bottunLogin = rootElement.querySelector('#homeFeed');
-  bottunLogin.addEventListener('click', () => {
-    onNavigate('/feed');
   });
 
   const loginGoogle = () => {

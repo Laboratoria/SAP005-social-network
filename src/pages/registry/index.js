@@ -5,7 +5,7 @@ export const Registry = () => {
   rootElement.innerHTML = `
      <div class="container-login dysplay-template">
          <div class="box-login">
-             <img src="images/olimpo.png" class="login-icon" id='homeFeed'> 
+             <img src="images/olimpo.png" class="login-icon"> 
              <form  id ="formLogin" class="login">
                  <h1 >Registre-se!</h1>
                  <input  class="btn"  type="name" placeholder="Digite seu nome" >
@@ -16,10 +16,6 @@ export const Registry = () => {
          </div>
      <div>
     `;
-  const bottunLogin = rootElement.querySelector('#homeFeed');
-  bottunLogin.addEventListener('click', () => {
-    onNavigate('/login');
-  });
 
   const txtEmail = rootElement.querySelector('#txtEmail');
   const txtPassword = rootElement.querySelector('#txtPassword');
