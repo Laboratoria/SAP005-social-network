@@ -9,7 +9,7 @@ export const Navigation = () => {
      <li><img src="images/bell.png"  id="notification" class="menu-icon"></li>
      <li><img src="images/email.png" id="message" class="menu-icon"></li>
      <li><img src="images/profile.png" id="profile" class="menu-icon"></li>
-     <li><img src="images/off.png" id="sair" class="menu-icon logOut"></li>
+     <li><img src="images/off.png" id="out" class="menu-icon logOut"></li>
    </ul>
   `;
 
@@ -31,6 +31,15 @@ export const Navigation = () => {
   const bottunFeed = navigation.querySelector('#feed');
   bottunFeed.addEventListener('click', () => {
     onNavigate('/feed');
+  });
+  const bottunSingOut = navigation.querySelector('#out');
+  bottunSingOut.addEventListener('click', () => {
+    firebase.auth().signOut().then(function() {
+      onNavigate('/');
+    }).catch(function(error) {
+      console.log(error)
+    });
+
   });
   
   return navigation;
