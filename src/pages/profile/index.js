@@ -1,3 +1,6 @@
+/* eslint-disable prefer-arrow-callback */
+import { user } from './data.js';
+
 export const Profile = () => {
   const profile = document.createElement('div');
   profile.classList.add('div-profile');
@@ -12,9 +15,7 @@ export const Profile = () => {
       <p class='text' id='city'></p>
     </div>
     <div>
-      <input type='text' id='name' placeholder='Nome'/>
-      <input type='date' id='date' placeholder='dd/mm/aaaa'/>
-      <input type="text" id="city" placeholder="Cidade"/>
+      <input type='text' id='name' placeholder='Nome'readonly/>
       <input type="password" id="password" placeholder="Senha"/>
       <input type="password" id="confirmPwd" placeholder="Confirmar Senha"/>
     </div>
@@ -27,9 +28,19 @@ export const Profile = () => {
   `;
   const saveBtn = profile.querySelector('#savebtn');
   const cancelBtn = profile.querySelector('#cancelbtn');
+  const 
 
-  saveBtn.addEventListener('click', () => {
-
+  saveBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    const password = profile.querySelector('#password').Value;
+    const newPassword = profile.querySelector('#confirmPwd"').Value;
+    const changePwd = user.updatePassword(password, newPassword);
+    changePwd
+      .then(function () {
+      // Update successful.
+      }).catch(function (error) {
+        // An error happened.
+      });
   });
 
   cancelBtn.addEventListener('click', () => {
