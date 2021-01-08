@@ -1,4 +1,3 @@
-// Este é seu ponto de entrada da sua aplicação
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
 import { Feed } from './pages/feed/index.js';
@@ -9,7 +8,7 @@ import { Registry } from './pages/registry/index.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
-
+  
   const routes = {
     '/': Home,
     '/login': Login,
@@ -20,12 +19,26 @@ const routeRender = () => {
     '/registry': Registry,
   };
 
-  rootDiv.innerHTML = '';
-  rootDiv.appendChild(routes[window.location.pathname]());
+  const auth = firebase.auth();
+  let path = window.location.pathname;
+
+  auth.onAuthStateChanged((user) => {
+    
+    if (!user && (path !== '/login' && path !== '/registry')) {
+      path = '/';
+      window.history.replaceState(null, null, path);
+    }
+    if (user && (path === '/' || path === '/login' || path === '/registry')) {
+      path = '/feed';
+      window.history.replaceState(null, null, path);
+    }
+
+    rootDiv.innerHTML = '';
+    rootDiv.appendChild(routes[path]());
+  });
 };
 
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
   routeRender();
   });
-
