@@ -1,3 +1,5 @@
+import { onNavigate } from '../../utils/history.js';
+
 export const Register = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
@@ -47,67 +49,98 @@ export const Register = () => {
     </section>
   </section>  
   `;
-  const ingIn = rootElement.querySelector('#register');
 
+  //   const email
+  //   const password
 
-  ingIn.addEventListener("click", e => {
-    ingIn.style.background = '#FEBB86';
-    
-    const email = rootElement.querySelector("#email").value;
-    const password = rootElement.querySelector("#password").value;
-    const auth = firebase.auth();
-    //vai retornar uma promessa e dá pra trabalhar de maneira assíncrona
-    const promise = auth.signInWithEmailAndPassword(email, password);
-    promise.catch(e => console.log (e.message));
+  signIn.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = rootElement.querySelector('#email').value;
+    const password = rootElement.querySelector('#password').value;
+    if (email === '' || password === '') {
+      printMessageError(errorMessageEmptyInput);
+    } else {
+      const promise = firebase.auth().signInWithEmailAndPassword(email, password);
+      promise
+        .then(() => {
+          onNavigate('/');
+        })
 
-
-    auth.createUsernWithEmailAndPassword(email, password);
-    auth.onAuthStateChange (firebaseUser => {});
-
-
-
-  });
-
-  return rootElement;
-};
+      return rootElement;
+    };
 
 
 
+//   firebase.auth().createUserWithEmailAndPassword(email, password)
+//     .then((user) => {
+//       // Signed in
+//       // ...
+//     })
+//     .catch((error) => {
+//       var errorCode = error.code;
+//       var errorMessage = error.message;
+//       // ..
+//     });
 
-/* tabs
-$('#form #register').click(function() {
+//   const ingIn = rootElement.querySelector('#register');
 
-      $('#form').fadeToggle();
-        $(".form-background").animate(
-              {
-                "top": "-342px",
-                "width": "400px",
-                "height": "410px"
-              },
-              "slow", function(){
-            $('#register-form').fadeToggle();
-              });
-      });
+//   ingIn.addEventListener("click", e => {
+//     ingIn.style.background = '#FEBB86';
 
-      $('#register-form #tab-login').click(function() {
+//     const email = rootElement.querySelector("#email").value;
+//     const password = rootElement.querySelector("#password").value;
+//     const auth = firebase.auth();
+//     //vai retornar uma promessa e dá pra trabalhar de maneira assíncrona
+//     const promise = auth.signInWithEmailAndPassword(email, password);
+//     promise.catch(e => console.log(e.message));
 
-        $('#register-form').fadeToggle();
-        $(".form-background").animate(
-              {
-                "top": "-214px",
-                "width": "400px",
-                "height": "290px"
-              },
-              "slow", function(){
-                  $('#login-form').fadeToggle();
-              });
-      });
+//     auth.createUsernWithEmailAndPassword(email, password);
+//     auth.onAuthStateChange(firebaseUser => { });
 
-      // Tips
-      $('#register-form .email-tip-icon').hover(function(){
-      $('#message-email').fadeToggle();
-    });
+//   });
 
-    $('#register-form .password-tip-icon').hover(function(){
-    $('#message-password').fadeToggle();
-    })
+// function printMessageError(message) {
+//   const elementError = document.createElement("p");
+//   const errorMessage = document.createTextNode(message);
+//   elementError.appendChild(errorMessage);
+//   document.getElementById("errorLogin").innerHTML = "";
+//   document.getElementById("errorLogin").appendChild(elementError);
+// }
+
+// /* tabs
+// $('#form #register').click(function() {
+
+//       $('#form').fadeToggle();
+//         $(".form-background").animate(
+//               {
+//                 "top": "-342px",
+//                 "width": "400px",
+//                 "height": "410px"
+//               },
+//               "slow", function(){
+//             $('#register-form').fadeToggle();
+//               });
+//       });
+
+//       $('#register-form #tab-login').click(function() {
+
+//         $('#register-form').fadeToggle();
+//         $(".form-background").animate(
+//               {
+//                 "top": "-214px",
+//                 "width": "400px",
+//                 "height": "290px"
+//               },
+//               "slow", function(){
+//                   $('#login-form').fadeToggle();
+//               });
+//       });
+
+//       // Tips
+//       $('#register-form .email-tip-icon').hover(function(){
+//       $('#message-email').fadeToggle();
+//     });
+
+//     $('#register-form .password-tip-icon').hover(function(){
+//     $('#message-password').fadeToggle();
+//     });

@@ -1,6 +1,7 @@
 import { onNavigate } from '../../utils/history.js';
+
 export const Login = () => {
-  const rootElement = document.createElement("div");
+  const rootElement = document.createElement('div');
   rootElement.innerHTML = `
     <section class="login">  
       <section class="left">  
@@ -30,41 +31,38 @@ export const Login = () => {
       </section>
     </section>    
   `;
-<<<<<<< HEAD
-
-  const singIn = rootElement.querySelector('#login');
-  const singUp = rootElement.querySelector('#createAccount');
-  const singUpGoogle = rootElement.querySelector('#google');
-  const singUpFb = rootElement.querySelector('#facebook');
-  const singUpGh = rootElement.querySelector('#github');
-  singIn.addEventListener("mouseenter", () => {
-    singIn.style.background = '#FEBB86';
-  });
-  singIn.addEventListener("mouseout", () => {
-    singIn.style.background = '#FF780F';
-=======
-  //---------------------- GUARDANDO TODOS OS INPUTS ---------------------\\
-  const signIn = rootElement.querySelector("#signIn");
-  const register = rootElement.querySelector("#register");
-  const signUpGoogle = rootElement.querySelector("#google");
-  const signUpFb = rootElement.querySelector("#facebook");
-  const signUpGh = rootElement.querySelector("#github");
-  //------------------------- MENSAGENS DE ERRO ------------------------- \\
+  // /*GUARDANDO TODOS OS INPUTS ---------------------*/
+  const signIn = rootElement.querySelector('#signIn');
+  const register = rootElement.querySelector('#register');
+  const signUpGoogle = rootElement.querySelector('#google');
+  const signUpFb = rootElement.querySelector('#facebook');
+  const signUpGh = rootElement.querySelector('#github');
+  // ------------------------- MENSAGENS DE ERRO ------------------------- \\
   const verifyErrorCode = {
-    "auth/invalid-email": "O endereço de e-mail não é válido. Por favor, preencha novamente.",
-    "auth/invalid-password": "Senha incorreta. Por favor, tente novamente.",
-    "auth/email-already-in-use": "O e-mail fornecido já está cadastrado. Por favor, forneça um novo endereço.",
-    "auth/user-not-found": "Não há registro desse usuário. Por favor, registre-se para ter acesso à nossa rede.",
-    "auth/account-exists-with-different-credential": "E-mail já associado a outra conta. Por favor, tente com um novo endereço.",
-    "default": "Ocorreu algum erro. Por favor, tente novamente",
+    'auth/invalid-email': 'O endereço de e-mail não é válido. Por favor, preencha novamente.',
+    'auth/invalid-password': 'Senha incorreta. Por favor, tente novamente.',
+    'auth/email-already-in-use': 'O e-mail fornecido já está cadastrado. Por favor, forneça um novo endereço.',
+    'auth/user-not-found': 'Não há registro desse usuário. Por favor, registre-se para ter acesso à nossa rede.',
+    'auth/account-exists-with-different-credential':
+      'E-mail já associado a outra conta. Por favor, tente com um novo endereço.',
+    default: 'Ocorreu algum erro. Por favor, tente novamente',
+  };
+  const errorMessageEmptyInput = 'O preenchimento dos campos de e-mail e senha é obrigatório.';
+
+  function printMessageError(message) {
+    const elementError = document.createElement('p');
+    const errorMessage = document.createTextNode(message);
+    elementError.appendChild(errorMessage);
+    document.getElementById('errorLogin').innerHTML = '';
+    document.getElementById('errorLogin').appendChild(elementError);
   }
-  const errorMessageEmptyInput = "O preenchimento dos campos de e-mail e senha é obrigatório.";
-  //---------------------- FUNÇÕES DE AUTENTIFICAÇÃO ----------------------\\
-  signIn.addEventListener("submit", event => {
+
+  // ---------------------- FUNÇÕES DE AUTENTIFICAÇÃO ----------------------\\
+  signIn.addEventListener('submit', (event) => {
     event.preventDefault();
-    const email = rootElement.querySelector("#email").value;
-    const password = rootElement.querySelector("#password").value;
-    if (email === "" || password === "") {
+    const email = rootElement.querySelector('#email').value;
+    const password = rootElement.querySelector('#password').value;
+    if (email === '' || password === '') {
       printMessageError(errorMessageEmptyInput);
     } else {
       const promise = firebase.auth().signInWithEmailAndPassword(email, password);
@@ -72,70 +70,67 @@ export const Login = () => {
         .then(() => {
           onNavigate('/');
         })
-        .catch(err => {
+        .catch((err) => {
           const errorCode = err.code;
-          const errorMessage = verifyErrorCode[errorCode];
+          let errorMessage = verifyErrorCode[errorCode];
           if (errorMessage === null) {
             errorMessage = err.Message;
           }
           printMessageError(errorMessage);
         });
     }
->>>>>>> master
   });
-  signUpGoogle.addEventListener("click", () => {
+
+  signUpGoogle.addEventListener('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithRedirect(provider)
+    firebase.auth().signInWithPopup(provider)
       .then(() => {
         onNavigate('/');
-      }).catch(err => {
+      })
+      .catch((err) => {
         const errorCode = err.code;
-        const errorMessage = verifyErrorCode[errorCode];
+        let errorMessage = verifyErrorCode[errorCode];
         if (errorMessage === null) {
           errorMessage = err.Message;
         }
         printMessageError(errorMessage);
       });
   });
-  signUpFb.addEventListener("click", () => {
+
+  signUpFb.addEventListener('click', () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithRedirect(provider)
       .then(() => {
         onNavigate('/');
-      }).catch(err => {
+      })
+      .catch((err) => {
         const errorCode = err.code;
-        const errorMessage = verifyErrorCode[errorCode];
+        let errorMessage = verifyErrorCode[errorCode];
         if (errorMessage === null) {
           errorMessage = err.Message;
         }
         printMessageError(errorMessage);
       });
   });
-  signUpGh.addEventListener("click", () => {
+
+  signUpGh.addEventListener('click', () => {
     const provider = new firebase.auth.GithubAuthProvider();
     firebase.auth().signInWithRedirect(provider)
       .then(() => {
         onNavigate('/');
-      }).catch(err => {
+      })
+      .catch((err) => {
         const errorCode = err.code;
-        const errorMessage = verifyErrorCode[errorCode];
+        let errorMessage = verifyErrorCode[errorCode];
         if (errorMessage === null) {
           errorMessage = err.Message;
         }
         printMessageError(errorMessage);
       });
   });
-  //---------- ENCAMINHAR PARA O FORMULÁRIO DE CRIAÇÃO DE PERFIL ----------\\
-  //---------------- TODO: Mudar para a página de registro ----------------\\
-  register.addEventListener("click", () => {
+
+  register.addEventListener('click', () => {
     onNavigate('/');
   });
   return rootElement;
 };
-function printMessageError(message) {
-  const elementError = document.createElement("p");
-  const errorMessage = document.createTextNode(message);
-  elementError.appendChild(errorMessage);
-  document.getElementById("errorLogin").innerHTML = "";
-  document.getElementById("errorLogin").appendChild(elementError);
-}
