@@ -20,17 +20,17 @@ export const Register = () => {
         <input type="lastname" name="lastname" id="lastname" placeholder="Digite seu sobrenome">
       </div>
       <div clas="half-box spacing">
+      <label for="talents"> Qual seu talento? </label>
+      <input type="Talents" name="talents" id="talents" placeholder= " Digite seu talento" >
+    </div>
+      <div clas="half-box spacing">
         <label for="password"> Senha</label>
         <input type="password" name="password" id="password" placeholder="Digite sua senha">
       </div>
       <div clas="half-box">
         <label for="passconfirmation"> Confirme sua senha</label>
         <input type="password" name="passconfirmation" id="passconfirmation" placeholder="Confirme sua senha">
-      </div>  
-      <div clas="full-box">
-        <input type="checkbox" name="agreement" id="agreement">
-        <label for="agreement" id="agreement-label">Eu li e aceito os <a href="#">termos de uso.</a> </label>
-      </div>   
+      </div>    
       <div clas="full-box">
         <input type="submit" id="btn-submit" value="Cadastrar">
       </div> 
@@ -40,9 +40,32 @@ export const Register = () => {
   </div>
     `;
 
+
+  class Validator{
+
+    constructor(){
+      this.validations = [
+
+      ]
+    }
+    validate(form){ //iniciar validação em todos os campos
+
+      let inputs =form.getElementsByTagName('input');
+      console.log (inputs);
+
+      let inputsArray = [...inputs];
+      console.log (inputsArray);
+
+    }
+    
+    
+  }  
+
+  const form = rootElement.querySelector('#register-form');
   const submit = rootElement.querySelector('#btn-submit');
 
   submit.addEventListener('click', (e) => {
+   
     e.preventDefault();
 
     const email = rootElement.querySelector('#email').value;
@@ -50,6 +73,13 @@ export const Register = () => {
     const name = rootElement.querySelector('#name').value;
     const lastName = rootElement.querySelector('#lastname').value;
 
+      if  '#email' = emailTextField.text, password = passwordTextField.text{
+        Auth.auth().createUser(withEmail: email, password: password, completion:{ user, error in
+           if let firebaseError = error{
+                print(firebaseError.localizedDescription)
+                return
+            }
+          print("Usuário cadastrado")
     /* se email digitado igual email return cadastrado
 nos imput colocar obrigatório email e senha */
 
