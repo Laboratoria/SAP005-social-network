@@ -17,18 +17,17 @@ export const Login = () => {
        </form>
      <div>
   `;
-  
+
   const bottunRegistry = rootElement.querySelector('#registry');
-  bottunRegistry.addEventListener('click', ()=>{
+  bottunRegistry.addEventListener('click', () => {
     onNavigate('/registry');
-    ;
-  })
+  });
 
   const bottunLogin = rootElement.querySelector('#homeFeed');
   bottunLogin.addEventListener('click', () => {
     onNavigate('/feed');
-  })
-  
+  });
+
   const btnGoogle = rootElement.querySelector('#googleLogin');
   btnGoogle.addEventListener('click', (event) => {
     event.preventDefault();
@@ -47,9 +46,15 @@ export const Login = () => {
     const email = txtEmail.value;
     const senha = txtPassword.value;
     const auth = firebase.auth();
-    // Entrar
     const promise = auth.signInWithEmailAndPassword(email, senha);
-    promise.catch((e) => console.log(e.message));
+    const user = firebase.auth().currentUser;
+    promise.then((user) => {
+      alert(`Bem-vindo ao Olimpo, ${user.displayName}!`)
+    });
+    promise.catch((error) => {
+      const errorMessage = error.message;
+      alert(`${errorMessage}`)
+    });
   });
 
   return rootElement;
