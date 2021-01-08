@@ -9,7 +9,7 @@ export const Profile = () => {
   const content = () => {
     const contentElement = document.createElement('div');
     contentElement.innerHTML = `
-    <img src="images/construc.gif" class="gif"> 
+    <img src="images/construc.gif" class="gif">
       `;
     return contentElement;
   };

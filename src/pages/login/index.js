@@ -1,4 +1,6 @@
-import { onNavigate } from '../../utils/history.js';
+import {
+  onNavigate
+} from '../../utils/history.js';
 
 export const Login = () => {
   const rootElement = document.createElement('div');
@@ -28,12 +30,22 @@ export const Login = () => {
     onNavigate('/feed');
   });
 
+  const loginGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then((user) => {
+        onNavigate('/feed');
+        alert(`Bem-vindo ao Olimpo, ${user.displayName}!`);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(`${errorMessage}`);
+      });
+  };
   const btnGoogle = rootElement.querySelector('#googleLogin');
   btnGoogle.addEventListener('click', (event) => {
     event.preventDefault();
-    const proverAcesso = new firebase.auth.GoogleAuthProvider();
-    proverAcesso.addScope('https://www.googleapis.com/auth/plus.login');
-    firebase.auth().signInWithRedirect(proverAcesso);
+    loginGoogle();
   });
 
   const txtEmail = rootElement.querySelector('#txtEmail');
