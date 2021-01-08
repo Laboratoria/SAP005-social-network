@@ -40,22 +40,23 @@ export const Login = () => {
   const txtPassword = rootElement.querySelector('#txtPassword');
   const btnSignUp = rootElement.querySelector('#signup-btn');
 
+  const loginPrincipal = (email, senha) => {
+    firebase.auth().signInWithEmailAndPassword(email, senha)
+      .then((user) => {
+        onNavigate('/feed');
+        alert(`Bem-vindo ao Olimpo, ${user.displayName}!`);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(`${errorMessage}`);
+      });
+  };
+
   btnSignUp.addEventListener('click', (event) => {
-    event.preventDefault()
-    // pegando os valores do email e senha
+    event.preventDefault();
     const email = txtEmail.value;
     const senha = txtPassword.value;
-    const auth = firebase.auth();
-    const promise = auth.signInWithEmailAndPassword(email, senha);
-    const user = firebase.auth().currentUser;
-    promise.then((user) => {
-      alert(`Bem-vindo ao Olimpo, ${user.displayName}!`)
-    });
-    promise.catch((error) => {
-      const errorMessage = error.message;
-      alert(`${errorMessage}`)
-    });
+    loginPrincipal(email, senha);
   });
-
   return rootElement;
 };
