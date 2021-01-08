@@ -1,71 +1,59 @@
-export const Login = () => {
+import { signIn, loginWithGoogle } from './data.js';
+import { errorCodes } from './constants.js';
 
-  const rootElement = document.createElement('div');
-  rootElement.innerHTML = `
-  <div  id="firebaseui-auth-container" class="container-login">
-  
-          <img src="./img/logo.png" class="logo">
-          <img src="./img/pessoas.png" class="people">
-        
-        
-          <div id="root">
-            <h4>Your Pet's ally !!!</h4>
-          </div>
+export  const  Login  =  ( )  =>  {
+  const  rootElement  =  document . createElement ( 'div' ) ;
+  rootElement . innerHTML  =  `
 
-          
-          <div class="form" id="form">
-        
-            <h3> <Label>E-mail:</Label>
-              <input type="text" id="e-mail">
-            </h3> 
-        
-            <h3>
-              <Label>Senha:</Label>
-              <input type="password" id="password"> 
-            </h3> 
+      <div id = "firebaseui-auth-container" class = "container-login">
 
-          </div>
+      <div class='box-item'><h1>S E C U R I T Y  PET</h1>
+      <img src ="./ img / pessoas.png"  alt='Logotype' class='icon-large'>
+      </div><br>
 
-        <div class"buttons">
-          <h3>
-            <button id="register" class="register">Cadastrar</button>
-            <button id="login" class="login">Login</button>
-          </h3>
-        </div>
+      <div class='box-item'>
 
-        <div id= "google" class= "g-signin2" data-onsuccess= "onSignIn" data-theme= "dark" > </div>       
-  </div> 
+      <h3>WELCOME TO SECURITY PET</h3>
 
+      <form method='post'>
+      <input type='email' placeholder='Email' id='emailArea' class='login-area'><br>
+      <input type='password' placeholder='Senha' id='passwordArea' class='login-area'><br><br>
+      </form>
+
+      <div class="inerror-message" id="error-login">
+      </div>
+
+      <button class='button-area btn signIn'>Entrar</button>
+      <p class="ou">━━━━━━━━━ OU ━━━━━━━━━</p>
+
+      <button class='button-area btn btnGoogle'>Acesse com <img src='./ img /google-icon.png' alt='Google' class='google-icon'></button><br><br><br>
+      <p class='font-small'>Se não tem um conta, <a href='/#signup'>registre-se aqui.</a></p>
+
+      </div>
   `;
 
-  const emailButton = rootElement.querySelector("#e-mail")
-  const passwordButton = rootElement.querySelector("#password")
-  const registerButton = rootElement.querySelector("#register")
-  const loginButton = rootElement.querySelector("#login")
-  const googleButton = rootElement.querySelector("#google")
+    const googleButton = containerLogin.querySelector('.btnGoogle');
+    const signInButton = containerLogin.querySelector('.signIn');
+    const errorLogin = containerLogin.querySelector('#error-login');
 
-  registerButton.addEventListener("click", () => {
-    console.log("oi")
-    firebase.auth().createUserWithEmailAndPassword(emailButton.value, passwordButton.value)
-    console.log(emailButton.value)
-    console.log(passwordButton.value)
-    // then(()=> console.log("deu certo")) 
-    //     alert("Cadastrado com sucesso")   
-    // .catch((error)=> {
-    //       var errorCode = error.code;
-    //       var errorMessage = error.message;
-    //       // ..
-    // });  .
+    
+    const onError = (error) => {
+      if (errorCodes[error.code]) {
+        errorLogin.innerHTML = errorCodes[error.code];
+      } else {
+        errorLogin.innerHTML = errorCodes.DEFAULT_MESSAGE;
+      }
+    };
 
-  });
-  loginButton.addEventListener("click", () => {
-    console.log("sim")
-  })
+    signInButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      signIn(containerLogin.querySelector('#emailArea').value, containerLogin.querySelector('#passwordArea').value, onError);
+    });
 
-    googleButton.addEventListener("click", () => {
-      
-    })
+    googleButton.addEventListener('click', () => {
+      loginWithGoogle();
+    });
 
-
-        return rootElement;
- };
+  //return index.appendChild(containerLogin);
+  return rootElement;
+};

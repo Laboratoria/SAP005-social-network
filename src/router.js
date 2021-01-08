@@ -1,13 +1,15 @@
-// Este é seu ponto de entrada da sua aplicação
-import { Home } from './pages/home/index.js';
-import  {Login} from './pages/login/index.js';
-import { onNavigate } from './utils/history.js';
+import { login } from './pages/login/index.js';
+import { feed } from './pages/feed/index.js';
+import { signUp } from './pages/signUp/index.js';
+import { onNavigate } from './utils/history.js'; 
+
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
-    '/' : Home,
-    '/login': Login,
+    '/' : login,
+  //  '/signUp': signUp,
+    '/feed': feed,
 // /nova "página" : nova,
   };
 
@@ -18,17 +20,56 @@ const routeRender = () => {
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
   document
-    .getElementById('home')
+    .getElementById('login')
     .addEventListener('click', (e) => {
       e.preventDefault();
       onNavigate('/')
     });
+  // document
+  //   .getElementById('signUp')
+  //   .addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     onNavigate('/signUp')
+  //   });
+
   document
-    .getElementById('login')
+    .getElementById('feed')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/login')
-    });
+      onNavigate('/feed')
+    });  
 
   routeRender();
 });
+
+// const init = () => {
+//   window.addEventListener('hashchange', () => {
+//     switch (window.location.hash) {
+//       case '#signup':
+//         signUp();
+//         break;
+//       case '#feed':
+//         feed();
+//         break;
+//       default:
+//         login();
+//     }
+//   });
+// };
+// init();
+
+// window.addEventListener('load', () => {
+//   switch (window.location.hash) {
+//     case '#login':
+//       login();
+//       break;
+//     case '#signup':
+//       signUp();
+//       break;
+//     case '#feed':
+//       feed();
+//       break;
+//     default:
+//       login();
+//   }
+// });
