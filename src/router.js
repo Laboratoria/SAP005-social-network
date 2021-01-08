@@ -1,13 +1,18 @@
 // Este é seu ponto de entrada da sua aplicação
+import { Register } from './pages/register/index.js';
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
+import {Timeline} from './pages/timeline/index.js';
 import { onNavigate } from './utils/history.js';
+
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
     '/' : Home,
     '/login': Login,
+    '/register': Register,
+    '/timeline': Timeline,
 
   };
 
@@ -21,13 +26,25 @@ window.addEventListener('load', () => {
     .getElementById('home')
     .addEventListener('click', (e) => {
       e.preventDefault();
-      onNavigate('/')
+      onNavigate('/');
     });
   document
     .getElementById('login')
     .addEventListener('click', (e) => {
       e.preventDefault();
       onNavigate('/login')
+    });
+    document
+    .getElementById('register')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/register');
+    });
+    document
+    .getElementById('timeline')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/timeline')
     });
 
   routeRender();
