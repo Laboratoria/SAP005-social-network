@@ -12,9 +12,9 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-  }
+}
   
-  button {
+button {
     background-color: #4c56af;
     color: white;
     padding: 14px 20px;
@@ -22,40 +22,40 @@ input[type=text], input[type=password] {
     border: none;
     cursor: pointer;
     width: 100%;
-  }
+}
   
-  button:hover {
+button:hover {
     opacity: 0.8;
-  }
+}
   
-  .cancelbtn {
+.cancelbtn {
     width: auto;
     padding: 10px 18px;
     background-color: #f44336;
-  }
+}
   
-  .imgcontainer {
+.imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
     position: relative;
-  }
+}
   
-  img.icone {
+img.icone {
     width: 20%;
     border-radius: 50%;
-  }
+}
   
-  .container {
+.container {
     padding: 16px;
-  }
+}
   
-  span.psw {
+span.psw {
     float: right;
     padding-top: 16px;
-  }
+}
   
   /* The Modal (background) */
-  .modal {
+.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -67,37 +67,37 @@ input[type=text], input[type=password] {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 60px;
-  }
+}
   
   /* Modal Content/Box */
-  .modal-content {
+.modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
-  }
+}
   
   /* The Close Button (x) */
-  .close {
+.close {
     position: absolute;
     right: 25px;
     top: 0;
     color: #000;
     font-size: 35px;
     font-weight: bold;
-  }
+}
   
-  .close:hover,
-  .close:focus {
+.close:hover,
+.close:focus {
     color: red;
     cursor: pointer;
-  }
+}
   
   /* Add Zoom Animation */
-  .animate {
+.animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
-  }
+}
   
   @-webkit-keyframes animatezoom {
     from {-webkit-transform: scale(0)} 
