@@ -9,7 +9,7 @@ export const Feed = () => {
         <li>Meu perfil</li>
         <li>Feed</li> 
         <li>Comunidades</li> 
-        <li id='logout'>Sair</li>
+        <li id='log-out'>Sair</li>
      </ul>
    </nav>
   </div>
@@ -43,6 +43,10 @@ export const Feed = () => {
    </nav>
      </div>
     `;
+    return rootElement;
+  };
+  
+  
 
   /* rootElement.querySelector('#post-it').addEventListener("click", ()=>{
     const mensagem = rootElement.querySelector('#write-post').value
@@ -60,6 +64,4 @@ export const Feed = () => {
   }) */
 
 
-    return rootElement;
-  };
   
