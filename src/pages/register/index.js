@@ -1,14 +1,15 @@
+import { onNavigate } from '../../utils/history.js';
 export const Register = () => {
     const rootElement = document.createElement('div');
     rootElement.classList.add("formRegister")
     rootElement.innerHTML = `    
     <div class="textRegister"> 
-        <img class="logoL" src="img/learning.png" alt="Logo L"> 
+        
         <div id="finalized" class="msgFinalized">
     </div>
     <p class="textFirts">Cadastre-se.</p>
         <fieldset>
-        <legend> É super fácil</legend>
+        <legend> É rápido e fácil</legend>
             <form class="register">
                 <div class="name">
                     <input type="text" id="nome" placeholder="Nome" required autocomplete="off">
@@ -70,20 +71,7 @@ export const Register = () => {
         password.value = "";
         confirmPassword.value = "";
     })
-    // comentario referente a visualização de senha
-    /*rootElement.querySelector('#eye').addEventListener("click", (e) => {
-        e.preventDefault();
-        const showPassword = rootElement.querySelector("#passwordFirst");
-        const showPassword2 = rootElement.querySelector("#passwordSecond");
-        if (showPassword.type == "password" && showPassword2.type == "password") {
-            showPassword.type = "text";
-            showPassword2.type = "text";
-        } else {
-            showPassword.type = "password";
-            showPassword2.type = "password";
-        }
-    })*/
-
+    
     rootElement.querySelector("#loginBtn").addEventListener("click", (e) => {
         e.preventDefault();
         onNavigate("/")

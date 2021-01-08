@@ -50,8 +50,9 @@ export const Timeline = () => {
             //essa promise tem como callback a função de carregarPost 
             .then(res => {loadPost()}
             ).catch()
+            
+            return rootElement;
         });
-        return rootElement;
     
     function printPosts(post) {
         const templatePost =`

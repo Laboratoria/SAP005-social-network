@@ -9,16 +9,22 @@ export const Login = () => {
     </div>
     <form class="registerLogin">        
         <div class="registerColumn">
+        <p>Se já tem uma conta, insira email e senha</p>
+        <br>
             <input type="email" id="email" placeholder="Email" required autocomplete="off">           
-            <input id="passwordSecond" type="password" placeholder="Senha" required autocomplete="off">                     
+            <input id="passwordSecond" type="password" placeholder="Senha" required autocomplete="off">                   
+            <br>
             <button id="btnLogin">Login</button> 
         </div>
     </form>
     <div class="btns">
         <p>Não tem uma conta?<button id="btnCadastro">Cadastre-se</button></p>
+        <br>
         <p>OU</p>
-        <p>Conecte-se com o Google</p>
-        <button id="google"><img src="<img src="img/google.png"></button>
+        <br>
+        <p>Cadastre com o Google</p>
+        <br>
+        <button id="google"><img src="https://bandodequadrados.com/img/imagem_noticia/f9ec22c82ebf65ca7bb36aeb460a8f59.jpg"></button>
     </div>
     </div>
 `;
