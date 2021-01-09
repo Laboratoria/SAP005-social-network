@@ -34,13 +34,15 @@ export const Home = () => {
     `;
 
     const userId = localStorage.getItem("uid");
-    db.collection('users').doc(userId).collection("post").get().then((querySnapshot) => {
+    const postId = db.collection("post").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             postFeed(doc.data())
             console.log(`${doc.id} => ${doc.data()}`);
+
         });
     });
 
+    var docRef = db.collection("post").doc();
 
     const textPost = rootElement.querySelector("#textPost");
     let feed = '';
@@ -54,7 +56,14 @@ export const Home = () => {
         const userId = firebase.auth().currentUser.uid
         localStorage.setItem("uid", userId);
         postFeed(post)
-        db.collection('users').doc(userId).collection("post").add(post)
+        db.collection("post").add({
+            text: post.text,
+            data: (new Date()).toLocaleString(),
+            email: `${firebase.auth().currentUser.email}`,
+            like: [],
+            id: docRef.id
+
+        })
         return feed
     });
 
@@ -111,30 +120,38 @@ export const Home = () => {
             feed +=
             `<div class="containerFeed">
                  <div class="postFeed"><p>${post.text}</p> 
+                <data data-like = "${postId}"></data>
                  </div>
-                 <div class="containerButton">
-                  <button class="likeBtn">
+                 <div class="containerButton" ">
+                  <button class="likeBtn" id = "like" data-like = "${post.id}>
                   <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
                   <span id="score">0</span> Like
                 </div>
                 </div>`
-        const likeBtn = document.querySelector(".likeBtn");
-        let likeIcon = document.querySelector("#like"),
-            score = document.querySelector("#score");
-        let clicked = false;
-        likeBtn.addEventListener("click", () => {
-            if (!clicked) {
-                clicked = true;
-                likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/50/filled-like.png"/>`;
-                score.textContent++;
-            } else {
-                clicked = false;
-                likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/64/like.png"/>`;
-                score.textContent--;
-            }
-        });
+            // const likeBtn = document.querySelector("#like[data-like{`${post.id}`]");
+            // let likeIcon = document.querySelector("#like"),
+            //     score = document.querySelector("#score");
+            // let clicked = false;
+            // likeBtn.addEventListener("click", () => {
+            //     console.log(likeBtn.dataset.like, "dataset")
+            //     console.log(postId)
+            // if (!clicked) {
+            //     clicked = true;
+            //     likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/50/filled-like.png"/>`;
+            //     score.textContent++;
+            // } else {
+            //     clicked = false;
+            //     likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/64/like.png"/>`;
+            //     score.textContent--;
+            // }
+            // });
 
     };
+    // const like = (docRef) => {
+
+
+    // }
+
 
 
     return rootElement;
