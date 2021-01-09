@@ -1,10 +1,11 @@
 import { onNavigate } from '../../utils/history.js';
-import { login, authGoogle } from './data.js';
+import { authGoogle } from './data.js';
 
 export const Home = () => {
   const home = document.createElement('div');
   home.classList.add('div-home');
   home.innerHTML = `
+  <div  id='fundo'></div>
   <div class='head-home' alt='Runner|Home'>Runner|Home</div>
       <figure class='logo'>
       <img src='./assets/logo_runners.png'alt='Logo Runners' id='logo'>
@@ -36,9 +37,13 @@ export const Home = () => {
   const msgError = home.querySelector('#msgError');
 
   btn.addEventListener('click', () => {
-    login(email.value, password.value).then(() => {
-      onNavigate('/profile');
-    })
+    firebase
+      .auth()
+      .singInWithEmailAndPassword(email.value, password.value)
+      .then(() => {
+        // onNavigate('/post');
+        console.log('deu certo');
+      })
       .catch((error) => {
         msgError.innerHTML = error.message;
       });
