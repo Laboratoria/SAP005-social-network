@@ -71,7 +71,7 @@ export const Login = () => {
             onNavigate("/home")
         }).catch(function(error) {
             console.log(error)
-
+   
         });
 
     });
