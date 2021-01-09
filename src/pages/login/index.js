@@ -67,7 +67,9 @@ export const Login = () => {
         firebase.auth().signInWithPopup(provider).then(function(result) {
             const userId = firebase.auth().currentUser.uid
             localStorage.setItem("uid", userId);
-            console.log(userId)
+            db.collection("users").doc(userId).set({
+                email: `${firebase.auth().currentUser.email}`
+            })
             onNavigate("/home")
         }).catch(function(error)     {
             console.log(error)
