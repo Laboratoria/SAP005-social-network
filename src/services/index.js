@@ -1,6 +1,25 @@
 // exporte suas funções
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
 const functions = require('firebase-functions');
 
@@ -42,3 +61,4 @@ exports.makeUppercase = functions.firestore.document('/messages/{documentId}')
       return snap.ref.set({uppercase}, {merge: true});
     });
 
+*/
