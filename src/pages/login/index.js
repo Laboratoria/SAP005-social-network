@@ -1,9 +1,9 @@
 import { signIn, loginWithGoogle } from './data.js';
-import { errorCodes } from './constants.js';
+import { onNavigate } from '../../utils/history.js';
 
-export  const  Login  =  ( )  =>  {
-  const  rootElement  =  document . createElement ( 'div' ) ;
-  rootElement . innerHTML  =  `
+export const Login = () => {
+  const rootElement = document.createElement('div');
+  rootElement.innerHTML = `
 
       <div id = "firebaseui-auth-container" class = "container-login">
 
@@ -27,33 +27,29 @@ export  const  Login  =  ( )  =>  {
       <p class="ou">━━━━━━━━━ OU ━━━━━━━━━</p>
 
       <button class='button-area btn btnGoogle'>Acesse com <img src='./ img /google-icon.png' alt='Google' class='google-icon'></button><br><br><br>
-      <p class='font-small'>Se não tem um conta, <a href='/#signup'>registre-se aqui.</a></p>
+      <p class='font-small'>Se não tem um conta, <a href='/#signup' id='sign-up-login'>registre-se aqui.</a></p>
 
       </div>
   `;
 
-    const googleButton = containerLogin.querySelector('.btnGoogle');
-    const signInButton = containerLogin.querySelector('.signIn');
-    const errorLogin = containerLogin.querySelector('#error-login');
+  const googleButton = rootElement.querySelector('.btnGoogle');
+  googleButton.addEventListener('click', () => {
+    loginWithGoogle();
+  });
 
-    
-    const onError = (error) => {
-      if (errorCodes[error.code]) {
-        errorLogin.innerHTML = errorCodes[error.code];
-      } else {
-        errorLogin.innerHTML = errorCodes.DEFAULT_MESSAGE;
-      }
-    };
+  const signInButton = rootElement.querySelector('.signIn');
+  signInButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    signIn(
+      rootElement.querySelector('#emailArea').value,
+      rootElement.querySelector('#passwordArea').value,
+    );
+  });
+  const linkSignUp = rootElement.querySelector('#sign-up-login');
+  linkSignUp.addEventListener('click', (event) => {
+    event.preventDefault();
+    onNavigate('/signup');
+  });
 
-    signInButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      signIn(containerLogin.querySelector('#emailArea').value, containerLogin.querySelector('#passwordArea').value, onError);
-    });
-
-    googleButton.addEventListener('click', () => {
-      loginWithGoogle();
-    });
-
-  //return index.appendChild(containerLogin);
   return rootElement;
 };

@@ -1,5 +1,5 @@
 import {
-    logOut,
+  logOut,
     createPost,
     readPost,
     editPost,
