@@ -69,7 +69,7 @@ export const Login = () => {
             localStorage.setItem("uid", userId);
             console.log(userId)
             onNavigate("/home")
-        }).catch(function(error) {
+        }).catch(function(error)     {
             console.log(error)
    
         });
