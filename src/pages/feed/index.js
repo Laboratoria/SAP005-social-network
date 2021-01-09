@@ -47,21 +47,3 @@ export const Feed = () => {
   };
   
   
-
-  /* rootElement.querySelector('#post-it').addEventListener("click", ()=>{
-    const mensagem = rootElement.querySelector('#write-post').value
-  
-   firebase.firestore().collection("posts").add({
-      mensagem, 
-      likes: 0
-  })
-  .then(function(docRef) {
-      console.log("Document written with ID: ", docRef.id);
-  })
-  .catch(function(error) {
-      console.error("Error adding document: ", error);
-  });
-  }) */
-
-
-  
