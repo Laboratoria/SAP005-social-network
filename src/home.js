@@ -3,16 +3,7 @@ export const Home = () => {
     const rootElement = document.createElement('div');
     rootElement.innerHTML = `
 <title>TPM</title>
-  </head>
-  <body> 
-      <header id='header-document' class='header-page'>
-      <!--  <nav id='menu-main'>
-           <ul class='main-menu'>
-              <li class='buttons-main-menu' id='home'>Home</li>
-              <li class='buttons-main-menu' id='login'>Login</li>
-              <li class='buttons-main-menu' id='subscribe'>Subscribe</li>
-          </ul>
-        </nav> -->
+  
         <div id='logo-name' class='network-name'>
           <h1 class='tpm-name'>TPM</h1>
           <p id='subtitle-one'>Tudo é possível para Maes</p>
@@ -37,7 +28,6 @@ export const Home = () => {
             Então você vai conseguir!
           </p>
         </div>
-      </header>
       `
 
 return rootElement;

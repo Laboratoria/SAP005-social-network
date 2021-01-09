@@ -26,7 +26,7 @@ export const Feed = () => {
     </div>
      <div id='posts'>
        <div class='another-user-post'>
-       <img class='another-user-photo' src='/src/pages/feed/img/profile/emilia-clarke.png' alt='Foto do usuário que postou'>
+       <img class='another-user-photo' src='./pages/feed/img/profile/emilia-clarke.png' alt='Foto do usuário que postou'>
        <p>Daneuris Targuerian</p>
        </div>
         <p>

@@ -5,10 +5,9 @@
             function logOut() {
                 firebase.auth().signOut().then(() => {
 
-                    document.getElementById('root').innerHTML= " "
-                 /*   document.getElementById('logo-name').style.display = "block"
-                    document.getElementById('header-document').style.display = "flex"
-
+                  document.getElementById('root').innerHTML= " "
+                      
+                   /* 
                     if(window.innerWidth <= 500){
                         document.getElementById('header-document').style.display = "block"
                         document.getElementById('header-document').style.width = "100%"
