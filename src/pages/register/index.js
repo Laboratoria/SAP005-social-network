@@ -4,7 +4,7 @@ export const Register = () => {
     const rootElement = document.createElement('div');
     rootElement.classList.add('formRegister')
     rootElement.innerHTML = `    
-  <div class="textRegister"> 
+<div class="textRegister"> 
   <img class="logoL" src="img/learning.png" alt="Logo L"> 
   
   
