@@ -1,14 +1,41 @@
-import { onNavigate } from "../../utils/history.js";
-import { out } from '../feed/feed.js';
 
-export const loginFeed = function feedIn(){
-    document.getElementById('login-button')
-
-    .addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/feed')
-    document.getElementById('header-document').style.display = "none"
-    document.getElementById('root').style.width = "100%"
-    out()
-    }); 
+const modal = document.getElementById('boxLogin');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
+
+function createLogin () {
+  let email = document.getElementById('new-email').value;
+  let password = document.getElementById ('new-password').value;
+
+  firebase.auth().createUserWithEmailAndPassword(email, password).then(user =>{
+    console.log('usuário', user);
+  }).cath(error => {
+    console.log ('error', error);
+  })
+}
+
+export const emailLogin = function loginEmail () {
+  let email = document.getElementById('email').value;
+  let password = document.getElementById ('password').value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password).then(() =>{
+    console.log('Usuario logado');
+  })//.cath(error => {
+   // console.log ('error', error);
+ // })
+}
+
+function loginGoogle() {
+  let provider = new firebase.auth.GoogleAuthProvider();
+
+  firebase.auth().signInWithPopup(provider).then(resposta => {
+    console.log('usuário', resposta.user);
+    console.log('token', resposta.credential.accessToken);
+  }).cath (erro => {
+    console.log('erro', erro);
+  })
+}
+

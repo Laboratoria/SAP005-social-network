@@ -3,7 +3,7 @@
 
 
 <head>
-  <meta rset="UTF-8 />
+  <meta rset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
@@ -15,11 +15,6 @@
     href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Limelight&family=Quicksand&display=swap"
     rel="stylesheet">
 
-  <script type="module" src="router.js"></script>
-
-
- 
-
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
 
@@ -30,11 +25,10 @@
 </head>
 
 <body>
-  <h2>SOCIAL NETWORK LOGIN</h2>
-
-
-
-  <button onclick="document.getElementById('boxLogin').style.display='block'" style="width:auto;">Login</button>
+  <div id="inicial-page">
+    <h2>SOCIAL NETWORK LOGIN</h2>
+    <button onclick="document.getElementById('boxLogin').style.display='block'" style="width:auto;">Login</button>
+  </div>
 
   <div id="boxLogin" class="modal">
 
@@ -42,7 +36,7 @@
       <div class="imgcontainer">
         <span onclick="document.getElementById('boxLogin').style.display='none'" class="close"
           title="Close Modal">&times;</span>
-        <img src="mcarol.jpg" alt="icone" class="icone">
+        <img src="./img/mcarol.jpg" alt="icone" class="icone">
       </div>
 
       <div class="container">
@@ -50,9 +44,9 @@
         <input id="email" type="text" placeholder="Ex.: maeterrinha@gmail.com" name="email" required>
 
         <label for="psw"><b>Password</b></label>
-        <input id="password" type="password" placeholder="Ex.: 1234" name="psw" required>
+        <input id="password" type="password" placeholder="Ex.: 1234" autocomplete="off" name="psw" required>
 
-        <button type="submit">Login</button>
+        <button id="feedIn" type="submit">Login</button>
         <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
@@ -65,6 +59,7 @@
       </div>
     </form>
   </div>
+  <div id="root"></div>
   <script>
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -78,6 +73,9 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   </script>
+
+<script type="module" src="router.js"></script>
+
 </body>
 
 
