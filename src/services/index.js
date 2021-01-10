@@ -60,27 +60,6 @@ export const confirmEmail = () => {
     .sendEmailVerification();
 };
 
-// Autenticação do Google
-export const authGoogle = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebase
-    .auth()
-    .signInWithPopup(provider);
-};
-
-//   Receber informações específicas de provedor do perfil de um usuário
-//  receber as informações de perfil recuperadas dos provedores de login
-// vinculados a um usuário, use a propriedade providerData
-// if (user != null) {
-//   user.providerData.forEach((profile) => {
-//     console.log(`Sign-in provider: ${profile.providerId}`);
-//     console.log(`  Provider-specific UID: ${profile.uid}`);
-//     console.log(`  Name: ${profile.displayName}`);
-//     console.log(`  Email: ${profile.email}`);
-//     console.log(`  Photo URL: ${profile.photoURL}`);
-//   });
-// }
-
 // Atualizar o perfil de um usuário
 // atualizar as informações básicas do perfil de um usuário,
 // como o nome de exibição e o URL da foto do perfil dele,

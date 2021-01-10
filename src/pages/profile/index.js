@@ -12,7 +12,7 @@ export const Profile = () => {
       <p class='text' id='city'></p>
     </div>
     <div>
-      <input type='text' id='name' placeholder='Nome'readonly/>
+      <h3></h3>
       <input type="password" id="password" placeholder='Senha'/>
       <input type="password" id="confirmPwd" placeholder='Confirmar Senha'/>
     </div>
@@ -23,6 +23,24 @@ export const Profile = () => {
       <button id='savebtn'>Salvar</button>
     </div>
   `;
+  const user = firebase.auth().currentUser;
+
+  // const registerUser = {
+  //   name: user.displayName,
+  // };
+  //   Receber informações específicas de provedor do perfil de um usuário
+  //  receber as informações de perfil recuperadas dos provedores de login
+  // vinculados a um usuário, use a propriedade providerData
+  if (user != null) {
+    user.providerData.forEach((profile) => {
+      console.log(`Sign-in provider: ${profile.providerId}`);
+      console.log(`  Provider-specific UID: ${profile.uid}`);
+      console.log(`  Name: ${profile.displayName}`);
+      console.log(`  Email: ${profile.email}`);
+      console.log(`  Photo URL: ${profile.photoURL}`);
+    });
+  }
+
   // const saveBtn = profile.querySelector('#savebtn');
   // const cancelBtn = profile.querySelector('#cancelbtn');
 

@@ -1,5 +1,4 @@
 import { onNavigate } from '../../utils/history.js';
-import { authGoogle } from '../../services/index.js';
 
 export const Home = () => {
   const home = document.createElement('div');
@@ -43,26 +42,32 @@ export const Home = () => {
     e.preventDefault();
     firebase
       .auth()
-      .singInWithEmailAndPassword(email.value, password.value)
+      .signInWithEmailAndPassword(email.value, password.value)
       .then(() => {
-        if (user != null) {
+        if (user !== null) {
           onNavigate('/post');
-          console.log('deu certo');
+          alert('deu certo');
         } else {
           onNavigate('/post');
         }
       })
       .catch((error) => {
-        msgError.innerHTML = error.message;
+        alert(error.message);
       });
   });
 
-  autGoogle.addEventListener('click', () => {
-    authGoogle().then(() => {
-      onNavigate('/profile');
-    })
+  // Autenticação do Google
+  autGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(() => {
+        onNavigate('/profile');
+      })
       .catch((error) => {
-        msgError.innerHTML = error.message;
+        alert(error.message);
       });
   });
 

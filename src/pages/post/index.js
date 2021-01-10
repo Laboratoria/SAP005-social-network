@@ -1,32 +1,70 @@
 // import { post,  } from './data.js';
 
 export const Post = () => {
-  const container = document.createElement('div');
-  container.classList.add('div-post');
-  container.innerHTML = `
-    <div class='head-post' alt='Runner|Home'>Runner|Home</div>
-    <figure class='logo-post'>
-    <img src='./assets/logo_runners.png'alt='Logo Runners' id='logo'>
-    </figure>
-    <div>
-    <img>
-    </div>
-          <div class="container">
-              <input type='text' class='name' id='name'>
-              <input type='text' class='post' id='post'>
-              <button type='button' class='btn' id='btn'>Postar</button> 
-          </div>
-          <hr>
-          <div class='post-container'>
-          </div>
+  const post = document.createElement('div');
+  post.classList.add('div-post');
+  post.innerHTML = `
+  <header class='head-post' alt='Runner|Home'>Runner|Home</header>
+  <figure class='logo-post'>
+    <img src='./assets/logo_runners.png' alt='Logo Runners' id='logo'>
+  </figure>
+  <div class="container">
+    <section>
+      <form id='form-container'>
+        <input type='text' class='name' id='name'/>
+        <input type='textarea' class='post' id='post'/>
+        <button type='button' class='btn' id='btn'>Postar</button>
+      </form>
+    </section>  
+  </div>
+  <hr/>
+  <section class='' id='post-content'>
+  </section>
     
 `;
-  const post_container = container.getElementsByClassName('post-container')[0];
-  const posts = [];
-  const user = container.querySelector('#name');
-  const textPost = container.querySelector('#post');
-  const btnPost = container.querySelector('#btn');
+  // const postContainer = post.getElementsByClassName('#post-container');
+  // const userName = post.querySelector('#name');
+  // const btnPost = post.querySelector('#btn');
   // const ref = firebase.database().ref('post/');
+  const firebase = require("firebase");
+// Required for side-effects
+  require("firebase/firestore");
+  const newPost = post.querySelector('#form-container');
+  newPost.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const textPost = post.querySelector('#post').value;
+    const posts = {
+      uid: '',
+      text: textPost,
+      likes: 0,
+      time: '',
+    };
+    // Criara uma coleção das postagens
+    const collectionOfPosts = firebase.firestore().collection('form-container');
+    // Adicionando as postagens
+    const addNewPost = collectionOfPosts.add('posts')
+      .then((res) => {
+        // Carregar post
+        function uploadNewPost() {
+          collectionOfPosts.get().then((snapshot) => {
+            post.querySelector('#post-content').innerHTML = '';
+            snapshot.forEach(() => {
+              // Publicar postagem
+              function publishPost() {
+                const postContent = `
+                  <p>${posts.data().text}</p>`;
+                post.querySelector('#post-content').innerHTML += postContent;
+              }
+              publishPost();
+            });
+          });
+        }
+        uploadNewPost();
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  });
 
   // // Adicionar card na tela
   // // information é o objeto contendo os dados do post
@@ -102,24 +140,24 @@ export const Post = () => {
   //   // });
   // }
 
-  function deletPost(id) {
+  // function deletPost(id) {
 
-  }
+  // }
 
-  function enjoyPost(id) {
+  // function enjoyPost(id) {
 
-  }
+  // }
 
-  function unlikePost(id) {
+  // function unlikePost(id) {
 
-  }
+  // }
 
-  // DOM
-  container.addEventListener('', () => {
+  // // DOM
+  // container.addEventListener('', () => {
 
-  });
+  // });
 
-  // // Adicionar card na tela
+  // // // Adicionar card na tela
   // // information é o objeto contendo os dados do post
   // function addScreenCard(information){
   //     // header do post
@@ -205,5 +243,5 @@ export const Post = () => {
   //   })
   // }
 
-  return container;
+  return post;
 };
