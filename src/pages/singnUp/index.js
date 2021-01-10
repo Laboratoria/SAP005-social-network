@@ -5,10 +5,10 @@ export const SignUp = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
 <div class='box-item1'>
+  <img src='../../img/logo.png' alt='Logotype' class='icon-logohome' />
   <img src='../../img/pessoas.png' alt='Logotype' class='icon-large'>
 </div>
 <div class='box-item'>
-  <img src='../../img/security.png' alt='Logotype' class='icon-logohome' />
   <h3>CRIAR UMA NOVA CONTA</h3>
   <form method='post'>
     <input type="text" placeholder="Insira seu nome" id="username" class='login-area'>
