@@ -119,20 +119,40 @@ export const Home = () => {
         rootElement.querySelector("#postedValue").innerHTML =
             feed +=
             `<div class="containerFeed">
-            <div class="postFeed"><p>${post.text}</p> 
-           <data data-like = "${postId}"></data>
-            </div>
-            <div class="containerButton" ">
-             <button class="likeBtn" id = "like" data-like = "${post.id}>
-             <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
-             <span id="score">0</span> Like
-           </div>
-           </div>`
-    const like = (postId) => {
+                 <div class="postFeed"><p>${post.text}</p>
+                 </div>
+                 <div class="containerButton" ">
+                  <button class="likeBtn" id = "like" data-like = "${post.id}>
+                  <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
+                  <span id="score">0</span> Like
+                </div>
+                </div>`
+            // const likeBtn = document.querySelector("#like[data-like{`${post.id}`]");
+            // let likeIcon = document.querySelector("#like"),
+            //     score = document.querySelector("#score");
+            // let clicked = false;
+            // likeBtn.addEventListener("click", () => {
+            //     console.log(likeBtn.dataset.like, "dataset")
+            //     console.log(postId)
+            // if (!clicked) {
+            //     clicked = true;
+            //     likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/50/filled-like.png"/>`;
+            //     score.textContent++;
+            // } else {
+            //     clicked = false;
+            //     likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/64/like.png"/>`;
+            //     score.textContent--;
+            // }
+            // });
+
+    };
+    // const like = (docRef) => {
 
 
-   }
-}  
+    // }
+
+   
+  
 
 
     return rootElement;
