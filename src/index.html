@@ -18,94 +18,20 @@
 </head>
 
 <body>
-  <div class="inicial-page" id="inicial-page">
-    <h2>SOCIAL NETWORK LOGIN</h2>
-  </div>
-
-  <div class= "register" id="register">
-    <form action="#" method="post">
-      <fieldset>
-        <fieldset class="grupo">
-          <div class="campo">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" style="width: 10em" value="">
-          </div>
-        </fieldset>
-        <div class="campo">
-          <label for="email">E-mail:</label>
-          <input type="text" id="email" name="email" style="width: 20em" value="">
-        </div>
-        <div class="campo">
-          <label for="passwordRegister">Senha:</label>
-          <input type="text" id="passwordRegister" name="passwordRegister" style="width: 20em" value="">
-        </div>
-        
-        <button type="submit" name="submit">Enviar</button>
-      </fieldset>
-    </form>
-  </div>
-
-  <section class="coluna-50">
-    <button onclick="document.getElementById('boxLogin').style.display='block'" style="width:auto;">Login</button>
-    <div id="boxLogin" class="modal">
-
-      <form class="modal-content animate" action="" method="post">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('boxLogin').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-          <img src="./img/mcarol.jpg" alt="icone" class="icone">
-        </div>
-
-        <div class="container">
-          <label for="E-mail"><b>E-mail</b></label>
-          <input id="email" type="text" placeholder="Ex.: maeterrinha@gmail.com" name="email" required>
-
-          <label for="psw"><b>Password</b></label>
-          <input id="password" type="password" placeholder="Ex.: 1234" autocomplete="off" name="psw" required>
-
-          <button id="feedIn" type="submit">Login</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-          <button type="button" onclick="document.getElementById('boxLogin').style.display='none'"
-            class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <section class="coluna-50">
-    <div class="root" id="root"></div>
-  </section>
+  <div id="main-page"></div>
+  <div class="root" id="root"></div>
 
   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
   <script src="/__/firebase/7.23.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-storage.js"></script>
-  <!-- <script src="/__/firebase/init.js"></script> -->
-
-
-
+  
   <script>
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyCbZDARuyhS8ESOT1gKUou6G7oOOikC8sM",
-      authDomain: "social-network-lab-pnd.firebaseapp.com",
-      projectId: "social-network-lab-pnd",
-      storageBucket: "social-network-lab-pnd.appspot.com",
-      messagingSenderId: "693936274709",
-      appId: "1:693936274709:web:840380126cb7b04fcf7d1c"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+ 
   </script>
 
   <script type="module" src="router.js"></script>
-
+  <script type="module" src="./pages/inicial-page/login.js"></script>
 </body>
 
 

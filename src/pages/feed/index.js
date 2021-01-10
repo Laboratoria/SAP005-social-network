@@ -1,5 +1,7 @@
+import { getPosts } from '../../services/index.js';
 export const Feed = () => {
     // Coloque sua página
+   
     const rootElement = document.createElement('div');
     rootElement.innerHTML = `
     <div class='nav-bar'> 
@@ -25,20 +27,22 @@ export const Feed = () => {
       </form>
     </div>
      <div id='posts'>
+     <div class='user-post'> </div>
        <div class='another-user-post'>
-       <img class='another-user-photo' src='./pages/feed/img/profile/emilia-clarke.png' alt='Foto do usuário que postou'>
-       <p>Daneuris Targuerian</p>
+        <img class='another-user-photo' src='./pages/feed/img/profile/emilia-clarke.png' alt='Foto do usuário que postou'>
+        <p>Daneuris Targuerian</p>
        </div>
         <p>
-          I will take what's mine! <br>
+          I will take what's mine! 
+          <br> ${getPosts()}
           DRACARIS!!! 
         </p>
      <nav>
        <ul class='friends-post'>
-         <li><button title='Curti' class='react-button'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'></button></li> 
-         <li><button title='Amei' class='react-button'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'></button></li> 
-         <li><button title='Hahaha' class='react-button'><img src='./pages/feed/img/reacts/haha.png' alt='botao para rir'></button></li> 
-         <li><button title='Parabéns' class='react-button'><img src='./pages/feed/img/reacts/claps.png' alt='botao para parabenizar'></button></li> 
+         <li><button id='like' title='Curti' class='react-button'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'></button></li> 
+         <li><button id='love' title='Amei' class='react-button'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'></button></li> 
+         <li><button id='funny' title='Hahaha' class='react-button'><img src='./pages/feed/img/reacts/haha.png' alt='botao para rir'></button></li> 
+         <li><button id='congratulations' title='Parabéns' class='react-button'><img src='./pages/feed/img/reacts/claps.png' alt='botao para parabenizar'></button></li> 
       </ul>
    </nav>
      </div>

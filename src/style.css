@@ -10,6 +10,10 @@ h2{
 
 }
 
+#main-page {
+    width: 60%;
+}
+
 .register {
     margin-top: 13%;
 }
@@ -31,13 +35,16 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
 }
   
 button:hover {
     opacity: 0.8;
 }
 
+#feedIn {
+    width: 100%;
+}
 /*Inicio css cadastro */
 * {
     margin: 0;
@@ -53,51 +60,51 @@ body, input, select, textarea, button {
     font-size: 1em;
 }
 
-.grupo:before, .grupo:after {
+.group:before, .group:after {
     content: " ";
     display: table;
 }
 
-.grupo:after {
+.group:after {
     clear: both;
 }
 
-.campo {
+.area {
     margin-bottom: 1em;
 }
 
-.campo label {
+.area label {
     margin-bottom: 0.2em;
     color: #666;
     display: block;
 }
 
-fieldset.grupo .campo {
+fieldset.group .area {
     float:  left;
     margin-right: 1em;
 }
 
-.campo input[type="text"],
-.campo input[type="email"],
-.campo input[type="url"],
-.campo input[type="tel"],
-.campo select,
-.campo textarea {
+.area input[type="text"],
+.area input[type="email"],
+.area input[type="url"],
+.area input[type="tel"],
+.area select,
+.area textarea {
     padding: 0.2em;
     border: 1px solid #CCC;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
     display: block;
 }
 
-.campo select option {
+.area select option {
     padding-right: 1em;
 }
 
-.campo input:focus, .campo select:focus, .campo textarea:focus {
+.area input:focus, .area select:focus, .area textarea:focus {
     background: #FFC;
 }
 
-.campo label.checkbox {
+.area label.checkbox {
     color: #000;
     display: inline-block;
     margin-right: 1em;
@@ -179,13 +186,13 @@ span.psw {
 
 }
 
-.coluna-50 {
+.half-screen {
     width: 50%;
 }
 
 .root {
     display: flex;
-    width: 100%;  
+    width: 40%;  
     margin-right: 10px;
     justify-content: center;
     align-items: center
@@ -234,66 +241,6 @@ span.psw {
     }
   }
 /*
-
-.header-page {
-    display: flex;
-    justify-content: space-between;
-    
-    width: 60%;
-    margin: 0;
-}
-
-.main-menu {
-    display: flex;
-    list-style: none;
-}
-
-.buttons-main-menu {
-    width: 30%;
-    text-align: center;
-
-    font-family: 'Quicksand', sans-serif;
-    font-size: 27px;
-
-    border-radius: 10px;
-    transition: 1s;
-}
-.buttons-main-menu:hover {
-    background-color: rgb(226, 191, 33);
-}
-
-.network-name {
-    width: 100%;
-}
-.network-name p {
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Quicksand', sans-serif;
-}
-.tpm-name {
-    font-family: 'Limelight', cursive; 
-    
-    font-size: 100px;
-    text-align: center;
-    color: rgb(24, 24, 24);
-
-    margin-block-start: 0;
-    margin-block-end: 0;
-}
-#subtitle-one {
-    text-align: center;
-    font-size: 40px;
-    font-family: 'Covered By Your Grace', cursive;
-}
-.mae-carol {
-    width: 80%;
-    border-radius: 10px;
-}
-
-#root div {
-    width: 90%;
-}
-
 
 /* Feed */
 
@@ -406,31 +353,12 @@ span.psw {
         display: block;
         width: 100%;
     }
-
-    .network-name {
-        margin: 0;
-        width: 100%;
-    }
-    .tpm-name {
-        font-family: 'Limelight', cursive;
-        font-size: 180px;
-    }
-    .network-name p {
-        font-family: 'Covered By Your Grace', cursive;
-        font-size: 30px;
-        margin: 0;
-    }
+ 
     #root {
         display: block;
         width: 100%; 
         margin-right: 0;
     }
-    .mae-carol {
-        width: 80%;
-        border-radius: 10px;
-    }
-  
-    
     .button-confirm {
         width: 30%;
         height: 40px;
@@ -455,4 +383,5 @@ span.psw {
 
     padding: 0;
     list-style: none;
+}
 }

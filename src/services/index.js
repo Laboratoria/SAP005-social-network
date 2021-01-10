@@ -1,6 +1,134 @@
-// exporte suas funções
+import { onNavigate } from '../utils/history.js';
 
+   // Your web app's Firebase configuration
+   const firebaseConfig = {
+    apiKey: "AIzaSyCbZDARuyhS8ESOT1gKUou6G7oOOikC8sM",
+    authDomain: "social-network-lab-pnd.firebaseapp.com",
+    projectId: "social-network-lab-pnd",
+    storageBucket: "social-network-lab-pnd.appspot.com",
+    messagingSenderId: "693936274709",
+    appId: "1:693936274709:web:840380126cb7b04fcf7d1c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
+// FUNÇÃO FIREBASE -> CADASTRO
+
+export const subscribe = function createLogin () {
+  let email = document.getElementById('new-email').value;
+  let password = document.getElementById ('new-password').value;
+
+  firebase.auth().createUserWithEmailAndPassword(email, password).then(user =>{
+    console.log('usuário', user);
+  }).cath(error => {
+    console.log ('error', error);
+  })
+}
+
+// FUNÇÕES FIREBASE -> LOGIN
+
+export const emailLogin = function loginEmail () {
+  let email = document.getElementById('email').value;
+  let password = document.getElementById ('password').value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password).then(() =>{
+    console.log('Usuario logado');
+  })//.cath(error => {
+   // console.log ('error', error);
+ // })
+}
+
+export const googleLogin = function loginGoogle() {
+  let provider = new firebase.auth.GoogleAuthProvider();
+
+  firebase.auth().signInWithPopup(provider).then(resposta => {
+    console.log('usuário', resposta.user);
+    console.log('token', resposta.credential.accessToken);
+  }).cath (erro => {
+    console.log('erro', erro);
+  })
+}
+// FUNÇÃO DE CONFIRMAÇÃO : USUÁRIO LOGADO
+
+export const userOn = function(){
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) { 
+      document.getElementById('main-page').style.display = "none";
+      document.getElementById('root').style.width = "100%"
+      onNavigate('/feed');
+      Post();
+      Reacts();
+      logOut();      
+  } 
+  else {
+    document.getElementById('main-page').style.display = "block";
+    onNavigate('/');
+  }
+ }) 
+}
+
+// FUNÇÕES FIREBASE -> FEED
+export const Post = function(){
+
+  document.getElementById('post-it').addEventListener('click', (e) => {
+     e.preventDefault();
+  
+     let postText = document.getElementById('write-post').value
+  
+     
+       firebase.firestore().collection('posts').add({
+        postText,
+        likes: 0,
+        loveIt: 0,
+        funny: 0,
+        congratulations: 0
+      })
+      .then(function() {
+        console.log("Post enviado com sucesso!");
+      })
+      .catch(function() {
+        console.error("Ocorreu um erro");
+      });
+  
+       document.querySelector('.user-post').innerHTML =
+       `<img class='another-user-photo' src='./pages/feed/img/profile/profile-exemple.jpg' 
+          alt='Foto do usuário que postou'>
+        <p> ${firebase.firestore().collection('posts').get({postText: firebase.firestore.FieldValue})} </p>`
+    })
+  }
+  
+  export const getPosts = () => {
+      const post = firebase.firestore().collection('post').orderBy("date", "desc")
+      return post.get();
+    };
+  
+  export const Reacts = function(){
+  
+  document.getElementById('like').addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log('Clicoooou');
+      firebase.collection('posts').update({
+       likes: firebase.firestore.FieldValue.increment(1)
+      })
+    })
+  }
+  
+  export const logOut = function(){
+           
+    document.getElementById('log-out').addEventListener("click", logOut)
+    function logOut() {
+       firebase.auth().signOut().then(() => {
+        document.getElementById('root').innerHTML= " "           
+                     /* 
+                      if(window.innerWidth <= 500){
+                          document.getElementById('header-document').style.display = "block"
+                          document.getElementById('header-document').style.width = "100%"
+                          document.getElementById('logo-name').style.width = "100%"
+                      } */
+                  })
+             }
+          }
+   
 
 
 

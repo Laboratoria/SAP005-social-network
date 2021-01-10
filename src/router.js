@@ -1,9 +1,9 @@
 // Este é seu ponto de entrada da sua aplicação
 import { onNavigate } from './utils/history.js';
 import { Feed } from './pages/feed/index.js';
-import { Home } from './home.js';
-import { logOut, Post } from './pages/feed/feed.js';
-import { emailLogin } from './pages/login/login.js';
+import { Home } from './pages/inicial-page/about.js';
+import { logOut, Post, Reacts, emailLogin, googleLogin, subscribe, userOn } from './services/index.js';
+
 
   const routeRender = () => {
   const rootDiv = document.getElementById('root');
@@ -24,18 +24,6 @@ window.addEventListener('load', () => {
         emailLogin()
         document.getElementById('boxLogin').style.display = "none";
       })
-
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user) { 
-          document.getElementById('inicial-page').style.display = "none";
-          document.getElementById('root').style.width = "100%"
-          onNavigate('/feed');
-          Post();
-          logOut();      
-       } 
-       else {
-         document.getElementById('inicial-page').style.display = "block";
-       }
-      }) 
+      userOn();
   routeRender();
 });
