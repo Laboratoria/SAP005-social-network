@@ -7,18 +7,16 @@ export const Home = () => {
     rootElement.innerHTML = `
     <div class = "header">     
         <img class="logoHome" src="img/learning.png" alt="Logo Learning">
-
         <input type="checkbox" id="check">
         <label id="icone" for="check"><img class = "menu"src="https://img.icons8.com/nolan/64/menu.png"/></label>  
-
-        <div class="barra-menu">
+      <div class="barra-menu">
         <div class = "itensMenu">            
             <input type="file" id="upload" >  
             <label for="upload" class = "labelPhoto"><img src="https://img.icons8.com/ios-filled/50/ffffff/photo-editor.png"/></label>            
             <button class = "profilePhoto" id="profilePhoto" for = "upload"><img src="https://img.icons8.com/ios/50/ffffff/save--v1.png"/></button>    
             <button id = "exit" class = "exit"><img src="https://img.icons8.com/ios-filled/50/ffffff/logout-rounded-up.png"/></button>                              
         </div>
-        </div>    
+      </div>    
     </div>  
     <div>
     <img class="perfil" src="./img/avatar2.png" width="100" id="imgProfile" >                
@@ -27,22 +25,24 @@ export const Home = () => {
       <h1>Nome Usuário</h1>      
     </div>
     <div class = "post">
-        <input type="text" id="textPost" placeholder="O que você quer compartilhar?" autocomplete="off">  
+      <input type="text" id="textPost" placeholder="O que você quer compartilhar?" autocomplete="off">  
     </div>
-        <button class = "buttonPost"><img src="https://img.icons8.com/material-outlined/24/ffffff/speech-bubble-with-dots.png"/></button>
-        <div id="postedValue"></div>
+      <button class = "buttonPost"><img src="https://img.icons8.com/material-outlined/24/ffffff/speech-bubble-with-dots.png"/></button>
+      <div id="postedValue"></div>
     `;
 
     const userId = localStorage.getItem("uid");
     const postId = db.collection("post").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             postFeed(doc.data())
-            console.log(`${doc.id} => ${doc.data()}`);
+            console.log(`${doc.id} => ${doc.data().id}`);
 
         });
     });
 
     var docRef = db.collection("post").doc();
+    //let novo_id = firebase.().ref().child('caminho').push().key;
+
 
     const textPost = rootElement.querySelector("#textPost");
     let feed = '';
@@ -56,16 +56,19 @@ export const Home = () => {
         const userId = firebase.auth().currentUser.uid
         localStorage.setItem("uid", userId);
         postFeed(post)
-        db.collection("post").add({
+        db.collection("post").doc(docRef.id).set({
             text: post.text,
             data: (new Date()).toLocaleString(),
             email: `${firebase.auth().currentUser.email}`,
             like: [],
-            id: docRef.id
-
+            id: docRef.id,
+         //  cd_id:docRef
         })
         return feed
     });
+
+
+    rootElement.classList.add("feed")
 
     rootElement.querySelector("#exit").addEventListener("click", (e) => {
         e.preventDefault()
@@ -75,7 +78,7 @@ export const Home = () => {
         }).catch(function(error) {
             // An error happened.
         });
-    });
+    })
 
     let storage = firebase.storage();
     let profile = rootElement.querySelector('#upload')
@@ -116,39 +119,20 @@ export const Home = () => {
         rootElement.querySelector("#postedValue").innerHTML =
             feed +=
             `<div class="containerFeed">
-                 <div class="postFeed"><p>${post.text}</p> 
-                <data data-like = "${postId}"></data>
-                 </div>
-                 <div class="containerButton" ">
-                  <button class="likeBtn" id = "like" data-like = "${post.id}>
-                  <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
-                  <span id="score">0</span> Like
-                </div>
-                </div>`
-            // const likeBtn = document.querySelector("#like[data-like{`${post.id}`]");
-            // let likeIcon = document.querySelector("#like"),
-            //     score = document.querySelector("#score");
-            // let clicked = false;
-            // likeBtn.addEventListener("click", () => {
-            //     console.log(likeBtn.dataset.like, "dataset")
-            //     console.log(postId)
-            // if (!clicked) {
-            //     clicked = true;
-            //     likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/50/filled-like.png"/>`;
-            //     score.textContent++;
-            // } else {
-            //     clicked = false;
-            //     likeIcon.innerHTML = `<img src="https://img.icons8.com/nolan/64/like.png"/>`;
-            //     score.textContent--;
-            // }
-            // });
-
-    };
-    // const like = (docRef) => {
+            <div class="postFeed"><p>${post.text}</p> 
+           <data data-like = "${postId}"></data>
+            </div>
+            <div class="containerButton" ">
+             <button class="likeBtn" id = "like" data-like = "${post.id}>
+             <span id="like"><img src="https://img.icons8.com/nolan/64/like.png"/></span>
+             <span id="score">0</span> Like
+           </div>
+           </div>`
+    const like = (postId) => {
 
 
-    // }
-
+   }
+}
 
 
     return rootElement;
