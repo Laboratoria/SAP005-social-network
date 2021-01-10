@@ -119,8 +119,7 @@ export const Home = () => {
         rootElement.querySelector("#postedValue").innerHTML =
             feed +=
             `<div class="containerFeed">
-                 <div class="postFeed"><p>${post.text}</p> 
-                <data data-like = "${postId}"></data>
+                 <div class="postFeed"><p>${post.text}</p>
                  </div>
                  <div class="containerButton" ">
                   <button class="likeBtn" id = "like" data-like = "${post.id}>
