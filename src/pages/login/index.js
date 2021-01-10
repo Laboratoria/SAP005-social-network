@@ -64,17 +64,14 @@ export const Login = () => {
     rootElement.querySelector("#google").addEventListener("click", (e) => {
         e.preventDefault()
         var provider = new firebase.auth.GoogleAuthProvider();
-<<<<<<< HEAD
-        firebase.auth().signInWithPopup(provider).then(function (result) {
-
-=======
         firebase.auth().signInWithPopup(provider).then(function(result) {
             const userId = firebase.auth().currentUser.uid
             localStorage.setItem("uid", userId);
-            console.log(userId)
->>>>>>> ffce8ed7ed74e638be986eb5f6d74a77447de4cd
+            db.collection("users").doc(userId).set({
+                email: `${firebase.auth().currentUser.email}`
+            })
             onNavigate("/home")
-        }).catch(function (error) {
+        }).catch(function(error) {
             console.log(error)
 
         });

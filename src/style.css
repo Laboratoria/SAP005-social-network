@@ -260,6 +260,10 @@
         font-family: Arial, Helvetica, sans-serif;
     }
     
+    .editInput {
+        display:none;
+    }
+
     .containerButton {
         margin-left: 60%;
     }
