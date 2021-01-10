@@ -5,7 +5,6 @@ export const Home = () => {
   home.classList.add('div-home');
   home.innerHTML = `
   <div  id='fundo'></div>
-  <div class='head-home' alt='Runner|Home'>Runner|Home</div>
       <figure class='logo'>
       <img src='./assets/logo_runners.png'alt='Logo Runners' id='logo'>
       </figure>
@@ -46,7 +45,6 @@ export const Home = () => {
       .then(() => {
         if (user !== null) {
           onNavigate('/post');
-          alert('deu certo');
         } else {
           onNavigate('/post');
         }

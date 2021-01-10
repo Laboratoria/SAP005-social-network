@@ -26,9 +26,11 @@ export const Post = () => {
   // const userName = post.querySelector('#name');
   // const btnPost = post.querySelector('#btn');
   // const ref = firebase.database().ref('post/');
-  const firebase = require("firebase");
-// Required for side-effects
-  require("firebase/firestore");
+  
+//   const firebase = require("firebase");
+// // Required for side-effects
+//   require("firebase/firestore");
+
   const newPost = post.querySelector('#form-container');
   newPost.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -51,8 +53,7 @@ export const Post = () => {
             snapshot.forEach(() => {
               // Publicar postagem
               function publishPost() {
-                const postContent = `
-                  <p>${posts.data().text}</p>`;
+                const postContent = `<p>${posts.data().text}</p>`;
                 post.querySelector('#post-content').innerHTML += postContent;
               }
               publishPost();
