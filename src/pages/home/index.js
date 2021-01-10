@@ -62,7 +62,7 @@ export const Home = () => {
             email: `${firebase.auth().currentUser.email}`,
             like: [],
             id: docRef.id,
-         //  cd_id:docRef
+    //  cd_id:docRef
         })
         return feed
     });
