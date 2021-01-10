@@ -9,29 +9,29 @@ export const Register = () => {
         <p class="theme"><span class="logoname">[Ada]</p>
     </section>
     <section class="form">
-      <div class="title_container">
+      <div class="title_container" id="title">
         <h2>Se registre no [Ada]</h2>
       </div>
       <div class="form_container">
         <form>
-            <div class="input"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            <input type="email" name="email" placeholder="Email" required />
+            <div class="input"> <span><i aria-hidden="true" class="envelope"></i></span>
+            <input type="email" id="email" placeholder="Email" required />
             </div>
-            <div class="input"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-            <input type="password" name="password" placeholder="Senha" required />
+            <div class="input"> <span><i aria-hidden="true" class="lock"></i></span>
+            <input type="password" id="password" placeholder="Senha" required />
             </div>
-            <div class="input"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-            <input type="password" name="password" placeholder="Confirme sua senha" required />
+            <div class="input"> <span><i aria-hidden="true" class="lock"></i></span>
+            <input type="password" id="passwordConfirmatio" placeholder="Confirme sua senha" required />
             </div>
             <div class="row">
             <div class="col_half">
-                <div class="input"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                <input type="text" name="name" placeholder="Nome" />
+                <div class="input"> <span><i aria-hidden="true" class="user"></i></span>
+                <input type="text" id="name" placeholder="Nome" />
                 </div>
             </div>
             <div class="col_half">
-                <div class="input"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                <input type="text" name="name" placeholder="Sobrenome" required />
+                <div class="input"> <span><i aria-hidden="true" class="user"></i></span>
+                <input type="text" id="lastName" placeholder="Sobrenome" required />
                 </div>
             </div>
             </div>
@@ -43,104 +43,56 @@ export const Register = () => {
                 <input type="checkbox" id="cb2">
                 <label for="cb2">Quero me inscerver na newsletter</label>
             </div>
-            <input class="button" type="submit" value="Registrar" />
+            <input class="button" id="newRegister" type="submit" value="Registrar" />
         </form>
       </div> 
     </section>
   </section>  
   `;
 
-  //   const email
-  //   const password
+  const email = rootElement.querySelector('#email');
+  const password = rootElement.querySelector('#password');
+  const passwordConfirmed = rootElement.querySelector('#passwordConfirmation');
+  const name = rootElement.querySelector('#name');
+  const lastName = rootElement.querySelector('#lastName');
 
-  signIn.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const email = rootElement.querySelector('#email').value;
-    const password = rootElement.querySelector('#password').value;
-    if (email === '' || password === '') {
+  // ------------------------- MENSAGENS DE ERRO ------------------------- \\
+  const verifyErrorCode = {
+    'auth/invalid-email': 'O endereço de e-mail não é válido. Por favor, preencha novamente.',
+    'auth/invalid-password': 'Senha incorreta. Por favor, tente novamente.',
+    'auth/email-already-in-use': 'O e-mail fornecido já está cadastrado. Por favor, forneça um novo endereço.',
+    'auth/user-not-found': 'Não há registro desse usuário. Por favor, registre-se para ter acesso à nossa rede.',
+    'auth/account-exists-with-different-credential':
+      'E-mail já associado a outra conta. Por favor, tente com um novo endereço.',
+    default: 'Ocorreu algum erro. Por favor, tente novamente',
+  };
+  const errorMessageEmptyInput = 'O preenchimento dos campos de e-mail e senha é obrigatório.';
+
+  function printMessageError(message) {
+    const elementError = document.createElement('p');
+    const errorMessage = document.createTextNode(message);
+    elementError.appendChild(errorMessage);
+    document.getElementById('errorLogin').innerHTML = '';
+    document.getElementById('errorLogin').appendChild(elementError);
+  }
+
+  function signUp(signUpEmail, signUpPasswordConfirmed) {
+    if (signUpEmail === '' || signUpPasswordConfirmed === '') {
       printMessageError(errorMessageEmptyInput);
     } else {
-      const promise = firebase.auth().signInWithEmailAndPassword(email, password);
+      const promise = firebase.auth()
+        .createUserWithEmailAndPassword(signUpEmail, signUpPasswordConfirmed);
       promise
-        .then(() => {
-          onNavigate('/');
-        })
+        .then((res) => {
+          console.log(res)
+          // onNavigate('/');
+        });
+    }
+  }
 
-      return rootElement;
-    };
-
-
-
-//   firebase.auth().createUserWithEmailAndPassword(email, password)
-//     .then((user) => {
-//       // Signed in
-//       // ...
-//     })
-//     .catch((error) => {
-//       var errorCode = error.code;
-//       var errorMessage = error.message;
-//       // ..
-//     });
-
-//   const ingIn = rootElement.querySelector('#register');
-
-//   ingIn.addEventListener("click", e => {
-//     ingIn.style.background = '#FEBB86';
-
-//     const email = rootElement.querySelector("#email").value;
-//     const password = rootElement.querySelector("#password").value;
-//     const auth = firebase.auth();
-//     //vai retornar uma promessa e dá pra trabalhar de maneira assíncrona
-//     const promise = auth.signInWithEmailAndPassword(email, password);
-//     promise.catch(e => console.log(e.message));
-
-//     auth.createUsernWithEmailAndPassword(email, password);
-//     auth.onAuthStateChange(firebaseUser => { });
-
-//   });
-
-// function printMessageError(message) {
-//   const elementError = document.createElement("p");
-//   const errorMessage = document.createTextNode(message);
-//   elementError.appendChild(errorMessage);
-//   document.getElementById("errorLogin").innerHTML = "";
-//   document.getElementById("errorLogin").appendChild(elementError);
-// }
-
-// /* tabs
-// $('#form #register').click(function() {
-
-//       $('#form').fadeToggle();
-//         $(".form-background").animate(
-//               {
-//                 "top": "-342px",
-//                 "width": "400px",
-//                 "height": "410px"
-//               },
-//               "slow", function(){
-//             $('#register-form').fadeToggle();
-//               });
-//       });
-
-//       $('#register-form #tab-login').click(function() {
-
-//         $('#register-form').fadeToggle();
-//         $(".form-background").animate(
-//               {
-//                 "top": "-214px",
-//                 "width": "400px",
-//                 "height": "290px"
-//               },
-//               "slow", function(){
-//                   $('#login-form').fadeToggle();
-//               });
-//       });
-
-//       // Tips
-//       $('#register-form .email-tip-icon').hover(function(){
-//       $('#message-email').fadeToggle();
-//     });
-
-//     $('#register-form .password-tip-icon').hover(function(){
-//     $('#message-password').fadeToggle();
-//     });
+  rootElement.querySelector('#newRegister').addEventListener('submit', (event) => {
+    event.preventDefault();
+    signUp(email.value, passwordConfirmed.value);
+  });
+  return rootElement;
+};

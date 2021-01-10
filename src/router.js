@@ -6,8 +6,8 @@ import { onNavigate } from './utils/history.js';
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
-    '/': Home,
-    '/login': Login,
+    '/': Login,
+    '/home': Home,
     '/register': Register,
   };
   rootDiv.innerHTML = '';
@@ -27,11 +27,8 @@ window.addEventListener('load', () => {
       e.preventDefault();
       onNavigate('/login');
     });
-  document
-    .getElementById('register')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/register');
-    });
+
+  console.log(document.getElementById('register'))
+
   routeRender();
 });

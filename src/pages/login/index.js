@@ -129,8 +129,10 @@ export const Login = () => {
       });
   });
 
-  register.addEventListener('click', () => {
-    onNavigate('/');
+  register.addEventListener('click', (event) => {
+    event.preventDefault();
+    onNavigate('/register');
   });
+
   return rootElement;
 };
