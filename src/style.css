@@ -1,9 +1,19 @@
 body {
-    background-color:  rgb(255, 253, 154);
+    background-color:  rgb(164, 196, 214);
     display: flex;
     margin: 0 0 0 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+h2{
+    margin-top: 10%;
+
+}
+
+.register {
+    margin-top: 13%;
+}
+
 
 input[type=text], input[type=password] {
     width: 100%;
@@ -15,7 +25,7 @@ input[type=text], input[type=password] {
 }
   
 button {
-    background-color: #4c56af;
+    background-color: #66a774;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -27,6 +37,93 @@ button {
 button:hover {
     opacity: 0.8;
 }
+
+/*Inicio css cadastro */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    border: 0;
+}
+
+body, input, select, textarea, button {
+    font-family: sans-serif;
+    font-size: 1em;
+}
+
+.grupo:before, .grupo:after {
+    content: " ";
+    display: table;
+}
+
+.grupo:after {
+    clear: both;
+}
+
+.campo {
+    margin-bottom: 1em;
+}
+
+.campo label {
+    margin-bottom: 0.2em;
+    color: #666;
+    display: block;
+}
+
+fieldset.grupo .campo {
+    float:  left;
+    margin-right: 1em;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="url"],
+.campo input[type="tel"],
+.campo select,
+.campo textarea {
+    padding: 0.2em;
+    border: 1px solid #CCC;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+}
+
+.campo select option {
+    padding-right: 1em;
+}
+
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+    background: #FFC;
+}
+
+.campo label.checkbox {
+    color: #000;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.botao {
+    font-size: 1.5em;
+    background: #F90;
+    border: 0;
+    margin-bottom: 1em;
+    color: #FFF;
+    padding: 0.2em 0.6em;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.botao:hover {
+    background: #FB0;
+    box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: none;
+}
+
+.botao, select, label.checkbox {
+    cursor: pointer;
+}
+/*Fim do css cadastro */
   
 .cancelbtn {
     width: auto;
@@ -61,20 +158,37 @@ span.psw {
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
+    width: 50%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 60px;
 }
-  
+
+.inicial-page {
+    justify-content: center;
+    align-items: center
+}
+
   /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+
+}
+
+.coluna-50 {
+    width: 50%;
+}
+
+.root {
+    display: flex;
+    width: 100%;  
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center
 }
   
   /* The Close Button (x) */
@@ -170,11 +284,6 @@ span.psw {
     text-align: center;
     font-size: 40px;
     font-family: 'Covered By Your Grace', cursive;
-}
-#root {
-    display: flex;
-    width: 50%;  
-    margin-right: 10px;
 }
 .mae-carol {
     width: 80%;
