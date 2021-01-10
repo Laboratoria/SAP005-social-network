@@ -1,11 +1,10 @@
 import { onNavigate } from '../../utils/history.js';
-import { login, authGoogle } from './data.js';
 
 export const Home = () => {
   const home = document.createElement('div');
   home.classList.add('div-home');
   home.innerHTML = `
-  <div class='head-home' alt='Runner|Home'>Runner|Home</div>
+  <div  id='fundo'></div>
       <figure class='logo'>
       <img src='./assets/logo_runners.png'alt='Logo Runners' id='logo'>
       </figure>
@@ -35,21 +34,38 @@ export const Home = () => {
   const password = home.querySelector('#password-home');
   const msgError = home.querySelector('#msgError');
 
-  btn.addEventListener('click', () => {
-    login(email.value, password.value).then(() => {
-      onNavigate('/profile');
-    })
+  const user = firebase.auth().currentUser;
+
+  // Conectar um usuário com endereço de e-mail e senha
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email.value, password.value)
+      .then(() => {
+        if (user !== null) {
+          onNavigate('/post');
+        } else {
+          onNavigate('/post');
+        }
+      })
       .catch((error) => {
-        msgError.innerHTML = error.message;
+        alert(error.message);
       });
   });
 
-  autGoogle.addEventListener('click', () => {
-    authGoogle().then(() => {
-      onNavigate('/profile');
-    })
+  // Autenticação do Google
+  autGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(() => {
+        onNavigate('/profile');
+      })
       .catch((error) => {
-        msgError.innerHTML = error.message;
+        alert(error.message);
       });
   });
 
