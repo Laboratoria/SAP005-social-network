@@ -1,4 +1,7 @@
-import { Login } from './index.js';
+import { Home } from './index.js';
 
-// Arquivo de teste
-
+describe('Home', () => {
+  it('should be a function', () => {
+    expect(typeof Home).toBe('function');
+  });
+});
