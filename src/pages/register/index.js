@@ -1,4 +1,5 @@
-import { createProfile } from './data.js';
+import { confirmEmail, createProfile } from '../../services/index.js';
+import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
   const register = document.createElement('div');
@@ -19,7 +20,7 @@ export const Register = () => {
       <input type="password" id="password" placeholder="Senha"/>
       <input type="password" id="confirmPwd" placeholder="Confirmar Senha"/>
       <button id="btnRegister">Registrar</button>
-    <a href='./src/home/index.js' class='link-exit'>Voltar</a> 
+    <a href='/' class='link-exit'>Voltar</a> 
     </div>
   </form>
   `;
@@ -27,30 +28,36 @@ export const Register = () => {
   const btnRegister = register.querySelector('#btnRegister');
   const confPassword = register.querySelector('#confirmPwd').value;
   const name = register.querySelector('#name').value;
-  const mensage = register.querySelector('#registerError').value;
-  const password = register.querySelector('#password').value;
-  const email = register.querySelector('#email').value;
+  const password = register.querySelector('#password');
+  const email = register.querySelector('#email');
   const city = register.querySelector('#city').value;
   const date = register.querySelector('#date').value;
 
   const confirmPassword = () => {
     if (password.value !== confPassword.value) {
-      mensage.innerHTML = 'Senha informada, esta divergente.';
-    } else {
-      mensage.innerHTML = '';
+      alert('Senha informada, esta divergente.');
     }
   };
 
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
-    if (confirmPassword()) {
-      createProfile(email.value, password.value).then(() => {
-        mensage.innerHTML = 'Cadastro realizado.';
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email.value, password.value)
+      .then(() => {
+        confirmEmail()
+          .then(() => {
+            alert('Cadastro realizado com sucesso!');
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+        createProfile();
+        onNavigate('/profile');
       })
-        .catch((error) => {
-          mensage.innerHTML = error.message;
-        });
-    }
+      .catch((error) => {
+        alert(error.message);
+      });
   });
 
   return register;

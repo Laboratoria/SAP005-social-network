@@ -1,6 +1,3 @@
-/* eslint-disable prefer-arrow-callback */
-import { user } from './data.js';
-
 export const Profile = () => {
   const profile = document.createElement('div');
   profile.classList.add('div-profile');
@@ -15,9 +12,9 @@ export const Profile = () => {
       <p class='text' id='city'></p>
     </div>
     <div>
-      <input type='text' id='name' placeholder='Nome'readonly/>
-      <input type="password" id="password" placeholder="Senha"/>
-      <input type="password" id="confirmPwd" placeholder="Confirmar Senha"/>
+      <h3></h3>
+      <input type="password" id="password" placeholder='Senha'/>
+      <input type="password" id="confirmPwd" placeholder='Confirmar Senha'/>
     </div>
   </form>
     <div class='profile-btn'>
@@ -26,26 +23,43 @@ export const Profile = () => {
       <button id='savebtn'>Salvar</button>
     </div>
   `;
-  const saveBtn = profile.querySelector('#savebtn');
-  const cancelBtn = profile.querySelector('#cancelbtn');
-  const 
+  const user = firebase.auth().currentUser;
 
-  saveBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    const password = profile.querySelector('#password').Value;
-    const newPassword = profile.querySelector('#confirmPwd"').Value;
-    const changePwd = user.updatePassword(password, newPassword);
-    changePwd
-      .then(function () {
-      // Update successful.
-      }).catch(function (error) {
-        // An error happened.
-      });
-  });
+  // const registerUser = {
+  //   name: user.displayName,
+  // };
+  //   Receber informações específicas de provedor do perfil de um usuário
+  //  receber as informações de perfil recuperadas dos provedores de login
+  // vinculados a um usuário, use a propriedade providerData
+  if (user != null) {
+    user.providerData.forEach((profile) => {
+      console.log(`Sign-in provider: ${profile.providerId}`);
+      console.log(`  Provider-specific UID: ${profile.uid}`);
+      console.log(`  Name: ${profile.displayName}`);
+      console.log(`  Email: ${profile.email}`);
+      console.log(`  Photo URL: ${profile.photoURL}`);
+    });
+  }
 
-  cancelBtn.addEventListener('click', () => {
-    window.location.href = '#post';
-  });
+  // const saveBtn = profile.querySelector('#savebtn');
+  // const cancelBtn = profile.querySelector('#cancelbtn');
+
+  // saveBtn.addEventListener('click', (event) => {
+  //   event.preventDefault();
+  //   const password = profile.querySelector('#password').Value;
+  //   const newPassword = profile.querySelector('#confirmPwd"').Value;
+  //   const changePwd = user.updatePassword(password, newPassword);
+  //   changePwd
+  //     .then(() => {
+  //     // Update successful.
+  //     }).catch((error) => {
+  //       // An error happened.
+  //     });
+  // });
+
+  // cancelBtn.addEventListener('click', () => {
+  //   window.location.href = '#post';
+  // });
 
   return profile;
 };

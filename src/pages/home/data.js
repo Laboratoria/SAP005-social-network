@@ -1,12 +1,7 @@
-export const login = (email, password) => {
-  firebase
-    .auth()
-    .singInWithEmailAndPassword(email, password);
-};
+// import { email, password } from './index.js';
 
-export const authGoogle = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebase
-    .auth()
-    .signInWithPopup(provider);
-};
+// export const login = () => {
+//   firebase
+//     .auth()
+//     .singInWithEmailAndPassword(email, password);
+// };
