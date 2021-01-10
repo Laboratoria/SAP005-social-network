@@ -4,21 +4,21 @@ import { onNavigate } from '../../utils/history.js';
 export const SignUp = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
-    <div id = "firebaseui-auth-container" class = "container-login">
-      <div class='box-item'><h1>S E C U R I T Y  PET</h1></div>
-      <img src='../img/pessoas.png' alt='Logotype' class='icon-large'>
-      <div class='box-item'>
-        <h3>CRIAR UMA NOVA CONTA</h3>
-        // <form method='post'>
-        <form>
-          <input type="text" placeholder="Insira seu nome" id="username" class='login-area'><br>
-          <input type="email" placeholder="Insira um email" id="register-email" class="login-area"><br>
-          <input type="password" placeholder="Insira uma senha" id="register-password" class="login-area"><br><br>
-          <button class="btn button-area" id="button-register">Cadastre-se</button>
-        </form>
-      </div>
-    </div>
-  `;
+<div class='box-item1'>
+  <img src='../../img/pessoas.png' alt='Logotype' class='icon-large'>
+</div>
+<div class='box-item'>
+  <img src='../../img/security.png' alt='Logotype' class='icon-logohome' />
+  <h3>CRIAR UMA NOVA CONTA</h3>
+  <form method='post'>
+    <input type="text" placeholder="Insira seu nome" id="username" class='login-area'>
+    <input type="email" placeholder="Insira um email" id="register-email" class="login-area">
+    <input type="password" placeholder="Insira uma senha" id="register-password" class="login-area">
+    <div class="error-message" id="singup-error"></div>
+    <button class="btn button-area" id="button-register">Cadastre-se</button>
+  </form>
+</div>
+`;
 
   const email = rootElement.querySelector('#register-email');
   const password = rootElement.querySelector('#register-password');

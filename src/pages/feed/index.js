@@ -36,6 +36,7 @@ const deleteEvent = (postBox, code) => {
   deleteBtn.addEventListener('click', () => deletePost(code));
 };
 
+
 const setNewProfileImg = (newfile) => {
   document.querySelector('.photo').src = newfile;
 };
@@ -49,6 +50,21 @@ const sendNewProfileImg = (callbackToSetNewImage) => {
       inputFile.style.opacity = 0;
     };
   });
+};
+
+const showUrlOfImagesToPublish = (urlFile) => {
+  document.querySelector('#postText').value = `${urlFile}`;
+  document.querySelector('#postText').placeholder = 'O que você quer compartilhar?';
+};
+
+const uploadImage = () => {
+  document.querySelector('.publish-img-form-box').style.opacity = 1;
+  document.querySelector('#image_uploads').onchange = (event) => {
+    sendImageToDatabase(event.target.files[0], showUrlOfImagesToPublish);
+    document.querySelector('.publish-img-form-box').style.opacity = 0;
+    document.querySelector('#postText').placeholder = 'Aguarde enquanto sua foto é carregada...';
+  };
+}); 
 };
 
 const showUrlOfImagesToPublish = (urlFile) => {
