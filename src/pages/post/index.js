@@ -88,7 +88,6 @@ export const Post = () => {
   //   post_container.appendChild(newPost);
   // }
 
-
   // function creatPost() {
   //   // const post = {
   //   //   name: user,

@@ -1,5 +1,5 @@
 import { onNavigate } from '../../utils/history.js';
-import { authGoogle } from './data.js';
+import { authGoogle } from '../../services/index.js';
 
 export const Home = () => {
   const home = document.createElement('div');
@@ -36,13 +36,21 @@ export const Home = () => {
   const password = home.querySelector('#password-home');
   const msgError = home.querySelector('#msgError');
 
-  btn.addEventListener('click', () => {
+  const user = firebase.auth().currentUser;
+
+  // Conectar um usuário com endereço de e-mail e senha
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
     firebase
       .auth()
       .singInWithEmailAndPassword(email.value, password.value)
       .then(() => {
-        // onNavigate('/post');
-        console.log('deu certo');
+        if (user != null) {
+          onNavigate('/post');
+          console.log('deu certo');
+        } else {
+          onNavigate('/post');
+        }
       })
       .catch((error) => {
         msgError.innerHTML = error.message;
