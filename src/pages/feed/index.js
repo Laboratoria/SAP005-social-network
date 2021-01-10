@@ -1,6 +1,6 @@
 import {
   logOut,
-    createPost,
+  createPost,
     readPost,
     editPost,
     deletePost,

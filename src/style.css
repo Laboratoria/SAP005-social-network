@@ -61,10 +61,12 @@ textarea {
 .publish-btn {
 	width: 150px;
 }
+.logo {
+	width: 30vw;
+}
 
 .icon-large {
-	width: 220px;
-	height: 150px;
+	width: 20vw;
 }
 
 .font-small {
@@ -346,9 +348,7 @@ textarea {
 	display: none;
 }
 
-/*-----------------Responsividade ---------------------*/
-
-@media only screen and (min-width: 700px) {
+@media only screen and(min-width: 700px) {
 	.post-area-image {
 		width: 40%;
 		height: 60%;
