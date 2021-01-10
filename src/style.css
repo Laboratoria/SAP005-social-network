@@ -25,7 +25,8 @@ textarea {
 	padding: 50px;
 	margin: 0px auto;
 	display: flex;
-	align-content: center;
+	flex-direction: column;
+	align-items: center;
 	text-align: center;
 }
 
@@ -36,6 +37,7 @@ textarea {
 	padding: 5px;
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
 	outline: none;
+	font-weight: 600;
 }
 
 .btn:hover {
@@ -60,16 +62,15 @@ textarea {
 .publish-btn {
 	width: 150px;
 }
-.icon-logohome,
-.logo {
-	height: 20vh;
-}
+
 .icon-large {
-	height: 65vh;
+	width: 220px;
+	height: 150px;
 }
 
 .font-small {
 	font-size: 0.8em;
+	padding-top: 30px;
 }
 
 .post-area-icon-del,
@@ -141,8 +142,8 @@ textarea {
 
 .icon-logo {
 	border-radius: 0px;
-	width: 5px;
-	height: 5px;
+	width: 28px;
+	height: 28px;
 	margin-right: 5px;
 }
 
@@ -278,6 +279,8 @@ textarea {
 	padding-bottom: 7px;
 }
 
+/*-------------------------------------*/
+
 .footer-post-box {
 	display: flex;
 	flex-direction: column;
@@ -331,6 +334,8 @@ textarea {
 	display: none;
 }
 
+/*-------------------------------------*/
+
 .transparency {
 	opacity: 0;
 }
@@ -343,7 +348,9 @@ textarea {
 	display: none;
 }
 
-@media only screen and(min-width: 700px) {
+/*-----------------Responsividade ---------------------*/
+
+@media only screen and (min-width: 700px) {
 	.post-area-image {
 		width: 40%;
 		height: 60%;
