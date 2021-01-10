@@ -4,32 +4,23 @@ import { onNavigate } from '../../utils/history.js';
 export const Login = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
+      <div><img src ="./img/logo.png"  alt='Logotype' class='logo'></div>
+      <img src ="./img/pessoas.png"  alt='Logotype' class='icon-large'>
 
-      <div id = "firebaseui-auth-container" class = "container-login">
-
-      <div class='box-item'><h1>S E C U R I T Y  PET</h1>
-      <img src ="./ img / pessoas.png"  alt='Logotype' class='icon-large'>
       </div><br>
 
       <div class='box-item'>
-
       <h3>WELCOME TO SECURITY PET</h3>
-
       <form method='post'>
       <input type='email' placeholder='Email' id='emailArea' class='login-area'><br>
       <input type='password' placeholder='Senha' id='passwordArea' class='login-area'><br><br>
       </form>
-
       <div class="inerror-message" id="error-login">
       </div>
-
       <button class='button-area btn signIn'>Entrar</button>
       <p class="ou">━━━━━━━━━ OU ━━━━━━━━━</p>
-
-      <button class='button-area btn btnGoogle'>Acesse com <img src='./ img /google-icon.png' alt='Google' class='google-icon'></button><br><br><br>
+      <button class='button-area btn btnGoogle'>Acesse com <img src='./img/google-icon.png' alt='Google' class='google-icon'></button><br><br><br>
       <p class='font-small'>Se não tem um conta, <a href='/#signup' id='sign-up-login'>registre-se aqui.</a></p>
-
-      </div>
   `;
 
   const googleButton = rootElement.querySelector('.btnGoogle');
