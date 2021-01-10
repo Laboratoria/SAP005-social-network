@@ -1,4 +1,5 @@
 import { onNavigate } from '../../utils/history.js';
+import { loginPrincipal, loginGoogle } from '/services/index.js';
 
 export const Login = () => {
   const rootElement = document.createElement('div');
@@ -23,39 +24,9 @@ export const Login = () => {
     onNavigate('/registry');
   });
 
-  const loginGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider)
-      .then((user) => {
-        onNavigate('/feed');
-        alert(`Bem-vindo ao Olimpo, ${user.displayName}!`);
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        alert(`${errorMessage}`);
-      });
-  };
-  const btnGoogle = rootElement.querySelector('#googleLogin');
-  btnGoogle.addEventListener('click', (event) => {
-    event.preventDefault();
-    loginGoogle();
-  });
-
   const txtEmail = rootElement.querySelector('#txtEmail');
   const txtPassword = rootElement.querySelector('#txtPassword');
   const btnSignUp = rootElement.querySelector('#signup-btn');
-
-  const loginPrincipal = (email, senha) => {
-    firebase.auth().signInWithEmailAndPassword(email, senha)
-      .then((user) => {
-        onNavigate('/feed');
-        alert(`Bem-vindo ao Olimpo, ${user.displayName}!`);
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        alert(`${errorMessage}`);
-      });
-  };
 
   btnSignUp.addEventListener('click', (event) => {
     event.preventDefault();
@@ -63,5 +34,12 @@ export const Login = () => {
     const senha = txtPassword.value;
     loginPrincipal(email, senha);
   });
+
+  const btnGoogle = rootElement.querySelector('#googleLogin');
+  btnGoogle.addEventListener('click', (event) => {
+    event.preventDefault();
+    loginGoogle();
+  });
+
   return rootElement;
 };

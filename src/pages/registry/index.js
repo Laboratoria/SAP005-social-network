@@ -1,4 +1,4 @@
-import { onNavigate } from "../../utils/history.js"
+import { newRegistry } from '/services/index.js';
 
 export const Registry = () => {
   const rootElement = document.createElement('div');
@@ -21,24 +21,13 @@ export const Registry = () => {
   const txtPassword = rootElement.querySelector('#txtPassword');
   const btnLogin = rootElement.querySelector('#login-btn');
 
-  const registro = (email, senha) => {
-    firebase.auth().createUserWithEmailAndPassword(email, senha)
-      .then((user) => {
-        onNavigate('/login');
-        alert(`Usuário cadastrado com sucesso! Faça seu login para acessar a rede.`);
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        alert(`${errorMessage}`);
-      });
-  };
-
   btnLogin.addEventListener('click', (event) => {
     event.preventDefault();
     // pegando os valores do email e senha
     const email = txtEmail.value;
     const senha = txtPassword.value;
-    registro(email, senha);
+    newRegistry(email, senha);
   });
+
   return rootElement;
 };
