@@ -2,9 +2,9 @@ import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
     const rootElement = document.createElement('div');
-    rootElement.classList.add("formRegister")
+    rootElement.classList.add('formRegister')
     rootElement.innerHTML = `    
-  <div class="textRegister"> 
+<div class="textRegister"> 
   <img class="logoL" src="img/learning.png" alt="Logo L"> 
   
   
@@ -33,16 +33,16 @@ export const Register = () => {
   </div> 
 
 </div>
-  `;
+    `;
     const name = rootElement.querySelector('#nome')
     const lastName = rootElement.querySelector('#sobrenome')
     const email = rootElement.querySelector('#email')
-    const password = rootElement.querySelector("#passwordFirst");
-    const confirmPassword = rootElement.querySelector("#passwordSecond");
+    const password = rootElement.querySelector('#passwordFirst');
+    const confirmPassword = rootElement.querySelector('#passwordSecond');
     const date = rootElement.querySelector('#month')
 
 
-    rootElement.querySelector('#btn').addEventListener("click", (e) => {
+    rootElement.querySelector('#btn').addEventListener('click', (e) => {
         e.preventDefault();
         let userName = name.value.toLowerCase();
         let lastNameUser = lastName.value.toLowerCase();
@@ -51,10 +51,10 @@ export const Register = () => {
         let passwordSecond = confirmPassword.value;
         let dateBorned = date.value;
 
-        if (dateBorned == "" || userName == "" || lastNameUser == "") {
-            rootElement.querySelector("#finalized").innerHTML = `<h1 class = "warning">Todos os campos devem ser preenchidos.</h1>`;
+        if (dateBorned == '' || userName == '' || lastNameUser == '') {
+            rootElement.querySelector('#finalized').innerHTML = '<h1 class = "warning">Todos os campos devem ser preenchidos.</h1>';
         } else if (passwordFirst != passwordSecond || passwordFirst.length < 6) {
-            confirmPassword.style.backgroundColor = "rgba(233, 12, 12, 0.308)";
+            confirmPassword.style.backgroundColor = 'rgba(233, 12, 12, 0.308)';
         } else {
 
             firebase.auth().createUserWithEmailAndPassword(emailUser, passwordFirst)
@@ -84,28 +84,28 @@ export const Register = () => {
 
                 });
         }
-        date.value = "";
-        name.value = "";
-        lastName.value = "";
-        email.value = "";
-        password.value = "";
-        confirmPassword.value = "";
+        date.value = '';
+        name.value = '';
+        lastName.value = '';
+        email.value = '';
+        password.value = '';
+        confirmPassword.value = '';
     })
 
-    rootElement.querySelector('#eye').addEventListener("click", (e) => {
+    rootElement.querySelector('#eye').addEventListener('click', (e) => {
         e.preventDefault();
-        const showPassword = rootElement.querySelector("#passwordFirst");
-        const showPassword2 = rootElement.querySelector("#passwordSecond");
-        if (showPassword.type == "password" && showPassword2.type == "password") {
-            showPassword.type = "text";
-            showPassword2.type = "text";
+        const showPassword = rootElement.querySelector('#passwordFirst');
+        const showPassword2 = rootElement.querySelector('#passwordSecond');
+        if (showPassword.type == 'password' && showPassword2.type == 'password') {
+            showPassword.type = 'text';
+            showPassword2.type = 'text';
         } else {
-            showPassword.type = "password";
-            showPassword2.type = "password";
+            showPassword.type = 'password';
+            showPassword2.type = 'password';
         }
     })
 
-    rootElement.querySelector("#loginBtn").addEventListener("click", (e) => {
+    rootElement.querySelector('#loginBtn').addEventListener('click', (e) => {
         e.preventDefault();
 
         onNavigate("/")

@@ -1,8 +1,9 @@
+/* eslint-disable indent */
 import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
     const rootElement = document.createElement('div');
-    rootElement.classList.add("formRegister")
+    rootElement.classList.add('formRegister');
     rootElement.innerHTML = `   
 <div  id = "login" class="textRegister">
 <img class="logoL" src="img/learning.png" alt="Logo L"> 
@@ -15,7 +16,7 @@ export const Login = () => {
             <input id="passwordSecond" type="password" placeholder="Senha" required autocomplete="off">
             <button id="eye"><img src="https://img.icons8.com/ios-glyphs/30/000000/visible--v1.png"/></button>                     
             <button id="btnLogin">Login</button> 
-        </div>
+        </div>   
     </form>
     <div class="btns">
         
@@ -27,19 +28,19 @@ export const Login = () => {
     </div>
 </div>
 `;
-    rootElement.querySelector('#eye').addEventListener("click", (e) => {
-        e.preventDefault();
-        const showPassword = rootElement.querySelector("#passwordSecond");
-        if (showPassword.type == "password") {
-            showPassword.type = "text";
-        } else {
-            showPassword.type = "password";
-        }
+    rootElement.querySelector('#eye').addEventListener('click', (e) => {
+    e.preventDefault();
+    const showPassword = rootElement.querySelector('#passwordSecond');
+    if (showPassword.type == "password") {
+    showPassword.type = "text";
+    } else {
+    showPassword.type = "password";
+    }
     })
 
     rootElement.querySelector("#btnCadastro").addEventListener("click", (e) => {
-        e.preventDefault();
-        onNavigate("/cadastro")
+    e.preventDefault();
+    onNavigate("/cadastro")
     })
 
     let emailInput = rootElement.querySelector("#email")
@@ -56,10 +57,9 @@ export const Login = () => {
         localStorage.setItem("uid", userId);
         onNavigate('/home')
 
-
-        emailInput.value = ""
-        passwordInput.value = ""
-    })
+    emailInput.value = ""
+    passwordInput.value = '';
+    });
 
     rootElement.querySelector("#google").addEventListener("click", (e) => {
         e.preventDefault()
@@ -71,9 +71,9 @@ export const Login = () => {
                 email: `${firebase.auth().currentUser.email}`
             })
             onNavigate("/home")
-        }).catch(function(error) {
+        }).catch(function(error)     {
             console.log(error)
-
+   
         });
 
     });

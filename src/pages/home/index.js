@@ -7,10 +7,8 @@ export const Home = () => {
     rootElement.innerHTML = `
     <div class = "header">     
         <img class="logoHome" src="img/learning.png" alt="Logo Learning">
-
         <input type="checkbox" id="check">
         <label id="icone" for="check"><img class = "menu"src="https://img.icons8.com/nolan/64/menu.png"/></label>  
-
       <div class="barra-menu">
         <div class = "itensMenu">            
             <input type="file" id="upload" >  
@@ -37,12 +35,14 @@ export const Home = () => {
     const postId = db.collection("post").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             postFeed(doc.data())
-            console.log(`${doc.id} => ${doc.data()}`);
+            console.log(`${doc.id} => ${doc.data().id}`);
 
         });
     });
 
     var docRef = db.collection("post").doc();
+    //let novo_id = firebase.().ref().child('caminho').push().key;
+
 
     const textPost = rootElement.querySelector("#textPost");
     let feed = '';
@@ -56,13 +56,13 @@ export const Home = () => {
         const userId = firebase.auth().currentUser.uid
         localStorage.setItem("uid", userId);
         postFeed(post)
-        db.collection("post").add({
+        db.collection("post").doc(docRef.id).set({
             text: post.text,
             data: (new Date()).toLocaleString(),
             email: `${firebase.auth().currentUser.email}`,
             like: [],
-            id: docRef.id
-
+            id: docRef.id,
+         //  cd_id:docRef
         })
         return feed
     });
@@ -151,6 +151,8 @@ export const Home = () => {
 
     // }
 
+   
+  
 
 
     return rootElement;
