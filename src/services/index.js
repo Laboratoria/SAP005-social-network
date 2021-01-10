@@ -25,9 +25,9 @@ export const loginPrincipal = (email, senha) => {
     });
 };
 
-export const registro = (email, senha) => {
+export const newRegistry = (email, senha) => {
   firebase.auth().createUserWithEmailAndPassword(email, senha)
-    .then((user) => {
+    .then(() => {
       onNavigate('/login');
       alert(`Usuário cadastrado com sucesso! Faça seu login para acessar a rede.`);
     })
@@ -65,10 +65,12 @@ export const Navigation = () => {
   bottunMessage.addEventListener('click', () => {
     onNavigate('/message');
   });
+
   const bottunFeed = navigation.querySelector('#feed');
   bottunFeed.addEventListener('click', () => {
     onNavigate('/feed');
   });
+
   const bottunSingOut = navigation.querySelector('#out');
   bottunSingOut.addEventListener('click', () => {
     firebase.auth().signOut().then(function() {
@@ -76,7 +78,6 @@ export const Navigation = () => {
     }).catch(function(error) {
       console.log(error)
     });
-
   });
   
   return navigation;

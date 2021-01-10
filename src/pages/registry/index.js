@@ -1,4 +1,4 @@
-import { registro } from '/services/index.js';
+import { newRegistry } from '/services/index.js';
 
 export const Registry = () => {
   const rootElement = document.createElement('div');
@@ -26,7 +26,7 @@ export const Registry = () => {
     // pegando os valores do email e senha
     const email = txtEmail.value;
     const senha = txtPassword.value;
-    registro(email, senha);
+    newRegistry(email, senha);
   });
 
   return rootElement;
