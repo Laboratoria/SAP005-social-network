@@ -54,16 +54,16 @@ export const userId = () => {
 };
 
 // Perfil
-export const createProfile = () => {
-  firebase
-    .firestore()
-    .collection('users').doc(userId()).set({
-      email: firebase
-        .auth()
-        .currentUser
-        .email,
-    });
-};
+// export const createProfile = () => {
+//   firebase
+//     .firestore()
+//     .collection('users').doc(userId()).set({
+//       email: firebase
+//         .auth()
+//         .currentUser
+//         .email,
+//     });
+// };
 
 // Enviar um e-mail de verificação a um usuário
 export const confirmEmail = () => {

@@ -1,4 +1,4 @@
-import { createProfile } from '../../services/index.js';
+// import { createProfile } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
@@ -56,7 +56,7 @@ export const Register = () => {
               alert('Cadastro realizado com sucesso!');
             })
             .then(() => {
-              createProfile();
+              // createProfile();
               onNavigate('/post');
             })
             .catch((error) => {
