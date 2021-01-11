@@ -31,7 +31,7 @@ export const SignUp = () => {
   const registerButton = rootElement.querySelector('#button-register');
 
   registerButton.addEventListener('click', () => {
-    console.log('oi');
+    // console.log('oi');
     firebase.auth().createUserWithEmailAndPassword(emailButton.value, passwordButton.value);
     // console.log(emailButton.value);
     // console.log(passwordButton.value);
