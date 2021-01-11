@@ -33,8 +33,8 @@ export const SignUp = () => {
   registerButton.addEventListener('click', () => {
     console.log('oi');
     firebase.auth().createUserWithEmailAndPassword(emailButton.value, passwordButton.value);
-    console.log(emailButton.value);
-    console.log(passwordButton.value);
+    // console.log(emailButton.value);
+    // console.log(passwordButton.value);
   });
 
   const linkLogin = rootElement.querySelector('#button-login');
