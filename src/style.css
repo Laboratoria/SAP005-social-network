@@ -151,10 +151,9 @@ textarea {
 }
 
 .icon-logo {
-	border-radius: 0px;
-	width: 28px;
-	height: 28px;
-	margin-right: 5px;
+	margin-top: -15px;
+	width: 150px;
+	
 }
 
 .icon-circle {

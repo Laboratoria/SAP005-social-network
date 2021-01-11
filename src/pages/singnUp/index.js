@@ -20,7 +20,7 @@ export const SignUp = () => {
       <div class="error-message" id="singup-error">
       </div>
       <button class="btn button-area" id="button-register">Cadastre-se</button>
-      <button class="btn button-area" id="button-login">Entrar</button>
+      <button class="btn button-area" id="back-login">Login</button>
     </form>
 </div>
 
@@ -30,14 +30,16 @@ export const SignUp = () => {
   const passwordButton = rootElement.querySelector('#register-password');
   const registerButton = rootElement.querySelector('#button-register');
 
-  registerButton.addEventListener('click', () => {
-    // console.log('oi');
+  registerButton.addEventListener('click', (event) => {
+    console.log('oi');
     firebase.auth().createUserWithEmailAndPassword(emailButton.value, passwordButton.value);
-    // console.log(emailButton.value);
-    // console.log(passwordButton.value);
+    console.log(emailButton.value);
+    console.log(passwordButton.value);
+    event.preventDefault();
+    alert('Usuário cadastrado com sucesso!');
   });
 
-  const linkLogin = rootElement.querySelector('#button-login');
+  const linkLogin = rootElement.querySelector('#back-login');
   linkLogin.addEventListener('click', (event) => {
     event.preventDefault();
     onNavigate('/');

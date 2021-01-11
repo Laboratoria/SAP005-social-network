@@ -39,7 +39,7 @@ export const Login = () => {
   const googleButton = rootElement.querySelector('.btnGoogle');
   googleButton.addEventListener('click', () => {
     loginWithGoogle();
-    // onNavigate('/feed');
+    onNavigate('/generalFeed');
   });
 
   const linkSignUp = rootElement.querySelector('#sign-up-login');
