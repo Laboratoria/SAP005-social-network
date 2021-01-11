@@ -29,7 +29,7 @@ export const loginWithGoogle = () => {
           id: user.uid,
           photo: user.photoURL,
         }, { merge: true });
-      onNavigate('/feed');
+      onNavigate('/generalFeed');
     })
     .catch((error) => {
       const errorCode = error.code;

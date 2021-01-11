@@ -19,7 +19,7 @@ export const SignUp = () => {
       <div class="error-message" id="singup-error">
       </div>
       <button class="btn button-area" id="button-register">Cadastre-se</button>
-      <button class="btn button-area" id="button-login">Entrar</button>
+      <button class="btn button-area" id="back-login">Login</button>
     </form>
 </div>
 
@@ -38,7 +38,7 @@ export const SignUp = () => {
     alert('Usuário cadastrado com sucesso!');
   });
 
-  const linkLogin = rootElement.querySelector('#button-login');
+  const linkLogin = rootElement.querySelector('#back-login');
   linkLogin.addEventListener('click', (event) => {
     event.preventDefault();
     onNavigate('/');
