@@ -3,6 +3,7 @@ import { Feed } from './pages/feed/index.js';
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
 import { SingUp } from './pages/singup/index.js';
+import { IsCurrentUser } from './services/index.js';
 import { onNavigate } from './utils/history.js';
 
 const routeRender = () => {
@@ -16,27 +17,42 @@ const routeRender = () => {
 
   rootDiv.innerHTML = '';
   rootDiv.appendChild(routes[window.location.pathname]());
+
+  document.getElementById('home').addEventListener('click', (e) => {
+    e.preventDefault();
+    onNavigate('/');
+  });
+
+  document.getElementById('login').addEventListener('click', (e) => {
+    e.preventDefault();
+    IsCurrentUser('/login');
+  });
+
+  if (document.getElementById('btn-login') != null) {
+    document.getElementById('btn-login').addEventListener('click', (e) => {
+      e.preventDefault();
+      IsCurrentUser('/login');
+    });
+  }
+
+  document.getElementById('singup').addEventListener('click', (e) => {
+    e.preventDefault();
+    IsCurrentUser('/singup');
+  });
+
+  if (document.getElementById('btn-singup') != null) {
+    document.getElementById('btn-singup').addEventListener('click', (e) => {
+      e.preventDefault();
+      IsCurrentUser('/singup');
+    });
+
+  /*     document.getElementById('btn-singout').addEventListener('click', (e) => {
+      e.preventDefault();
+      SingOut('/');
+    }); */
+  }
 };
 
 window.addEventListener('popstate', routeRender);
-window.addEventListener('load', () => {
-  document
-    .getElementById('home')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/');
-    });
-  document
-    .getElementById('login')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/login');
-    });
-  document
-    .getElementById('singup')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/singup');
-    });
-  routeRender();
-});
+
+window.addEventListener('load', routeRender);

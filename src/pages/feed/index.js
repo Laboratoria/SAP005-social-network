@@ -9,6 +9,7 @@ export const Feed = () => {
       <form class="form-post" id="form-post">
         <input class="text-post" id="text-post" type="textarea">
         <button class="btn-submit" id="btn-submit" type="submit">Submit</button>
+        <button class="btn-singout" id="btn-singout" type="submit">SingOut</button>
       </form>
       <button class="btn-logout">LogOut</button>
     </div> `;
@@ -25,6 +26,7 @@ export const Feed = () => {
       likes: 0,
       comments: [],
     };
+
     const collectionPosts = firebase.firestore().collection('posts');
 
     collectionPosts.add(post);
