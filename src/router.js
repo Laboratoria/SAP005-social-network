@@ -19,11 +19,17 @@ window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
       onNavigate('/')
 
-      document.getElementById('feedIn').addEventListener("click", (e) =>{
-        e.preventDefault()
-        emailLogin()
-        document.getElementById('boxLogin').style.display = "none";
+      document.getElementById('feed-in').addEventListener("click", (e) => {
+        e.preventDefault();
+        emailLogin();
+        document.getElementById('box-login').style.display = "none";
       })
       userOn();
-  routeRender();
+
+      document.getElementById('subscribe').addEventListener("click", (e) => {
+      e.preventDefault();
+      subscribe();
+
+      })
+    routeRender();
 });

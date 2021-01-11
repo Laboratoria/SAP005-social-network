@@ -23,14 +23,14 @@ document.getElementById('main-page').innerHTML = `
         </fieldset>
         <div class="area">
           <label for="email">E-mail:</label>
-          <input type="text" id="-new-email" name="email" style="width: 20em" value="">
+          <input type="text" id="new-email" name="email" style="width: 20em" value="">
         </div>
         <div class="area">
           <label for="password-register">Senha:</label>
-          <input type="text" id="password-register" name="password-register" style="width: 20em" value="">
+          <input type="password" id="password-register" autocomplete="off" name="password-register" style="width: 20em" value="">
         </div>
         
-        <button type="submit" name="submit">Enviar</button>
+        <button id="subscribe" type="submit" name="submit">Enviar</button>
       </fieldset>
     </form>
   </div>
@@ -53,7 +53,7 @@ document.getElementById('main-page').innerHTML = `
           <label for="psw"><b>Password</b></label>
           <input id="password" type="password" placeholder="Ex.: 1234" autocomplete="off" name="psw" required>
 
-          <button id="feedIn" type="submit">Login</button>
+          <button id="feed-in" type="submit">Login</button>
           <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
           </label>
