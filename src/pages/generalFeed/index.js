@@ -64,8 +64,7 @@ const uploadImage = () => {
     document.querySelector('.publish-img-form-box').style.opacity = 0;
     document.querySelector('#postText').placeholder = 'Aguarde enquanto sua foto é carregada...';
   };
-}); 
-};
+}; 
 
 const showUrlOfImagesToPublish = (urlFile) => {
   document.querySelector('#postText').value = `${urlFile}`;

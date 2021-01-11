@@ -1,59 +1,58 @@
-
 * {
 	padding: 0px;
 	margin: 0px;
 	box-sizing: border-box;
-  }
-  
-  body,
-  button {
+}
+
+body,
+button {
 	font-family: 'Archivo Black', sans-serif;
-  }
-  
-  input {
+}
+
+input {
 	color: black;
 	border: none;
 	width: 100%;
-	outline:none;
-  }
-  
-  textarea {
+	outline: none;
+}
+
+textarea {
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: transparent;
-  }
-  
-  .box {
+}
+
+.box {
 	padding: 50px;
 	margin: 0px auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-  }
-  
-  .btn {
+}
+
+.btn {
 	border: solid #9a55a6;
 	width: 150px;
 	border-radius: 20px;
 	padding: 5px;
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
-	outline:none;
+	outline: none;
 	font-weight: 600;
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
 	opacity: 0.5;
 	border: solid #112666;
-  }
-  
-  .btn-small {
+}
+
+.btn-small {
 	width: 100px;
 	padding: 2px;
 	color: white;
 	font-weight: bold;
-  }
-  
-  .button-area {
+}
+
+.button-area {
 	margin: 8px auto;
 	background-color: #9a55a6;
 	color: white;
@@ -77,256 +76,254 @@
   .logos-home {   /*icon-large*/
 	width: 220px;
 	height: 150px;
-  }
-  
-  .font-small {
+}
+
+.font-small {
 	font-size: 0.8em;
 	padding-top: 30px;
-	  
-  }
-  
-  .post-area-icon-del,
-  .google-icon {
+}
+
+.post-area-icon-del,
+.google-icon {
 	height: 15px;
 	width: 15px;
 	margin-left: 5px;
-  }
-  
-  .login-area {
+}
+
+.login-area {
 	margin-top: 12px;
 	padding: 14px 16px;
 	width: 330px;
 	border: solid #fe4bef;
 	border-radius: 6px;
 	font-size: 17px;
-  }
-  
-  .error-message,
-  .inerror-message {
+}
+
+.error-message,
+.inerror-message {
 	color: #e8504b;
 	padding-bottom: 5px;
-  }
-  
-  .slogan-desktop,
-  .display-none {
+}
+
+.slogan-desktop,
+.display-none {
 	display: none;
-  }
-  
-  .navbar-page-feed {
+}
+
+.navbar-page-feed {
 	border-bottom: 2px solid #49a562;
 	display: flex;
 	justify-content: space-between;
 	padding: 5px 30px;
 	height: 40px;
 	margin-bottom: 20px;
-  }
-  
-  .share-area {
+}
+
+.share-area {
 	padding: 20px;
 	margin: 10px 30px;
 	border: 1px solid lightgrey;
 	border-radius: 5px;
-  }
-  
-  .post-area,
-  .share-area textarea {
+}
+
+.post-area,
+.share-area textarea {
 	padding: 10px;
 	margin: 10px 30px;
 	border: 1px solid lightgrey;
 	border-radius: 5px;
-  }
-  
-  .share-area,
-  .post-area {
+}
+
+.share-area,
+.post-area {
 	height: fit-content;
-  }
-  
-  .circle {
+}
+
+.circle {
 	width: 30px;
 	height: 30px;
 	border: none;
 	border-radius: 15px;
-  }
-  
-  .circle:hover {
+}
+
+.circle:hover {
 	opacity: 0.6;
-  }
-  
-  .icon-logo {
+}
+
+.icon-logo {
 	border-radius: 0px;
 	width: 28px;
 	height: 28px;
 	margin-right: 5px;
-  }
-  
-  .icon-circle {
+}
+
+.icon-circle {
 	width: 20px;
 	height: 20px;
 	margin-top: 2px;
-  }
-  
-  .profile-area,
-  .share-area {
+}
+
+.profile-area,
+.share-area {
 	display: flex;
 	align-items: center;
 	padding: 15px 30px;
-  }
-  
-  .name-profile-area {
+}
+
+.name-profile-area {
 	width: 100%;
 	text-align: center;
-  }
-  
-  .profile-area-photo-box {
+}
+
+.profile-area-photo-box {
 	width: 83px;
 	overflow: hidden;
-  }
-  
-  .photo {
+}
+
+.photo {
 	width: 63px;
 	height: 63px;
 	border-radius: 34px;
 	border: 1px solid black;
-  }
-  
-  .photo:hover {
+}
+
+.photo:hover {
 	opacity: 0.5;
 	cursor: pointer;
-  }
-  
-  .share-area,
-  .post-area,
-  .share-area textarea {
+}
+
+.share-area,
+.post-area,
+.share-area textarea {
 	padding: 10px;
 	border: 1px solid lightgrey;
 	border-radius: 5px;
-  }
-  
-  .share-area,
-  .post-area {
+}
+
+.share-area,
+.post-area {
 	display: flex;
 	flex-direction: column;
-  }
-  
-  .share-area textarea {
+}
+
+.share-area textarea {
 	margin: 0px;
 	width: 100%;
 	height: 120px;
 	margin-bottom: 15px;
-  }
-  
-  .share-area-buttons {
+}
+
+.share-area-buttons {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-  }
-  
-  .share-area-img-btn {
+}
+
+.share-area-img-btn {
 	width: 80%;
 	padding-top: 0px;
 	margin-left: 10px;
-  }
-  
-  .post-area {
+}
+
+.post-area {
 	padding: 0px;
 	margin-top: 15px;
-  }
-  
-  .title-post-box,
-  .post-area-text {
+}
+
+.title-post-box,
+.post-area-text {
 	padding: 5px 10px;
-  }
-  
-  .title-post-box {
+}
+
+.title-post-box {
 	font-size: 0.8em;
 	background-color: lightgray;
 	display: flex;
 	justify-content: space-between;
-  }
-  
-  .title-post-box div:nth-child(2) {
+}
+
+.title-post-box div:nth-child(2) {
 	font-size: 0.7em;
 	margin-top: 3px;
-  }
-  
-  .post-area-text {
+}
+
+.post-area-text {
 	font-family: Arial, Helvetica, sans-serif;
 	height: 60px;
 	padding: 10px;
 	border: none;
-  }
-  
-  .post-area-image {
+}
+
+.post-area-image {
 	width: 70%;
 	height: 100%;
 	margin: 1% 15%;
-  }
-  
-  .post-area-icon {
+}
+
+.post-area-icon {
 	height: 20px;
 	width: 20px;
 	margin-right: 5px;
-  }
-  
-  .post-area-icon:hover {
+}
+
+.post-area-icon:hover {
 	opacity: 0.6;
-  }
-  
-  .delete-btn {
+}
+
+.delete-btn {
 	border: none;
 	outline: none;
 	background-color: transparent;
-  }
-  
-  .post-area-icon-del:hover {
+}
+
+.post-area-icon-del:hover {
 	width: 20px;
 	height: 20px;
-  }
-  
-  .save-btn-area {
+}
+
+.save-btn-area {
 	display: flex;
 	justify-content: flex-end;
 	padding-right: 40px;
 	padding-bottom: 7px;
-  }
-  
-  
-  /*-------------------------------------*/
-  
-  .footer-post-box {
+}
+
+/*-------------------------------------*/
+
+.footer-post-box {
 	display: flex;
 	flex-direction: column;
 	padding: 0px;
-  }
-  
-  .footer-post-icons-box {
+}
+
+.footer-post-icons-box {
 	display: flex;
 	padding: 8px 10px;
 	border-bottom: 1px solid lightgray;
-  }
-  
-  .footer-post-icons-items {
+}
+
+.footer-post-icons-items {
 	display: flex;
 	margin-right: 15px;
-  }
-  
-  .comments-box {
+}
+
+.comments-box {
 	text-align: left;
 	padding: 10px 10px;
-  }
-  
-  .comments-box-textarea {
+}
+
+.comments-box-textarea {
 	border-bottom: 1px solid lightgray;
-  }
-  
-  #text-comment {
+}
+
+#text-comment {
 	border: none;
 	padding: 10px 5px;
 	width: 100%;
-  }
-  
-  #send-comment {
+}
+
+#send-comment {
 	background-color: #49a562;
 	border: none;
 	color: white;
@@ -335,30 +332,29 @@
 	border-radius: 10px;
 	margin-left: 85%;
 	width: 50px;
-  }
-  
-  .comments-box-name {
+}
+
+.comments-box-name {
 	margin-bottom: 7px;
 	color: gray;
 	margin-bottom: 10px;
-  }
-  
-  .theme-image {
+}
+
+.theme-image {
 	display: none;
-  }
-  
-  
-  /*-------------------------------------*/
-  
-  .transparency {
+}
+
+/*-------------------------------------*/
+
+.transparency {
 	opacity: 0;
-  }
-  
-  .visibility {
+}
+
+.visibility {
 	visibility: hidden;
-  }
-  
-  .display-none {
+}
+
+.display-none {
 	display: none;
   }
   
