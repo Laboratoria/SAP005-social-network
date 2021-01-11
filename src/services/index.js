@@ -1,12 +1,12 @@
-// import { firebaseConfig } from  "config/config.js"
-// // exporte suas funções
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 
 export const CreateUser = (email, password) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email.trim(), password)
     .then(() => {
-      window.location.pathname = 'feed';
+      window.location.pathname = '/feed';
     })
     .catch((error) => {
       // eslint-disable-next-line no-alert
@@ -19,10 +19,9 @@ export const SingIn = (email, password) => {
     .auth()
     .signInWithEmailAndPassword(email.trim(), password)
     .then(() => {
-      window.location.pathname = 'feed';
+      window.location.pathname = '/feed';
     })
     .catch((error) => {
-      // eslint-disable-next-line no-alert
       alert(error.message);
     });
 };
@@ -40,13 +39,22 @@ export const SingInGoogle = () => {
     .auth()
     .signInWithPopup(provider)
     .then(() => {
-      const credential = firebase.auth().currentUser;
-      window.location.pathname = 'feed';
-
-      return credential;
+      window.location.pathname = '/feed';
     })
     .catch((error) => {
       // eslint-disable-next-line no-alert
+      alert(error.message);
+    });
+};
+
+export const SignOut = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      window.location.pathname = '/';
+    })
+    .catch((error) => {
       alert(error.message);
     });
 };
@@ -61,3 +69,4 @@ export const IsCurrentUser = (notLoggedPage) => firebase.auth().onAuthStateChang
     window.location.pathname = notLoggedPage;
   }
 });
+

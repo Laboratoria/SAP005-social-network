@@ -1,3 +1,5 @@
+import { SignOut } from '../../services/index.js';
+
 export const Feed = () => {
   // Coloque sua página
   const rootElement = document.createElement('div');
@@ -9,6 +11,7 @@ export const Feed = () => {
         <button class="btn-submit" id="btn-submit" type="submit">Submit</button>
         <button class="btn-singout" id="btn-singout" type="submit">SingOut</button>
       </form>
+      <button class="btn-logout">LogOut</button>
     </div> `;
 
   rootElement.innerHTML = postHtml;
@@ -28,5 +31,11 @@ export const Feed = () => {
 
     collectionPosts.add(post);
   });
+
+  const logOut = rootElement.querySelector('.btn-logout');
+  logOut.addEventListener('click', () => {
+    SignOut();
+  });
+
   return rootElement;
 };
