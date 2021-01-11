@@ -56,14 +56,24 @@ textarea {
 	margin: 8px auto;
 	background-color: #9a55a6;
 	color: white;
-	outline: none;
-}
+	outline:none; 
+  }
+  .or-area {
+	font-family: 'Archivo Black', sans-serif;
+	color: #8e8e8e;
+	flex-grow: 0;
+	flex-shrink: 0;
+	font-size: 13px;
+	line-height: 15px;
+	margin: 0 18px;
+	text-transform: uppercase;
+  }
 
-.publish-btn {
+  .publish-btn {
 	width: 150px;
-}
-
-.icon-large {
+  }
+  
+  .logos-home {   /*icon-large*/
 	width: 220px;
 	height: 150px;
 }
@@ -346,119 +356,9 @@ textarea {
 
 .display-none {
 	display: none;
-}
-
-/*-----------------Responsividade ---------------------*/
-
-@media only screen and (min-width: 700px) {
-	.post-area-image {
-		width: 40%;
-		height: 60%;
-		margin: 1% 30%;
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	.profile-area {
-		flex-direction: column;
-		height: 285px;
-		border: 2px solid gray;
-		border-radius: 4px;
-		width: 40%;
-		margin-top: 10px;
-		padding: 0px;
-	}
-	.profile-area-theme {
-		background-color: lightgray;
-		width: 100%;
-		height: 50%;
-		margin-bottom: 10px;
-	}
-	.share-area,
-	.post-area {
-		height: fit-content;
-	}
-	.box-feed {
-		display: flex;
-		flex-direction: row;
-		width: 65%;
-		margin: auto;
-	}
-	.share-and-post {
-		width: 60%;
-	}
-	.profile-area-photo-box {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 80%;
-		padding-top: 0px;
-	}
-	.slogan-desktop {
-		display: block;
-	}
-	.box {
-		flex-direction: row;
-		height: 600px;
-	}
-	.box-item {
-		width: 50%;
-	}
-	.icon-large {
-		width: 60%;
-		height: 40%;
-	}
-	.login-area {
-		width: 55%;
-	}
-	.button-area {
-		width: 35%;
-	}
-	.post-area-image {
-		margin: 0px;
-		width: 70%;
-		margin: 1% 15%;
-	}
-	.theme-image {
-		display: block;
-		width: 100%;
-		height: 175px;
-	}
-}
-
-@media only screen and (min-width: 1440px) {
-	.box {
-		height: 716px;
-	}
-}
-
-.Z7p_S {
-	margin: 10px 40px 18px;
-}
-.s311c {
-	-webkit-box-flex: 1;
-	-webkit-flex-grow: 1;
-	-ms-flex-positive: 1;
-	flex-grow: 1;
-	-webkit-flex-shrink: 1;
-	-ms-flex-negative: 1;
-	flex-shrink: 1;
-	background-color: #dbdbdb;
-	background-color: rgba(var(--b38, 219, 219, 219), 1);
-	height: 1px;
-	position: relative;
-	top: .45em;
-}
-
-.ou {
-	font-family: 'Archivo Black', sans-serif;
-	color: #8e8e8e;
-
-	flex-grow: 0;
-
-	flex-shrink: 0;
-	font-size: 13px;
-	line-height: 15px;
-	margin: 0 18px;
-	text-transform: uppercase;
-}
+  }
+  
+  
+  
+  
+  
