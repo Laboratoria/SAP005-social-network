@@ -1,11 +1,11 @@
-import { confirmEmail, createProfile } from '../../services/index.js';
+import { createProfile } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
   const register = document.createElement('div');
   register.classList.add('div-register');
   register.innerHTML = `
-  <div class='head-register' alt='Runner|Cadastro'>Runner | Cadastro</div>
+  <div class='head-register' alt='Runner|Cadastro'>Runner|Cadastro</div>
   <figure class='container-logo'>
     <img src='./assets/logo_runners.png' class='logo-register' alt='Logo Runners'>
   </figure>
@@ -26,39 +26,44 @@ export const Register = () => {
   `;
 
   const btnRegister = register.querySelector('#btnRegister');
-  const confPassword = register.querySelector('#confirmPwd').value;
-  const name = register.querySelector('#name').value;
-  const password = register.querySelector('#password');
-  const email = register.querySelector('#email');
-  const city = register.querySelector('#city').value;
-  const date = register.querySelector('#date').value;
-
-  const confirmPassword = () => {
-    if (password.value !== confPassword.value) {
-      alert('Senha informada, esta divergente.');
-    }
-  };
 
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email.value, password.value)
-      .then(() => {
-        confirmEmail()
-          .then(() => {
-            alert('Cadastro realizado com sucesso!');
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
-        createProfile();
-        onNavigate('/profile');
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  });
+    const user = {
+      name: register.querySelector('#name').value,
+      email: register.querySelector('#email').value,
+      city: register.querySelector('#city').value,
+      date: register.querySelector('#date').value,
+    };
 
+    const password = register.querySelector('#password').value;
+    const confPassword = register.querySelector('#confirmPwd').value;
+    if (password !== confPassword) {
+      alert('Senha informada, esta divergente.');
+    } else {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(user.email, password)
+        .then(() => {
+          firebase
+            .auth()
+            .currentUser
+            .sendEmailVerification()
+            .then(() => {
+              firebase.firestore().collection('users').add({ user });
+            })
+            .then(() => {
+              alert('Cadastro realizado com sucesso!');
+            })
+            .then(() => {
+              createProfile();
+              onNavigate('/post');
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        });
+    }
+  });
   return register;
 };
