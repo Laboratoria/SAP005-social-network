@@ -34,7 +34,7 @@ export const Feed = () => {
        </div>
         <p>
           I will take what's mine! 
-          <br> ${getPosts()}
+          <br>
           DRACARIS!!! 
         </p>
      <nav>
@@ -46,7 +46,9 @@ export const Feed = () => {
       </ul>
    </nav>
      </div>
+
     `;
+    getPosts()
     return rootElement;
   };
   

@@ -14,31 +14,39 @@ import { onNavigate } from '../utils/history.js';
 
 // FUNÇÃO FIREBASE -> CADASTRO
 
-export const subscribe = function createLogin () {
+export const subscribe = () => {
   let email = document.getElementById('new-email').value;
-  let password = document.getElementById ('new-password').value;
+  let password = document.getElementById('password-register').value;
+  let userName = document.getElementById('name').value;
+  let userLog = firebase.auth().currentUser
 
-  firebase.auth().createUserWithEmailAndPassword(email, password).then(user =>{
-    console.log('usuário', user);
-  }).cath(error => {
-    console.log ('error', error);
+  firebase.auth().createUserWithEmailAndPassword(email, password).then((user) => {
+   console.log('usuário', user);
+  }).cath((error) => {
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    return {errorCode, errorMessage}
   })
+  if(userLog != null){
+    userLog.updateProfile({displayName: userName})
+    console.log('Nome: ', user.displayName)
+  }
 }
 
 // FUNÇÕES FIREBASE -> LOGIN
 
-export const emailLogin = function loginEmail () {
+export const emailLogin = () => {
   let email = document.getElementById('email').value;
   let password = document.getElementById ('password').value;
 
   firebase.auth().signInWithEmailAndPassword(email, password).then(() =>{
     console.log('Usuario logado');
-  })//.cath(error => {
-   // console.log ('error', error);
- // })
+  }).cath(error => {
+    console.log ('error', error);
+  })
 }
 
-export const googleLogin = function loginGoogle() {
+export const googleLogin = () => {
   let provider = new firebase.auth.GoogleAuthProvider();
 
   firebase.auth().signInWithPopup(provider).then(resposta => {
@@ -50,7 +58,7 @@ export const googleLogin = function loginGoogle() {
 }
 // FUNÇÃO DE CONFIRMAÇÃO : USUÁRIO LOGADO
 
-export const userOn = function(){
+export const userOn = () => {
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) { 
       document.getElementById('main-page').style.display = "none";
@@ -68,41 +76,46 @@ firebase.auth().onAuthStateChanged(function(user) {
 }
 
 // FUNÇÕES FIREBASE -> FEED
-export const Post = function(){
+export const Post = () => {
 
   document.getElementById('post-it').addEventListener('click', (e) => {
      e.preventDefault();
   
      let postText = document.getElementById('write-post').value
-  
      
        firebase.firestore().collection('posts').add({
-        postText,
+        post_text: postText,
+        id_user: firebase.auth().currentUser.uid,
+        username: firebase.auth().currentUser.displayName,
         likes: 0,
         loveIt: 0,
         funny: 0,
-        congratulations: 0
+        congratulations: 0,
+        date: new Date()
       })
       .then(function() {
+        document.querySelector('.user-post').innerHTML =
+        `<img class='another-user-photo' src='./pages/feed/img/profile/profile-exemple.jpg' 
+           alt='Foto do usuário que postou'>
+          <p> ${getPosts()} </p>`
         console.log("Post enviado com sucesso!");
       })
       .catch(function() {
         console.error("Ocorreu um erro");
       });
-  
-       document.querySelector('.user-post').innerHTML =
-       `<img class='another-user-photo' src='./pages/feed/img/profile/profile-exemple.jpg' 
-          alt='Foto do usuário que postou'>
-        <p> ${firebase.firestore().collection('posts').get({postText: firebase.firestore.FieldValue})} </p>`
     })
   }
   
   export const getPosts = () => {
-      const post = firebase.firestore().collection('post').orderBy("date", "desc")
-      return post.get();
+    firebase.firestore().collection('post').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+         console.log(`${doc.post_text}`)
+         return doc.post_text 
+        })
+      })  
     };
   
-  export const Reacts = function(){
+  export const Reacts = () => {
   
   document.getElementById('like').addEventListener("click", (e) => {
       e.preventDefault();
@@ -113,7 +126,7 @@ export const Post = function(){
     })
   }
   
-  export const logOut = function(){
+  export const logOut = () => {
            
     document.getElementById('log-out').addEventListener("click", logOut)
     function logOut() {

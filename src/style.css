@@ -1,5 +1,5 @@
 body {
-    background-color:  rgb(164, 196, 214);
+    background-color:  rgb(253, 253, 253);
     display: flex;
     margin: 0 0 0 10px;
     font-family: Arial, Helvetica, sans-serif;
@@ -263,14 +263,14 @@ span.psw {
     transition: 1s;
 }
 .nav-bar li:hover {
-    background-color:  rgb(226, 191, 33);;
+    background-color:  rgb(126, 124, 223);;
 }
 #logo-feed {
     padding-top: 0;
     font-family: 'Limelight', cursive;
 }
 #logo-feed:hover {
-    background-color: rgb(241, 219, 19);
+    background-color: transparent;
 }
 .figure-profile {
     display: flex;
@@ -278,7 +278,7 @@ span.psw {
 
     margin: 3px;
     border-radius: 10px;
-    background-color: rgb(187, 166, 45);
+    background-color: rgb(16, 15, 65);
 }
 .picture-profile {
     width: 200px;
@@ -301,16 +301,16 @@ span.psw {
     height: 40px;
 
     margin-top: 5px;
-    background-color: rgb(226, 191, 33);;
+    background-color: rgb(23, 30, 100);;
 
     border-radius: 10px;
-    border: 1px solid rgb(184, 156, 1);
-
+    border: 1px solid rgb(7, 12, 58);
+    color: white;
     font-size: 20px;
     transition: 1s;
 }
 .button-feed:hover {
-    background-color:  rgb(232, 247, 102);
+    background-color:  rgb(102, 182, 247);
 }
 .another-user-post{
     background-color: rgb(233, 233, 229);
