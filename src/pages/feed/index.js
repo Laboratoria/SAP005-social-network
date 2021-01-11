@@ -12,9 +12,14 @@ export const Feed = () => {
         <button class="btn-singout" id="btn-singout" type="submit">SingOut</button>
       </form>
       <button class="btn-logout">LogOut</button>
-    </div> `;
+      <div class="load-posts" id="load-posts">
+      </div>
+    </div>
+  `;
 
   rootElement.innerHTML = postHtml;
+
+  const loadPosts = rootElement.querySelector('.load-posts');
 
   const createPost = rootElement.querySelector('.form-post');
   createPost.addEventListener('click', (e) => {
@@ -22,7 +27,7 @@ export const Feed = () => {
     const textPost = document.querySelector('.text-post').value;
     const post = {
       text: textPost,
-      user_id: 'maria',
+      user_id: `${firebase.auth().currentUser.email}`,
       likes: 0,
       comments: [],
     };
@@ -30,7 +35,52 @@ export const Feed = () => {
     const collectionPosts = firebase.firestore().collection('posts');
 
     collectionPosts.add(post);
-  });
+  })
+  
+  //VERSÃO KARINA
+  function showPosts (data) {
+    const templatePosts = `
+      <div>
+      <p> ${data.post} </div>
+      </div>
+    `
+
+    loadPosts.innerHTML += templatePosts
+  }
+
+  firebase.firestore().collection(posts)/*.orderBy("date", "desc")*/.onSnapshot((snapshot) => {
+    snapshot.docChanges().forEach((post) => {
+      if (post.type ==="added") {
+        showPosts(post.doc.data.doc.id)
+      }
+    })
+  })
+  
+  //VERSÃO DANIEL
+  // function addPost(post) {
+  //   const templatePost = `
+  //     <li id="${post.id}">
+  //       ${post.data().text} ❤️ ${post.data().likes}
+  //     </li>
+  //   `
+  //   document.querySelector('.load-posts').innerHTML += templatePost;
+  // }
+
+  // function loadPosts() {
+  //   const collectionPosts = firebase.firestore().collection("posts")
+  //   document.querySelector('.load-posts').innerHTML = "Carregando..."
+  //   collectionPosts.get().then(snap => {
+  //     document.querySelector('.load-posts').innerHTML = " "
+  //     snap.forEach(post => {
+  //       addPost(data)
+  //     })
+  //   })
+  //   return loadPosts();
+  // }
+
+  return rootElement;
+  
+};
 
   const logOut = rootElement.querySelector('.btn-logout');
   logOut.addEventListener('click', () => {
