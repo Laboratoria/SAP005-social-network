@@ -17,8 +17,7 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 const usersCollection = firestore.collection('users');
 
-export const loginWithGoogle = (event) => {
-  event.preventDefault();
+export const loginWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
 
   auth.signInWithPopup(provider)
