@@ -1,52 +1,25 @@
+// import { getPosts } from '../../services/index.js';
+
 export const Feed = () => {
-    // Coloque sua página
-    const rootElement = document.createElement('div');
-    rootElement.innerHTML = `
-     <nav>
-      
-        <div class="menu-burger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-        <ul class="nav-links">
-          <li>
-          <a class="name-nav">
-            <strong class="name-menu">menu</strong></a>
-          </li>
-          <li>
-            <a href="#" id="end-btn">Sair <i class="fas fa-sign-out-alt"></i></a>
-          </li>
-        </ul>
-      </nav>
-        <main class="main">
-          <div class="newPost">
-            <div class="infoUser">
-              <div class="imgUser"></div>
-              <strong class="nameUser"></strong>
-            </div>
-            <form class="formPost" action="#" method="POST" enctype="multipart/form-data">
-              <textarea
-                name="textearea"
-                id="wrt-post"
-                placeholder="O que podemos mudar hoje com arte?"
-              ></textarea>
-              <div class="iconButtons">
-                <button id="btn-pst" type="submit" class="btnSubmit">Publicar</button>
-              </div>
-            </form>
-          </div>
-        <main>
-          <div id="all-posts"></div>
+  const rootElement = document.createElement('div');
+  rootElement.innerHTML = `
+  <div id="main-container">
+    <h1>Posts</h1>
+     <section id="registrer-form">
+         <div class="full-box">
+           
+            <textarea type="text" name="postsAll" id="postsAll"></textarea>
+         </div>
+     </section>
+  </div>
       `;
 
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-            divFeed.querySelector('.nameUser').innerHTML = firebase.auth().currentUser.displayName;
-            divFeed.querySelector('.name-menu').innerHTML = firebase.auth().currentUser.displayName;
-        }
-    })
+  // const submit = rootElement.querySelector('#btn-post');
 
+  // submit.addEventListener('load', () => {
+  //   const getPost = rootElement.querySelector('#postsAll');
+  //   getPosts(getPost);
+  // });
 
-    return rootElement;
+  return rootElement;
 };

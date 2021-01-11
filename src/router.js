@@ -2,6 +2,7 @@
 import { Feed } from './pages/feed/index.js';
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
+import { Perfil } from './pages/perfil/index.js';
 import { Register } from './pages/register/index.js';
 
 import { onNavigate } from './utils/history.js';
@@ -12,6 +13,7 @@ const routeRender = () => {
     '/': Home,
     '/login': Login,
     '/register': Register,
+    '/perfil': Perfil,
     '/feed': Feed,
 
   };
@@ -50,5 +52,11 @@ window.addEventListener('load', () => {
       onNavigate('/feed');
     });
 
+  document
+    .getElementById('perfil')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/perfil');
+    });
   routeRender();
 });

@@ -9,7 +9,7 @@ export const Register = () => {
      <form id="registrer-form">
       <div clas="full-box">
         <label for="email"> E-mail</label>
-        <input type="email" name="email" id="email" placeholder="Digite seu email">
+        <input type="email" name="email" id="email" placeholder="Digite seu email" data-min-length="3">
       </div>
       <div clas="half-box spacing">
         <label for="name"> Nome</label>
@@ -41,27 +41,26 @@ export const Register = () => {
     `;
 
 
-  class Validator{
+ /* class Validator{
 
     constructor(){
       this.validations = [
-
+        'data-min-length',
       ]
     }
     validate(form){ //iniciar validação em todos os campos
 
       let inputs =form.getElementsByTagName('input');
-      console.log (inputs);
 
       let inputsArray = [...inputs];
-      console.log (inputsArray);
+      
 
     }
     
     
   }  
 
-  const form = rootElement.querySelector('#register-form');
+  const form = rootElement.querySelector('#register-form');*/
   const submit = rootElement.querySelector('#btn-submit');
 
   submit.addEventListener('click', (e) => {
@@ -73,13 +72,17 @@ export const Register = () => {
     const name = rootElement.querySelector('#name').value;
     const lastName = rootElement.querySelector('#lastname').value;
 
-      if  '#email' = emailTextField.text, password = passwordTextField.text{
+      /*if  '#email' = emailTextField.text, password = passwordTextField.text{
         Auth.auth().createUser(withEmail: email, password: password, completion:{ user, error in
            if let firebaseError = error{
                 print(firebaseError.localizedDescription)
                 return
             }
           print("Usuário cadastrado")
+
+          /* if (errorCode === 'auth/wrong-password' || errorCode === 'auth/invalid-email') {
+        return alert('Email ou Senha incorreta!');
+      }
     /* se email digitado igual email return cadastrado
 nos imput colocar obrigatório email e senha */
 

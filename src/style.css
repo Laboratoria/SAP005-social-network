@@ -48,6 +48,15 @@ body{
     font-size: 1.6 rem; /*adaptada ao elemento root*/
 }
 
+#posts-all{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border:1px solid  rgb(214, 43, 123);
+    padding: 5%;
+}
+
 form{
     display: flex;
     flex-direction: column;

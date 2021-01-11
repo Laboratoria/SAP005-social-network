@@ -11,24 +11,19 @@ export const Login = () => {
         <label for="email"> E-mail</label>
         <input type="email" name="email" id="email" placeholder="Digite seu email" >
       </div>
-     
       <div class="full-box">
         <label for="password"> Senha</label>
         <input type="password" name="password" id="password" placeholder="Digite sua senha">
       </div>
-     
       <div class="full-box">
         <input type="submit" id="btn-submit-email" value="Login">
       </div> 
-
       <div class="full-box">
         <input  type="submit" id="btn-submit-gmail" value="Login Gmail">
       </div> 
-
       <div class="full-box">
-      <input type="submit" id="btn-submit-logout" value="Logout">
+        <input type="submit" id="btn-submit-logout" value="Logout">
       </div> 
-
     </form>
 
     <label for="agreement" id="agreement-label">Não está cadastrado? <a id="registerUser">Registre-se.</a> </label>
