@@ -1,16 +1,17 @@
-// import { template } from "@babel/core";
+import { SignOut } from '../../services/index.js';
 
 export const Feed = () => {
   // Coloque sua página
   const rootElement = document.createElement('div');
-  
-  const postHtml= `
+  const postHtml = `
     <div>
       <h1 class="feed">Account created successfully! Feed!</h1>
       <form class="form-post" id="form-post">
         <input class="text-post" id="text-post" type="textarea">
         <button class="btn-submit" id="btn-submit" type="submit">Submit</button>
+        <button class="btn-singout" id="btn-singout" type="submit">SingOut</button>
       </form>
+      <button class="btn-logout">LogOut</button>
       <div class="load-posts" id="load-posts">
       </div>
     </div>
@@ -28,12 +29,12 @@ export const Feed = () => {
       text: textPost,
       user_id: `${firebase.auth().currentUser.email}`,
       likes: 0,
-      comments: []
-    }
-    const collectionPosts = firebase.firestore().collection("posts")
+      comments: [],
+    };
 
-    collectionPosts.add(post)
-    
+    const collectionPosts = firebase.firestore().collection('posts');
+
+    collectionPosts.add(post);
   })
   
   //VERSÃO KARINA
@@ -81,4 +82,10 @@ export const Feed = () => {
   
 };
 
+  const logOut = rootElement.querySelector('.btn-logout');
+  logOut.addEventListener('click', () => {
+    SignOut();
+  });
 
+  return rootElement;
+};
