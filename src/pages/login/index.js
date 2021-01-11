@@ -6,13 +6,13 @@ export const Login = () => {
   rootElement.setAttribute('class', 'box');
   rootElement.innerHTML = `
   <div class='box-item'>
-  <h1><img src='../../img/logo.png' alt='Logotype' class='icon-large'></h1>
-  <img src='../../img/pessoas.png' alt='Logotype' class='icon-large'>
+  <h1><img src='../../img/logo.png' alt='Logo Type' class='logos-home'></h1>
+  <img src='../../img/pessoas.png' alt='Logo Pessoas' class='logos-home'>
 
 </div>
 
 <div class='box-item'>
-  <h3>WELCOME TO SECURITY PET</h3>
+  <h3>WELCOME</h3>
 
   <form method='post'>
     <input type=' email' placeholder='Email' id='emailArea' class='login-area'>
@@ -20,7 +20,7 @@ export const Login = () => {
   </form>
   <div class="inerror-message" id="error-login"> </div>
   <button class='button-area btn signIn'>Entrar</button>
-  <p class="ou">━━━━━━━━━ OU ━━━━━━━━━</p>
+  <p class="or-area">━━━━━━━━━ OU ━━━━━━━━━</p>
   <button class='button-area btn btnGoogle'>Acesse com <img src='./img/google-icon.png' alt='Google'
       class='google-icon'></button>
   <p class='font-small'>Se não tem um conta, <a href='/#signup' style="color:black;font-weight: 600"

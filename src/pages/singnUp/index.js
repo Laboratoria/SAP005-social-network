@@ -6,8 +6,9 @@ export const SignUp = () => {
   rootElement.setAttribute('class', 'box');
   rootElement.innerHTML = `
   <div class='box-item'>
-  <h1><img src='../../img/logo.png' alt='Logotype' class='icon-large'></h1>
-  <img src='../../img/pessoas.png' alt='Logotype' class='icon-large'>
+  <h1><img src='../../img/logo.png' alt='Logo Type' class='logos-home'></h1>
+  <img src='../../img/pessoas.png' alt='Logo Pessoas' class='logos-home'>
+
 </div>
 
 <div class='box-item'>
