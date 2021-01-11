@@ -32,7 +32,6 @@ export const Home = () => {
   const autGoogle = home.querySelector('#authGoogle');
   const email = home.querySelector('#email-input');
   const password = home.querySelector('#password-home');
-  const msgError = home.querySelector('#msgError');
 
   const user = firebase.auth().currentUser;
 
@@ -50,7 +49,14 @@ export const Home = () => {
         }
       })
       .catch((error) => {
-        alert(error.message);
+        let codeError = error.code;
+        if (codeError === 'auth/user-not-found') {
+          codeError = error.message;
+        } else if (codeError === 'auth/wrong-password') {
+          codeError = error.message;
+        }
+        const msgError = home.querySelector('#msgError');
+        msgError.innerHTML = codeError;
       });
   });
 

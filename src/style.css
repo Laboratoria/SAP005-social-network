@@ -83,6 +83,9 @@ button#submit-home{
   color: white;
   font-family: 'Architects Daughter', cursive;
 }
+#msgError {
+  color: red;
+}
 
 /* Plano de fundo da tela de Home e Login */
 /* div#fundo {

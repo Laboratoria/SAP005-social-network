@@ -26,6 +26,19 @@ export const identifyUser = () => {
 //   // No user is signed in.
 // }
 
+// importar para o firebase um usuario
+// import { db} from './init.js'
+// export newUser = () => {
+// db.collection('users').add({
+//   userUid:
+//   photo:
+//   name:
+//   email:
+//   date:
+//   city:
+// });
+// }
+
 //   Criar usuario
 // export const createUser = (email, password) => {
 //   firebase
@@ -35,22 +48,22 @@ export const identifyUser = () => {
 
 //   UID
 export const userId = () => {
-  const idUser = firebase.auth().currentUser;
+  const idUser = firebase.auth().currentUser.uid;
   const id = idUser.id;
   return id;
 };
 
 // Perfil
-export const createProfile = () => {
-  firebase
-    .firestore()
-    .collection('users').doc(userId()).set({
-      email: firebase
-        .auth()
-        .currentUser
-        .email,
-    });
-};
+// export const createProfile = () => {
+//   firebase
+//     .firestore()
+//     .collection('users').doc(userId()).set({
+//       email: firebase
+//         .auth()
+//         .currentUser
+//         .email,
+//     });
+// };
 
 // Enviar um e-mail de verificação a um usuário
 export const confirmEmail = () => {
