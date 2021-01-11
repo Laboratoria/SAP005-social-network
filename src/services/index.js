@@ -19,7 +19,7 @@ export const googleLogin = (event) => {
           id: user.uid,
           photo: user.photoURL,
         }, { merge: true });
-      onNavigate('/feed');
+      onNavigate('/generalFeed');
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -41,7 +41,7 @@ export const emailAndPasswordLogin = (event) => {
   auth.signInWithEmailAndPassword(email, password)
     .then((user) => {
       console.log('usuário', user);
-      onNavigate('/feed');
+      onNavigate('/generalFeed');
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -55,25 +55,25 @@ export const emailAndPasswordLogin = (event) => {
     });
 };
 
-export const createAccount = (event) => {
-  event.preventDefault();
-  const email = document.querySelector('#sign-up-email').value;
-  const password = document.querySelector('#sign-up-password').value;
-  const confirmPassword = document.querySelector('#confirm-password').value;
-  if (password !== confirmPassword) {
-    return false;
-  }
-  auth.createUserWithEmailAndPassword(email, password)
-    .then((user) => {
-      console.log('usuário', user);
-      onNavigate('/feed');
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      if (errorCode === 'auth/email-already-in-use') {
-        alert('E-mail já cadastrado');
-      } else if (errorCode === 'auth/weak-password') {
-        alert('Senha fraca');
-      }
-    });
-};
+// export const createAccount = (event) => {
+//   event.preventDefault();
+//   const email = document.querySelector('#sign-up-email').value;
+//   const password = document.querySelector('#sign-up-password').value;
+//   const confirmPassword = document.querySelector('#confirm-password').value;
+//   if (password !== confirmPassword) {
+//     return false;
+//   }
+//   auth.createUserWithEmailAndPassword(email, password)
+//     .then((user) => {
+//       console.log('usuário', user);
+//       onNavigate('/generalFeed');
+//     })
+//     .catch((error) => {
+//       const errorCode = error.code;
+//       if (errorCode === 'auth/email-already-in-use') {
+//         alert('E-mail já cadastrado');
+//       } else if (errorCode === 'auth/weak-password') {
+//         alert('Senha fraca');
+//       }
+//     });
+// };

@@ -10,6 +10,7 @@ import {
   commentPosts,
 } from './data.js';
 
+// Funções auxiliares chamadas na criação do template da página (function generalFeed())
 const setLogOutOnButton = () => {
   document.querySelector('.signOut').addEventListener('click', (event) => {
     event.preventDefault();
@@ -36,7 +37,6 @@ const deleteEvent = (postBox, code) => {
   deleteBtn.addEventListener('click', () => deletePost(code));
 };
 
-
 const setNewProfileImg = (newfile) => {
   document.querySelector('.photo').src = newfile;
 };
@@ -51,20 +51,6 @@ const sendNewProfileImg = (callbackToSetNewImage) => {
     };
   });
 };
-
-const showUrlOfImagesToPublish = (urlFile) => {
-  document.querySelector('#postText').value = `${urlFile}`;
-  document.querySelector('#postText').placeholder = 'O que você quer compartilhar?';
-};
-
-const uploadImage = () => {
-  document.querySelector('.publish-img-form-box').style.opacity = 1;
-  document.querySelector('#image_uploads').onchange = (event) => {
-    sendImageToDatabase(event.target.files[0], showUrlOfImagesToPublish);
-    document.querySelector('.publish-img-form-box').style.opacity = 0;
-    document.querySelector('#postText').placeholder = 'Aguarde enquanto sua foto é carregada...';
-  };
-}; 
 
 const showUrlOfImagesToPublish = (urlFile) => {
   document.querySelector('#postText').value = `${urlFile}`;
@@ -116,58 +102,53 @@ const loadPostTemplate = (postList) => {
   }) => {
     const postBox = document.createElement('div');
     postBox.innerHTML = `
-        <data value=${code}></data>
-        <header class='title-post-box'>
-          <div>
-            <div>${user}</div>
-            <div>${data}</div>
-          </div>
+  <data value=${code}></data>
+  <header class='title-post-box'>
+    <div>
+      <div>${user}</div>
+      <div>${data}</div>
+    </div>
+    <div>
+      <button class='delete-btn' data-id='${code}'><img class='post-area-icon-del' src="../../img/quit.png" alt="Edit Icon">
+      </button>
+    </div>
+  </header>
 
-          <div>
-            <button class='delete-btn' data-id='${code}'><img class='post-area-icon-del' src="../../assets/quit.png" alt="Edit Icon">
-            </button>
-          </div>
-        </header>
+  <textarea disabled class='text post-area-text'>${text}</textarea>
+  <div>${url}<div>
+  <div class='save-btn-area display-none'>
+    <button class='edit-save-btn' type='button'>Salvar</button>
+  </div>
+  
+  <footer class='footer-post-box'>
+    <section class='footer-post-icons-box'>
+      <div class='footer-post-icons-items'>
+        <img class='post-area-icon' id="like-icon" src="../../img/like.png" alt="Like Icon">
+        <div id='likes-counter'>${likes.length}</div> 
+      </div>
+       
+      <div class='footer-post-icons-items'>
+        <img class='post-area-icon' src="../../img/comments.png" alt="Comments Icon">
+        <div>${comments.length}</div>
+      </div>
       
-        <textarea disabled class='text post-area-text'>${text}</textarea>
-        <div>${url}<div>
-        <div class='save-btn-area display-none'>
-          <button class='edit-save-btn' type='button'>Salvar</button>
-        </div>
-        
-        <footer class='footer-post-box'>
+      <div class='edit-btn'><img class='post-area-icon' src="../../img/pencil.png" alt="Edit Icon"></div>
+    </section>
 
-          <section class='footer-post-icons-box'>
-            <div class='footer-post-icons-items'>
-              <img class='post-area-icon' id="like-icon" src="../../assets/like.png" alt="Like Icon">
-              <div id='likes-counter'>${likes.length}</div> 
-            </div>
-            
-            <div class='footer-post-icons-items'>
-              <img class='post-area-icon' src="../../assets/comments.png" alt="Comments Icon">
-              <div>${comments.length}</div>
-            </div>
-            
-            <div class='edit-btn'><img class='post-area-icon' src="../../assets/pencil.png" alt="Edit Icon"></div>
-          </section>
-      
-          <section class='footer-post-comments-box'>
-
-          <div class='comments-box comments-box-textarea'>
-            <textarea placeholder='Deixe seu comentário' id="text-comment"></textarea>
-            <br><button id="send-comment">Enviar</button>
-          </div>
-
-          ${(comments.length > 0 && comments.map(comment => `
-          <div class='comments-box'>
-          <p class='comments-box-name'>${comment.name}</p>
-          <p>${comment.text}</p>
-          </div>
-          `)) || ''}
-          </section>
-
-        </footer>
-    `;
+    <section class='footer-post-comments-box'>
+    <div class='comments-box comments-box-textarea'>
+      <textarea placeholder='Deixe seu comentário' id="text-comment"></textarea>
+      <br><button id="send-comment">Enviar</button>
+    </div>
+    ${(comments.length > 0 && comments.map((comment) => `
+    <div class='comments-box'>
+     <p class='comments-box-name'>${comment.name}</p>
+     <p>${comment.text}</p>
+    </div>
+     `)) || ''}
+    </section>
+  </footer>
+  `;
 
     postBox.querySelector('#send-comment').addEventListener('click', () => commentPosts(code, postBox.querySelector('#text-comment').value));
     postBox.querySelector('#like-icon').addEventListener('click', () => likePosts(code));
@@ -186,47 +167,47 @@ export const generalFeed = () => {
   document.querySelector('#root').innerHTML = '';
   const containerFeed = document.createElement('div');
   containerFeed.innerHTML = `
-    <header>
-      <nav class='navbar-page-feed'>
-        <figure class='navbar-page-item-logo'>
-          <img class='icon-logo' src="./img/logo.png" alt="Logotipo"><span>Rainbow!</span>
+  <header>
+    <nav class='navbar-page-feed'>
+      <figure class='navbar-page-item-logo'>
+        <img class='icon-logo' src='../../securityAmarelo.png' alt="Logotipo">
+      </figure>
+      <div>
+        <button class='circle signOut yellow'>
+        <img class='icon-circle' src='../../img/logout.png'>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <div class='box-feed'>
+    <section class='profile-area'>
+      <div class='profile-area-theme'><img class='theme-image' src='../../img/capa.jpg'></div>
+        <figure class='profile-area-photo-box'>
+           <img class='photo'>
+           <input type="file" id="input-file-profileImg" class='input-file-profileImg transparency' accept=".jpg, .jpeg, .png">
         </figure>
-        <div>
-          <button class='circle signOut yellow'>
-          <img class='icon-circle' src='./img/logout.png'>
-          </button>
+        <div class='name-profile-area'>
+          <h3 id='name-user'></h3>
         </div>
-      </nav>
-    </header>
-    <div class='box-feed'>
-      <section class='profile-area'>
-        <div class='profile-area-theme'><img class='theme-image' src='./img/capa.jpg'></div>
-          <figure class='profile-area-photo-box'>
-             <img class='photo'>
-             <input type="file" id="input-file-profileImg" class='input-file-profileImg transparency' accept=".jpg, .jpeg, .png">
-          </figure>
-          <div class='name-profile-area'>
-            <h3 id='name-user'></h3>
-          </div>
-      </section>
-        <div class='share-and-post'>
-          <section class='share-area'>
-            <textarea id='postText' placeholder='O que você quer compartilhar?'></textarea>
-             <div class='share-area-buttons'>
-              <button id='publish-img-btn' class='circle violet'><img class='icon-circle' src='./img/camera.png'></button>
-              <div class='publish-img-form-box transparency'>
-                <form method="post">
-                  <input type="file" id="image_uploads" class='share-area-img-btn' accept=".jpg, .jpeg, .png">
-                 </form>
-              </div>
-              <button id='publish-btn' class='btn btn-small publish-btn purple'>Publicar</button>
+    </section>
+      <div class='share-and-post'>
+        <section class='share-area'>
+          <textarea id='postText' placeholder='O que você quer compartilhar?'></textarea>
+           <div class='share-area-buttons'>
+            <button id='publish-img-btn' class='circle violet'><img class='icon-circle' src='../../img/camera.png'></button>
+            <div class='publish-img-form-box transparency'>
+              <form method="post">
+                <input type="file" id="image_uploads" class='share-area-img-btn' accept=".jpg, .jpeg, .png">
+               </form>
             </div>
-          </section>
-          <section id='post-area' class='posts-container'>
-          </section>
-        </div>
-    </div>
-    `;
+            <button id='publish-btn' class='btn btn-small publish-btn purple'>Publicar</button>
+          </div>
+        </section>
+        <section id='post-area' class='posts-container'>
+        </section>
+      </div>
+  </div>
+  `;
   document.querySelector('#root').appendChild(containerFeed);
 
   setLogOutOnButton();
