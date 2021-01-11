@@ -29,11 +29,13 @@ export const SignUp = () => {
   const passwordButton = rootElement.querySelector('#register-password');
   const registerButton = rootElement.querySelector('#button-register');
 
-  registerButton.addEventListener('click', () => {
+  registerButton.addEventListener('click', (event) => {
     console.log('oi');
     firebase.auth().createUserWithEmailAndPassword(emailButton.value, passwordButton.value);
     console.log(emailButton.value);
     console.log(passwordButton.value);
+    event.preventDefault();
+    alert('Usuário cadastrado com sucesso!');
   });
 
   const linkLogin = rootElement.querySelector('#button-login');

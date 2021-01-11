@@ -1,5 +1,5 @@
 import { Login } from './pages/login/index.js';
-// import { feed } from './pages/feed/index.js';
+import { generalFeed } from './pages/generalFeed/index.js';
 import { SignUp } from './pages/singnUp/index.js';
 // import { onNavigate } from './utils/history.js';
 
@@ -7,7 +7,7 @@ const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
     '/': Login,
-    // '/feed': Feed,
+    '/generalfeed': generalFeed,
     '/signup': SignUp,
 
   };
@@ -23,3 +23,4 @@ window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
   routeRender();
 });
+routeRender();
