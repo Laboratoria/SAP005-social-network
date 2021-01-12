@@ -108,10 +108,7 @@ const loadPostTemplate = (postList) => {
       <div>${user}</div>
       <div>${data}</div>
     </div>
-    <div>
-      <button class='delete-btn' data-id='${code}'><img class='post-area-icon-del' src="../../img/quit.png" alt="Edit Icon">
-      </button>
-    </div>
+   
   </header>
 
   <textarea disabled class='text post-area-text'>${text}</textarea>
@@ -125,6 +122,9 @@ const loadPostTemplate = (postList) => {
       <div class='footer-post-icons-items'>
         <img class='post-area-icon' id="like-icon" src="../../img/like.png" alt="Like Icon">
         <div id='likes-counter'>${likes.length}</div> 
+        <div>
+        
+      </div>
       </div>
        
       <div class='footer-post-icons-items'>
@@ -132,7 +132,9 @@ const loadPostTemplate = (postList) => {
         <div>${comments.length}</div>
       </div>
       
-      <div class='edit-btn'><img class='post-area-icon' src="./img/pencil.png" alt="Edit Icon"></div>
+      <div class='edit-btn'><img class='post-area-icon' src="../../img/pencil.png" alt="Edit Icon"></div>
+      <button class='delete-btn' data-id='${code}'><img class='post-area-icon-del' src="../../img/quit.png" alt="Edit Icon">
+        </button>
     </section>
 
     <section class='footer-post-comments-box'>
