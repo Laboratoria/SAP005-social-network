@@ -1,4 +1,6 @@
 import { onNavigate } from '../../utils/history.js';
+import { imageUser } from './photo.js';
+
 
 export const Register = () => {
     const rootElement = document.createElement('div');
@@ -65,7 +67,7 @@ export const Register = () => {
                     db.collection("users").doc(userId).set({
                         name: userName[0].toUpperCase() + userName.slice(1),
                         email: emailUser,
-                        image: ""
+                        image: imageUser
                     })
 
                     .then(function(docRef) {
