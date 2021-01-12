@@ -441,10 +441,11 @@
     #editText {
         display: flex;
     }
+    
     /* .editTextClick {
         display: none;
     } */
-    
+
     .editText {
         width: 92%;
         height: 100%;
