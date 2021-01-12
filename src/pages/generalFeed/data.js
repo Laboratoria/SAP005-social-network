@@ -8,7 +8,7 @@ export const logOut = () => {
     .auth()
     .signOut()
     .then(() => {
-      window.location.hash = '#login';
+      window.location.pathname = '/';
     })
     .catch((error) => error);
 };

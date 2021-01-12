@@ -19,7 +19,7 @@ export const Login = () => {
     <button class='button-area btn signIn' id='start'>Entrar</button>
     <p class="or-area">━━━━━━━━━ OU ━━━━━━━━━</p>
     <button class='button-area btn btnGoogle'><img src='./img/google-icon.png' alt='Google'
-        class='google-icon'></button>
+        class='google-icon'>  Entrar com o Google</button>
     <p class='font-small'>Se não tem um conta, <a href='/#signup' style="color:black;font-weight: 600"
         id='sign-up-login'>REGISTRE-SE.</a>
     </p>
@@ -33,13 +33,13 @@ export const Login = () => {
       rootElement.querySelector('#emailArea').value,
       rootElement.querySelector('#passwordArea').value,
     );
-    onNavigate('/signup');
+    onNavigate('/generalFeed');
+    event.preventDefault();
   });
 
   const googleButton = rootElement.querySelector('.btnGoogle');
   googleButton.addEventListener('click', () => {
     loginWithGoogle();
-    onNavigate('/generalFeed');
   });
 
   const linkSignUp = rootElement.querySelector('#sign-up-login');
