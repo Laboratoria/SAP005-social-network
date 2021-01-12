@@ -26,13 +26,6 @@ export const SingIn = (email, password) => {
     });
 };
 
-/* export const SingOut = () => firebase
-  .auth()
-  .signOut()
-  .then(() => {
-    window.location.pathname = 'home';
-  }); */
-
 export const SingInGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase
@@ -69,4 +62,3 @@ export const IsCurrentUser = (notLoggedPage) => firebase.auth().onAuthStateChang
     window.location.pathname = notLoggedPage;
   }
 });
-
