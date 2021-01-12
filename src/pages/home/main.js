@@ -66,7 +66,7 @@ export const Home = () => {
             textPost.value = '';
             const userId = firebase.auth().currentUser.uid
             localStorage.setItem("uid", userId);
-            postFeed(post)
+
             db.collection("post").doc(docRef.id).set({
                 text: post.text,
                 data: (new Date()).toLocaleString(),
@@ -74,7 +74,8 @@ export const Home = () => {
                 like: [],
                 id: docRef.id,
 
-            })
+            });
+            postFeed(post)
         } else {
 
         }
@@ -146,7 +147,7 @@ export const Home = () => {
                  <button class="edit" id ="edit"><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button> 
                   <button  id ="likeBtn" class="likeBtn" ><img src="https://img.icons8.com/nolan/64/like.png"/></button>                   
                   <span id="like"></span>
-                  <span id="score">0</span> Like                  
+                  <span id="score">${(post.like).length}</span> Like                  
                 </div>
                 </div>`
         const edit = rootElement.querySelectorAll("#edit")
@@ -176,7 +177,7 @@ export const Home = () => {
                     like: firebase.firestore.FieldValue.arrayUnion(firebase.auth().currentUser.uid)
 
                 })
-                console.log(docRef.id)
+
 
             })
         })
