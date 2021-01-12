@@ -188,7 +188,9 @@ export const generalFeed = () => {
     </nav>
   </header>
   <div class='box-feed'>
-    <section class='profile-area'>
+    
+      <div class='share-and-post'>
+      <section class='profile-area'>
       <div class='profile-area-theme'><img class='theme-image' src='../../img/capa.jpeg'></div>
         <figure class='profile-area-photo-box'>
            <img class='photo'>
@@ -198,7 +200,6 @@ export const generalFeed = () => {
           <h3 id='name-user'></h3>
         </div>
     </section>
-      <div class='share-and-post'>
         <section class='share-area'>
           <textarea required id='postText' placeholder='O que você quer compartilhar?'></textarea>
            <div class='share-area-buttons'>

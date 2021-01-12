@@ -47,24 +47,23 @@ textarea {
 	margin: 8px auto;
 	background-color: #9a55a6;
 	color: white;
-	outline:none; 
+	outline: none;
 	border: solid #9a55a6;
 	border-radius: 20px;
 	padding: 5px;
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
 	font-weight: 600;
-	
-  }
-  .or-area {
+}
+.or-area {
 	font-family: 'Archivo Black', sans-serif;
 	color: rgb(142, 142, 142);
 	font-size: 13px;
 	line-height: 15px;
 	margin: 0 18px;
 	text-transform: uppercase;
-  }
+}
 
-  .publish-btn {
+.publish-btn {
 	border: solid #9a55a6;
 	width: 150px;
 	border-radius: 20px;
@@ -73,11 +72,10 @@ textarea {
 	outline: none;
 	font-weight: 600;
 	color: white;
-	background-color:#9a55a6;
-	}
+	background-color: #9a55a6;
+}
 
-  
-  .logos-home {   /*icon-large*/
+.logos-home {
 	width: 220px;
 	height: 150px;
 }
@@ -98,7 +96,6 @@ textarea {
 	width: 15px;
 	margin-left: 270px;
 }
-
 .login-area {
 	margin-top: 12px;
 	padding: 14px 16px;
@@ -162,7 +159,6 @@ textarea {
 .icon-logo {
 	margin-top: -15px;
 	width: 150px;
-	
 }
 
 .icon-circle {
@@ -246,7 +242,7 @@ textarea {
 
 .title-post-box {
 	font-size: 0.8em;
-	background-color: lightgray;
+	background-color: rgb(203, 239, 250);
 	display: flex;
 	justify-content: space-between;
 }
@@ -283,8 +279,6 @@ textarea {
 	opacity: 0.6;
 }
 
-
-
 .delete-btn {
 	border: none;
 	outline: none;
@@ -302,8 +296,6 @@ textarea {
 	padding-right: 40px;
 	padding-bottom: 7px;
 }
-
-/*-------------------------------------*/
 
 .footer-post-box {
 	display: flex;
@@ -339,24 +331,22 @@ textarea {
 
 .send-comment {
 	border: solid WHITE;
-    width: 100px;
-    border-radius: 20px;
-    padding: 5px;
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
-    outline: none;
-    font-weight: 600;
-    color: white;
+	width: 100px;
+	border-radius: 20px;
+	padding: 5px;
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+	outline: none;
+	font-weight: 600;
+	color: white;
 	background-color: #9a55a6;
 	margin-left: 326.5px;
 }
 
-	.comment-icon {
-		height: 20px;
-		width: 20px;
-		margin-right: 5px;
-
-	}
-	
+.comment-icon {
+	height: 20px;
+	width: 20px;
+	margin-right: 5px;
+}
 
 .comments-box-name {
 	margin-bottom: 7px;
@@ -368,8 +358,6 @@ textarea {
 	display: none;
 }
 
-/*-------------------------------------*/
-
 .transparency {
 	opacity: 0;
 }
@@ -380,9 +368,4 @@ textarea {
 
 .display-none {
 	display: none;
-  }
-  
-  
-  
-  
-  
+}
