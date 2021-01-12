@@ -139,6 +139,12 @@ const loadPostTemplate = (postList) => {
     <div class='comments-box comments-box-textarea'>
       <textarea placeholder='Deixe seu comentário' id="text-comment"></textarea>
       <br><button id="send-comment">Enviar</button>
+      <div aria-label="Publicar" class="oajrlxb2 c98fg2ug gcieejh5 bn081pho humdl8nn izx4hr6d rq0escxv rj84mg9z j83agx80 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys d1544ag0 qt6c0cv9 tw6a2znq i1ao9s8h esuyzwwr f1sip0of lzcic4wl l9j0dhe7 abiwlrkh p8dawk7l beltcj47 p86d2i9g aot14ch1 kzx2olss cbu4d94t taijpn5t ni8dbmo4 stjgntxs k4urcfbm tv7at329" 
+      role="button" tabindex="-1" aria-disabled="true"><div class="rq0escxv l9j0dhe7 du4w35lb j83agx80 pfnyh3mw taijpn5t bp9cbjyn owycx6da btwxx1t3 c4xchbtz by2jbhx6"><div class="rq0escxv l9j0dhe7 du4w35lb d2edcug0 hpfvmrgz j83agx80 j5wkysh0 hytbnt81"><span class="d2edcug0 hpfvmrgz qv66sw1b c1et5uql gk29lw5a a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d9wwppkn fe6kdd0r mau55g9w c8b282yb hrzyx87i gfeo3gy3 a3bd9o3v lrazzd5p erlsw9ld" dir="auto"><span class="a8c37x1j ni8dbmo4 stjgntxs l9j0dhe7 ltmttdrg g0qnabr5">Publicar</span></span></div></div><div class="n00je7tq arfg74bv qs9ysxi8 k77z8yql i09qtzwb n7fi1qx3 b5wmifdl hzruof5a pmk7jnqg j9ispegn kr520xx4 c5ndavph art1omkt ot9fgl3s" data-visualcompletion="ignore"></div></div>
+
+
+
+
     </div>
     ${(comments.length > 0 && comments.map((comment) => `
     <div class='comments-box'>
@@ -170,8 +176,8 @@ export const generalFeed = () => {
   <header>
     <nav class='navbar-page-feed'>
       <figure class='navbar-page-item-logo'>
-        <img class='icon-logo' src='../../securityAmarelo.png' alt="Logotipo">
-      </figure>
+        <img class='icon-logo' src='../../img/security.png' alt="Logotipo">
+      </figure>                     
       <div>
         <button class='circle signOut yellow'>
         <img class='icon-circle' src='../../img/logout.png'>
@@ -181,7 +187,7 @@ export const generalFeed = () => {
   </header>
   <div class='box-feed'>
     <section class='profile-area'>
-      <div class='profile-area-theme'><img class='theme-image' src='../../img/capa.jpg'></div>
+      <div class='profile-area-theme'><img class='theme-image' src='../../img/capa.jpeg'></div>
         <figure class='profile-area-photo-box'>
            <img class='photo'>
            <input type="file" id="input-file-profileImg" class='input-file-profileImg transparency' accept=".jpg, .jpeg, .png">

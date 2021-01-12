@@ -19,6 +19,7 @@ input {
 textarea {
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: transparent;
+	resize: none;
 }
 
 .box {
@@ -28,16 +29,6 @@ textarea {
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-}
-
-.btn {
-	border: solid #9a55a6;
-	width: 150px;
-	border-radius: 20px;
-	padding: 5px;
-	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
-	outline: none;
-	font-weight: 600;
 }
 
 .btn:hover {
@@ -57,12 +48,16 @@ textarea {
 	background-color: #9a55a6;
 	color: white;
 	outline:none; 
+	border: solid #9a55a6;
+	border-radius: 20px;
+	padding: 5px;
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+	font-weight: 600;
+	
   }
   .or-area {
 	font-family: 'Archivo Black', sans-serif;
-	color: #8e8e8e;
-	flex-grow: 0;
-	flex-shrink: 0;
+	color: rgb(142, 142, 142);
 	font-size: 13px;
 	line-height: 15px;
 	margin: 0 18px;
@@ -70,8 +65,17 @@ textarea {
   }
 
   .publish-btn {
+	border: solid #9a55a6;
 	width: 150px;
-  }
+	border-radius: 20px;
+	padding: 5px;
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+	outline: none;
+	font-weight: 600;
+	color: white;
+	background-color:#9a55a6;
+	}
+
   
   .logos-home {   /*icon-large*/
 	width: 220px;
@@ -111,7 +115,7 @@ textarea {
 }
 
 .navbar-page-feed {
-	border-bottom: 2px solid #49a562;
+	border-bottom: 2px solid #a54991;
 	display: flex;
 	justify-content: space-between;
 	padding: 5px 30px;
@@ -123,7 +127,7 @@ textarea {
 	padding: 20px;
 	margin: 10px 30px;
 	border: 1px solid lightgrey;
-	border-radius: 5px;
+	border-radius: 3px;
 }
 
 .post-area,
@@ -131,7 +135,7 @@ textarea {
 	padding: 10px;
 	margin: 10px 30px;
 	border: 1px solid lightgrey;
-	border-radius: 5px;
+	border-radius: 3px;
 }
 
 .share-area,
@@ -151,10 +155,9 @@ textarea {
 }
 
 .icon-logo {
-	border-radius: 0px;
-	width: 28px;
-	height: 28px;
-	margin-right: 5px;
+	margin-top: -15px;
+	width: 150px;
+	
 }
 
 .icon-circle {
@@ -197,7 +200,8 @@ textarea {
 .share-area textarea {
 	padding: 10px;
 	border: 1px solid lightgrey;
-	border-radius: 5px;
+	border-radius: 3px;
+	resize: none;
 }
 
 .share-area,
@@ -234,6 +238,7 @@ textarea {
 .title-post-box,
 .post-area-text {
 	padding: 5px 10px;
+	resize: none;
 }
 
 .title-post-box {
@@ -324,7 +329,7 @@ textarea {
 }
 
 #send-comment {
-	background-color: #49a562;
+	background-color: #fe4bef;
 	border: none;
 	color: white;
 	padding: 3px;
