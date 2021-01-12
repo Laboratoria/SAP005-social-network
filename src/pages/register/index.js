@@ -66,11 +66,6 @@ export const Register = () => {
             });
         });
     }
-    if (user.photoUrl === null) {
-      user.photoUrl = '../assets/Phot_Default';
-    } else {
-      return user;
-    }
   });
   return register;
 };

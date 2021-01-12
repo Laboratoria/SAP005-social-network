@@ -33,7 +33,7 @@ export const Home = () => {
   const email = home.querySelector('#email-input');
   const password = home.querySelector('#password-home');
 
-  const user = firebase.auth().currentUser;
+  const userHome = firebase.auth().currentUser;
 
   // Conectar um usuário com endereço de e-mail e senha
   btn.addEventListener('click', (e) => {
@@ -42,7 +42,7 @@ export const Home = () => {
       .auth()
       .signInWithEmailAndPassword(email.value, password.value)
       .then(() => {
-        if (user !== null) {
+        if (userHome !== null) {
           onNavigate('/profile');
         } else {
           onNavigate('/profile');
@@ -70,10 +70,10 @@ export const Home = () => {
       .then(() => {
         const uid = firebase.auth().currentUser.uid;
         const user = {
-          photoUrl: firebase.auth().currentUser.photoURL,
           displayName: firebase.auth().currentUser.displayName,
           email: firebase.auth().currentUser.email,
           phoneNumber: firebase.auth().currentUser.phoneNumber,
+          photoUrl: firebase.auth().currentUser.photoURL,
         };
         firebase
           .firestore().collection('users').doc(uid).set({ user });
@@ -85,5 +85,6 @@ export const Home = () => {
         alert(error.message);
       });
   });
+
   return home;
 };
