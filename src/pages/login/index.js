@@ -1,4 +1,6 @@
-import { onNavigate } from '../../utils/history.js'
+/* eslint-disable indent */
+import { onNavigate } from '../../utils/history.js';
+
 
 export const Login = () => {
     const rootElement = document.createElement('div');

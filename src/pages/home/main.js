@@ -32,16 +32,15 @@ export const Home = () => {
     `;
     var docRef = db.collection("post").doc();
     const userId = localStorage.getItem("uid");
-
-
     db.collection('users').doc(userId).get().then((docRef) => {
         rootElement.querySelector("#imgProfile").setAttribute("src", docRef.data().image)
         rootElement.querySelector("#nameUser").innerHTML = `${ docRef.data().name }`
 
-
-
-
     });
+
+    const postLoad = () => {
+
+    }
 
     db.collection("post").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -51,7 +50,9 @@ export const Home = () => {
         });
     });
 
-
+    window.addEventListener('load', () => {
+        postLoad()
+    });
 
     const textPost = rootElement.querySelector("#textPost");
     let feed = '';
@@ -70,15 +71,19 @@ export const Home = () => {
             const userId = firebase.auth().currentUser.uid
             localStorage.setItem("uid", userId);
 
+
             db.collection("post").doc(docRef.id).set({
                 ...post,
                 data: (new Date()).toLocaleString(),
                 id: docRef.id,
 
             }).then(() => {
+
                 postFeed({
+
                     ...post,
                     displayName: firebase.auth().currentUser.displayName
+
                 })
 
             })
@@ -150,12 +155,11 @@ export const Home = () => {
                         <button class="save" id =${post.id}><img src="https://img.icons8.com/nolan/64/save-close.png"/></button>                       
                     </div>
                  </div>
-                 <div class="containerButton" ">
+                 <div id= "containerButton" class="containerButton" >
                  <button class="delete" id=${post.id}><img src="https://img.icons8.com/nolan/64/delete-forever.png"/></button>
                  <button class="edit" id ="edit"><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button> 
-                  <button  id =${post.id} class="likeBtn" ><img src="https://img.icons8.com/nolan/64/like.png"/></button>                   
-                  <span id="like"></span>
-                  <span id="score">${post.like.length}</span> Like                  
+                  <button  id =${post.id} class="likeBtn" ><img src="https://img.icons8.com/nolan/64/like.png"/></button>    
+                  <span id=${post.like} class ="spanLike">${post.like.length}</span>                 
                 </div>
                 </div>`
         const edit = rootElement.querySelectorAll("#edit")
@@ -191,11 +195,19 @@ export const Home = () => {
 
         const likeButton = rootElement.querySelectorAll(".likeBtn")
         likeButton.forEach((button) => {
-            button.addEventListener("click", (e) => {
+            console.log(button)
+            button.addEventListener("click", async(e) => {
                 e.preventDefault()
-                console.log(button.id)
+                const containerFeed = e.target.parentNode.parentNode.parentNode
+                console.log(post.like)
                 db.collection("post").doc(button.id).update({
                     like: firebase.firestore.FieldValue.arrayUnion(firebase.auth().currentUser.uid)
+                }).then(() => {
+
+                    const text = `${post.like.length} `
+                    const elementLike = containerFeed.querySelector(".spanLike")
+                    elementLike.innerHTML = text
+
                 })
 
             })
@@ -214,6 +226,7 @@ export const Home = () => {
                 db.collection("post").doc(button.id).delete()
                     .then(function() {
                         containerFeed.remove()
+
                         console.log("Document successfully deleted!");
                     }).catch(function(error) {
                         console.error("Error removing document: ", error);
@@ -237,6 +250,14 @@ export const Home = () => {
 
         containerFeed.querySelector(".save").style.display = "none";
         containerFeed.querySelector(".editText").setAttribute("disabled", "disabled")
+    }
+    const like = (containerFeed) => {
+
+        const postLike = containerFeed.querySelector("#containerButton")
+        const text = containerFeed.createElement("span").innerHTML = `${post.like.length}`
+        postLike.appendChild(text)
+
+        console.log(text)
     }
 
 
