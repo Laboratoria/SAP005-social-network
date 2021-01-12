@@ -238,7 +238,7 @@ textarea {
 
 .title-post-box {
 	font-size: 0.8em;
-	background-color: lightgray;
+	background-color: rgb(203, 239, 250);
 	display: flex;
 	justify-content: space-between;
 }
