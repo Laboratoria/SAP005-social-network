@@ -33,8 +33,6 @@ export const Home = () => {
   const email = home.querySelector('#email-input');
   const password = home.querySelector('#password-home');
 
-  const user = firebase.auth().currentUser;
-
   // Conectar um usuário com endereço de e-mail e senha
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -43,9 +41,9 @@ export const Home = () => {
       .signInWithEmailAndPassword(email.value, password.value)
       .then(() => {
         if (user !== null) {
-          onNavigate('/post');
+          onNavigate('/profile');
         } else {
-          onNavigate('/post');
+          onNavigate('/profile');
         }
       })
       .catch((error) => {
@@ -68,12 +66,22 @@ export const Home = () => {
       .auth()
       .signInWithPopup(provider)
       .then(() => {
+        const uid = firebase.auth().currentUser.uid;
+        const user = {
+          photoURL: firebase.auth().currentUser.photoURL,
+          displayName: firebase.auth().currentUser.displayName,
+          email: firebase.auth().currentUser.email,
+          phoneNumber: firebase.auth().currentUser.phoneNumber,
+        };
+        firebase
+          .firestore().collection('users').doc(uid).set({ user });
+      })
+      .then(() => {
         onNavigate('/profile');
       })
       .catch((error) => {
         alert(error.message);
       });
   });
-
   return home;
 };

@@ -13,12 +13,11 @@ export const Register = () => {
   <form> 
     <div class="form-container">
     <h3 class='error' id='registerError'></h3>
-      <input type='text' id='name' placeholder='Nome'/>
+      <input type='text' id='displayName' placeholder='Nome'/>
       <input type='email' id='email' placeholder='E-mail'/>
-      <input type='date' id='date' placeholder='dd/mm/aaaa'/>
-      <input type="text" id="city" placeholder="Cidade"/>
-      <input type="password" id="password" placeholder="Senha"/>
-      <input type="password" id="confirmPwd" placeholder="Confirmar Senha"/>
+      <input type='number' id='phoneNumber' placeholder='()999999999'/>
+      <input type='password' id='password' placeholder='Senha'/>
+      <input type='password' id='confirmPwd' placeholder='Confirmar Senha'/>
       <button id="btnRegister">Registrar</button>
     <a href='/' class='link-exit'>Voltar</a> 
     </div>
@@ -30,10 +29,10 @@ export const Register = () => {
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
     const user = {
-      name: register.querySelector('#name').value,
+      displayName: register.querySelector('#displayName').value,
       email: register.querySelector('#email').value,
-      city: register.querySelector('#city').value,
-      date: register.querySelector('#date').value,
+      phoneNumber: register.querySelector('#phoneNumber').value,
+      photoUrl: '',
     };
 
     const password = register.querySelector('#password').value;
@@ -50,7 +49,9 @@ export const Register = () => {
             .currentUser
             .sendEmailVerification()
             .then(() => {
-              firebase.firestore().collection('users').add({ user });
+              const uid = (firebase.auth().currentUser.uid);
+              firebase
+                .firestore().collection('users').doc(uid).set({ user });
             })
             .then(() => {
               alert('Cadastro realizado com sucesso!');
