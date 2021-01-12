@@ -33,18 +33,28 @@ export const Feed = () => {
     const saveTextPost = textPost.value;
     console.log("post: " + saveTextPost);
 
-    docRef.set({
-      textPost: saveTextPost
-    }).then(() => {
-      docRef.get().then(function(doc){
-        if(doc && doc.exists){
-          const myData = doc.data();
-          outputPost.innerHTML = myData.textPost;
-        }
-      }).cath((error) => {
-        console.log("oh no!", error)
-      })
-    })
+    const user = firebase.auth().currentUser;
+    const uid = user.uid
+    firebase.firestore().doc(`/post/${uid}`).set({
+      name: user.displayName,
+      text: saveTextPost,
+    });
+
+
+
+    // docRef.set({
+    //  name: firebase.auth().currentUser.displayName,
+    //   textPost: saveTextPost
+    // }).then(() => {
+    //   docRef.get().then(function(doc){
+    //     if(doc && doc.exists){
+    //       const myData = doc.data();
+    //       outputPost.innerHTML = myData.textPost;
+    //     }
+    //   }).cath((error) => {
+    //     console.log("oh no!", error)
+    //   })
+    // })
   });
 
   return rootElement;
