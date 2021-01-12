@@ -1,11 +1,12 @@
 import { onNavigate } from '../../utils/history.js';
+import { loginPrincipal, loginGoogle } from '/services/index.js';
 
 export const Login = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
       <div class="container-login dysplay-template">
       <div class="box-login">
-       <img src="images/olimpo.png" class="login-icon" id='homeFeed'> 
+       <img src="images/olimpo.png" class="login-icon"> 
        <form  id ="formLogin" class="login">
          <input id="txtEmail" class="btn" type="text"  placeholder="Email" >
          <input id="txtPassword" class="btn" type="password" placeholder="Senha" autocomplete="off" >     
@@ -17,24 +18,10 @@ export const Login = () => {
        </form>
      <div>
   `;
-  
-  const bottunRegistry = rootElement.querySelector('#registry');
-  bottunRegistry.addEventListener('click', ()=>{
-    onNavigate('/registry');
-    ;
-  })
 
-  const bottunLogin = rootElement.querySelector('#homeFeed');
-  bottunLogin.addEventListener('click', () => {
-    onNavigate('/feed');
-  })
-  
-  const btnGoogle = rootElement.querySelector('#googleLogin');
-  btnGoogle.addEventListener('click', (event) => {
-    event.preventDefault();
-    const proverAcesso = new firebase.auth.GoogleAuthProvider();
-    proverAcesso.addScope('https://www.googleapis.com/auth/plus.login');
-    firebase.auth().signInWithRedirect(proverAcesso);
+  const bottunRegistry = rootElement.querySelector('#registry');
+  bottunRegistry.addEventListener('click', () => {
+    onNavigate('/registry');
   });
 
   const txtEmail = rootElement.querySelector('#txtEmail');
@@ -42,14 +29,16 @@ export const Login = () => {
   const btnSignUp = rootElement.querySelector('#signup-btn');
 
   btnSignUp.addEventListener('click', (event) => {
-    event.preventDefault()
-    // pegando os valores do email e senha
+    event.preventDefault();
     const email = txtEmail.value;
     const senha = txtPassword.value;
-    const auth = firebase.auth();
-    // Entrar
-    const promise = auth.signInWithEmailAndPassword(email, senha);
-    promise.catch((e) => console.log(e.message));
+    loginPrincipal(email, senha);
+  });
+
+  const btnGoogle = rootElement.querySelector('#googleLogin');
+  btnGoogle.addEventListener('click', (event) => {
+    event.preventDefault();
+    loginGoogle();
   });
 
   return rootElement;
