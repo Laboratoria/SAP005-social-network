@@ -33,13 +33,12 @@ export const Login = () => {
       rootElement.querySelector('#emailArea').value,
       rootElement.querySelector('#passwordArea').value,
     );
-    onNavigate('/signup');
+    onNavigate('/generalFeed');
   });
 
   const googleButton = rootElement.querySelector('.btnGoogle');
   googleButton.addEventListener('click', () => {
     loginWithGoogle();
-    onNavigate('/generalFeed');
   });
 
   const linkSignUp = rootElement.querySelector('#sign-up-login');
