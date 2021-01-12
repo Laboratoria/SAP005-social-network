@@ -1,4 +1,6 @@
-import { Navigation } from "/services/index.js"
+import {
+  Navigation
+} from "/services/index.js"
 
 export const Feed = () => {
   const nav = Navigation();
@@ -15,7 +17,6 @@ export const Feed = () => {
       <button id="creatPost" >Post</button>
     </form>
     <div>
-      <b><p id="displayName"></p></b> 
       <p id="outputPost"></p>
     </div>
     `;
@@ -23,14 +24,10 @@ export const Feed = () => {
   };
   rootElement.appendChild(content());
 
-  const docFirestore = firebase.firestore();
-  const docRef = docFirestore.doc("post/postData");
-
   const textPost = rootElement.querySelector("#textPost");
   const creatPost = rootElement.querySelector("#creatPost");
 
   const outputPost = rootElement.querySelector("#outputPost");
-  const displayName = rootElement.querySelector("#displayName")
 
   creatPost.addEventListener("click", (event) => {
     event.preventDefault();
@@ -39,10 +36,23 @@ export const Feed = () => {
 
     const user = firebase.auth().currentUser;
     const uid = user.uid
-    firebase.firestore().doc(`/post/${uid}`).set({
+    const docFirestore = firebase.firestore();
+    const docRef = docFirestore.doc(`/post/${uid}`);
+
+    docRef.set({
       name: user.displayName,
       text: saveTextPost,
-    });
+      date: (new Date()).toLocaleString(),
+    }).then(() => {
+      docRef.get().then(function (doc) {
+        if (doc && doc.exists) {
+          const myData = doc.data();
+          outputPost.innerHTML = `${myData.text} <br> ${myData.date} <br> ${ myData.name}`;
+        }
+      }).cath((error) => {
+        console.log("oh no!", error)
+      })
+    })
 
 
 
