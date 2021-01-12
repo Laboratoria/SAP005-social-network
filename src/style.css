@@ -173,17 +173,18 @@ textarea {
 .name-profile-area {
 	width: 100%;
 	text-align: center;
+	font-family: Arial;
+	font-weight: 400;
 }
 
 .profile-area-photo-box {
 	width: 83px;
-	overflow: hidden;
 }
 
 .photo {
-	width: 63px;
-	height: 63px;
-	border-radius: 34px;
+	width: 120px;
+	height: 113px;
+	border-radius: 89px;
 	border: 1px solid black;
 }
 
