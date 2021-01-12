@@ -1,3 +1,4 @@
+import { emailLogin, googleLogin, subscribe } from '../../services/index.js';
 
 const modal = document.getElementById('boxLogin');
 window.onclick = function(event) {
@@ -5,7 +6,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-window.onload =
+window.onload = () => {
 document.getElementById('main-page').innerHTML = `
 
 <div class="inicial-page" id="inicial-page">
@@ -36,7 +37,7 @@ document.getElementById('main-page').innerHTML = `
   </div>
 
   <section id='login-button' class="half-screen">
-    <button onclick="document.getElementById('box-login').style.display='block'" style="width:auto;">Login</button>
+    <button id="login-btn">Login</button>
     <div id="box-login" class="modal">
 
       <form class="modal-content animate" action="" method="post">
@@ -68,3 +69,28 @@ document.getElementById('main-page').innerHTML = `
     </div>
   </section>
   `
+  
+
+  document.getElementById('subscribe').addEventListener("click", (e) => {
+    e.preventDefault();
+   let email = document.getElementById('new-email').value;
+   let password = document.getElementById('password-register').value;
+   let userName = document.getElementById('name').value;
+    subscribe(email, password, userName);
+    })
+    const modal = document.getElementById('box-login') ;
+    const goFeed = document.getElementById('feed-in');
+
+    document.getElementById('login-btn').addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.style.display= 'block';
+      modal.style.width = 'auto';
+
+      goFeed.addEventListener("click", (e) => {
+      e.preventDefault();
+      let email = document.getElementById('email').value;
+      let password = document.getElementById ('password').value;
+      emailLogin(email, password);
+      })
+    })
+}

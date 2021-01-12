@@ -1,4 +1,5 @@
-import { getPosts } from '../../services/index.js';
+import { getPosts, Like } from '../../services/index.js';
+
 export const Feed = () => {
     // Coloque sua página
    
@@ -26,30 +27,47 @@ export const Feed = () => {
         <input type="submit" id='post-it' class="button-feed" value="Postar">
       </form>
     </div>
-     <div id='posts'>
-     <div class='user-post'> </div>
-       <div class='another-user-post'>
-        <img class='another-user-photo' src='./pages/feed/img/profile/emilia-clarke.png' alt='Foto do usuário que postou'>
-        <p>Daneuris Targuerian</p>
-       </div>
-        <p>
-          I will take what's mine! 
-          <br>
-          DRACARIS!!! 
-        </p>
-     <nav>
-       <ul class='friends-post'>
-         <li><button id='like' title='Curti' class='react-button'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'></button></li> 
-         <li><button id='love' title='Amei' class='react-button'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'></button></li> 
-         <li><button id='funny' title='Hahaha' class='react-button'><img src='./pages/feed/img/reacts/haha.png' alt='botao para rir'></button></li> 
-         <li><button id='congratulations' title='Parabéns' class='react-button'><img src='./pages/feed/img/reacts/claps.png' alt='botao para parabenizar'></button></li> 
-      </ul>
-   </nav>
+    <div id='posts'>
+    </div>
      </div>
-
     `;
-    getPosts()
-    return rootElement;
-  };
+   
+  const loadPost = (post) => {
+    
+    const loop = Array.from(Array(post.length).keys());
+    loop.forEach(() =>
+    document.getElementById('posts').innerHTML  += `
+ <!-- <p>${post.data().name} <br> ${post.data().date}</p> -->
+
+  </div>
+   <p>
+     ${post.data().post_text}
+   </p>
+    <nav>
+      <ul class='friends-post'>
+        <li><button id='like' title='Curti' class='react-button like'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'>${post.data().likes.length}</button></li> 
+        <li><button id='love' title='Amei' class='react-button love'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'></button></li>  
+    </ul>
+    </nav> `
+  )
+}
+  getPosts().then(querySnapshot => {
+    querySnapshot.forEach((post) => {
+      loadPost(post)
+    });
+  });
   
+  document.querySelectorAll('.like').forEach((e) =>
+    e.addEventListener('click', (e) => {
+        const likeButton = e.target.parentNode.querySelector('.like')
+        const crtUser = firebase.auth().currentUser.uid;
+        Like(likeButton.dataset.id, crtUser)
+        onNavigate('/feed')     
+    })
+  )
+
+  return rootElement;
+};
+
+
   
