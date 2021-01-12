@@ -16,7 +16,7 @@ export const Home = () => {
             <button class = "profilePhoto" id="profilePhoto" for = "upload"><img src="https://img.icons8.com/ios/50/ffffff/save--v1.png"/></button>    
             <button id = "exit" class = "exit"><img src="https://img.icons8.com/ios-filled/50/ffffff/logout-rounded-up.png"/></button>                              
         </div>
-      </div>     
+      </div>   
     </div>  
     <div>
     <img class="perfil" src="./img/avatar2.png" width="100" id="imgProfile" >                
