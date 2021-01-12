@@ -33,6 +33,8 @@ export const Home = () => {
   const email = home.querySelector('#email-input');
   const password = home.querySelector('#password-home');
 
+  const user = firebase.auth().currentUser;
+
   // Conectar um usuário com endereço de e-mail e senha
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -68,7 +70,7 @@ export const Home = () => {
       .then(() => {
         const uid = firebase.auth().currentUser.uid;
         const user = {
-          photoURL: firebase.auth().currentUser.photoURL,
+          photoUrl: firebase.auth().currentUser.photoURL,
           displayName: firebase.auth().currentUser.displayName,
           email: firebase.auth().currentUser.email,
           phoneNumber: firebase.auth().currentUser.phoneNumber,

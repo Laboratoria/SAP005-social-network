@@ -32,11 +32,12 @@ export const Register = () => {
       displayName: register.querySelector('#displayName').value,
       email: register.querySelector('#email').value,
       phoneNumber: register.querySelector('#phoneNumber').value,
-      photoUrl: '',
+      photoUrl: null,
     };
 
     const password = register.querySelector('#password').value;
     const confPassword = register.querySelector('#confirmPwd').value;
+
     if (password !== confPassword) {
       alert('Senha informada, esta divergente.');
     } else {
@@ -64,6 +65,11 @@ export const Register = () => {
               alert(error.message);
             });
         });
+    }
+    if (user.photoUrl === null) {
+      user.photoUrl = '../assets/Phot_Default';
+    } else {
+      return user;
     }
   });
   return register;
