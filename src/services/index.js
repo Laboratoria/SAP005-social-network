@@ -1,8 +1,10 @@
-import { onNavigate } from "../../utils/history.js"
+import {
+  onNavigate
+} from "../../utils/history.js"
 
 const auth = firebase.auth()
 
-function userInf () {
+function userInf() {
   const user = auth.currentUser;
   const uid = user.uid
   firebase.firestore().doc(`/users/${uid}`).set({
@@ -30,9 +32,7 @@ export const loginPrincipal = (email, senha) => {
     .then(() => {
       onNavigate('/feed');
       const user = auth.currentUser;
-      const uid = user.uid
-      const name = firebase.firestore().collection('users').doc(`${uid.name}!`);
-      alert(`Bem-vindo ao Olimpo, ${name}!`);
+      alert(`Bem-vindo ao Olimpo, ${user.displayName}!`);
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -43,14 +43,24 @@ export const loginPrincipal = (email, senha) => {
 export const newRegistry = (email, senha, nameUser) => {
   auth.createUserWithEmailAndPassword(email, senha)
     .then(() => {
-      onNavigate('/login');
-      alert(`Usuário cadastrado com sucesso!`);
       const user = auth.currentUser;
-      const uid = user.uid
-      firebase.firestore().doc(`/users/${uid}`).set({
-      email: user.email,
-      name: nameUser,
-  })
+
+      user.updateProfile({
+        displayName: nameUser,
+
+      }).then(function () {
+        alert(`${user.displayName} sua conta foi criada com sucesso!`);
+        onNavigate('/login');
+
+        const uid = user.uid
+        firebase.firestore().doc(`/users/${uid}`).set({
+          email: user.email,
+          name: nameUser,
+        })
+      }).catch(function (error) {
+        const errorMessage = error.message;
+        alert(`${errorMessage}`);
+      });
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -103,4 +113,3 @@ export const Navigation = () => {
 
   return navigation;
 }
-
