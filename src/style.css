@@ -47,24 +47,23 @@ textarea {
 	margin: 8px auto;
 	background-color: #9a55a6;
 	color: white;
-	outline:none; 
+	outline: none;
 	border: solid #9a55a6;
 	border-radius: 20px;
 	padding: 5px;
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
 	font-weight: 600;
-	
-  }
-  .or-area {
+}
+.or-area {
 	font-family: 'Archivo Black', sans-serif;
 	color: rgb(142, 142, 142);
 	font-size: 13px;
 	line-height: 15px;
 	margin: 0 18px;
 	text-transform: uppercase;
-  }
+}
 
-  .publish-btn {
+.publish-btn {
 	border: solid #9a55a6;
 	width: 150px;
 	border-radius: 20px;
@@ -73,11 +72,10 @@ textarea {
 	outline: none;
 	font-weight: 600;
 	color: white;
-	background-color:#9a55a6;
-	}
+	background-color: #9a55a6;
+}
 
-  
-  .logos-home {   /*icon-large*/
+.logos-home {
 	width: 220px;
 	height: 150px;
 }
@@ -157,7 +155,6 @@ textarea {
 .icon-logo {
 	margin-top: -15px;
 	width: 150px;
-	
 }
 
 .icon-circle {
@@ -294,8 +291,6 @@ textarea {
 	padding-bottom: 7px;
 }
 
-/*-------------------------------------*/
-
 .footer-post-box {
 	display: flex;
 	flex-direction: column;
@@ -329,16 +324,16 @@ textarea {
 }
 
 .send-comment {
-		margin: 8px auto;
-		background-color: #9a55a6;
-		color: white;
-		outline: none;
-		border: solid #9a55a6;
-		border-radius: 20px;
-		padding: 5px;
-		box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
-		font-weight: 600;
-	}
+	margin: 8px auto;
+	background-color: #9a55a6;
+	color: white;
+	outline: none;
+	border: solid #9a55a6;
+	border-radius: 20px;
+	padding: 5px;
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+	font-weight: 600;
+}
 
 .comments-box-name {
 	margin-bottom: 7px;
@@ -350,8 +345,6 @@ textarea {
 	display: none;
 }
 
-/*-------------------------------------*/
-
 .transparency {
 	opacity: 0;
 }
@@ -362,9 +355,4 @@ textarea {
 
 .display-none {
 	display: none;
-  }
-  
-  
-  
-  
-  
+}

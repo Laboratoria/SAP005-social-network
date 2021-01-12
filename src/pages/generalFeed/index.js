@@ -128,11 +128,11 @@ const loadPostTemplate = (postList) => {
       </div>
        
       <div class='footer-post-icons-items'>
-        <img class='post-area-icon' src="../../img/comments.png" alt="Comments Icon">
+        <img class='post-area-icon' src="./img/comment.png" alt="Comments Icon">
         <div>${comments.length}</div>
       </div>
       
-      <div class='edit-btn'><img class='post-area-icon' src="../../img/pencil.png" alt="Edit Icon"></div>
+      <div class='edit-btn'><img class='post-area-icon' src="./img/pencil.png" alt="Edit Icon"></div>
     </section>
 
     <section class='footer-post-comments-box'>
@@ -144,11 +144,12 @@ const loadPostTemplate = (postList) => {
        
     </div>
     ${(comments.length > 0 && comments.map((comment) => `
-    <div class='comments-box'>
-     <p class='comments-box-name'>${comment.name}</p>
-     <p>${comment.text}</p>
-    </div>
-     `)) || ''}
+      <div class='comments-box'>
+      <p class='comments-box-name'>${comment.name}</p>
+      <p>${comment.text}</p>
+      </div>
+      `)) || ''}
+
     </section>
   </footer>
   `;
