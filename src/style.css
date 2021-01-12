@@ -263,11 +263,6 @@
         font-family: Arial, Helvetica, sans-serif;
     }
     
-    .postFeed p {
-        padding: 1% 3% 1% 3%;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    
     .containerButton {
         margin-left: 40%;
     }
@@ -448,26 +443,45 @@
         }
     }
     
-    .editText,
-    .save {
+    .editArea {
         display: none;
     }
     
-    .editArea {
+    #editText {
         display: flex;
     }
+    /* .editTextClick {
+        display: none;
+    } */
     
-    .editTextClick {
-        width: 100%;
+    .editText {
+        width: 92%;
         height: 100%;
         border-radius: 10px;
         padding: 0 1% 0 1%;
-        margin-left: 2%;
+        padding: 1% 3% 1% 3%;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+        margin-left: 1%;
+        background-color: transparent;
     }
     
-    .saveClick {
-        width: 10%;
+    .save {
+        width: 100%;
         height: 100%;
         border: none;
         background-color: transparent;
+    }
+    
+    .save img {
+        width: 30px;
+    }
+    
+    .namePost {
+        font-size: 15px;
+    }
+    
+    .containerFeed h2 {
+        display: flex;
+        align-items: center;
     }
