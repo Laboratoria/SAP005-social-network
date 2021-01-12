@@ -36,7 +36,6 @@ const showPosts = () => firebase.auth().onAuthStateChanged((user) => {
 });
 
 export const Feed = () => {
-  // Coloque sua página
   const rootElement = document.createElement('div');
   const postHtml = `
   <div>
