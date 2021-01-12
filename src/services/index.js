@@ -1,11 +1,23 @@
 import { onNavigate } from "../../utils/history.js"
 
+const auth = firebase.auth()
+
+function userInf () {
+  const user = auth.currentUser;
+  const uid = user.uid
+  firebase.firestore().doc(`/users/${uid}`).set({
+    email: user.email,
+    name: user.displayName,
+  })
+}
+
 export const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider)
-    .then((user) => {
+  auth.signInWithPopup(provider)
+    .then(() => {
       onNavigate('/feed');
-      alert(`Bem-vindo ao Olimpo, ${user.displayName}!`);
+      alert(`Bem-vindo ao Olimpo, ${auth.currentUser.displayName}!`);
+      userInf();
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -14,10 +26,13 @@ export const loginGoogle = () => {
 };
 
 export const loginPrincipal = (email, senha) => {
-  firebase.auth().signInWithEmailAndPassword(email, senha)
-    .then((user) => {
+  auth.signInWithEmailAndPassword(email, senha)
+    .then(() => {
       onNavigate('/feed');
-      alert(`Bem-vindo ao Olimpo, ${user.displayName}!`);
+      const user = auth.currentUser;
+      const uid = user.uid
+      const name = firebase.firestore().collection('users').doc(`${uid.name}!`);
+      alert(`Bem-vindo ao Olimpo, ${name}!`);
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -25,11 +40,17 @@ export const loginPrincipal = (email, senha) => {
     });
 };
 
-export const newRegistry = (email, senha) => {
-  firebase.auth().createUserWithEmailAndPassword(email, senha)
+export const newRegistry = (email, senha, nameUser) => {
+  auth.createUserWithEmailAndPassword(email, senha)
     .then(() => {
       onNavigate('/login');
-      alert(`Usuário cadastrado com sucesso! Faça seu login para acessar a rede.`);
+      alert(`Usuário cadastrado com sucesso!`);
+      const user = auth.currentUser;
+      const uid = user.uid
+      firebase.firestore().doc(`/users/${uid}`).set({
+      email: user.email,
+      name: nameUser,
+  })
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -73,12 +94,13 @@ export const Navigation = () => {
 
   const bottunSingOut = navigation.querySelector('#out');
   bottunSingOut.addEventListener('click', () => {
-    firebase.auth().signOut().then(function() {
+    auth.signOut().then(function () {
       onNavigate('/');
-    }).catch(function(error) {
+    }).catch(function (error) {
       console.log(error)
     });
   });
-  
+
   return navigation;
 }
+
