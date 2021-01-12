@@ -11,37 +11,33 @@ import { onNavigate } from '../utils/history.js';
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  const dataBase = firebase.firestore()
 
 // FUNÇÃO FIREBASE -> CADASTRO
 
-export const subscribe = () => {
-  let email = document.getElementById('new-email').value;
-  let password = document.getElementById('password-register').value;
-  let userName = document.getElementById('name').value;
+export const subscribe = (email, password, name) => {
   let userLog = firebase.auth().currentUser
 
   firebase.auth().createUserWithEmailAndPassword(email, password).then((user) => {
    console.log('usuário', user);
-  }).cath((error) => {
+  }).catch((error) => {
     let errorCode = error.code;
     let errorMessage = error.message;
     return {errorCode, errorMessage}
   })
   if(userLog != null){
-    userLog.updateProfile({displayName: userName})
+    userLog.updateProfile({displayName: name})
     console.log('Nome: ', user.displayName)
   }
 }
 
 // FUNÇÕES FIREBASE -> LOGIN
 
-export const emailLogin = () => {
-  let email = document.getElementById('email').value;
-  let password = document.getElementById ('password').value;
+export const emailLogin = (email,password) => {
 
   firebase.auth().signInWithEmailAndPassword(email, password).then(() =>{
     console.log('Usuario logado');
-  }).cath(error => {
+  }).catch(error => {
     console.log ('error', error);
   })
 }
@@ -52,7 +48,7 @@ export const googleLogin = () => {
   firebase.auth().signInWithPopup(provider).then(resposta => {
     console.log('usuário', resposta.user);
     console.log('token', resposta.credential.accessToken);
-  }).cath (erro => {
+  }).catch (erro => {
     console.log('erro', erro);
   })
 }
@@ -62,11 +58,10 @@ export const userOn = () => {
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) { 
       document.getElementById('main-page').style.display = "none";
-      document.getElementById('root').style.width = "100%"
+      document.getElementById('root').style.width = "100%";
       onNavigate('/feed');
       Post();
-      Reacts();
-      logOut();      
+      logOut();     
   } 
   else {
     document.getElementById('main-page').style.display = "block";
@@ -74,6 +69,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
  }) 
 }
+const dataStorage = dataBase.collection('users')
 
 // FUNÇÕES FIREBASE -> FEED
 export const Post = () => {
@@ -83,7 +79,7 @@ export const Post = () => {
   
      let postText = document.getElementById('write-post').value
      
-       firebase.firestore().collection('posts').add({
+        dataStorage.add({
         post_text: postText,
         id_user: firebase.auth().currentUser.uid,
         username: firebase.auth().currentUser.displayName,
@@ -94,37 +90,28 @@ export const Post = () => {
         date: new Date()
       })
       .then(function() {
-        document.querySelector('.user-post').innerHTML =
-        `<img class='another-user-photo' src='./pages/feed/img/profile/profile-exemple.jpg' 
-           alt='Foto do usuário que postou'>
-          <p> ${getPosts()} </p>`
         console.log("Post enviado com sucesso!");
       })
       .catch(function() {
         console.error("Ocorreu um erro");
       });
     })
-  }
-  
+  } 
+  let docRef = dataStorage.doc('posts')
+ 
   export const getPosts = () => {
-    firebase.firestore().collection('post').get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-         console.log(`${doc.post_text}`)
-         return doc.post_text 
-        })
-      })  
+
+    const post = dataStorage.orderBy("date", "desc")
+    return post.get()
+  
     };
   
-  export const Reacts = () => {
-  
-  document.getElementById('like').addEventListener("click", (e) => {
-      e.preventDefault();
-      console.log('Clicoooou');
-      firebase.collection('posts').update({
-       likes: firebase.firestore.FieldValue.increment(1)
-      })
+  export const Like = (id) => {
+    (id) => dataStorage.doc(id).update({
+      likes: firebase.firestore.FieldValue.increment(1)
     })
   }
+
   
   export const logOut = () => {
            
