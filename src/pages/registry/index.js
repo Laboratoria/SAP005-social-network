@@ -8,7 +8,7 @@ export const Registry = () => {
              <img src="images/olimpo.png" class="login-icon"> 
              <form  id ="formLogin" class="login">
                  <h1 >Registre-se!</h1>
-                 <input  id= "nameBtn" class="btn"  type="name" placeholder="Digite seu nome" >
+                 <input id="txtName"class="btn"  type="name" placeholder="Digite seu nome" >
                  <input id="txtEmail" class="btn" type="email" placeholder="Email" >
                  <input id="txtPassword" class="btn" type="password" placeholder="Senha de no mínimo 6 caracteres" autocomplete="off" >   
                  <button id="login-btn" class="buttonPage"> Criar conta </button>
@@ -16,7 +16,7 @@ export const Registry = () => {
          </div>
      <div>
     `;
-  const nameUser = rootElement.querySelector('#nameBtn');
+  const txtName = rootElement.querySelector('#txtName');
   const txtEmail = rootElement.querySelector('#txtEmail');
   const txtPassword = rootElement.querySelector('#txtPassword');
   const btnLogin = rootElement.querySelector('#login-btn');
@@ -24,11 +24,10 @@ export const Registry = () => {
   btnLogin.addEventListener('click', (event) => {
     event.preventDefault();
     // pegando os valores do email e senha
-    const nome = nameUser.value;
+    const nameUser = txtName.value;
     const email = txtEmail.value;
     const senha = txtPassword.value;
-    newRegistry(nome, email, senha);
-    console.log(newRegistry);
+    newRegistry(email, senha, nameUser);
   });
 
   return rootElement;

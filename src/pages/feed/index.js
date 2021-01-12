@@ -42,7 +42,7 @@ export const Feed = () => {
           outputPost.innerHTML = myData.textPost;
         }
       }).cath((error) => {
-        console.log("oh no!", error)
+        console.log("oh no!", error);
       });
     });
   });
