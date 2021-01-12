@@ -4,48 +4,24 @@ export const Register = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
   <section class="register"> 
-    <section class="logo">  
-        <img src="../../img/ada-lovelace.svg" width="175px" height="175px" alt="Desenho do rosto de Ada Lovelace em preto com um fundo redondo alaranjado">
-        <p class="theme"><span class="logoname">[Ada]</p>
+    <section class="left">  
+      <img src="../../img/ada-lovelace.svg" width="175px" height="175px" alt="Desenho do rosto de Ada Lovelace em preto com um fundo redondo alaranjado">
+      <p class="theme"><span class="logoname">[Ada]</span> Programe como uma mulher.</p>
     </section>
-    <section class="form">
-      <div class="title_container" id="title">
-        <h2>Se registre no [Ada]</h2>
-      </div>
-      <div class="form_container">
-        <form>
-            <div class="input"> <span><i aria-hidden="true" class="envelope"></i></span>
-            <input type="email" id="email" placeholder="Email" required />
-            </div>
-            <div class="input"> <span><i aria-hidden="true" class="lock"></i></span>
-            <input type="password" id="password" placeholder="Senha" required />
-            </div>
-            <div class="input"> <span><i aria-hidden="true" class="lock"></i></span>
-            <input type="password" id="passwordConfirmatio" placeholder="Confirme sua senha" required />
-            </div>
-            <div class="row">
-            <div class="col_half">
-                <div class="input"> <span><i aria-hidden="true" class="user"></i></span>
-                <input type="text" id="name" placeholder="Nome" />
-                </div>
-            </div>
-            <div class="col_half">
-                <div class="input"> <span><i aria-hidden="true" class="user"></i></span>
-                <input type="text" id="lastName" placeholder="Sobrenome" required />
-                </div>
-            </div>
-            </div>
-            <div class="input_field checkbox_option">
-                <input type="checkbox" id="cb1">
-                <label for="cb1">Concordo com os termos e condições</label>
-            </div>
-            <div class="input_field checkbox_option">
-                <input type="checkbox" id="cb2">
-                <label for="cb2">Quero me inscerver na newsletter</label>
-            </div>
-            <input class="button" id="newRegister" type="submit" value="Registrar" />
-        </form>
-      </div> 
+    <section class="right">
+      <form id="registerSingIn"> 
+          <fieldset class="right">
+            <input type="email" class="input-in-line" id="email" placeholder="Email" required />
+            <input type="password" class="input-in-line" id="password" placeholder="Senha" required />
+            <input type="password" class="input-in-line" id="passwordConfirmatio" placeholder="Confirme sua senha" required />
+            <input type="text" class="input-in-line" id="name" placeholder="Nome" />
+            <input type="text" class="input-in-line" id="lastName" placeholder="Sobrenome" required />
+          </fieldset> 
+          <fieldset class="register-button">
+            <button type="submit" class="reg-button" id="newRegister"> Registrar</button>
+          </fieldset>
+      </form>
+      
     </section>
   </section>  
   `;
