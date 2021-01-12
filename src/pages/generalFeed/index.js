@@ -144,8 +144,8 @@ const loadPostTemplate = (postList) => {
       <button aria-disabled="true" class="send-comment" tabindex="-1" data-visualcompletion="ignore" 
       dir="auto" id="send-comment">
       <img src='./img/submit.png' alt='Enviar Comentário' class='comment-icon'>
-      </button>
-   
+            </button>
+            
        
     </div>
     ${(comments.length > 0 && comments.map((comment) => `
