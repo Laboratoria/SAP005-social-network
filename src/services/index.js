@@ -53,7 +53,6 @@ export const Navigation = () => {
   const bottunNotification = navigation.querySelector('#notification');
   bottunNotification.addEventListener('click', () => {
     onNavigate('/notification');
-
   });
 
   const bottunPorfile = navigation.querySelector('#profile');
@@ -79,6 +78,5 @@ export const Navigation = () => {
       console.log(error)
     });
   });
-  
   return navigation;
-}
+};

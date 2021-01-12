@@ -1,103 +1,57 @@
-# Criando uma Rede Social
+<img src = "./src/images/olimpo.png" height='150' widht='150'>
 
 ## Índice
 
-- [1. Prefácio](#1-prefácio)
-- [2. Resumo do projeto](#2-resumo-do-projeto)
-- [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-- [4. Considerações gerais](#4-considerações-gerais)
-- [5. Critérios de aceitação mínimos do
-  projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
-- [6. Hacker edition](#6-hacker-edition)
+- [1. Descrição](#1-descrição)
+- [2. Conheça Olimpo](#2-conheça-olimpo)
+- [3. Definições do produto](#3-definições-do-produto)
+- [4. Tecnologias Utilizadas](#4-tecnologias-utilizadas)
+- [5. Considerações Finais](#5-considerações-finais)
+- [6. Criado por](#6-criado-por)
 - [7. Entrega](#7-entrega)
 - [8. Guias, dicas e leituras
   complementares](#8-guias-dicas-e-leituras-complementares)
 
 ---
 
-## 1. Prefácio
+## 1. Descrição
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. As redes sociais
-invadiram nossas vidas. Nós as amamos ou odiamos, e muitas pessoas não conseguem
-viver sem elas.
+Projeto realizado durante o [**Bootcamp Laboratória - SAP005**]("http://laboratoria.la"), com intuito de criarmos uma rede social.
 
-Há redes sociais de todo tipo para todos os tipos de interesse. Por exemplo: em
-uma rodada de financiamento com investidores, foi apresentada uma rede social
-para químicos onde os usuários podem publicar artigos a respeito de suas
-pesquisas, comentar os artigos de seus colegas e filtrar artigos de acordo com
-determinadas tags ou popularidade, mais recente ou mais comentado.
+## 2. Conheça Olimpo
 
-## 2. Resumo do projeto
+Olimpo é a rede social dos apaixonados por esportes e atividades físicas. Criada para unir pessoas que queiram compartilhar seus treinos diários, conquistas em equipe ou participar de conversas e debates sobre este universo.
 
-Neste projeto você construirá uma Rede Social sobre o que você e sua equipe
-decidirem. Pode ser, por exemplo, sobre alimentação saudável, feminismo,
-educação, saúde, energias renováveis, amantes das
-[Empanadas](https://pt.wikipedia.org/wiki/Empanada), de
-[Tacos](<https://pt.wikipedia.org/wiki/Taco_(culin%C3%A1ria)>), de
-[Feijoada](https://pt.wikipedia.org/wiki/Feijoada), ou do que seja.
+Para fazer parte do Olimpo acesse: 
 
-Sua Rede Social terá que permitir à qualquer usuário criar uma conta de acesso,
-logar-se com ela, criar, editar, deletar e dar _likes_ em publicações.
+## 3. Definições do produto
 
-## 3. Objetivos de aprendizagem
+Realizamos uma pesquisa com nossos usuários em potencial para definirmos o que seria mais relevante aparecer nas telas do Olimpo:
 
-O objetivo principal de aprendizagem deste projeto é construir uma [Single-page
-Application
-(SPA)](https://pt.wikipedia.org/wiki/Aplicativo_de_p%C3%A1gina_%C3%BAnica)
-[_responsiva_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
-(com mais de uma tela/ página) na qual seja possível **ler e escrever dados.**
+![imagem](./src/images/form2.png)
+![imagem](./src/images/form3.png)
+![imagem](./src/images/form1.png)
+![imagem](./src/images/form4.png)
 
-### HTML e CSS
+### Histórias de usuários
 
-- [ ] [HTML
-      semântico](https://developer.mozilla.org/pt-BR/docs/Glossario/Semantica)
-- [ ] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-- [ ] Construir sua aplicação respeitando o protótipo.
+Para este projeto, trabalhamos com as seguintes histórias de usuário, de acordo com as necessidades apontadas em nossa pesquisa:
 
-### DOM e Web APIs
+![imagem](./src/images/historia.user1.png)
+![imagem](./src/images/historia.user2.png)
 
-- [ ] [Manipulação do
-      DOM](https://developer.mozilla.org/pt-BR/docs/DOM/Referencia_do_DOM/Introdu%C3%A7%C3%A3o)
-- [ ] [History
-      API](https://developer.mozilla.org/pt-BR/docs/Web/API/History_API)
+### Protótipos
 
-### Javascript
+Antes de colocar as mãos no código, e trazer o Olimpo a todos, desenhamos o que seria nossas telas principais:
 
-- [ ] [Uso de
-      callbacks](https://developer.mozilla.org/pt-BR/docs/Glossario/Callback_function)
-- [ ] [Consumo de
-      Promises](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
-- [ ] Uso de ES modules
-      ([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
-      |
-      [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
+_*Versão Mobile*_
 
-### Firebase
+![imagem](./src/images/prototipo2.png)
 
-- [ ] [Firestore](https://firebase.google.com/docs/firestore)
-- [ ] [Firebase Auth](https://firebase.google.com/docs/auth/web/start)
-- [ ] [Firebase security rules](https://firebase.google.com/docs/rules)
+_*Versão Desktop*_
+![imagem](./src/images/prototipo.png)
 
-### Testing
-
-- [ ] [Teste unitários](https://jestjs.io/docs/pt-BR/getting-started)
-- [ ] [Testes assíncronos](https://jestjs.io/docs/pt-BR/asynchronous)
-- [ ] [Mocking](https://jestjs.io/docs/pt-BR/manual-mocks)
-
-### Git e Github
-
-- [ ] [Colaboração pelo Github](https://docs.github.com/pt/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)
-- [ ] Organização pelo [Github Projects](https://docs.github.com/pt/free-pro-team@latest/github/managing-your-work-on-github/about-project-boards)
-
-### Boas práticas de programação
-
-- [ ] Modularização
-- [ ] Nomenclatura / Semântica
-- [ ] Linting
-
----
-
-## 4. Considerações gerais
+## 4. Tecnologias Utlizadas
 
 - Este projeto deve ser desenvolvido em trios.
 
@@ -123,159 +77,16 @@ Application
   completam **todos** os critérios de aceitação + **toda** sua definição de
   pronto.
 
-## 5. Critérios de aceitação mínimos do projeto
+## 5. Considerações finai
 
-### 5.1 Boilerplate
-
-O _boilerplate_ contém uma estrutura de arquivos como ponto de partida, assim
-como toda a configuração de dependências:
-
-```text
-.
-├── src
-|  ├── pages (páginas)
-|  |  └── home
-|  |  |  ├── index.js
-|  |  |  └── index.spec.js
-|  |  └── login
-|  |     ├── index.js
-|  |     └── index.spec.js
-|  ├── services (serviços externos)
-|  |  ├── index.js
-|  |  └── index.spec.js
-|  ├── utils
-|  |  └── history.js
-|  ├── index.html
-|  ├── router.js
-|  └── style.css
-├── README.md
-└── package.json
-
-```
-
-### 5.2 Definição do produto
-
-No `README.md`, conte-nos brevemente como você mapeou as necessidades dos seus
-usuários e como você chegou à definição final do seu produto. É importante que
-detalhe:
-
-- Quem são os principais usuários do produto.
-- Qual problema o produto resolve/para que ele serve para esses usuários.
-
-### 5.3 Histórias de usuário
-
-Depois de entender as necessidades de seus usuários, escreva as Histórias de
-Usuário. Elas representam tudo o que ele precisa fazer/ver na Rede Social. Cada
-uma de suas histórias de usuário deve possuir:
-
-- **Critérios de aceitação:** tudo o que deve acontecer para satisfazer as
-  necessidades do usuário.
-
-- **Definição de pronto:** todos os aspectos técnicos que devem ser atendidos
-  para que, como equipe, saibam que essa história está finalizada e pronta para
-  ser publicada. **Todas** suas histórias de usuário (com exceções), devem
-  incluir esses aspectos em sua definição de pronto (além de tudo o que precisa
-  adicionar):
-
-  - Ser uma SPA.
-  - Ser _responsivo_.
-  - Receber _code review_ de pelo menos uma parceira de sua equipe.
-  - Fazer _tests_ unitários.
-  - Fazer testes manuais buscando erros e imperfeições simples.
-  - Fazer testes de usabilidade e incorporar o _feedback_ dos usuários como
-    melhorias.
-
-### 5.4 Desenho da Interface de Usuário (protótipo de baixa fidelidade)
-
-Você deve definir qual será o fluxo que o usuário seguirá dentro do seu
-aplicativo e, com isso, criar a interface do usuário (UI) que siga este fluxo.
-
-### 5.5 Responsivo
-
-Deve funcionar bem em dispositivos de tela grande (computadores, laptops etc.) e
-pequena (_tablets_, telefones celulares etc.). Sugerimos seguir a técnica
-_`mobile first`_ (mais detalhes sobre essa técnica ao final).
-
-### 5.6 Considerações sobre o comportamento da Interface do Usuário (UI)
-
-Essas considerações ajudarão você a escrever as definições de pronto de sua
-H.U.:
-
-#### Criação e login de conta de usuário
-
-- _Login_ com Firebase:
-  - Para o _login_ e postagens na timeline, você pode usar
-    [Firebase Authentication](https://firebase.google.com/docs/auth) e [Cloud Firestore](https://firebase.google.com/docs/firestore)
-  - O usuário deve poder criar uma conta de acesso ou autenticar-se com conta de
-    e-mail e senha e também com uma conta do Google.
-- Validações:
-  - Somente usuários com contas válidas têm acesso permitido.
-  - Não haver usuários repetidos.
-  - A conta do usuário deve ser um email válido.
-  - O que o usuário digita no campo de senha (_input_) deve ser secreto.
-- Comportamento:
-  - Quando o formulário de registro ou login é enviado, ele deve ser validado.
-  - Se houver erros, mensagens descritivas devem ser exibidas para ajudar o
-    usuário.
-
-#### Timeline/linha do tempo
-
-- Validações:
-  - Ao publicar, deve ser validado se há conteúdo no _input_.
-- Comportamento:
-  - Ao recarregar o aplicativo, é necessário verificar se o usuário está
-    _logado_ antes de exibir o conteúdo,
-  - Conseguir publicar um _post_.
-  - Poder dar e remover _likes_ em uma publicação. Máximo de um por usuário.
-  - Visualizar contagem de _likes_.
-  - Poder excluir uma postagem específica.
-  - Solicitar confirmação antes de excluir um _post_.
-  - Ao clicar em editar um _post_, você deve alterar o texto para um _input_ que
-    permite editar o texto e salvar as alterações.
-  - Ao salvar as alterações, você deve voltar ao texto normal, mas com a
-    informação editada.
-  - Ao recarregar a página, poder ver os textos editados.
-
-### 5.7 Considerações técnicas sobre front-end
-
-- Separar a manipulação do DOM da lógica (separação de responsabilidades).
-- Ter várias telas. Para isso, seu aplicativo deve ser um [Single Page
-  Application
-  (SPA)](https://pt.wikipedia.org/wiki/Aplicativo_de_p%C3%A1gina_%C3%BAnica)
-- Alterar e persistir dados. Os dados que você adiciona ou modifica devem
-  persistir por todo o aplicativo. Recomendamos que você use o
-  [Firebase](https://firebase.google.com/) para isso também.
-
-#### Testes unitários
-
-- Lembre-se de que não há _setup_ de **testes** definido, isso dependerá da
-  estrutura do seu projeto. Você não deve esquecer de pensar sobre os testes.
-  Eles podem ajudar a definir a estrutura e sua lógica.
-
-- Os testes de unidade devem cobrir no mínimo 70% de _statements_, _functions_,
-  _lines_ e _branches_.
-
-### 5.8 Considerações técnicas UX
-
-- Faça pelo menos 2 entrevistas com os usuários.
-- Faça um protótipo de baixa fidelidade.
-- Verifique se a implementação do código segue as diretrizes do protótipo.
-- Faça sessões de teste de usabilidade com o produto em HTML.
-
-## 6. Hacker Edition
-
-As seções chamadas _Hacker Edition_ são **opcionais**. Se **você terminou** e
-cumpriu todos os requisitos acima e sobrou tempo, tente concluí-las. Dessa
-forma, você pode aprofundar e/ou exercitar mais os objetivos de aprendizagem do
-projeto.
-
-- Criar posts com imagens.
-- Procurar usuários, adicionar e excluir "amigos".
-- Definir a privacidade de _posts_ (público ou apenas para amigos).
-- Permitir ver na linha do tempo de usuários "não amigos" apenas os posts
-  públicos.
-- Permitir comentar ou responder a uma postagem.
-- Editar perfil.
+## 6. Criado por
+<ul>
+<li>
+<a href="https://github.com/giomadeira">Giovana Madeira</a>
+<a href="https://github.com/JulianaAmoriN">Juliana Silveira</a>
+<a href="https://github.com/Costahadassa">Hadassa Costa </a>
+</li>
+</ul>
 
 ## 7. Entrega
 
