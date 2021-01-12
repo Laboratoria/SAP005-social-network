@@ -16,7 +16,7 @@ export const Home = () => {
             <button class = "profilePhoto" id="profilePhoto" for = "upload"><img src="https://img.icons8.com/ios/50/ffffff/save--v1.png"/></button>    
             <button id = "exit" class = "exit"><img src="https://img.icons8.com/ios-filled/50/ffffff/logout-rounded-up.png"/></button>                              
         </div>
-      </div>    
+      </div>     
     </div>  
     <div>
     <img class="perfil" src="./img/avatar2.png" width="100" id="imgProfile" >                
@@ -61,21 +61,28 @@ export const Home = () => {
         if (postValue != "") {
 
             let post = {
-                text: postValue
+                text: postValue,
+                email: firebase.auth().currentUser.email,
+                like: [],
+
             }
             textPost.value = '';
             const userId = firebase.auth().currentUser.uid
             localStorage.setItem("uid", userId);
 
             db.collection("post").doc(docRef.id).set({
-                text: post.text,
+                ...post,
                 data: (new Date()).toLocaleString(),
-                email: `${firebase.auth().currentUser.email}`,
-                like: [],
                 id: docRef.id,
 
-            });
-            postFeed(post)
+            }).then(() => {
+                postFeed({
+                    ...post,
+                    displayName: firebase.auth().currentUser.displayName
+                })
+
+            })
+
         } else {
 
         }
@@ -134,8 +141,10 @@ export const Home = () => {
             feed +=
             `<div class="containerFeed">
                  <div class="postFeed">
-                 
+                 <div >
                     <h2 class = "namePost">${post.email}</h2> 
+                    <button id=${post.id} class ="buttonDelete">X</buttton>
+                    </div>
                     <textarea disabled id =
                  "teste" class = "editText">${post.text}</textarea>                   
                     <div class = "editArea">              
@@ -147,7 +156,7 @@ export const Home = () => {
                  <button class="edit" id ="edit"><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button> 
                   <button  id ="likeBtn" class="likeBtn" ><img src="https://img.icons8.com/nolan/64/like.png"/></button>                   
                   <span id="like"></span>
-                  <span id="score">${(post.like).length}</span> Like                  
+                  <span id="score">${post.like.length}</span> Like                  
                 </div>
                 </div>`
         const edit = rootElement.querySelectorAll("#edit")
@@ -161,7 +170,7 @@ export const Home = () => {
         })
         const save = rootElement.querySelectorAll("#save")
         save.forEach((button) => {
-            button.addEventListener("click", (e) => {
+            button.addEventListener("click", async(e) => {
                 const containerFeed = e.target.parentNode.parentNode.parentNode
                 e.preventDefault()
                 showSave(containerFeed)
@@ -172,14 +181,34 @@ export const Home = () => {
         likeButton.forEach((button) => {
             button.addEventListener("click", (e) => {
                 e.preventDefault()
-                    // likePost(docRef.id)
                 db.collection("post").doc(post.id).update({
                     like: firebase.firestore.FieldValue.arrayUnion(firebase.auth().currentUser.uid)
 
                 })
+                console.log("deu certo")
+            })
 
+
+
+        })
+        const deletPost = rootElement.querySelectorAll(".buttonDelete")
+        deletPost.forEach((button) => {
+            button.addEventListener("click", (e) => {
+                e.preventDefault()
+                const containerFeed = e.target.parentNode.parentNode.parentNode
+                console.log(button.id)
+                    // console.log(containerFeed)
+                    // containerFeed.querySelector(".buttonDelete").style.backgroundColor = "red";
+                db.collection("post").doc(button.id).delete()
+                    .then(function() {
+                        console.log("Document successfully deleted!");
+                    }).catch(function(error) {
+                        console.error("Error removing document: ", error);
+                    });
 
             })
+
+
         })
 
     };
@@ -197,11 +226,6 @@ export const Home = () => {
         containerFeed.querySelector("#teste").setAttribute("disabled", "disabled")
     }
 
-    const likePost = (postId) => {
-        db.collection("posts").doc(postId).update({
-            like: firebase.firestore.FieldValue.arrayUnion(firebase.auth().currentUser.uid)
-        })
-    }
 
 
     return rootElement;
