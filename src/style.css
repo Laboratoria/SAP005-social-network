@@ -86,7 +86,9 @@ button#submit-home{
 #msgError {
   color: red;
 }
-
+input#Photoprofile{
+  background-image: url(./assets/Photo_Default.png);
+}
 /* Plano de fundo da tela de Home e Login */
 /* div#fundo {
   background-image: url(./assets/sing_in_desktop.png);
