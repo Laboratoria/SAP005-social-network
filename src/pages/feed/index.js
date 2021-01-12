@@ -51,9 +51,12 @@ export const Feed = () => {
   </div>
   </div>
   `;
+
   showPosts();
+
   rootElement.innerHTML = postHtml;
 
+  // const loadPosts = rootElement.querySelector('.load-posts');
   const createPost = rootElement.querySelector('.form-post');
   createPost.addEventListener('click', (e) => {
     e.preventDefault();
@@ -72,10 +75,51 @@ export const Feed = () => {
     }
     return null;
   });
-
   const logOut = rootElement.querySelector('.btn-logout');
   logOut.addEventListener('click', () => {
     SignOut();
   });
   return rootElement;
 };
+/*
+  //VERSÃO DANIEL
+  // function addPost(post) {
+  //   const templatePost = `
+  //     <li id="${post.id}">
+  //       ${post.data().text} ❤️ ${post.data().likes}
+  //     </li>
+  //   `
+  //   document.querySelector('.load-posts').innerHTML += templatePost;
+  // }
+
+  // function loadPosts() {
+  //   const collectionPosts = firebase.firestore().collection("posts")
+  //   document.querySelector('.load-posts').innerHTML = "Carregando..."
+  //   collectionPosts.get().then(snap => {
+  //     document.querySelector('.load-posts').innerHTML = " "
+  //     snap.forEach(post => {
+  //       addPost(data)
+  //     })
+  //   })
+  //   return loadPosts();
+  // }
+
+  //VERSÃO KARINA
+  function showPosts (data) {
+    const templatePosts = `
+      <div>
+      <p> ${data.post} </div>
+      </div>
+    `
+
+    loadPosts.innerHTML += templatePosts
+  }
+
+firebase.firestore().collection(posts)/*.orderBy("date", "desc").onSnapshot((snapshot) => {
+    snapshot.docChanges().forEach((post) => {
+      if (post.type ==="added") {
+        showPosts(post.doc.data.doc.id)
+      }
+    })
+  })
+  */
