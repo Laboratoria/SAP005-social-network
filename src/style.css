@@ -85,14 +85,15 @@ textarea {
 	padding-top: 30px;
 }
 
-.post-area-icon-del,
 .google-icon {
 	height: 15px;
 	width: 15px;
-	margin-left: 270px;
-
 }
-
+.post-area-icon-del {
+	height: 15px;
+	width: 15px;
+	margin-left: 270px;
+}
 .login-area {
 	margin-top: 12px;
 	padding: 14px 16px;
