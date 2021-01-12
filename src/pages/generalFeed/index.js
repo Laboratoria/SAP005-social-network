@@ -188,7 +188,6 @@ export const generalFeed = () => {
     </nav>
   </header>
   <div class='box-feed'>
-    
       <div class='share-and-post'>
       <section class='profile-area'>
       <div class='profile-area-theme'><img class='theme-image' src='../../img/capa.jpeg'></div>
