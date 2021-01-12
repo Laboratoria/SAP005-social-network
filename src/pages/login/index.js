@@ -29,18 +29,18 @@ export const Login = () => {
 </div>
 `;
     rootElement.querySelector('#eye').addEventListener('click', (e) => {
-    e.preventDefault();
-    const showPassword = rootElement.querySelector('#passwordSecond');
-    if (showPassword.type == "password") {
-    showPassword.type = "text";
-    } else {
-    showPassword.type = "password";
-    }
+        e.preventDefault();
+        const showPassword = rootElement.querySelector('#passwordSecond');
+        if (showPassword.type == "password") {
+            showPassword.type = "text";
+        } else {
+            showPassword.type = "password";
+        }
     })
 
     rootElement.querySelector("#btnCadastro").addEventListener("click", (e) => {
-    e.preventDefault();
-    onNavigate("/cadastro")
+        e.preventDefault();
+        onNavigate("/cadastro")
     })
 
     let emailInput = rootElement.querySelector("#email")
@@ -57,8 +57,8 @@ export const Login = () => {
         localStorage.setItem("uid", userId);
         onNavigate('/home')
 
-    emailInput.value = ""
-    passwordInput.value = '';
+        emailInput.value = ""
+        passwordInput.value = '';
     });
 
     rootElement.querySelector("#google").addEventListener("click", (e) => {
@@ -68,12 +68,14 @@ export const Login = () => {
             const userId = firebase.auth().currentUser.uid
             localStorage.setItem("uid", userId);
             db.collection("users").doc(userId).set({
-                email: `${firebase.auth().currentUser.email}`
+                email: `${firebase.auth().currentUser.email}`,
+                name: `${firebase.auth().currentUser.displayName}`,
+                image: ""
             })
             onNavigate("/home")
-        }).catch(function(error)     {
+        }).catch(function(error) {
             console.log(error)
-   
+
         });
 
     });

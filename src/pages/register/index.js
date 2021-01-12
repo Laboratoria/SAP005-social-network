@@ -1,3 +1,4 @@
+
 import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
@@ -31,7 +32,6 @@ export const Register = () => {
       </form>
   </fieldset> 
   </div> 
-
 </div>
     `;
     const name = rootElement.querySelector('#nome')
@@ -63,8 +63,9 @@ export const Register = () => {
                     const userId = firebase.auth().currentUser.uid
 
                     db.collection("users").doc(userId).set({
-                        name: userName,
-                        email: emailUser
+                        name: userName[0].toUpperCase() + userName.slice(1),
+                        email: emailUser,
+                        image: ""
                     })
 
                     .then(function(docRef) {
