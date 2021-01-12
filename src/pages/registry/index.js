@@ -1,27 +1,23 @@
-import { onNavigate } from "../../utils/history.js"
+import { newRegistry } from '/services/index.js';
+
 export const Registry = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
      <div class="container-login dysplay-template">
          <div class="box-login">
-             <img src="images/olimpo.png" class="login-icon" id='homeFeed'> 
+             <img src="images/olimpo.png" class="login-icon"> 
              <form  id ="formLogin" class="login">
                  <h1 >Registre-se!</h1>
-                 <input  class="btn"  type="name" placeholder="Nome" >
+                 <input id="txtName"class="btn"  type="name" placeholder="Digite seu nome" >
                  <input id="txtEmail" class="btn" type="email" placeholder="Email" >
-                 <input id="txtPassword" class="btn" type="password" placeholder="Senha" autocomplete="off" >   
+                 <input id="txtPassword" class="btn" type="password" placeholder="Senha de no mínimo 6 caracteres" autocomplete="off" >   
                  <button id="login-btn" class="buttonPage"> Criar conta </button>
              </form>
          </div>
      <div>
     `;
 
-
-  const bottunLogin = rootElement.querySelector('#homeFeed');
-  bottunLogin.addEventListener('click', () => {
-    onNavigate('/login');
-  });
-
+  const txtName = rootElement.querySelector('#txtName');
   const txtEmail = rootElement.querySelector('#txtEmail');
   const txtPassword = rootElement.querySelector('#txtPassword');
   const btnLogin = rootElement.querySelector('#login-btn');
@@ -29,15 +25,10 @@ export const Registry = () => {
   btnLogin.addEventListener('click', (event) => {
     event.preventDefault();
     // pegando os valores do email e senha
+    const nameUser = txtName.value;
     const email = txtEmail.value;
     const senha = txtPassword.value;
-    const auth = firebase.auth();
-
-    console.log(email, senha);
-    // Registrar
-
-    const promise = auth.createUserWithEmailAndPassword(email, senha);
-    promise.catch((e) => console.log(e.message));
+    newRegistry(email, senha, nameUser);
   });
 
   return rootElement;
