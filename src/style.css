@@ -328,16 +328,17 @@ textarea {
 	width: 100%;
 }
 
-#send-comment {
-	background-color: #fe4bef;
-	border: none;
-	color: white;
-	padding: 3px;
-	font-weight: bold;
-	border-radius: 10px;
-	margin-left: 85%;
-	width: 50px;
-}
+.send-comment {
+		margin: 8px auto;
+		background-color: #9a55a6;
+		color: white;
+		outline: none;
+		border: solid #9a55a6;
+		border-radius: 20px;
+		padding: 5px;
+		box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+		font-weight: 600;
+	}
 
 .comments-box-name {
 	margin-bottom: 7px;
