@@ -1,6 +1,6 @@
 import { Register } from './pages/register/index.js';
 import { Login } from './pages/login/index.js';
-import { Home } from './pages/home/index.js'
+import { Home } from './pages/home/main.js'
 
 const routeRender = () => {
     let myItem = localStorage.getItem("uid");
