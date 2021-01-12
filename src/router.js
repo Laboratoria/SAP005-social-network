@@ -6,7 +6,7 @@ import { SingUp } from './pages/singup/index.js';
 import { IsCurrentUser } from './services/index.js';
 import { onNavigate } from './utils/history.js';
 
-const routeRender = () => {
+export const routeRender = () => {
   const rootDiv = document.getElementById('root');
   const routes = {
     '/': Home,
@@ -45,11 +45,6 @@ const routeRender = () => {
       e.preventDefault();
       IsCurrentUser('/singup');
     });
-
-  /*     document.getElementById('btn-singout').addEventListener('click', (e) => {
-      e.preventDefault();
-      SingOut('/');
-    }); */
   }
 };
 

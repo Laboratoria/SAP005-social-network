@@ -26,13 +26,6 @@ export const SingIn = (email, password) => {
     });
 };
 
-/* export const SingOut = () => firebase
-  .auth()
-  .signOut()
-  .then(() => {
-    window.location.pathname = 'home';
-  }); */
-
 export const SingInGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase
@@ -63,10 +56,8 @@ export const IsCurrentUser = (notLoggedPage) => firebase.auth().onAuthStateChang
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    window.location.pathname = 'feed';
-    // ...
+    window.location.pathname = '/feed';
   } else {
     window.location.pathname = notLoggedPage;
   }
 });
-

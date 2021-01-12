@@ -7,9 +7,8 @@ export const Feed = () => {
     <div>
       <h1 class="feed">Account created successfully! Feed!</h1>
       <form class="form-post" id="form-post">
-        <input class="text-post" id="text-post" type="textarea">
+        <input class="text-post" id="text-post" type="text">
         <button class="btn-submit" id="btn-submit" type="submit">Submit</button>
-        <button class="btn-singout" id="btn-singout" type="submit">SingOut</button>
       </form>
       <button class="btn-logout">LogOut</button>
     </div> `;
