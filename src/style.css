@@ -428,10 +428,19 @@ select:focus {
         width: 50%;
         height: 100px;
     }
-    .perfil {
-        height: 130px;
-        width: 130px;
-        margin: -35px 0 0 30px;
+    /* .editTextClick {
+        display: none;
+    } */
+    
+    .editText {
+        width: 92%;
+        height: 60%;
+        border-radius: 10px;
+        padding: 0 1% 0 1%;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+        margin-left: 1%;
+        background-color: transparent;
     }
     .postFeed {
         width: 50%;
