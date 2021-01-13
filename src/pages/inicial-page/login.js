@@ -35,9 +35,6 @@ document.getElementById('main-page').innerHTML = `
       </fieldset>
     </form>
   </div>
-  <div>
-       <input class= "config-inputs" type= "button" value= "Google"/>
-  </div>//
 
   <section id='login-button' class="half-screen">
     <button id="login-btn">Login</button>
@@ -94,9 +91,6 @@ document.getElementById('main-page').innerHTML = `
       let email = document.getElementById('email').value;
       let password = document.getElementById ('password').value;
       emailLogin(email, password);
+      })
     })
-  })
-
-
-
 }

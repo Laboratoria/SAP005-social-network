@@ -42,35 +42,16 @@ export const emailLogin = (email,password) => {
   })
 }
 
-export const googleLogin = document.querySelector('config-inputs');
-  googleLogin.addEventListener('click', () => {
+export const googleLogin = () => {
   let provider = new firebase.auth.GoogleAuthProvider();
 
-  firebase.auth().signInWithPopup(provider).then((result) =>{
-    console.log(result);
-    console.log(result, user);
-    console.log(result, credential, accessToken);
-  }).catch((error)=> {
-    console.logo(error);
+  firebase.auth().signInWithPopup(provider).then(resposta => {
+    console.log('usuário', resposta.user);
+    console.log('token', resposta.credential.accessToken);
+  }).catch (erro => {
+    console.log('erro', erro);
   })
-})
-
-/*export const googleLogin = () => {
-  base_provider = new firebase.auth.GoogleAuthProvider()
-  firebase.auth().signInWithPopup(base_provider).then(function(result){
-    let token = result.credential.accessToken;
-    let user = result.user;
-    console.log (token,user)
-  }).catch(function(error){
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    let email = error.email;
-    let credential = error.credential;
-    console.log (errorCode, errorMessage, email, credential)
-  })
-}*/
- 
- 
+}
 // FUNÇÃO DE CONFIRMAÇÃO : USUÁRIO LOGADO
 
 export const userOn = () => {
