@@ -1,6 +1,8 @@
 // import { } from '';
 
 export const Profile = () => {
+  const user = (firebase.auth().currentUser);
+
   const profile = document.createElement('div');
   profile.classList.add('div-profile');
   profile.innerHTML = `
@@ -9,12 +11,11 @@ export const Profile = () => {
   </figure>
   <form>
   <div class='profile-header'>
-  <img src='' alt='Imagem do Usuario' id='photo'>
+  <img src='${user.photoURL || '../../assets/Photo_Default.png'}' alt='Imagem do Usuario' id='photo'>
   <div id='div'>
-      <img class='img' id='photoUrl'></img>
-      <p class='text' id='name'></p>
-      <p class='text' id='email'></p>
-      <p class='number' id='phoneNumber'></p>
+      <p class='text' id='name'>${user.displayName}</p>
+      <p class='text' id='email'>${user.email}</p>
+      <p class='number' id='phoneNumber'>${user.phoneNumber}</p>
       </div> 
       </div>
       <div>
@@ -45,6 +46,7 @@ export const Profile = () => {
   //     // No user is signed in.
   //     }
   //   });
+  
 
   // }
   // const uid = firebase.auth().currentUser.uid;
