@@ -45,12 +45,20 @@ export const emailLogin = (email,password) => {
 export const googleLogin = () => {
   let provider = new firebase.auth.GoogleAuthProvider();
 
-  firebase.auth().signInWithPopup(provider).then(resposta => {
-    console.log('usuário', resposta.user);
-    console.log('token', resposta.credential.accessToken);
-  }).catch (erro => {
-    console.log('erro', erro);
-  })
+  firebase.auth().signInWithPopup(provider).then(result => {
+    let token = result.credential.accessToken;
+    let user = result.user;
+
+    console.log('usuário', user)
+    console.log('token', token);
+  }).catch (error => {
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    let email = error.email;
+    let credential = error.credential;
+
+    console.log('erro', errorCode, errorMessage, email, credential);
+  }) 
 }
 // FUNÇÃO DE CONFIRMAÇÃO : USUÁRIO LOGADO
 
@@ -78,8 +86,8 @@ export const Post = () => {
      e.preventDefault();
   
      let postText = document.getElementById('write-post').value
-     
-        dataStorage.add({
+     let time = new Date()
+        dataBase.collection('users').doc(`${time}`).set({
         post_text: postText,
         id_user: firebase.auth().currentUser.uid,
         username: firebase.auth().currentUser.displayName,
@@ -91,24 +99,25 @@ export const Post = () => {
       })
       .then(function() {
         console.log("Post enviado com sucesso!");
+        onNavigate('/feed')
       })
       .catch(function() {
         console.error("Ocorreu um erro");
       });
+      document.getElementById('write-post').value = " "
     })
+
   } 
   let docRef = dataStorage.doc('posts')
  
   export const getPosts = () => {
-
-    const post = dataStorage.orderBy("date", "desc")
+    const post = dataBase.collection('users').orderBy("date", "desc")
     return post.get()
-  
     };
   
-  export const Like = (id) => {
-    (id) => dataStorage.doc(id).update({
-      likes: firebase.firestore.FieldValue.increment(1)
+  export const Like = (time) => {
+    dataBase.collection('users').doc(`${time}`).update({
+    likes: firebase.firestore.FieldValue.increment(50)
     })
   }
 
@@ -118,16 +127,10 @@ export const Post = () => {
     document.getElementById('log-out').addEventListener("click", logOut)
     function logOut() {
        firebase.auth().signOut().then(() => {
-        document.getElementById('root').innerHTML= " "           
-                     /* 
-                      if(window.innerWidth <= 500){
-                          document.getElementById('header-document').style.display = "block"
-                          document.getElementById('header-document').style.width = "100%"
-                          document.getElementById('logo-name').style.width = "100%"
-                      } */
-                  })
-             }
-          }
+        document.getElementById('root').innerHTML= " ";
+        document.getElementById('main-page').style.display = "block";           
+        })
+       }  }
    
 
 

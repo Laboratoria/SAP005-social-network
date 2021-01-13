@@ -6,16 +6,17 @@ body {
 }
 
 h2{
-    margin-top: 10%;
-
+    margin: 20px 0 0 12px;
+    color: mediumturquoise;;
 }
 
 #main-page {
-    width: 60%;
+    width: 50%;
+    padding: 20px 0 0 20px;
 }
 
 .register {
-    margin-top: 13%;
+    margin-top: 15px;
 }
 
 
@@ -27,9 +28,17 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+  #login-btn {
+      width: 15%;
+      color: black;
+
+      background-color: rgb(255, 255, 255);
+      border: 1px solid lightgray;
+      transition: 1s;
+  }
   
 button {
-    background-color: #66a774;
+    background-color: #323142;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -51,13 +60,20 @@ button:hover {
     padding: 0;
 }
 
-fieldset {
-    border: 0;
+.subscribe-box {
+    border: 1px solid lightgray;
+    padding: 10px;
+    width: 70%;
+    border-radius: 6px;
+}
+.subscribe-box fieldset{
+    border: none;
 }
 
 body, input, select, textarea, button {
     font-family: sans-serif;
     font-size: 1em;
+    border-radius: 7px;
 }
 
 .group:before, .group:after {
@@ -129,6 +145,14 @@ fieldset.group .area {
 
 .botao, select, label.checkbox {
     cursor: pointer;
+}
+#google-login {
+    background-color: white;
+    color: black;
+    border: 1px solid lightgrey;
+}
+.logo-google {
+    padding-right: 5px;
 }
 /*Fim do css cadastro */
   
@@ -240,8 +264,21 @@ span.psw {
        width: 100%;
     }
   }
-/*
 
+.mae-carol {
+    border-radius: 10px;
+    width: 100%;
+}
+.tpm-name {
+    font-family: sans-serif;
+    color: rgb(228, 234, 235);
+    font-size: 40px;
+}
+#subtitle-one{
+    font-family: monospace;
+    font-size: 20px;
+    color: cadetblue;
+}
 /* Feed */
 
 #root div {
@@ -338,7 +375,25 @@ span.psw {
 
     list-style: none;
 }
+#posts {
+    display: block;
+}
+#posts p {
+    padding: 30px;
+    font-size: 25px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+#posts ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+#posts li {
+    width: 50%;
+}
 .react-button {
+    width: 100%;
     background-color: rgb(252, 251, 247);
     border-radius: 10px;
 }

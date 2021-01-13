@@ -1,21 +1,16 @@
 import { emailLogin, googleLogin, subscribe } from '../../services/index.js';
 
-const modal = document.getElementById('boxLogin');
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 window.onload = () => {
 document.getElementById('main-page').innerHTML = `
 
+<button id="login-btn">Login</button> <button id="google-login"><img class='logo-google'src="./img/google-icon.png">Continuar com o Google</button>
 <div class="inicial-page" id="inicial-page">
-    <h2>SOCIAL NETWORK LOGIN</h2>
+    <h2>Ainda não tem uma conta? <br> Venha participar!</h2>
   </div>
 
   <div class= "register" id="register">
     <form action="#" method="post">
-      <fieldset>
+      <fieldset class='subscribe-box'>
         <fieldset class="group">
           <div class="area">
             <label for="name">Nome:</label>
@@ -28,16 +23,15 @@ document.getElementById('main-page').innerHTML = `
         </div>
         <div class="area">
           <label for="password-register">Senha:</label>
-          <input type="password" id="password-register" autocomplete="off" name="password-register" style="width: 20em" value="">
+          <input type="password" id="password-register" placeholder="mínimo de 6 caracteres" autocomplete="off" name="password-register" style="width: 20em" value="">
         </div>
         
-        <button id="subscribe" type="submit" name="submit">Enviar</button>
+        <button id="subscribe" type="submit" name="submit">Cadastrar</button>
       </fieldset>
     </form>
   </div>
 
   <section id='login-button' class="half-screen">
-    <button id="login-btn">Login</button>
     <div id="box-login" class="modal">
 
       <form class="modal-content animate" action="" method="post">
@@ -69,7 +63,12 @@ document.getElementById('main-page').innerHTML = `
     </div>
   </section>
   `
-  
+const modalBox = document.getElementById('boxLogin');
+  window.onclick = function(event) {
+    if (event.target == modal) {
+     modalBox.style.display = "none";
+    }
+ }
 
   document.getElementById('subscribe').addEventListener("click", (e) => {
     e.preventDefault();
@@ -93,4 +92,11 @@ document.getElementById('main-page').innerHTML = `
       emailLogin(email, password);
       })
     })
+
+    document.getElementById('google-login').addEventListener('click', (e) => {
+      e.preventDefault();
+      googleLogin();
+    })
 }
+
+   
