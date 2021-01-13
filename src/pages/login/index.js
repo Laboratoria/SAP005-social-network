@@ -1,5 +1,4 @@
-/* eslint-disable indent */
-import { onNavigate } from '../../utils/history.js';
+import { onNavigate } from '../../utils/history.js'
 
 export const Login = () => {
     const rootElement = document.createElement('div');
@@ -46,7 +45,7 @@ export const Login = () => {
     let emailInput = rootElement.querySelector("#email")
     let passwordInput = rootElement.querySelector("#passwordSecond")
 
-    rootElement.querySelector("#btnLogin").addEventListener("click", async (e) => {
+    rootElement.querySelector("#btnLogin").addEventListener("click", async(e) => {
         e.preventDefault();
         const email = emailInput.value;
         const password = passwordInput.value;
@@ -70,7 +69,7 @@ export const Login = () => {
             db.collection("users").doc(userId).set({
                 email: `${firebase.auth().currentUser.email}`,
                 name: `${firebase.auth().currentUser.displayName}`,
-                image: ""
+                image: `${firebase.auth().currentUser.photoURL}`
             })
             onNavigate("/home")
         }).catch(function(error) {
