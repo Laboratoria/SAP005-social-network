@@ -1,4 +1,5 @@
 import { getPosts, Like } from '../../services/index.js';
+import { onNavigate } from '../../utils/history.js';
 
 export const Feed = () => {
     // Coloque sua página
@@ -9,7 +10,7 @@ export const Feed = () => {
    <nav>
      <ul>
         <li id='logo-feed'></><img src='./pages/feed/img/nav-bar/rocket-icon.png' alt'rocket-logo'>TPM</li>
-        <li>Meu perfil</li>
+        <li id='profile-edit'>Meu perfil</li>
         <li>Feed</li> 
         <li>Comunidades</li> 
         <li id='log-out'>Sair</li>
@@ -27,47 +28,84 @@ export const Feed = () => {
         <input type="submit" id='post-it' class="button-feed" value="Postar">
       </form>
     </div>
-    <div id='posts'>
-    </div>
-     </div>
+    <div id='posts'></div>
     `;
    
   const loadPost = (post) => {
-    
+  
     const loop = Array.from(Array(post.length).keys());
     loop.forEach(() =>
     document.getElementById('posts').innerHTML  += `
- <!-- <p>${post.data().name} <br> ${post.data().date}</p> -->
+     <section> 
+        <p>
+          ${post.data().post_text}
+        </p>
+      <ul>
+        <li><button id='like' title='Curti' class='like react-button'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'>${post.data().likes.length}</button></li>
+        <li><button id='love' title='Amei' class='love react-button'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'></button></li>
+       </ul>
+      <!-- <p id='time-p'>${post.data().date}</p> -->
+        </section>
+     `
+    )
+   }
+   /*
+   const allLike = rootElement.querySelectorAll('.like');
+   allLike.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        sendLike(e);
+      })
+   })
+   const sendLike = (e) => {
+     likedPost()
+     .then((retorno) => {
+       console.log(retorno);
+       e.target.classList.add('liked')
+     })
+     .catch(() => {
+       console.log('Deu não')
+     })
+   } */
 
-  </div>
-   <p>
-     ${post.data().post_text}
-   </p>
-    <nav>
-      <ul class='friends-post'>
-        <li><button id='like' title='Curti' class='react-button like'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'>${post.data().likes.length}</button></li> 
-        <li><button id='love' title='Amei' class='react-button love'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'></button></li>  
-    </ul>
-    </nav> `
-  )
-}
   getPosts().then(querySnapshot => {
     querySnapshot.forEach((post) => {
       loadPost(post)
     });
   });
-  
-  document.querySelectorAll('.like').forEach((e) =>
-    e.addEventListener('click', (e) => {
-        const likeButton = e.target.parentNode.querySelector('.like')
-        const crtUser = firebase.auth().currentUser.uid;
-        Like(likeButton.dataset.id, crtUser)
-        onNavigate('/feed')     
-    })
-  )
-
   return rootElement;
 };
-
-
+/*
+let user = firebase.auth().currentUser;
   
+function getData(){
+  rootElement.innerHTML = `
+  <div class='nav-bar'> 
+  <nav>
+    <ul>
+       <li id='logo-feed'></><img src='./pages/feed/img/nav-bar/rocket-icon.png' alt'rocket-logo'>TPM</li>
+       <li id='profile-edit'>Meu perfil</li>
+       <li>Feed</li> 
+       <li>Comunidades</li> 
+       <li id='log-out'>Sair</li>
+    </ul>
+  </nav>
+ </div>
+ <div id="profile">
+  <figure class='edit'>
+    <input type='file' id="pic-edit" placeholder='Cole aqui o link de uma foto'>
+    <input type='text' id="name-edit" placeholder='Digite seu nome'>
+  </figure>
+</div>
+ `
+let name, email, photoUrl, uid, emailVerified;
+
+  if (user != null) {
+    name = user.displayName;
+    email = user.email;
+    photoUrl = user.photoURL;
+    emailVerified = user.emailVerified;
+    uid = user.uid; 
+   }
+  }
+
+window.onload = document.getElementById('profile-edit').addEventListener('click', getData); */
