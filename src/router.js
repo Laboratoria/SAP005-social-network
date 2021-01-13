@@ -27,8 +27,12 @@ window.addEventListener('load', () => {
       e.preventDefault();
       onNavigate('/login');
     });
-
-  console.log(document.getElementById('register'))
-
+  document
+    .getElementById('register')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/register');
+    });
   routeRender();
 });
+routeRender();

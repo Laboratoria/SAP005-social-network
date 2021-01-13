@@ -1,18 +1,6 @@
 import { onNavigate } from '../../utils/history.js';
 export const Home = () => {
-  //----------------- TODO: TRATAR ERROS ----------------\\
-  //----- FUNÇÃO DE VERIFICAR SE O USUÁRIO TÁ LOGADO -----\\
-  window.addEventListener("load", event => {
-    event.preventDefault();
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        onNavigate('/')
-        loadPosts();
-      } else {
-        onNavigate('/login')
-      }
-    });
-  })
+
   //------------ CRIANDO O TEMPLATE DA PÁGINA -------------\\ 
   const rootElement = document.createElement('div');
   rootElement.innerHTML = `
@@ -59,15 +47,15 @@ export const Home = () => {
   publish.addEventListener("submit", event => {
     event.preventDefault();
     const text = rootElement.querySelector("#postText").value;
-  //-------- TODO: pegar nome, avatar e ID do usuário --------\\
+    //-------- TODO: pegar nome, avatar e ID do usuário --------\\
     const now = new Date;
     const post = {
       userID: "",
       userName: "",
       avatar: "",
       time: Date.now(),
-      date: now.getDate(), 
-      month: now.getMonth() + 1, 
+      date: now.getDate(),
+      month: now.getMonth() + 1,
       year: now.getFullYear(),
       text: text,
       picture: "",
@@ -104,8 +92,8 @@ function printPosts(post) {
         </button>
       </section>  
     </ul>
-  `  
-//-------- EVENTOS QUE CHAMAM AS FUNÇÕES DO FEED ---------\\
+  `
+  //-------- EVENTOS QUE CHAMAM AS FUNÇÕES DO FEED ---------\\
   document.querySelector("#feed").innerHTML += templatePost;
   document.querySelector("#like").addEventListener("click", likePost);
   document.querySelector("#delete").addEventListener("click", deletePost);
@@ -113,7 +101,7 @@ function printPosts(post) {
 //------------ FUNÇÃO DE CARREGAR PUBLICAÇÕES ------------\\
 function loadPosts() {
   const postCollection = firebase.firestore().collection("posts");
-//-------- TODO: Animação de carregando a página ---------\\
+  //-------- TODO: Animação de carregando a página ---------\\
   document.querySelector("#feed").innerHTML = "Carregando...";
   postCollection.orderBy("time", "desc").get().then(snapshot => {
     document.querySelector("#feed").innerHTML = "";
@@ -125,17 +113,17 @@ function loadPosts() {
 //----------------- FUNÇÃO DE EXCLUIR -----------------\\
 //----- Só tá funcionando o botão do primeiro post -----\\ 
 // TODO: pegar a ID do post e confirmar que quer excluir \\
-function deletePost(postID){
+function deletePost(postID) {
   console.log("o erro não é o botão")
   const postCollection = firebase.firestore().collection("posts");
   postCollection.doc(postID).delete().then(doc => {
-   loadPosts(); 
+    loadPosts();
   });
   deletePost();
 }
 //--------------------- FUNÇÃO DE LIKE -------------------\\
 //------- Só tá funcionando o botão do primeiro post ------\\
-function likePost(){
+function likePost() {
   console.log("deixou o joinha");
 }
 //------------------- FUNÇÃO DE EDITAR ------------------\\
