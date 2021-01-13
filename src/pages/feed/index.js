@@ -14,7 +14,10 @@ export const Feed = () => {
       <textarea name="" id="textPost" cols="70" rows="5" placeholder="escreva aqui..."></textarea>
       <button id="creatPost" >Post</button>
     </form>
-    <p id="outputPost"></p>
+    <div>
+      <b><p id="displayName"></p></b> 
+      <p id="outputPost"></p>
+    </div>
     `;
     return contentElement;
   };
@@ -27,17 +30,26 @@ export const Feed = () => {
   const creatPost = rootElement.querySelector("#creatPost");
 
   const outputPost = rootElement.querySelector("#outputPost");
+  const displayName = rootElement.querySelector("#displayName")
 
   creatPost.addEventListener("click", (event) => {
     event.preventDefault();
     const saveTextPost = textPost.value;
     console.log("post: " + saveTextPost);
 
+    const user = firebase.auth().currentUser;
+    const uid = user.uid
+    firebase.firestore().doc(`/post/${uid}`).set({
+      name: user.displayName,
+      text: saveTextPost,
+    });
+
     docRef.set({
+      name: firebase.auth().currentUser.displayName,
       textPost: saveTextPost
     }).then(() => {
-      docRef.get().then(function (doc) {
-        if (doc && doc.exists) {
+      docRef.get().then(function(doc){
+        if(doc && doc.exists){
           const myData = doc.data();
           outputPost.innerHTML = myData.textPost;
         }

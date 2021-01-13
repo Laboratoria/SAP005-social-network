@@ -16,9 +16,7 @@ export const Home = () => {
           <p> <b><span class="colorText">Participe</span></b> de conversas</p>
         </div>
       </div>
-
       <a href="#about"><figure><img src="images/seta.png" class="icon arrow"></figure></a>
-
       <div class="container">
         <p id="about"> Olimpo é um aplicativo direcionado a pessoas que praticam esporte, tem como objetivo ser um espaço para troca de informações, novas amizades e compartilhamento de dicas. 
          Faça parte, encontre amigos que amam praticar esportes.
