@@ -1,5 +1,4 @@
-// import { createAccount} from '../../services/index.js';
-import { onNavigate } from '../../utils/history.js';
+import { registerLogin } from './data.js';
 
 export const SignUp = () => {
   const rootElement = document.createElement('div');
@@ -14,35 +13,26 @@ export const SignUp = () => {
   <div class='box-item'>
     <h3>CRIAR UMA NOVA CONTA</h3>
     <form method='post'>
-      <input type="text" placeholder="Insira seu nome" id="username" class='login-area'>
-      <input type="email" placeholder="Insira um email" id="register-email" class="login-area">
-      <input type="password" placeholder="Insira uma senha" id="register-password" class="login-area">
+      <input required="required" autocomplete="off" type="text" placeholder="Insira seu nome" id="username" class='login-area'>
+      <input required="required" autocomplete="off" type="email" placeholder="example@example.com" id="register-email" class="login-area">
+      <input required="required" autocomplete="off" type="password" placeholder="Insira uma senha (Min. 6 digítos)" id="register-password" class="login-area">
       <div class="error-message" id="singup-error">
       </div>
       <button class="btn button-area" id="button-register">Cadastre-se</button>
-      <button class="btn button-area" id="back-login">Login</button>
-    </form>
+       </form>
 </div>
 
 `;
 
-  const emailButton = rootElement.querySelector('#register-email');
-  const passwordButton = rootElement.querySelector('#register-password');
-  const registerButton = rootElement.querySelector('#button-register');
+  const email = rootElement.querySelector('#register-email');
+  const password = rootElement.querySelector('#register-password');
+  const registerBtn = rootElement.querySelector('#button-register');
+  const name = rootElement.querySelector('#username');
 
-  registerButton.addEventListener('click', (event) => {
-    console.log('oi');
-    firebase.auth().createUserWithEmailAndPassword(emailButton.value, passwordButton.value);
-    console.log(emailButton.value);
-    console.log(passwordButton.value);
+  registerBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    alert('Usuário cadastrado com sucesso!');
-  });
-
-  const linkLogin = rootElement.querySelector('#back-login');
-  linkLogin.addEventListener('click', (event) => {
-    event.preventDefault();
-    onNavigate('/');
+    registerLogin(email.value, password.value,
+      name.value);
   });
 
   return rootElement;

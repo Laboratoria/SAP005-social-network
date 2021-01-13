@@ -12,8 +12,8 @@ export const Login = () => {
     <div class='box-item'>
     <h3>BEM VINDO (A)</h3>
     <form method='post'>
-      <input type=' email' placeholder='Email' id='emailArea' class='login-area'>
-      <input type='password' placeholder='Senha' id='passwordArea' class='login-area'>
+      <input required="" autocomplete="off" type='email' placeholder='Email' id='emailArea' class='login-area'>
+      <input required="" autocomplete="off" type='password' placeholder='Senha' id='passwordArea' class='login-area'>
     </form>
     <div class="inerror-message" id="error-login"> </div>
     <button class='button-area btn signIn' id='start'>Entrar</button>

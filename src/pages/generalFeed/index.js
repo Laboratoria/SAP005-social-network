@@ -139,13 +139,14 @@ const loadPostTemplate = (postList) => {
 
     <section class='footer-post-comments-box'>
     <div class='comments-box comments-box-textarea'>
-      <textarea required placeholder='Deixe seu comentário' id="text-comment"></textarea>
+      <textarea required="required" placeholder='Deixe seu comentário' id="text-comment"></textarea>
       <br>
+      <div class="div-send-comment">
       <button aria-disabled="true" class="send-comment" tabindex="-1" data-visualcompletion="ignore" 
       dir="auto" id="send-comment">
       <img src='./img/submit.png' alt='Enviar Comentário' class='comment-icon'>
             </button>
-            
+            </div>
        
     </div>
     ${(comments.length > 0 && comments.map((comment) => `
@@ -192,20 +193,21 @@ export const generalFeed = () => {
       <section class='profile-area'>
       <div class='profile-area-theme'><img class='theme-image' src='../../img/capa.jpeg'></div>
         <figure class='profile-area-photo-box'>
+        
            <img class='photo'>
-           <input required type="file" id="input-file-profileImg" class='input-file-profileImg transparency' accept=".jpg, .jpeg, .png">
+           <input required="required" type="file" id="input-file-profileImg" class='input-file-profileImg transparency' accept=".jpg, .jpeg, .png">
         </figure>
         <div class='name-profile-area'>
           <h3 id='name-user'></h3>
         </div>
     </section>
         <section class='share-area'>
-          <textarea required id='postText' placeholder='O que você quer compartilhar?'></textarea>
+          <textarea required="required" id='postText' placeholder='O que você quer compartilhar?'></textarea>
            <div class='share-area-buttons'>
             <button id='publish-img-btn' class='circle violet'><img class='icon-circle' src='../../img/camera.png'></button>
             <div class='publish-img-form-box transparency'>
               <form method="post">
-                <input required type="file" id="image_uploads" class='share-area-img-btn' accept=".jpg, .jpeg, .png">
+                <input required="required" type="file" id="image_uploads" class='share-area-img-btn' accept=".jpg, .jpeg, .png">
                </form>
             </div>
             <button aria-disabled="true" tabindex="-1" id='publish-btn' class='btn btn-small publish-btn purple'>Publicar</button>
