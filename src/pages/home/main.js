@@ -23,8 +23,7 @@ export const Home = () => {
       <div class="barra-menu">
         <div class = "itensMenu">            
             <input type="file" id="upload" >  
-            <label for="upload" class = "labelPhoto"><img src="https://img.icons8.com/ios-filled/50/ffffff/photo-editor.png"/></label>            
-            <button class = "profilePhoto" id="profilePhoto" for = "upload"><img src="https://img.icons8.com/ios/50/ffffff/save--v1.png"/></button>    
+            <label for="upload" class = "labelPhoto"><img src="https://img.icons8.com/ios-filled/50/ffffff/photo-editor.png"/></label>               
             <button id = "exit" class = "exit"><img src="https://img.icons8.com/ios-filled/50/ffffff/logout-rounded-up.png"/></button>                              
         </div>
       </div>    
@@ -45,7 +44,7 @@ export const Home = () => {
     rootElement.classList.add("feed")
     const profile = rootElement.querySelector('#upload')
 
-    var docRef = db.collection("post").doc();
+    let docRef = db.collection("post").doc();
 
     loadUserProfile(userId).then((resolve) => {
         rootElement.querySelector("#imgProfile").setAttribute("src", resolve.data().image)
@@ -99,6 +98,11 @@ export const Home = () => {
     })
 
     const postFeed = (post) => {
+        const emailUser = firebase.auth().currentUser.email
+        const postEmail = post.email
+        console.log(emailUser + " email do usuário logado")
+        console.log(postEmail + " email do poste")
+
         rootElement.querySelector("#postedValue").innerHTML =
             feed +=
             `<div id =${post.id} class="containerFeed">
@@ -114,18 +118,25 @@ export const Home = () => {
                  </div>
                  <div id= "containerButton" class="containerButton" >
                  <button class="delete" id=${post.id}><img src="https://img.icons8.com/nolan/64/delete-forever.png"/></button>
-                 <button class="edit" id ="edit"><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button> 
+                 <button class="edit" id =${post.id}><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button> 
                   <button  id =${post.id} class="likeBtn" ><img src="https://img.icons8.com/nolan/64/like.png"/></button>    
-                  <div ><span id=${post.id} class ="spanLike">${post.like.length}</span></div>                 
+                  <span id=${post.id} class ="spanLike">${post.like.length}</span>Like               
                 </div>
                 </div>`
 
-        const edit = rootElement.querySelectorAll("#edit")
+        const edit = rootElement.querySelectorAll(".edit")
         edit.forEach((button) => {
             button.addEventListener("click", (e) => {
                 e.preventDefault()
                 const containerFeed = e.target.parentNode.parentNode.parentNode
-                showEdit(containerFeed)
+                console.log(emailUser)
+                console.log(postEmail)
+                if (emailUser === postEmail) {
+                    showEdit(containerFeed)
+                } else {
+
+                }
+
             })
         })
 
