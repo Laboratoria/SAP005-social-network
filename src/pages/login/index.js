@@ -1,4 +1,7 @@
-import { onNavigate } from '../../utils/history.js'
+/* eslint-disable indent */
+import { onNavigate } from '../../utils/history.js';
+import { login, loginGoogle } from '../../services/index.js'
+
 
 export const Login = () => {
     const rootElement = document.createElement('div');
@@ -27,14 +30,12 @@ export const Login = () => {
     </div>
 </div>
 `;
+    let emailInput = rootElement.querySelector("#email")
+    let passwordInput = rootElement.querySelector("#passwordSecond")
+
     rootElement.querySelector('#eye').addEventListener('click', (e) => {
         e.preventDefault();
-        const showPassword = rootElement.querySelector('#passwordSecond');
-        if (showPassword.type == "password") {
-            showPassword.type = "text";
-        } else {
-            showPassword.type = "password";
-        }
+        return eye()
     })
 
     rootElement.querySelector("#btnCadastro").addEventListener("click", (e) => {
@@ -42,41 +43,27 @@ export const Login = () => {
         onNavigate("/cadastro")
     })
 
-    let emailInput = rootElement.querySelector("#email")
-    let passwordInput = rootElement.querySelector("#passwordSecond")
-
     rootElement.querySelector("#btnLogin").addEventListener("click", async(e) => {
         e.preventDefault();
         const email = emailInput.value;
         const password = passwordInput.value;
-        await firebase
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-        const userId = await firebase.auth().currentUser.uid
-        localStorage.setItem("uid", userId);
-        onNavigate('/home')
-
+        login(email, password).then(() => {
+            onNavigate('/home')
+        })
         emailInput.value = ""
         passwordInput.value = '';
     });
 
     rootElement.querySelector("#google").addEventListener("click", (e) => {
         e.preventDefault()
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-            const userId = firebase.auth().currentUser.uid
-            localStorage.setItem("uid", userId);
-            db.collection("users").doc(userId).set({
-                email: `${firebase.auth().currentUser.email}`,
-                name: `${firebase.auth().currentUser.displayName}`,
-                image: `${firebase.auth().currentUser.photoURL}`
-            })
+        loginGoogle().then(() => {
             onNavigate("/home")
-        }).catch(function(error) {
-            console.log(error)
+        })
+    })
 
-        });
-
-    });
+    const eye = () => {
+        const showPassword = rootElement.querySelector('#passwordSecond');
+        showPassword.type == "password" ? "text" : "password"
+    }
     return rootElement;
 };
