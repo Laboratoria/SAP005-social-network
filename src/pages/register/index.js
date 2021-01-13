@@ -1,4 +1,3 @@
-
 import { onNavigate } from '../../utils/history.js';
 import { imageUser } from './photo.js';
 
