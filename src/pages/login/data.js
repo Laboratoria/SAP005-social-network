@@ -4,10 +4,6 @@ export const signIn = (email, password) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then((result) => {
-      window.location.pathname = '#feed';
-      return result;
-    })
     .catch((error) => {
       console.log(error);
     });
