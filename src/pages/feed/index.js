@@ -1,4 +1,4 @@
-import {  Navigation, newPost, getPosts } from "/services/index.js"
+import {  Navigation, newPost, getPosts, post} from "/services/index.js"
 
 export const Feed = () => {
   const nav = Navigation();
@@ -10,12 +10,14 @@ export const Feed = () => {
   const content = () => {
     const contentElement = document.createElement('div');
     contentElement.innerHTML = `
-    <h1>Post</h1>
-    <form>
-      <textarea name="" id="textPost" cols="30" rows="5" placeholder="escreva aqui..."></textarea>
+    <div class="containerFeed">
+     <h1> feed </h1>
+     <form>
+      <textarea id="textPost" cols="30" rows="5" placeholder="escreva aqui..."></textarea>
       <button id="creatPost" >Post</button>
-    </form>
-    <div id="feedPost"></div>
+     </form>
+     <div id="feedPost"></div>
+    </div>
     `;
     return contentElement;
   };
@@ -28,9 +30,8 @@ export const Feed = () => {
     event.preventDefault();
     const saveTextPost = textPost.value;
     newPost(saveTextPost)
-    console.log(getPosts())
+    getPosts()
   });
-
 
   return rootElement;
 };

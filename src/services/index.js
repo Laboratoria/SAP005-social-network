@@ -1,4 +1,6 @@
-import { onNavigate } from "../../utils/history.js"
+import {
+  onNavigate
+} from "../../utils/history.js"
 
 const auth = firebase.auth()
 
@@ -115,34 +117,69 @@ export const newPost = (saveTextPost) => {
     text: saveTextPost,
     date: (new Date()).toLocaleString(),
     uid: user.uid,
+    like: [],
+    comment: [],
+
   }).catch(() => {
     alert("Não foi possível publicar, tente novamente.")
   })
 };
 
-
-export const post = (name, date, text) => {
+export const post = (name, date, text, like, id) => {
   const post = document.createElement('div');
+  console.log(id)
   post.innerHTML = `
-     <p id="nameUser">${name}</p>
-     <p id="textUser">${text}</p>
-     <p id="dateUser">${date}</p>
+     <p class="nameUser">${name}</p>
+     <p class="textUser">${text}</p>
+     <p class="dateUser">${date}</p>
+     <p class="likeUser">${like}</p>
+     <button class="like">curtir</button>
     `;
+  const likePost = post.querySelectorAll(".like");
+  likePost.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const boxPost = e.target.parentNode
+      const likeUsers = boxPost.querySelector(".likeUser")
+      const user = firebase.auth().currentUser.displayName;
+      const docs = firebase.firestore().collection("post").doc(id);
+
+      like.push(user)
+      
+      docs.update({
+          like
+        })
+        .then(function () {
+          likeUsers.innerHTML = like
+        })
+        .catch(function (error) {
+          // The document probably doesn't exist.
+          console.error("Error updating document: ", error);
+        });
+    })
+  })
+  
   return post;
+}
+
+export const likePosts = (boxPost, like) => {
+
 }
 
 export const getPosts = () => {
 
-  firebase.firestore().collection("post")
+  firebase.firestore().collection("post").orderBy('date', 'desc')
     .get()
     .then(function (querySnapshot) {
       feedPost.innerHTML = ``
+      textPost.value = "";
       querySnapshot.forEach(function (doc) {
+        const id = doc.id
         const name = doc.data().name;
         const text = doc.data().text;
         const date = doc.data().date;
-        feedPost.appendChild(post(name, date, text));
-        console.log(doc.id, doc.data());
+        const like = doc.data().like;
+        feedPost.appendChild(post(name, date, text, like, id));
+
       });
-    })
+    });
 };
