@@ -1,34 +1,28 @@
-// Este é seu ponto de entrada da sua aplicação
-import { Home } from './pages/home/index.js';
+import { Register } from './pages/register/index.js';
 import { Login } from './pages/login/index.js';
-import { onNavigate } from './utils/history.js';
+import { Home } from './pages/home/main.js'
 
 const routeRender = () => {
-  const rootDiv = document.getElementById('root');
-  const routes = {
-    '/' : Home,
-    '/login': Login,
+    let myItem = localStorage.getItem("uid");
+    const rootDiv = document.getElementById('root');
+    const routes = {
+        "/": Login,
+        "/cadastro": Register,
+        "/home": Home,
+    };
 
-  };
+    if (!routes[window.location.pathname]) {
+        window.location = '/'
+    } else if (window.location.pathname !== "/" && window.location.pathname !== "/cadastro" && !myItem) {
+        window.location = '/'
+    } else {
+        rootDiv.innerHTML = '';
+        root.appendChild(routes[window.location.pathname]());
+    }
 
-  rootDiv.innerHTML = '';
-  rootDiv.appendChild(routes[window.location.pathname]());
 };
 
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
-  document
-    .getElementById('home')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/')
-    });
-  document
-    .getElementById('login')
-    .addEventListener('click', (e) => {
-      e.preventDefault();
-      onNavigate('/login')
-    });
-
-  routeRender();
+    routeRender();
 });
