@@ -26,6 +26,7 @@ export const SingUp = () => {
     const emailElement = document.querySelector('.email').value;
     const createPassword = rootElement.querySelector('.password').value;
     const confirmPassword = rootElement.querySelector('.confirm-password').value;
+
     if (nameElement === '' || emailElement === '' || createPassword === '' || confirmPassword === '' || nameElement === ' ' || emailElement === ' ' || createPassword === ' ' || confirmPassword === ' ') {
       // eslint-disable-next-line no-alert
       alert('There are blank fields!');
@@ -33,7 +34,7 @@ export const SingUp = () => {
       // eslint-disable-next-line no-alert
       alert('Passwords does not match.');
     } else {
-      CreateUser(emailElement, createPassword);
+      CreateUser(nameElement, emailElement, createPassword);
     }
   });
   return rootElement;
