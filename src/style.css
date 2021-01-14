@@ -4,8 +4,25 @@ body {
   background: #f2f2f2;
 }
 
+hr {
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+}
+p {
+  font-size: 16px;
+  color: #333;
+  align-content: stretch;
+}
+
+/* Clearfix
+Limpando a row para ajustar a altura dos elementos filhos */
+
 .clearfix:after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
   visibility: hidden;
@@ -43,7 +60,7 @@ body {
   margin: 0;
 }
 .form-container .row {
-  margin: 10px -15px;
+  margin: 20px -15px;
 }
 .form-container .row > div {
   padding: 0 15px;
@@ -53,6 +70,7 @@ body {
   width: 50%;
   float: left;
 }
+
 .form-container .input_field {
   position: relative;
   margin-bottom: 20px;
@@ -144,40 +162,33 @@ body {
   transition: all 0.3s ease-in-out;
 }
 .form-container input[type=submit]:hover {
-  background: #314d87;
+  background: #0c8d21;
 }
 .form-container input[type=submit]:focus {
   background: #314d87;
 }
-/* .form_login input[type=checkbox] {
-  margin-right: 2px;
-} */
-
 .form-login .row .col_half.last {
   border-left: 1px solid #ccc;
 }
-
 .remember_me {
   display: flex;
 }
-
 .forgot_pw {
   text-align: right;
 }
-
-.social_btn {
+.btn {
   width: 100%;
   margin-bottom: 20px;
   font-size: 15px;
 }
-.social_btn a {
+.btn a {
   align-items: center;
   color: #fff;
   display: flex;
   height: 35px;
   text-decoration: none;
 }
-.social_btn a span {
+.btn a span {
   align-items: center;
   align-self: stretch;
   display: flex;
@@ -187,20 +198,20 @@ body {
   text-align: center;
   width: 35px;
 }
-.social_btn.fb {
+.btn.rg {
   background: #3b5ca1;
 }
-.social_btn.fb span {
+.btn.rg span {
   background: #314d87;
 }
-.social_btn.gplus {
+.btn.google {
   background: #de4c33;
 }
-.social_btn.gplus span {
+.btn.google span {
   background: #cc3a21;
 }
 
-.register a {
+a {
   color: #06476d;
   text-decoration: none;
   font-weight: bold;
