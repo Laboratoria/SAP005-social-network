@@ -1,3 +1,7 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
+/* eslint-disable semi */
+/* eslint-disable arrow-body-style */
 import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
@@ -26,54 +30,49 @@ export const Register = () => {
   `;
   // --------------------- INPUTS ---------------------
   const email = rootElement.querySelector('#email');
-  // const password = rootElement.querySelector('#password');
+  const password = rootElement.querySelector('#password');
   const passwordConfirmed = rootElement.querySelector('#passwordConfirmation');
   // const name = rootElement.querySelector('#name');
   // const lastName = rootElement.querySelector('#lastName');
 
-  // ---------------------- FUNÇÃO ----------------------
-  //   function record(recordEmail, RecordPasswordConfirmed) {
-  //     if (recordEmail === '' || RecordPasswordConfirmed === '') {
-  //       printMessageError(errorMessageEmptyInput);
-  //     } else {
-  //       const promise = firebase.auth()
-  //         .createUserWithEmailAndPassword(recordEmail, RecordPasswordConfirmed);
-  //       promise
-  //         .then((res) => {
-  //           onNavigate('/');
-  //         });
-  //     }
-  //   }
+  //   // ---------------------- para exportar do services ----------------------//
+  const record = (userEmail, userPassword) => {
+    return firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
+  };
 
-  //   rootElement.querySelector('#registerSingIn').addEventListener('submit', (event) => {
-  //     event.preventDefault();
-  //     const emailValue = email.value;
-  //     const passwordValue = passwordConfirmed.value;
-  //     record(emailValue, passwordValue);
-  //   });
-  //   return rootElement;
-  // }
-  // ---------------------- FUNÇÃO ----------------------
+  const emailVerify = () => {
+    return firebase.auth().currentUser.sendEmailVerification()
+  };
 
-  function record(recordEmail, recordPasswordConfirmed) {
-    return firebase.auth()
-      .createUserWithEmailAndPassword(recordEmail, recordPasswordConfirmed);
-  }
+  // ---------------------- FUNÇÕES ----------------------//
 
   rootElement.querySelector('#registerSingIn').addEventListener('submit', (event) => {
     event.preventDefault();
-    const emailValue = email.value;
-    const passwordValue = passwordConfirmed.value;
-    if (emailValue === '' || passwordValue === '') {
-      console.log('deu ruim');
+    const emailValeu = email.value;
+    const passwordValeu = password.value;
+    const confirmSamePassword = passwordConfirmed.value;
+    if (passwordValeu !== confirmSamePassword) {
+      alert("As senhas não são iguais");
     }
-    record(emailValue, passwordValue)
-      .then(() => {
-        onNavigate('/');
-      })
-      .catch((err) => {
-        console.log(err)
-      });
+    else if (passwordValeu.length < 6) {
+      alert("Sua senha tem que conter no minimo 6 caracteres");
+    }
+    else {
+      record(emailValeu, passwordValeu)
+        .then(() => {
+          emailVerify()
+            .then(() => {
+              onNavigate('/');
+            })
+            .catch((err) => {
+              console.log(err)
+            });
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+    }
   });
+
   return rootElement;
 };
