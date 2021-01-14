@@ -11,6 +11,19 @@ export const identifyUser = () => {
     });
 };
 
+// Deslogar o usuario
+// export const logOut = () => {
+//   if (firebase.auth().currentUser) {
+//     firebase.auth().signOut()
+//       .then(() => {
+//         window.location.href = '#home';
+//       });
+//       .catch(() => {
+//         alert('Falha ao desconectar, por gentileza, tente novamente');
+//       });
+//   }
+// };
+
 // Também é possível receber o usuário
 //  conectado usando a propriedade currentUser.
 // const name, email, photoUrl, uid, emailVerified;
@@ -38,13 +51,6 @@ export const identifyUser = () => {
 //   city:
 // });
 // }
-
-//   Criar usuario
-// export const createUser = (email, password) => {
-//   firebase
-//     .auth()
-//     .createUserWithEmailAndPassword(email, password);
-// };
 
 //   UID
 export const userId = () => {
