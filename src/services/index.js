@@ -17,7 +17,7 @@ export const logOut = () => {
     firebase.auth().signOut()
       .then(() => {
         window.location.href = '#home';
-      });
+      })
       .catch(() => {
         alert('Falha ao desconectar, por gentileza, tente novamente');
       });
