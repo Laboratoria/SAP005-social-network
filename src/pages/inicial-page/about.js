@@ -11,7 +11,8 @@ export const Home = () => {
            <br>
            <img class="mae-carol" src="./img/mcarol.jpg" alt="Desenho de Mae Carol Jemison astronauta">      
       
-           <p> Mae Carol Jemison é uma médica, engenheira e ex-astronauta estadunidense. 
+           <button id='about'>SOBRE</button>
+           <p id='about-text'> Mae Carol Jemison é uma médica, engenheira e ex-astronauta estadunidense. 
             Foi a primeira mulher negra a ir para o espaço, quando serviu como especialista 
             de missão a bordo do ônibus espacial Endeavour. Jemison se uniu ao grupo de astronautas 
             da NASA de 1987 e serviu na missão STS-47, na qual orbitou a Terra dos dias 12 a 20 de setembro de 1992. <br><br>
@@ -29,3 +30,9 @@ export const Home = () => {
 
 return rootElement;
 };
+export const About = () => {
+  document.getElementById('about').addEventListener('click',(e) => {
+  e.preventDefault();
+  document.getElementById('about-text').style.display = 'block';
+})
+}

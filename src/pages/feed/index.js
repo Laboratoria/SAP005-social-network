@@ -1,4 +1,4 @@
-import { getPosts, Like, Love } from '../../services/index.js';
+import { getPosts, Like, Dislike, Love } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
 export const Feed = () => {
@@ -41,8 +41,8 @@ export const Feed = () => {
           ${post.data().post_text}
         </p>
       <ul>
-        <li><button id='like' title='Curti' class='like react-button'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'>${post.data().likes.FieldValue}</button></li>
-        <li><button id='love' title='Amei' class='love react-button'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'>${post.data().loveIt.FieldValue}</button></li>
+        <li><button id='like' title='Curti' class='like react-button'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'>${post.data().likes}</button></li>
+        <li><button id='love' title='Amei' class='love react-button'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'>${post.data().loveIt}</button></li>
        </ul>
         </section>
      `
@@ -53,15 +53,32 @@ export const Feed = () => {
         loadPost(post)
       });
  
-   const allLike = document.querySelectorAll('.like');
+  /* const allLike = document.querySelectorAll('.like');
    allLike.forEach((button) => {
       button.addEventListener('click', (e) => {
         let container = e.target.parentNode.parentNode.parentNode;
+        console.log(container)
         Like(container.dataset.id);
         console.log('Você curtiu isso');
       });
    });
- 
+ */
+let counter = 0
+
+const allLike = document.querySelectorAll('.like');
+allLike.forEach((button) => {
+button.addEventListener('click', (e) => {
+    let container = e.target.parentNode.parentNode.parentNode;
+     const userClick = firebase.auth().currentUser.uid;
+     Like(container.dataset.id);
+     console.log('Você curtiu isso');
+       if(counter > 1 && userClick == firebase.auth().currentUser.uid)
+         Dislike(container.dataset.id);
+         console.log('Você descurtiu isso');    
+         });
+     });
+
+
    const allLove = document.querySelectorAll('.love');
    allLove.forEach((button) => {
       button.addEventListener('click', (e) => {
