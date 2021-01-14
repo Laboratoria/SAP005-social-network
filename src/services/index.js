@@ -112,11 +112,23 @@ export const Post = () => {
   export const Like = (id) => {
     dataBase.collection('Posts').doc(`${id}`).update({
     likes: firebase.firestore.FieldValue.increment(1)
+    }).then(() => {
+      onNavigate('/feed');
     })
   }
+  export const Dislike = (id) => {
+    dataBase.collection('Posts').doc(`${id}`).update({
+    likes: firebase.firestore.FieldValue.increment(-1)
+     }).then(() => {
+      onNavigate('/feed');
+    })
+   }
+
   export const Love = (id) => {
     dataBase.collection('Posts').doc(`${id}`).update({
     loveIt: firebase.firestore.FieldValue.increment(1)
+    }).then(() => {
+      onNavigate('/feed');
     })
   }
   
@@ -130,4 +142,4 @@ export const Post = () => {
         })
        }  
       }
-   
+    

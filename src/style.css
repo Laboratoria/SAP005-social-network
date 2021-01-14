@@ -270,7 +270,7 @@ span.psw {
     width: 100%;
 }
 .tpm-name {
-    font-family: sans-serif;
+    font-family: 'Limelight', cursive;
     color: rgb(228, 234, 235);
     font-size: 40px;
 }
@@ -279,6 +279,16 @@ span.psw {
     font-size: 20px;
     color: cadetblue;
 }
+
+#about-text {
+    display: none;
+    font-size: 20px;
+    color: darkslategrey;
+}
+#about {
+    background-color: crimson;
+}
+
 /* Feed */
 
 #root div {
