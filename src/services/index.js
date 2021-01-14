@@ -24,6 +24,30 @@ export const logOut = () => {
   }
 };
 
+export const login = (email, password) => firebase
+  .auth()
+  .signInWithEmailAndPassword(email, password);
+
+export const loginGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  return firebase
+    .auth()
+    .signInWithPopup(provider);
+};
+export const createuser = () => {
+  const uid = firebase.auth().currentUser.uid;
+  const user = {
+    displayName: firebase.auth().currentUser.displayName,
+    email: firebase.auth().currentUser.email,
+    phoneNumber: firebase.auth().currentUser.phoneNumber,
+    photoUrl: firebase.auth().currentUser.photoURL,
+  };
+  return firebase
+    .firestore().collection('users').doc(uid).set({ user });
+};
+
+export const currentUser = () => firebase.auth().currentUser;
+
 // Também é possível receber o usuário
 //  conectado usando a propriedade currentUser.
 // const name, email, photoUrl, uid, emailVerified;
