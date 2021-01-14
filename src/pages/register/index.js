@@ -32,7 +32,7 @@ export const Register = () => {
       displayName: register.querySelector('#displayName').value,
       email: register.querySelector('#email').value,
       phoneNumber: register.querySelector('#phoneNumber').value,
-      photoUrl: null,
+      photoUrl: '',
     };
 
     const password = register.querySelector('#password').value;

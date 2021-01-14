@@ -23,7 +23,7 @@ export const logOut = () => {
       });
   }
 };
-
+// Logar com email e senha
 export const loginWithEmail = (email, password) => firebase
   .auth()
   .signInWithEmailAndPassword(email, password);

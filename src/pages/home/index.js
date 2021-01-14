@@ -35,7 +35,7 @@ export const Home = () => {
   const autGoogle = home.querySelector('#authGoogle');
   const email = home.querySelector('#email-input');
   const password = home.querySelector('#password-home');
-
+  const msgError = home.querySelector('#msgError');
   const userHome = currentUser();
 
   // Conectar um usuário com endereço de e-mail e senha
@@ -56,7 +56,6 @@ export const Home = () => {
         } else if (codeError === 'auth/wrong-password') {
           codeError = error.message;
         }
-        const msgError = home.querySelector('#msgError');
         msgError.innerHTML = codeError;
       });
   });
@@ -72,7 +71,7 @@ export const Home = () => {
         onNavigate('/post');
       })
       .catch((error) => {
-        alert(error.message);
+        msgError.innerHTML = error.message;
       });
   });
 

@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home shoul return homepag 1`] = `
+<div
+  class="div-home"
+>
+  
+  
+  <div
+    id="fundo"
+  />
+  
+      
+  <figure
+    class="logo"
+  >
+    
+      
+    <img
+      alt="Logo Runners"
+      id="logo"
+      src="./assets/logo_runners.png"
+    />
+    
+      
+  </figure>
+  
+      
+  <div
+    class="home-box"
+  >
+    
+        
+    <form
+      class="login"
+    >
+      
+          
+      <div
+        class="input-form"
+      >
+        
+            
+        <p
+          alt="Login"
+          class="login"
+        >
+          Login
+        </p>
+        
+            
+        <h3
+          class="error"
+          id="msgError"
+        />
+        
+            
+        <input
+          id="email-input"
+          placeholder="@E-mail"
+          required=""
+          type="email"
+        />
+        
+            
+        <input
+          id="password-home"
+          placeholder="Senha"
+          required=""
+          type="password"
+        />
+        
+            
+        <button
+          id="submit-home"
+        >
+          Entrar
+        </button>
+        
+            
+        <p
+          class="text"
+        >
+          Logar com:
+        </p>
+        
+            
+        <div
+          class="button-social"
+          id="authGoogle"
+        >
+          
+            
+          <input
+            alt="Logo Google"
+            class="google"
+            id="authGoogle"
+            type="button"
+          />
+          
+            
+        </div>
+        
+          
+      </div>
+      
+        
+    </form>
+    
+      
+  </div>
+  
+      
+  <div
+    class="register-home"
+  >
+    
+      
+    <p
+      class="sub-text"
+    >
+      Não tem uma conta? 
+      <a
+        href="/register"
+      >
+        Cadastre-se
+      </a>
+    </p>
+    
+      
+  </div>
+  
+  
+</div>
+`;

@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile shoul return profilepag 1`] = `
+<div
+  class="div-profile"
+>
+  
+  
+  <figure
+    class="logo"
+  >
+    
+  
+    <img
+      alt="Logo Runners"
+      id="logo"
+      src="./assets/logo_runners.png"
+    />
+    
+  
+  </figure>
+  
+  
+  <form>
+    
+  
+    <div
+      class="profile-header"
+    >
+      
+      
+      <img
+        alt="Imagem do Usuario"
+        id="photo"
+        src="https://github.com/elis-ctrl.png"
+      />
+      
+      
+      <p
+        class="text"
+        id="name"
+      >
+        Teste
+      </p>
+      
+      
+      <p
+        class="text"
+        id="email"
+      >
+        teste@teste1.com
+      </p>
+      
+      
+      <p
+        class="number"
+        id="phoneNumber"
+      >
+        119999999999
+      </p>
+      
+      
+    </div>
+    
+      
+    <div>
+      
+      
+      
+      <div
+        class="profile-btn"
+      >
+        
+      
+        <button
+          id="deleteuser"
+        >
+          Deletar Perfil
+        </button>
+        
+      
+        <button
+          id="cancelbtn"
+        >
+          Cancelar
+        </button>
+        
+      
+      </div>
+      
+      
+    </div>
+  </form>
+</div>
+`;

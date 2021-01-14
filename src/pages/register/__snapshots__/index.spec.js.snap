@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register shoul return registerpag 1`] = `
+<div
+  class="div-register"
+>
+  
+  
+  <div
+    alt="Runner|Cadastro"
+    class="head-register"
+  >
+    Runner|Cadastro
+  </div>
+  
+  
+  <figure
+    class="container-logo"
+  >
+    
+    
+    <img
+      alt="Logo Runners"
+      class="logo-register"
+      src="./assets/logo_runners.png"
+    />
+    
+  
+  </figure>
+  
+
+  
+  <form>
+     
+    
+    <div
+      class="form-container"
+    >
+      
+    
+      <h3
+        class="error"
+        id="registerError"
+      />
+      
+      
+      <input
+        id="displayName"
+        placeholder="Nome"
+        type="text"
+      />
+      
+      
+      <input
+        id="email"
+        placeholder="E-mail"
+        type="email"
+      />
+      
+      
+      <input
+        id="phoneNumber"
+        placeholder="()999999999"
+        type="number"
+      />
+      
+      
+      <input
+        id="password"
+        placeholder="Senha"
+        type="password"
+      />
+      
+      
+      <input
+        id="confirmPwd"
+        placeholder="Confirmar Senha"
+        type="password"
+      />
+      
+      
+      <button
+        id="btnRegister"
+      >
+        Registrar
+      </button>
+      
+    
+      <a
+        class="link-exit"
+        href="/"
+      >
+        Voltar
+      </a>
+       
+    
+    </div>
+    
+  
+  </form>
+  
+  
+</div>
+`;
