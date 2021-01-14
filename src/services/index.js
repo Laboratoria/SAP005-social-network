@@ -24,7 +24,7 @@ export const logOut = () => {
   }
 };
 
-export const login = (email, password) => firebase
+export const loginWithEmail = (email, password) => firebase
   .auth()
   .signInWithEmailAndPassword(email, password);
 

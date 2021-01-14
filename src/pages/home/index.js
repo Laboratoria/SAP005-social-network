@@ -1,6 +1,6 @@
 import { onNavigate } from '../../utils/history.js';
 import {
-  login, loginGoogle, createuser, currentUser,
+  loginWithEmail, loginGoogle, createuser, currentUser,
 } from '../../services/index.js';
 
 export const Home = () => {
@@ -41,7 +41,7 @@ export const Home = () => {
   // Conectar um usuário com endereço de e-mail e senha
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    login(email.value, password.value)
+    loginWithEmail(email.value, password.value)
       .then(() => {
         if (userHome !== null) {
           onNavigate('/post');
