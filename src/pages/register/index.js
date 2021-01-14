@@ -34,7 +34,6 @@ export const Register = () => {
       </form>
   </fieldset> 
   </div> 
-
 </div>
     `;
     const name = rootElement.querySelector('#nome')

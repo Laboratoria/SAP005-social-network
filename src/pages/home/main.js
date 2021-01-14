@@ -70,10 +70,12 @@ export const Home = () => {
                 like: [],
             }
 
-            createPost(newPost, docRef.id).then(() => {
+            createPost(newPost, docRef.id).then(() => { 
                 postFeed({
                     ...newPost,
-                    displayName: firebase.auth().currentUser.displayName
+                    displayName: firebase.auth().currentUser.displayName,
+                    id: docRef.id
+                    
                 })
             })
             postValue.value = '';
@@ -109,14 +111,14 @@ export const Home = () => {
                     </div>
                     <textarea disabled id = ${post.text} class = "editText">${post.text}</textarea>                   
                     <div class = "editArea">              
-                        <button class="save" id =${post.id}><img src="https://img.icons8.com/nolan/64/save-close.png"/></button>                       
+                        <button class="save" ><img src="https://img.icons8.com/nolan/64/save-close.png"/></button>                       
                     </div>
                  </div>
                  <div id= "containerButton" class="containerButton" >
-                 <button class="delete" id=${post.id}><img src="https://img.icons8.com/nolan/64/delete-forever.png"/></button>
+                 <button class="delete"><img src="https://img.icons8.com/nolan/64/delete-forever.png"/></button>
                  <button class="edit" id ="edit"><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button> 
-                  <button  id =${post.id} class="likeBtn" ><img src="https://img.icons8.com/nolan/64/like.png"/></button>    
-                  <div ><span id=${post.id} class ="spanLike">${post.like.length}</span></div>                 
+                  <button class="likeBtn" ><img src="https://img.icons8.com/nolan/64/like.png"/></button>    
+                  <span class ="spanLike">${post.like.length} </span>         
                 </div>
                 </div>`
 
@@ -124,8 +126,11 @@ export const Home = () => {
         edit.forEach((button) => {
             button.addEventListener("click", (e) => {
                 e.preventDefault()
+                
                 const containerFeed = e.target.parentNode.parentNode.parentNode
+                
                 showEdit(containerFeed)
+                
             })
         })
 
@@ -133,11 +138,12 @@ export const Home = () => {
         save.forEach((button) => {
             button.addEventListener("click", async(e) => {
                 e.preventDefault()
+                console.log('deu certo')
                 const newText = rootElement.querySelector(".editText").value
-                const containerFeed = e.target.parentNode.parentNode.parentNode
-
-                updatePost(newText, button.id).then(() => {
-                    showSave(containerFeed)
+                const containerFeed = e.target.parentNode.parentNode.parentNode.parentNode
+                console.log(containerFeed.id)
+                updatePost(newText, containerFeed.id).then(() => {
+                    showSave(containerFeed) 
                 })
             })
         })
@@ -147,10 +153,10 @@ export const Home = () => {
             button.addEventListener("click", async(e) => {
                 e.preventDefault()
                 const containerFeed = e.target.parentNode.parentNode.parentNode
-                likePost(userId, button.id).then(() => {
-                    let postId = `#${button.id}`
-                    const elementLike = containerFeed.querySelector(postId)
-                    return elementLike.innerHTML = `${post.like.length + 1}`
+                
+                likePost(userId, containerFeed.id).then(() => {
+                    const elementLike = containerFeed.querySelector('.spanLike')
+                    elementLike.innerHTML = `${post.like.length + 1}`
                 })
             })
         })
@@ -160,7 +166,8 @@ export const Home = () => {
             button.addEventListener("click", (e) => {
                 e.preventDefault()
                 const containerFeed = e.target.parentNode.parentNode.parentNode
-                deletePost(button.id).then(() => {
+                //console.log(containerFeed.id)
+                deletePost(containerFeed.id).then(() => {
                     containerFeed.remove()
                 })
             })
