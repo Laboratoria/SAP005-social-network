@@ -2,7 +2,7 @@
 import { onNavigate } from './utils/history.js';
 import { Feed } from './pages/feed/index.js';
 import { Home, About } from './pages/inicial-page/about.js';
-import { logOut, Post, emailLogin, googleLogin, subscribe, userOn } from './services/index.js';
+import { userOn } from './services/index.js';
 
 
   const routeRender = () => {
