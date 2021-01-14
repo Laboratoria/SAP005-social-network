@@ -18,12 +18,22 @@ hr {
   background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
   background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
 }
-p {
+p.about {
   font-size: 16px;
   color: #333;
-  align-content: stretch;
+  align-content: center;
 }
-
+h2.about{
+  text-align: center;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.logo {
+  max-width: 100%;
+  height: auto;
+}
 /* Clearfix
 Limpando a row para ajustar a altura dos elementos filhos */
 
@@ -143,10 +153,10 @@ Limpando a row para ajustar a altura dos elementos filhos */
   transition: all 0.3s ease-in-out;
 }
 .form-container input[type=password]:focus {
-  -webkit-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-  -moz-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-  box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-  border: 1px solid #f5ba1a;
+  -webkit-box-shadow: 0 0 2px 1px #095885;
+  -moz-box-shadow: 0 0 2px 1px #095885;
+  box-shadow: 0 0 2px 1px #095885;
+  border: 1px solid #095885;
 }
 .form-container input[type=submit] {
   background: #3b5ca1;

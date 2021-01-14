@@ -7,11 +7,11 @@ export const Home = () => {
   <div class='form-login'>
     <div class='header-container'>
       <figure class='logo'><img src='./assets/logo/runners-360px.png' alt='Logo Runners' id='logo'></figure>
-        <h2>Olá!</h2>
-        <p>Conecte-se e compartilhe seus desafios com outros corredores.</p>
+        <h1>Olá!</h1>
+        <p class='about'>Conecte-se e compartilhe seus desafios com outros corredores.</p>
         <hr />
       </div>
-      <div><h2>Login com Google</h2></div>
+      <div><h2 class='about'>Login</h2></div>
       <div class="row clearfix">
       <div class="col_half">
       <div class="btn google" id='authGoogle'><a href="#"><span><i class="fab fa-google" aria-hidden="true"></i></span>Entrar com Google</a></div>
