@@ -33,9 +33,11 @@ input[type=text], input[type=password] {
       color: black;
 
       background-color: rgb(255, 255, 255);
-      border: 1px solid lightgray;
+      border: 1px solid;
+      border-width:medium;
+      border-color: rgb(16, 15, 65);
       transition: 1s;
-  }
+    }
   
 button {
     background-color: #323142;
@@ -150,6 +152,9 @@ fieldset.group .area {
     background-color: white;
     color: black;
     border: 1px solid lightgrey;
+    border-width:medium;
+    border-color: rgb(43, 43, 48);
+    
 }
 .logo-google {
     padding-right: 5px;
