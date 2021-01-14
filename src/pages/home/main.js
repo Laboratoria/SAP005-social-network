@@ -72,7 +72,9 @@ export const Home = () => {
             createPost(newPost, docRef.id).then(() => {
                 postFeed({
                     ...newPost,
-                    displayName: firebase.auth().currentUser.displayName
+                    displayName: firebase.auth().currentUser.displayName,
+                    id: docRef.id
+
                 })
             })
             postValue.value = '';
@@ -98,10 +100,6 @@ export const Home = () => {
     })
 
     const postFeed = (post) => {
-        const emailUser = firebase.auth().currentUser.email
-        const postEmail = post.email
-        console.log(emailUser + " email do usuário logado")
-        console.log(postEmail + " email do poste")
 
         rootElement.querySelector("#postedValue").innerHTML =
             feed +=
@@ -113,14 +111,14 @@ export const Home = () => {
                     </div>
                     <textarea disabled id = ${post.text} class = "editText">${post.text}</textarea>                   
                     <div class = "editArea">              
-                        <button class="save" id =${post.id}><img src="https://img.icons8.com/nolan/64/save-close.png"/></button>                       
+                        <button class="save" ><img src="https://img.icons8.com/nolan/64/save-close.png"/></button>                       
                     </div>
                  </div>
                  <div id= "containerButton" class="containerButton" >
-                 <button class="delete" id=${post.id}><img src="https://img.icons8.com/nolan/64/delete-forever.png"/></button>
-                 <button class="edit" id =${post.id}><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button> 
-                  <button  id =${post.id} class="likeBtn" ><img src="https://img.icons8.com/nolan/64/like.png"/></button>    
-                  <span id=${post.id} class ="spanLike">${post.like.length}</span>Like               
+                 <button class="delete"><img src="https://img.icons8.com/nolan/64/delete-forever.png"/></button>
+                 <button class="edit" id ="edit"><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button> 
+                  <button class="likeBtn" ><img src="https://img.icons8.com/nolan/64/like.png"/></button>    
+                  <span class ="spanLike">${post.like.length} </span>         
                 </div>
                 </div>`
 
@@ -129,14 +127,7 @@ export const Home = () => {
             button.addEventListener("click", (e) => {
                 e.preventDefault()
                 const containerFeed = e.target.parentNode.parentNode.parentNode
-                console.log(emailUser)
-                console.log(postEmail)
-                if (emailUser === postEmail) {
-                    showEdit(containerFeed)
-                } else {
-
-                }
-
+                showEdit(containerFeed)
             })
         })
 
@@ -145,9 +136,8 @@ export const Home = () => {
             button.addEventListener("click", async(e) => {
                 e.preventDefault()
                 const newText = rootElement.querySelector(".editText").value
-                const containerFeed = e.target.parentNode.parentNode.parentNode
-
-                updatePost(newText, button.id).then(() => {
+                const containerFeed = e.target.parentNode.parentNode.parentNode.parentNode
+                updatePost(newText, containerFeed.id).then(() => {
                     showSave(containerFeed)
                 })
             })
@@ -158,10 +148,9 @@ export const Home = () => {
             button.addEventListener("click", async(e) => {
                 e.preventDefault()
                 const containerFeed = e.target.parentNode.parentNode.parentNode
-                likePost(userId, button.id).then(() => {
-                    let postId = `#${button.id}`
-                    const elementLike = containerFeed.querySelector(postId)
-                    return elementLike.innerHTML = `${post.like.length + 1}`
+                likePost(userId, containerFeed.id).then(() => {
+                    const elementLike = containerFeed.querySelector('.spanLike')
+                    elementLike.innerHTML = `${post.like.length + 1}`
                 })
             })
         })
@@ -171,7 +160,7 @@ export const Home = () => {
             button.addEventListener("click", (e) => {
                 e.preventDefault()
                 const containerFeed = e.target.parentNode.parentNode.parentNode
-                deletePost(button.id).then(() => {
+                deletePost(containerFeed.id).then(() => {
                     containerFeed.remove()
                 })
             })
@@ -185,15 +174,9 @@ export const Home = () => {
 
     const showSave = (containerFeed) => {
 
-            containerFeed.querySelector(".save").style.display = "none";
-            containerFeed.querySelector(".editText").setAttribute("disabled", "disabled")
-        }
-        // const like = (containerFeed) => {
-        //     const postLike = containerFeed.querySelector("#containerButton")
-        //     const text = containerFeed.createElement("span").innerHTML = `${post.like.length}`
-        //     postLike.appendChild(text)
+        containerFeed.querySelector(".save").style.display = "none";
+        containerFeed.querySelector(".editText").setAttribute("disabled", "disabled")
+    }
 
-    //     console.log(text)
-    // }
     return rootElement;
 }
