@@ -1,4 +1,4 @@
-import { getPosts, Like } from '../../services/index.js';
+import { getPosts, Like, Love } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
 export const Feed = () => {
@@ -36,41 +36,42 @@ export const Feed = () => {
     const loop = Array.from(Array(post.length).keys());
     loop.forEach(() =>
     document.getElementById('posts').innerHTML  += `
-     <section> 
+     <section data-id='${post.id}'> 
         <p>
           ${post.data().post_text}
         </p>
       <ul>
-        <li><button id='like' title='Curti' class='like react-button'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'>${post.data().likes.length}</button></li>
-        <li><button id='love' title='Amei' class='love react-button'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'></button></li>
+        <li><button id='like' title='Curti' class='like react-button'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'>${post.data().likes.FieldValue}</button></li>
+        <li><button id='love' title='Amei' class='love react-button'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'>${post.data().loveIt.FieldValue}</button></li>
        </ul>
-      <!-- <p id='time-p'>${post.data().date}</p> -->
         </section>
      `
-    )
-   }
-   /*
-   const allLike = rootElement.querySelectorAll('.like');
+    )  }
+
+    getPosts().then(querySnapshot => {
+      querySnapshot.forEach((post) => {
+        loadPost(post)
+      });
+ 
+   const allLike = document.querySelectorAll('.like');
    allLike.forEach((button) => {
       button.addEventListener('click', (e) => {
-        sendLike(e);
-      })
-   })
-   const sendLike = (e) => {
-     likedPost()
-     .then((retorno) => {
-       console.log(retorno);
-       e.target.classList.add('liked')
-     })
-     .catch(() => {
-       console.log('Deu não')
-     })
-   } */
+        let container = e.target.parentNode.parentNode.parentNode;
+        Like(container.dataset.id);
+        console.log('Você curtiu isso');
+      });
+   });
+ 
+   const allLove = document.querySelectorAll('.love');
+   allLove.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        let container = e.target.parentNode.parentNode.parentNode;
+        console.log(container)
+        Love(container.dataset.id);
+        console.log('Você amou isso');
+      });
+   });
 
-  getPosts().then(querySnapshot => {
-    querySnapshot.forEach((post) => {
-      loadPost(post)
-    });
   });
   return rootElement;
 };
@@ -106,6 +107,4 @@ let name, email, photoUrl, uid, emailVerified;
     emailVerified = user.emailVerified;
     uid = user.uid; 
    }
-  }
-
-window.onload = document.getElementById('profile-edit').addEventListener('click', getData); */
+  */ 
