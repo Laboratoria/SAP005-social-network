@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 body {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   background: #f2f2f2;
 }
-
+a {
+  color: #06476d;
+  text-decoration: none;
+  font-weight: bold;
+}
 hr {
   border: 0; 
   height: 1px; 
@@ -28,11 +34,9 @@ Limpando a row para ajustar a altura dos elementos filhos */
   visibility: hidden;
   height: 0;
 }
-
 .form-container {
   background: #fff;
   width: 550px;
-  height: 550px;
   max-width: 100%;
   box-sizing: border-box;
   padding: 25px;
@@ -70,7 +74,6 @@ Limpando a row para ajustar a altura dos elementos filhos */
   width: 50%;
   float: left;
 }
-
 .form-container .input_field {
   position: relative;
   margin-bottom: 20px;
@@ -170,9 +173,6 @@ Limpando a row para ajustar a altura dos elementos filhos */
 .form-login .row .col_half.last {
   border-left: 1px solid #ccc;
 }
-.remember_me {
-  display: flex;
-}
 .forgot_pw {
   text-align: right;
 }
@@ -210,13 +210,6 @@ Limpando a row para ajustar a altura dos elementos filhos */
 .btn.google span {
   background: #cc3a21;
 }
-
-a {
-  color: #06476d;
-  text-decoration: none;
-  font-weight: bold;
-}
-
 .bottom_row {
   font-size: 0.7em;
   color: #ababab;
@@ -226,14 +219,14 @@ a {
   color: #ababab;
 }
 
-/* .credit {
+/* .footer {
   position: relative;
   z-index: 1;
   text-align: center;
   padding: 15px;
   color: #f5ba1a;
 }
-.credit a {
+.footer a {
   color: #e1a70a;
 } */
 
@@ -250,9 +243,5 @@ a {
 
   .form-login .row .col_half.last {
     border-left: none;
-  }
-
-  .remember_me {
-    padding-bottom: 20px;
   }
 }

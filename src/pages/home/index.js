@@ -8,7 +8,7 @@ export const Home = () => {
     <div class='header-container'>
       <figure class='logo'><img src='./assets/logo/runners-360px.png' alt='Logo Runners' id='logo'></figure>
         <h2>Olá!</h2>
-        <p>Conecte-se ou crie sua conta na Runners e compartilhe seus desafios com outros corredores.</p>
+        <p>Conecte-se e compartilhe seus desafios com outros corredores.</p>
         <hr />
       </div>
       <div><h2>Login com Google</h2></div>
