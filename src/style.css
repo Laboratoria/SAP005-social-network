@@ -394,6 +394,7 @@ span.psw {
 }
 .react-button {
     width: 100%;
+    color: black;
     background-color: rgb(252, 251, 247);
     border-radius: 10px;
 }
