@@ -1,0 +1,501 @@
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    html,
+    body,
+    main,
+    #root {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .formRegister {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        background-color: #8136b2;
+    }
+    
+    .textFirts {
+        margin: 40px 210px 0 0;
+        color: white;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+    }
+    
+    legend {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .register {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 330px;
+        height: 350px;
+    }
+    
+    .register input,
+    .registerLogin input {
+        padding: 7px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        background-color: hsla(0, 0%, 100%, .45);
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .name {
+        margin-left: 10px;
+    }
+    
+    .name input {
+        width: 136px;
+        margin-left: 0;
+    }
+    
+    .registerColumn input {
+        width: 290px;
+    }
+    
+    .registerColumn button {
+        cursor: pointer;
+        width: 20px;
+        height: 15px;
+        border: none;
+        background-color: #8136b2;
+    }
+    
+    .registerColumn img {
+        width: 20px;
+        height: 15px;
+    }
+    
+    #btn {
+        width: 100px;
+        height: 30px;
+        border: solid 1px white;
+        margin: 10px 0 0 218px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        font-weight: bold;
+        background-color: #581c72;
+        border-radius: 20px;
+    }
+    
+    #btnLogin {
+        width: 100px;
+        height: 30px;
+        border: solid 1px white;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        font-weight: bold;
+        background-color: #581c72;
+        border-radius: 20px;
+        margin: 10px 0 0 218px;
+        cursor: pointer;
+    }
+    
+    #google {
+        height: 30px;
+        background-color: transparent;
+        border: none;
+    }
+    
+    #loginBtn {
+        width: 100px;
+        margin: 10px 0 0 218px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 17px;
+        color: #581c72;
+    }
+    
+    #btnCadastro {
+        background-color: transparent;
+        width: 120px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        color: #581c72;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .btns img {
+        width: 25px;
+        height: 25px;
+        margin-right: 50%;
+        cursor: pointer;
+    }
+    
+    .btns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btns p {
+        margin: 2% 0 2% 0;
+        color: #2a0a38;
+        height: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .registerLogin {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 330px;
+        height: 210px;
+    }
+    
+    #passwordFirst,
+    #passwordSecond {
+        width: 254px;
+    }
+    
+    .logoL {
+        width: 40%;
+        height: 15%;
+        align-items: center;
+        margin: 10% 0 0 30%;
+    }
+    
+    button:focus,
+    input:focus,
+    select:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    }
+    
+    .msgFinalized,
+    .msgNotFound {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .warning {
+        color: orange
+    }
+    
+    .home {
+        display: flex;
+    }
+    
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        justify-content: space-around;
+        background-color: #8136b2;
+    }
+    
+    .perfil {
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+        margin-top: 20px;
+        position: absolute;
+        margin: -35px 0 0 10px;
+    }
+    
+    .logoHome {
+        height: 80px;
+        width: 120px;
+        margin-left: 30%;
+    }
+    
+    .menu {
+        height: 50px;
+        width: 50px;
+    }
+    
+    .nameHome {
+        width: 100%;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        font-size: 8px;
+        margin-top: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #2a0a38;
+    }
+    
+    .post,
+    .containerFeed {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+    }
+    
+    .containerFeed {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #textPost {
+        width: 80%;
+        height: 80px;
+        border-radius: 10px;
+        border: none;
+        background-color: #d9d9d9;
+        text-align: center;
+    }
+    
+    .postFeed {
+        width: 80%;
+        height: 100%;
+        padding: 2% 0 2% 0;
+        border-radius: 10px;
+        border: none;
+        background-color: #d9d9d9;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .containerButton {
+        margin-left: 40%;
+    }
+    
+    .spanLike{
+        color: #581c72;
+    }
+    .buttonPost {
+        width: 100px;
+        height: 30px;
+        border: solid 1px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        font-weight: bold;
+        background-color: #581c72;
+        border-radius: 20px;
+        margin: 10px 0 0 61%
+    }
+    
+    .buttonPost img {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .barra-menu {
+        margin-top: 115px;
+        background-color: #8136b2;
+        border-radius: 5px 0 0 5px;
+        border: solid 3px #581c72;
+        width: 100%;
+        height: 30px;
+        right: -2000px;
+        position: absolute;
+        transition: all .2s ease;
+    }
+    
+    #check:checked~.barra-menu {
+        transform: translatex(-2000px);
+    }
+    
+    #check {
+        display: none;
+    }
+    
+    .itensMenu {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .profilePhoto,
+    .exit {
+        width: 80px;
+        height: 30px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .labelPhoto {
+        color: white;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 8px;
+    }
+    
+    .exit {
+        width: 20px;
+        margin-left: 5px;
+    }
+    
+    .itensMenu img {
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+    }
+    
+    .likeBtn,
+    .delete,
+    .edit,
+    .save {
+        padding: 5px 5px;
+        font-size: 10px;
+        border-radius: 5px;
+        background-color: transparent;
+        color: #3e1444;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .likeBtn img,
+    .delete img,
+    .edit img,
+    .saveClick img {
+        width: 25px;
+    }
+    
+    #upload {
+        display: none;
+    }
+    
+    @media (min-width:920px) and (max-width:1500px) {
+        .logoL {
+            width: 22%;
+            height: 32%;
+            margin: 20% 20% 20% 15%
+        }
+        .textRegister {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+        }
+        .formBtn {
+            margin: 0 0 0 0;
+        }
+        .textFirts {
+            margin: 20% 70% 0 0;
+        }
+        .formRegister {
+            margin-right: 25%;
+        }
+        #textPost {
+            width: 50%;
+            height: 100px;
+        }
+        .perfil {
+            height: 120px;
+            width: 120px;
+            margin: -35px 0 0 30px;
+        }
+        .postFeed {
+            width: 50%;
+            height: 100%;
+        }
+        .msgFinalized,
+        .msgNotFound {
+            margin-top: 30%;
+        }
+    }
+    
+    @media (min-width:1500px) {
+        .logoL {
+            width: 20%;
+            height: 29%;
+            margin: 15% 20% 20% 15%
+        }
+        .textRegister {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .textFirts {
+            margin: 10% 70% 0 0;
+        }
+        .formRegister {
+            margin-right: 25%;
+        }
+        #textPost {
+            width: 50%;
+            height: 100px;
+        }
+        .perfil {
+            height: 130px;
+            width: 130px;
+            margin: -35px 0 0 30px;
+        }
+        .postFeed {
+            width: 50%;
+            height: 100%;
+        }
+        .msgFinalized,
+        .msgNotFound {
+            margin-top: 40%;
+        }
+    }
+    
+    .editArea {
+        display: none;
+    }
+    
+    #editText {
+        display: flex;
+    }
+    /* .editTextClick {
+        display: none;
+    } */
+    
+    .editText {
+        width: 92%;
+        height: 60%;
+        border-radius: 10px;
+        padding: 0 1% 0 1%;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+        margin-left: 1%;
+        background-color: transparent;
+    }
+    
+    .save {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: transparent;
+    }
+    
+    .save img {
+        width: 30px;
+    }
+    
+    .namePost {
+        font-size: 12px;
+        margin-left: 1%
+    }
+    
+    .containerFeed h2 {
+        display: flex;
+        align-items: center;
+    }
+    
+    .nameIcon {
+        display: flex;
+        margin-left: 2%;
+        margin-bottom: 2%;
+    }
+    
+    .nameIcon img {
+        width: 20px;
+        ;
+    }
