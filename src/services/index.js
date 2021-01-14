@@ -78,20 +78,22 @@ firebase.auth().onAuthStateChanged(function(user) {
  }) 
 }
 // FUNÇÕES FIREBASE -> FEED
+
+
 export const Post = () => {
 
   document.getElementById('post-it').addEventListener('click', (e) => {
      e.preventDefault();
-  
+     let userId = firebase.auth().currentUser.uid
      let postText = document.getElementById('write-post').value
         
         dataBase.collection('Posts').add({
         post_text: postText,
         date: new Date(),
-        id_user: firebase.auth().currentUser.uid,
+        id_user: userId,
         username: firebase.auth().currentUser.displayName,
-        likes: 0,
-        loveIt: 0
+        likes: [],
+        loveIt: []
       })
       .then(function() {
         console.log("Post enviado com sucesso!");
@@ -110,29 +112,40 @@ export const Post = () => {
     };
   
   export const Like = (id) => {
+    let userId = firebase.auth().currentUser.uid
     dataBase.collection('Posts').doc(`${id}`).update({
-    likes: firebase.firestore.FieldValue.increment(1)
+    likes: firebase.firestore.FieldValue.arrayUnion(userId)
     }).then(() => {
       onNavigate('/feed');
     })
   }
   export const Dislike = (id) => {
+    let userId = firebase.auth().currentUser.uid
     dataBase.collection('Posts').doc(`${id}`).update({
-    likes: firebase.firestore.FieldValue.increment(-1)
+    likes: firebase.firestore.FieldValue.arrayRemove(userId)
      }).then(() => {
       onNavigate('/feed');
     })
    }
 
   export const Love = (id) => {
+    let userId = firebase.auth().currentUser.uid
     dataBase.collection('Posts').doc(`${id}`).update({
-    loveIt: firebase.firestore.FieldValue.increment(1)
+      loveIt: firebase.firestore.FieldValue.arrayUnion(userId)
     }).then(() => {
       onNavigate('/feed');
     })
   }
-  
-  export const logOut = () => {
+  export const Unlove = (id) => {
+    let userId = firebase.auth().currentUser.uid
+    dataBase.collection('Posts').doc(`${id}`).update({
+     loveIt: firebase.firestore.FieldValue.arrayRemove(userId)
+     }).then(() => {
+      onNavigate('/feed');
+    })
+   }
+
+  const logOut = () => {
            
     document.getElementById('log-out').addEventListener("click", logOut)
     function logOut() {
