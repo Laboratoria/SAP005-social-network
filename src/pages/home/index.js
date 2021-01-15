@@ -1,4 +1,7 @@
 import { onNavigate } from '../../utils/history.js';
+import {
+  loginWithEmail, loginGoogle, createuser, currentUser,
+} from '../../services/index.js';
 
 export const Home = () => {
   const home = document.createElement('div');
@@ -42,20 +45,19 @@ export const Home = () => {
   const autGoogle = home.querySelector('#authGoogle');
   const email = home.querySelector('#email-input');
   const password = home.querySelector('#password-home');
-
-  const userHome = firebase.auth().currentUser;
+  const msgError = home.querySelector('#msgError');
+  const userHome = currentUser();
 
   // Conectar um usuário com endereço de e-mail e senha
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email.value, password.value)
+    loginWithEmail(email.value, password.value)
       .then(() => {
         if (userHome !== null) {
           onNavigate('/post');
         } else {
-          onNavigate('/profile');
+          const notLogin = ('Usuario não está logado');
+          msgError.innerHTML = notLogin;
         }
       })
       .catch((error) => {
@@ -65,7 +67,6 @@ export const Home = () => {
         } else if (codeError === 'auth/wrong-password') {
           codeError = error.message;
         }
-        const msgError = home.querySelector('#msgError');
         msgError.innerHTML = codeError;
       });
   });
@@ -73,26 +74,15 @@ export const Home = () => {
   // Autenticação do Google
   autGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(provider)
+    loginGoogle()
       .then(() => {
-        const uid = firebase.auth().currentUser.uid;
-        const user = {
-          displayName: firebase.auth().currentUser.displayName,
-          email: firebase.auth().currentUser.email,
-          phoneNumber: firebase.auth().currentUser.phoneNumber,
-          photoUrl: firebase.auth().currentUser.photoURL,
-        };
-        firebase
-          .firestore().collection('users').doc(uid).set({ user });
+        createuser();
       })
       .then(() => {
         onNavigate('/post');
       })
       .catch((error) => {
-        alert(error.message);
+        msgError.innerHTML = error.message;
       });
   });
 

@@ -15,7 +15,7 @@ export const Post = () => {
     </section>  
   </div>
   <hr/>
-  <p class='' id='post-content'></p>
+  <div class='' id='post-content'></div>
     
 `;
 
@@ -54,7 +54,7 @@ export const Post = () => {
       text: textToSave,
     };
     firebase.firestore().collection('posts').add(userPost).then(() => {
-      console.log('dados salvo');
+      // console.log('dados salvo');
       addCardToScreen(userPost);
     });
   };

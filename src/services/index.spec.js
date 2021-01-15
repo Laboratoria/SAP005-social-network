@@ -1,8 +1,8 @@
-// importamos la funcion que vamos a testear
-import { myFunction } from "./index";
+import { loginWithEmail } from './index.js'; // Aqui é o index do services
 
-describe("myFunction", () => {
-  it("should be a function", () => {
-    expect(typeof myFunction).toBe("function");
+describe('services', () => {
+  it('should call firebase', () => {
+    loginWithEmail('email', 'password');
+    expect(firebase.auth).toBeCalled();
   });
 });

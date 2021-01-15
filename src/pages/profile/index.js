@@ -1,8 +1,8 @@
-// import { logOut } from '../../services/index.js';
+import { currentUser, delUser, logOut } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
 export const Profile = () => {
-  const user = (firebase.auth().currentUser);
+  const user = currentUser();
 
   const profile = document.createElement('div');
   profile.classList.add('div-profile');
@@ -11,11 +11,11 @@ export const Profile = () => {
   <img src='./assets/logo_runners.png'alt='Logo Runners' id='logo'>
   </figure>
   <form>
+  <h3 class='error' id='msgError'></h3>
   <div class='profile-header'>
       <img src='${user.photoURL || '../../assets/Photo_Default.png'}' alt='Imagem do Usuario' id='photo'>
       <p class='text' id='name'>${user.displayName}</p>
       <p class='text' id='email'>${user.email}</p>
-      <p class='number' id='phoneNumber'>${user.phoneNumber}</p>
       </div>
       <div>
       </form>
@@ -23,24 +23,20 @@ export const Profile = () => {
       <button id='deleteuser'>Deletar Perfil</button>
       <button id='cancelbtn'>Cancelar</button>
       </div>
+        <button id='logOut'>Sair</button>
       `;
 
-  // deletar o usuario
   const del = profile.querySelector('#deleteuser');
+  const msgError = profile.querySelector('#msgError');
 
   del.addEventListener('click', () => {
-    firebase.auth().currentUser
+    delUser()
       .then(() => {
-        window.confirm('Você realmente deseja deletar seu perfil?');
-        user.delete();
-      })
-      .then(() => {
-        alert('Usuario deletado');
         onNavigate('/home');
       })
       .catch((error) => {
         const alert = error.message;
-        alert(alert);
+        msgError.innerHTML = alert;
       });
   });
 
@@ -48,6 +44,19 @@ export const Profile = () => {
 
   cancelBtn.addEventListener('click', () => {
     onNavigate('/post');
+  });
+
+  const btnLogout = profile.querySelector('#logOut');
+
+  btnLogout.addEventListener('click', () => {
+    logOut()
+      .then(() => {
+        onNavigate('/');
+      })
+      .catch(() => {
+        const error = 'Não conseguimos deslogar, por gentileza tentar novamente';
+        msgError.innerHTML = error;
+      });
   });
 
   return profile;
