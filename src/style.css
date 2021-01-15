@@ -470,9 +470,6 @@ select:focus {
 #editText {
     display: flex;
 }
-/* .editTextClick {
-    display: none;
-} */
 
 .editText {
     width: 92%;
