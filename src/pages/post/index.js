@@ -22,7 +22,6 @@ export const Post = () => {
   const btnPost = post.querySelector('#btn');
   const textPost = post.querySelector('#newPost');
   const postContent = post.querySelector('#post-content');
-  const firestore = firebase.firestore();
 
   const addCardToScreen = () => {
     const infUser = firebase.auth().currentUser;
