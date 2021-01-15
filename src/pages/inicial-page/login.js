@@ -1,4 +1,4 @@
-import { emailLogin, googleLogin, subscribe } from '../../services/index.js';
+import { emailLogin, googleLogin, subscribe, errorRegister } from '../../services/index.js';
 
 window.onload = () => {
 document.getElementById('main-page').innerHTML = `
@@ -8,7 +8,7 @@ document.getElementById('main-page').innerHTML = `
   </div>
 
   <div class= "register" id="register">
-    <form action="#" method="post">
+    <form action="#" method="post" name= "data-register>
       <fieldset class='subscribe-box'>
         <fieldset class="group">
           <div class="area">
@@ -18,7 +18,7 @@ document.getElementById('main-page').innerHTML = `
         </fieldset>
         <div class="area">
           <label for="email">E-mail:</label>
-          <input type="text" id="new-email" name="email" style="width: 20em" value="">
+          <input type="text" id="new-email" name="new-email" style="width: 20em" value="">
         </div>
         <div class="area">
           <label for="password-register">Senha:</label>
@@ -77,6 +77,7 @@ const modalBox = document.getElementById('boxLogin');
    let password = document.getElementById('password-register').value;
    let userName = document.getElementById('name').value;
     subscribe(email, password, userName);
+    errorRegister ();
     })
     const modal = document.getElementById('box-login') ;
     const goFeed = document.getElementById('feed-in');
@@ -98,6 +99,6 @@ const modalBox = document.getElementById('boxLogin');
       e.preventDefault();
       googleLogin();
     })
-}
 
-   
+
+}
