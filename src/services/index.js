@@ -12,17 +12,9 @@ export const identifyUser = () => {
 };
 
 // Deslogar o usuario
-export const logOut = () => {
-  if (firebase.auth().currentUser !== null) {
-    firebase.auth().signOut()
-      .then(() => {
-        window.location.href = '#home';
-      })
-      .catch(() => {
-        alert('Falha ao desconectar, por gentileza, tente novamente');
-      });
-  }
-};
+export const logOut = () => firebase
+  .auth()
+  .signOut();
 
 // Logar com email e senha
 export const loginWithEmail = (email, password) => firebase

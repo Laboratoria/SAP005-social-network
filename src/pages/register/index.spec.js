@@ -12,7 +12,7 @@ describe('Register', () => {
   it('should be a function', () => {
     expect(typeof Register).toBe('function');
   });
-  it('shoul return registerpag', () => {
+  it('shoul return registerPage', () => {
     expect(Register()).toMatchSnapshot();
   });
   it('should complete the register', async () => {
