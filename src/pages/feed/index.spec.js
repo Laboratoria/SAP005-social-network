@@ -1,7 +1,7 @@
-// import { Login } from './index.js';
+import { Feed } from './index.js';
 
-// describe('Login', () => {
-//   it('should be a function', () => {
-//     expect(typeof Login).toBe('function');
-//   });
-// });
+describe('get Elements', () => {
+  it('should be a function', () => {
+    expect(typeof Feed).toBe('function');
+  });
+});

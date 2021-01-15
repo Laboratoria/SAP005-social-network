@@ -3,9 +3,11 @@ export const Home = () => {
   const rootElement = document.createElement('div');
 
   const singupHtml = `
-    <h1>Welcome!</h1>
+    <h1 clas="title">Welcome!</h1>
+    <div class="container-button">
     <button id="btn-login">Login</button> 
-    <button id="btn-singup">SingUp</button>`;
+    <button id="btn-singup">SingUp</button>
+    </div>`;
 
   rootElement.innerHTML = singupHtml;
   return rootElement;

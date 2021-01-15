@@ -1,7 +1,7 @@
-// import { Login } from './index.js';
+import { SingUp } from './index.js';
 
-// describe('Login', () => {
-//   it('should be a function', () => {
-//     expect(typeof Login).toBe('function');
-//   });
-// });
+describe('Create Account', () => {
+  it('should be a function', () => {
+    expect(typeof SingUp).toBe('function');
+  });
+});

@@ -1,5 +1,7 @@
 /* eslint-disable no-alert */
-const userProfile = (name) => {
+import { onNavigate } from '../utils/history.js';
+
+export const userProfile = (name) => {
   firebase.auth().currentUser.updateProfile({
     displayName: name,
     photoURL: '',
@@ -12,12 +14,16 @@ const userProfile = (name) => {
     });
 };
 
-const saveProfile = (user, userEmail, userName) => {
-  firebase.firestore().collection('users').doc(userEmail).set({
-    userId: user.uid,
-    name: userName,
-    email: userEmail,
-  })
+export const saveProfile = (user, userEmail, userName) => {
+  firebase
+    .firestore()
+    .collection('users')
+    .doc(userEmail)
+    .set({
+      user: user.uid,
+      name: userName,
+      email: userEmail,
+    })
     .then(() => {
       alert('agora sim deu bom');
     })
@@ -33,11 +39,9 @@ export const CreateUser = (name, email, password) => {
     .then((saveUser) => {
       userProfile(name);
       saveProfile(saveUser.user, email, name);
-
-      window.location.pathname = '/feed';
+      onNavigate('/feed');
     })
     .catch((error) => {
-      // eslint-disable-next-line no-alert
       alert(error.message);
     });
 };
@@ -47,7 +51,7 @@ export const SingIn = (email, password) => {
     .auth()
     .signInWithEmailAndPassword(email.trim(), password)
     .then(() => {
-      window.location.pathname = '/feed';
+      onNavigate('/feed');
     })
     .catch((error) => {
       alert(error.message);
@@ -60,7 +64,7 @@ export const SingInGoogle = () => {
     .auth()
     .signInWithPopup(provider)
     .then(() => {
-      window.location.pathname = '/feed';
+      onNavigate('/feed');
     })
     .catch((error) => {
       alert(error.message);
@@ -72,7 +76,7 @@ export const SignOut = () => {
     .auth()
     .signOut()
     .then(() => {
-      window.location.pathname = '/';
+      onNavigate('/');
     })
     .catch((error) => {
       alert(error.message);
@@ -84,9 +88,9 @@ export const IsCurrentUser = (notLoggedPage) => {
     .auth()
     .onAuthStateChanged((user) => {
       if (user) {
-        window.location.pathname = '/feed';
+        onNavigate('/feed');
       } else {
-        window.location.pathname = notLoggedPage;
+        onNavigate(notLoggedPage);
       }
     });
 };
