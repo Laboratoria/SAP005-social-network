@@ -117,7 +117,7 @@ export const Home = () => {
                  <div id= "containerButton" class="containerButton" >
                  <button class="delete"><img src="https://img.icons8.com/nolan/64/delete-forever.png"/></button>
                  <button class="edit" id ="edit"><img src="https://img.icons8.com/nolan/64/edit--v1.png"/></button> 
-                  <button class="likeBtn" ><img src="https://img.icons8.com/nolan/64/like.png"/></button>    
+                  <button class="likeBtn" ><img src="https://img.icons8.com/nolan/50/filled-like.png"/></button>    
                   <span class ="spanLike">${post.like.length} </span>         
                 </div>
                 </div>`
@@ -156,7 +156,7 @@ export const Home = () => {
                 
                 likePost(userId, containerFeed.id).then(() => {
                     const elementLike = containerFeed.querySelector('.spanLike')
-                    elementLike.innerHTML = `${post.like.length + 1}`
+                    elementLike.innerHTML = `${post.like.length +1}`
                 })
             })
         })
