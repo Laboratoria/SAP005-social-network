@@ -5,34 +5,37 @@ export const Home = () => {
   home.classList.add('form-container');
   home.innerHTML = `
   <div class='form-login'>
-    <div class='header-container'>
-      <figure class='logo'><img src='./assets/logo/runners-360px.png' alt='Logo Runners' id='logo'></figure>
-        <h1>Olá!</h1>
-        <p class='about'>Conecte-se e compartilhe seus desafios com outros corredores.</p>
-        <hr />
-      </div>
-      <div><h2 class='about'>Login</h2></div>
-      <div class="row clearfix">
-      <div class="col_half">
+  <div class='header-container'>
+    <figure class='logo'><img src='./assets/logo/runners-360px.png' alt='Logo Runners' id='logo'></figure>
+    <h1>Olá!</h1>
+    <p class='about'>Conecte-se e compartilhe seus desafios com outros corredores.</p>
+    <hr />
+  </div>
+  <div>
+    <h2 class='about'>Login</h2>
+  </div>
+  <div class="row clearfix">
+    <div class="col_half">
       <div class="btn google" id='authGoogle'><a href="#"><span><i class="fab fa-google" aria-hidden="true"></i></span>Entrar com Google</a></div>
       <div class="btn rg"><a href="/register"><span><i class="fas fa-user-circle" aria-hidden="true"></i></span>Criar nova conta</a></div>
-      </div>
-      <div class="col_half last">
-        <form>
-        <h3 class='error' id='msgError'></h3>
-          <div class="input_field"><span><i class="far fa-envelope" aria-hidden="true"></i></span>
-            <input type="email" id='email-input' name="email" placeholder="Email" required=""/>
-          </div>
-          <div class="input_field"><span><i class="fa fa-lock" aria-hidden="true"></i></span>
-            <input type="password" id='password-home' placeholder="Password" required=""/>
-          </div>
-          <div>
-          <input class="button" id='submit-home' type="submit" value="Entrar"/> </div>
-          </div>
-        </form>
-      </div>
     </div>
+    <div class="col_half last">
+      <form>
+        <h3 class='error' id='msgError'></h3>
+        <div class="input_field"><span><i class="far fa-envelope" aria-hidden="true"></i></span>
+          <input type="email" id='email-input' name="email" placeholder="Digite seu e-mail" required />
+        </div>
+        <div class="input_field"><span><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input type="password" id='password-home' placeholder="Digite sua senha" required />
+        </div>
+        <div>
+          <input class="button" id='submit-home' type="submit" value="Entrar"/> 
+        </div>
+    </div>
+    </form>
   </div>
+</div>
+</div>
 `;
 
   const btn = home.querySelector('#submit-home');
