@@ -2,31 +2,38 @@ import { onNavigate } from '../../utils/history.js';
 
 export const Home = () => {
   const home = document.createElement('div');
-  home.classList.add('div-home');
+  home.classList.add('form-container');
   home.innerHTML = `
-  <div  id='fundo'></div>
-      <figure class='logo'>
-      <img src='./assets/logo_runners.png'alt='Logo Runners' id='logo'>
-      </figure>
-      <div class='home-box'>
-        <form class='login'>
-          <div class='input-form'>
-            <p class='login' alt='Login'>Login</p>
-            <h3 class='error' id='msgError'></h3>
-            <input type='email' id='email-input' placeholder='@E-mail' required></input>
-            <input type='password' id='password-home' placeholder='Senha' required></input>
-            <button id='submit-home'>Entrar</button>
-            <p class='text'>Logar com:</p>
-            <div class='button-social' id='authGoogle'>
-            <input type='button' class='google' alt='Logo Google' id='authGoogle'/>
-            </div>
+  <div class='form-login'>
+    <div class='header-container'>
+      <figure class='logo'><img src='./assets/logo/runners-360px.png' alt='Logo Runners' id='logo'></figure>
+        <h1>Olá!</h1>
+        <p class='about'>Conecte-se e compartilhe seus desafios com outros corredores.</p>
+        <hr />
+      </div>
+      <div><h2 class='about'>Login</h2></div>
+      <div class="row clearfix">
+      <div class="col_half">
+      <div class="btn google" id='authGoogle'><a href="#"><span><i class="fab fa-google" aria-hidden="true"></i></span>Entrar com Google</a></div>
+      <div class="btn rg"><a href="/register"><span><i class="fas fa-user-circle" aria-hidden="true"></i></span>Criar nova conta</a></div>
+      </div>
+      <div class="col_half last">
+        <form>
+        <h3 class='error' id='msgError'></h3>
+          <div class="input_field"><span><i class="far fa-envelope" aria-hidden="true"></i></span>
+            <input type="email" id='email-input' name="email" placeholder="Email" required=""/>
+          </div>
+          <div class="input_field"><span><i class="fa fa-lock" aria-hidden="true"></i></span>
+            <input type="password" id='password-home' placeholder="Password" required=""/>
+          </div>
+          <div>
+          <input class="button" id='submit-home' type="submit" value="Entrar"/> </div>
           </div>
         </form>
       </div>
-      <div class='register-home'>
-      <p class='sub-text'>Não tem uma conta? <a href="/register">Cadastre-se</a></p>
-      </div>
-  `;
+    </div>
+  </div>
+`;
 
   const btn = home.querySelector('#submit-home');
   const autGoogle = home.querySelector('#authGoogle');
