@@ -15,12 +15,10 @@ describe('Register', () => {
   it('shoul return registerpag', () => {
     expect(Register()).toMatchSnapshot();
   });
-  it('should click submmit button register', () => {
+  it('should complete the register', async () => {
     const registerTest = Register();
     const btnRegister = registerTest.querySelector('#btnRegister');
-    registerTest.querySelector('#email').value = 'email@teste1.com';
-    registerTest.querySelector('#password').value = 'teste1';
     btnRegister.dispatchEvent(new Event('click'));
-    expect(services.createProfile).toHaveBeenCalledWith('email@teste1.com', 'teste1');
+    expect(services.createProfile).toHaveBeenCalled();
   });
 });

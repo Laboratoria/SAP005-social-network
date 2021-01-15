@@ -144,7 +144,6 @@ export const userId = () => {
 //     console.log(`  Photo URL: ${profile.photoURL}`);
 //   });
 // }
-
 // alterar o email do usuario
 // var user = firebase.auth().currentUser;
 // user.updateEmail("user@example.com").then(function() {

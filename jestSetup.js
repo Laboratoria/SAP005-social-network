@@ -9,7 +9,7 @@ global.firebase = {
       uid: 'teste123',
     },
     GoogleAuthProvider: jest.fn(() => Promise.resolve(true)),
-    createUserWithEmailAndPassword: jest.fn(),
-    sendEmailVerification: jest.fn(),
+    createUserWithEmailAndPassword: jest.fn(() => Promise.resolve(true)),
+    sendEmailVerification: jest.fn(() => Promise.resolve(true)),
   })),
 };
