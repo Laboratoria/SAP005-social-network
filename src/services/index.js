@@ -10,7 +10,6 @@ export const identifyUser = () => {
       }
     });
 };
-
 // Deslogar o usuario
 export const logOut = () => {
   if (firebase.auth().currentUser !== null) {
@@ -27,30 +26,44 @@ export const logOut = () => {
 export const loginWithEmail = (email, password) => firebase
   .auth()
   .signInWithEmailAndPassword(email, password);
-
+// Logar com a conta Google
 export const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   return firebase
     .auth()
     .signInWithPopup(provider);
 };
+// Criar um usuario com Email diferente
+export const createProfile = (email, password) => firebase
+  .auth()
+  .createUserWithEmailAndPassword(email, password);
+  // Criar um usuario no Firestore
 export const createuser = () => {
   const uid = firebase.auth().currentUser.uid;
   const user = {
     displayName: firebase.auth().currentUser.displayName,
     email: firebase.auth().currentUser.email,
-    phoneNumber: firebase.auth().currentUser.phoneNumber,
-    photoUrl: firebase.auth().currentUser.photoURL,
+    photoURL: firebase.auth().currentUser.photoURL,
   };
   return firebase
     .firestore().collection('users').doc(uid).set({ user });
 };
-
+  // Enviar um e-mail de verificação a um usuário
+export const confirmEmail = () => {
+  firebase
+    .auth()
+    .currentUser
+    .sendEmailVerification();
+};
 export const currentUser = () => firebase.auth().currentUser;
-
 // Excluir um usuário
 export const delUser = () => firebase.firestore().user.delete();
-
+// Incluir no Firetore o usuario com email novo
+// export const createUserEmail = () => {
+//   const uid = firebase.auth().currentUser.uid;
+//   return firebase
+//     .firestore().collection('users').doc(uid).set({ });
+// };
 // Também é possível receber o usuário
 //  conectado usando a propriedade currentUser.
 // const name, email, photoUrl, uid, emailVerified;
@@ -66,44 +79,11 @@ export const delUser = () => firebase.firestore().user.delete();
 //   // No user is signed in.
 // }
 
-// importar para o firebase um usuario
-// import { db} from './init.js'
-// export newUser = () => {
-// db.collection('users').add({
-//   userUid:
-//   photo:
-//   name:
-//   email:
-//   date:
-//   city:
-// });
-// }
-
 //   UID
 export const userId = () => {
   const idUser = firebase.auth().currentUser.uid;
   const id = idUser.id;
   return id;
-};
-
-// Perfil
-// export const createProfile = () => {
-//   firebase
-//     .firestore()
-//     .collection('users').doc(userId()).set({
-//       email: firebase
-//         .auth()
-//         .currentUser
-//         .email,
-//     });
-// };
-
-// Enviar um e-mail de verificação a um usuário
-export const confirmEmail = () => {
-  firebase
-    .auth()
-    .currentUser
-    .sendEmailVerification();
 };
 
 // Atualizar o perfil de um usuário
@@ -115,13 +95,6 @@ export const confirmEmail = () => {
 //   photoURL: 'https://example.com/jane-q-user/profile.jpg',
 // }).then(() => {
 //   // Update successful.
-// }).catch((error) => {
-//   // An error happened.
-// });
-
-// Enviar um e-mail de verificação a um usuário com o método sendEmailVerification
-// user.sendEmailVerification().then(() => {
-//   // Email sent.
 // }).catch((error) => {
 //   // An error happened.
 // });
@@ -164,15 +137,8 @@ export const confirmEmail = () => {
 //   });
 // }
 
-// Deletar usuario
-// user.delete().then(function() {
-//   // User deleted.
-// }).catch(function(error) {
-//   // An error happened.
-// });
 // alterar o email do usuario
 // var user = firebase.auth().currentUser;
-
 // user.updateEmail("user@example.com").then(function() {
 //   // Update successful.
 // }).catch(function(error) {

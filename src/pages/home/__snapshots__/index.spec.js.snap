@@ -1,135 +1,195 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home shoul return homepag 1`] = `
+exports[`Home shoul return homePage 1`] = `
 <div
-  class="div-home"
+  class="form-container"
 >
   
   
   <div
-    id="fundo"
-  />
-  
-      
-  <figure
-    class="logo"
+    class="form-login"
   >
     
-      
-    <img
-      alt="Logo Runners"
-      id="logo"
-      src="./assets/logo_runners.png"
-    />
-    
-      
-  </figure>
   
-      
-  <div
-    class="home-box"
-  >
-    
-        
-    <form
-      class="login"
+    <div
+      class="header-container"
     >
       
-          
+    
+      <figure
+        class="logo"
+      >
+        <img
+          alt="Logo Runners"
+          id="logo"
+          src="./assets/logo/runners-360px.png"
+        />
+      </figure>
+      
+    
+      <h1>
+        Olá!
+      </h1>
+      
+    
+      <p
+        class="about"
+      >
+        Conecte-se e compartilhe seus desafios com outros corredores.
+      </p>
+      
+    
+      <hr />
+      
+  
+    </div>
+    
+  
+    <div>
+      
+    
+      <h2
+        class="about"
+      >
+        Login
+      </h2>
+      
+  
+    </div>
+    
+  
+    <div
+      class="row clearfix"
+    >
+      
+    
       <div
-        class="input-form"
+        class="col_half"
       >
         
-            
-        <p
-          alt="Login"
-          class="login"
-        >
-          Login
-        </p>
-        
-            
-        <h3
-          class="error"
-          id="msgError"
-        />
-        
-            
-        <input
-          id="email-input"
-          placeholder="@E-mail"
-          required=""
-          type="email"
-        />
-        
-            
-        <input
-          id="password-home"
-          placeholder="Senha"
-          required=""
-          type="password"
-        />
-        
-            
-        <button
-          id="submit-home"
-        >
-          Entrar
-        </button>
-        
-            
-        <p
-          class="text"
-        >
-          Logar com:
-        </p>
-        
-            
+      
         <div
-          class="button-social"
+          class="btn google"
           id="authGoogle"
         >
-          
-            
-          <input
-            alt="Logo Google"
-            class="google"
-            id="authGoogle"
-            type="button"
-          />
-          
-            
+          <a
+            href="#"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fab fa-google"
+              />
+            </span>
+            Entrar com Google
+          </a>
         </div>
         
-          
+      
+        <div
+          class="btn rg"
+        >
+          <a
+            href="/register"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fas fa-user-circle"
+              />
+            </span>
+            Criar nova conta
+          </a>
+        </div>
+        
+    
       </div>
       
-        
-    </form>
     
-      
-  </div>
-  
-      
-  <div
-    class="register-home"
-  >
-    
-      
-    <p
-      class="sub-text"
-    >
-      Não tem uma conta? 
-      <a
-        href="/register"
+      <div
+        class="col_half last"
       >
-        Cadastre-se
-      </a>
-    </p>
-    
+        
       
+        <form>
+          
+        
+          <h3
+            class="error"
+            id="msgError"
+          />
+          
+        
+          <div
+            class="input_field"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="far fa-envelope"
+              />
+            </span>
+            
+          
+            <input
+              id="email-input"
+              name="email"
+              placeholder="Digite seu e-mail"
+              required=""
+              type="email"
+            />
+            
+        
+          </div>
+          
+        
+          <div
+            class="input_field"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fa fa-lock"
+              />
+            </span>
+            
+          
+            <input
+              id="password-home"
+              placeholder="Digite sua senha"
+              required=""
+              type="password"
+            />
+            
+        
+          </div>
+          
+        
+          <div>
+            
+          
+            <input
+              class="button"
+              id="submit-home"
+              type="submit"
+              value="Entrar"
+            />
+             
+        
+          </div>
+          
+    
+        </form>
+      </div>
+      
+    
+  
+    </div>
+    
+
   </div>
   
-  
+
+
 </div>
 `;

@@ -24,6 +24,12 @@ exports[`Profile shoul return profilepag 1`] = `
   <form>
     
   
+    <h3
+      class="error"
+      id="msgError"
+    />
+    
+  
     <div
       class="profile-header"
     >

@@ -16,7 +16,6 @@ export const Profile = () => {
       <img src='${user.photoURL || '../../assets/Photo_Default.png'}' alt='Imagem do Usuario' id='photo'>
       <p class='text' id='name'>${user.displayName}</p>
       <p class='text' id='email'>${user.email}</p>
-      <p class='number' id='phoneNumber'>${user.phoneNumber}</p>
       </div>
       <div>
       </form>

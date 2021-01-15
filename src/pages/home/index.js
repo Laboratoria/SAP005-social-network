@@ -56,7 +56,8 @@ export const Home = () => {
         if (userHome !== null) {
           onNavigate('/post');
         } else {
-          onNavigate('/post');
+          const notLogin = ('Usuario não está logado');
+          msgError.innerHTML = notLogin;
         }
       })
       .catch((error) => {

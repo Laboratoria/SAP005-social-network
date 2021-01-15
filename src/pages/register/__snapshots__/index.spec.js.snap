@@ -2,102 +2,200 @@
 
 exports[`Register shoul return registerpag 1`] = `
 <div
-  class="div-register"
+  class="form-container"
 >
   
   
   <div
-    alt="Runner|Cadastro"
-    class="head-register"
-  >
-    Runner|Cadastro
-  </div>
-  
-  
-  <figure
-    class="container-logo"
+    class="form-login"
   >
     
-    
-    <img
-      alt="Logo Runners"
-      class="logo-register"
-      src="./assets/logo_runners.png"
-    />
-    
   
-  </figure>
-  
-
-  
-  <form>
-     
-    
     <div
-      class="form-container"
+      class="header-container"
     >
       
     
-      <h3
-        class="error"
-        id="registerError"
-      />
-      
-      
-      <input
-        id="displayName"
-        placeholder="Nome"
-        type="text"
-      />
-      
-      
-      <input
-        id="email"
-        placeholder="E-mail"
-        type="email"
-      />
-      
-      
-      <input
-        id="phoneNumber"
-        placeholder="()999999999"
-        type="number"
-      />
-      
-      
-      <input
-        id="password"
-        placeholder="Senha"
-        type="password"
-      />
-      
-      
-      <input
-        id="confirmPwd"
-        placeholder="Confirmar Senha"
-        type="password"
-      />
-      
-      
-      <button
-        id="btnRegister"
+      <figure
+        class="logo"
       >
-        Registrar
-      </button>
+        <a
+          href="/"
+        >
+          <img
+            alt="Logo Runners - Voltar"
+            id="logo"
+            src="./assets/logo/runners-360px.png"
+          />
+        </a>
+      </figure>
       
     
-      <a
-        class="link-exit"
-        href="/"
-      >
-        Voltar
-      </a>
-       
+      <h1>
+        Cadastre-se!
+      </h1>
+      
     
+      <p
+        class="about"
+      >
+        Compartilhe suas corridas, metas e desafios!
+      </p>
+      
+    
+      <hr />
+      
+  
     </div>
     
   
-  </form>
+    <div>
+      
+    
+      <p
+        class="register"
+      >
+        Não compartilhamos seus dados com terceiros ;)
+      </p>
+      
+  
+    </div>
+    
+  
+    <div
+      class="row clearfix"
+    >
+      
+    
+      <div
+        class="col_half"
+      >
+        
+      
+        <div
+          class="input_field"
+        >
+          <span>
+            <i
+              aria-hidden="true"
+              class="fas fa-running"
+            />
+          </span>
+          
+        
+          <input
+            id="displayName"
+            placeholder="Nome"
+            required=""
+            type="text"
+          />
+                
+      
+        </div>
+        
+      
+        <div
+          class="input_field"
+        >
+          <span>
+            <i
+              aria-hidden="true"
+              class="far fa-envelope"
+            />
+          </span>
+          
+        
+          <input
+            id="email"
+            name="email"
+            placeholder="Digite seu e-mail"
+            required=""
+            type="email"
+          />
+          
+      
+        </div>
+        
+    
+      </div>
+      
+    
+      <div
+        class="col_half last"
+      >
+        
+      
+        <form>
+          
+        
+          <h3
+            class="error"
+            id="msgError"
+          />
+          
+        
+          <div
+            class="input_field"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fa fa-lock"
+              />
+            </span>
+            
+          
+            <input
+              id="password"
+              placeholder="Senha"
+              type="password"
+            />
+            
+        
+          </div>
+          
+        
+          <div
+            class="input_field"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fa fa-lock"
+              />
+            </span>
+            
+          
+            <input
+              id="confirmPwd"
+              placeholder="Confirmar Senha"
+              type="password"
+            />
+            
+        
+          </div>
+          
+      
+        </form>
+        
+    
+      </div>
+      
+  
+    </div>
+    
+
+  </div>
+  
+
+  <div>
+    <input
+      class="button"
+      id="btnRegister"
+      type="submit"
+      value="Cadastre-se"
+    />
+  </div>
   
   
 </div>
