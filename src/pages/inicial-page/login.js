@@ -1,4 +1,4 @@
-import { emailLogin, googleLogin, subscribe } from '../../services/index.js';
+import { emailLogin, googleLogin, subscribe, errorRegister } from '../../services/index.js';
 
 window.onload = () => {
 document.getElementById('main-page').innerHTML = `
@@ -8,7 +8,7 @@ document.getElementById('main-page').innerHTML = `
   </div>
 
   <div class= "register" id="register">
-    <form action="#" method="post">
+    <form action="#" method="post" name= "data-register>
       <fieldset class='subscribe-box'>
         <fieldset class="group">
           <div class="area">
@@ -18,7 +18,7 @@ document.getElementById('main-page').innerHTML = `
         </fieldset>
         <div class="area">
           <label for="email">E-mail:</label>
-          <input type="text" id="new-email" name="email" style="width: 20em" value="">
+          <input type="text" id="new-email" name="new-email" style="width: 20em" value="">
         </div>
         <div class="area">
           <label for="password-register">Senha:</label>
@@ -64,47 +64,57 @@ document.getElementById('main-page').innerHTML = `
     </div>
   </section>
   `
-const modalBox = document.getElementById('boxLogin');
+
+  const modalBox = document.getElementById('boxLogin');
   window.onclick = function(event) {
     if (event.target == modal) {
      modalBox.style.display = "none";
     }
- }
-
-  document.getElementById('subscribe').addEventListener("click", register);
-  
-    export const register = function(e){
-      e.preventDefault();
-        let email = document.getElementById('new-email').value;
-         let password = document.getElementById('password-register').value;
-          let userName = document.getElementById('name').value;
-
-         subscribe(email, password, userName);
-     }
-
-    const modal = document.getElementById('box-login') ;
-    const goFeed = document.getElementById('feed-in');
-
-    document.getElementById('login-btn').addEventListener("click", (e) => {
-      e.preventDefault();
-        modal.style.display= 'block';
-        modal.style.width = 'auto';
-
-      goFeed.addEventListener("click", (e) => {
-      e.preventDefault();
-      let email = document.getElementById('email').value;
-      let password = document.getElementById ('password').value;
-      emailLogin(email, password);
-      })
-    })
-
-    document.getElementById('google-login').addEventListener('click', googleAccount)
-    
-    export const googleAccount = function(e){
-      e.preventDefault();
-      googleLogin();
-    } 
   }
+  const modal = document.getElementById('box-login') ;
+  const goFeed = document.getElementById('feed-in');
 
+  document.getElementById('login-btn').addEventListener("click", (e) => {
+    e.preventDefault();
+      modal.style.display= 'block';
+      modal.style.width = 'auto';
 
+    goFeed.addEventListener("click", (e) => {
+    e.preventDefault();
+    let email = document.getElementById('email').value;
+    let password = document.getElementById ('password').value;
+    emailLogin(email, password);
+    })
+  })
+
+  document.getElementById('google-login').addEventListener('click', (e) =>{
+    e.preventDefault();
+    googleLogin();
+  })
+    
+ 
+  document.getElementById('subscribe').addEventListener("click", (e) => {
+    e.preventDefault();
+      let email = document.getElementById('new-email').value;
+      let password = document.getElementById('password-register').value;
+      let userName = document.getElementById('name').value;
+
+   subscribe(email, password, userName);
+  });
+  
    
+
+
+ 
+
+  // document.getElementById('subscribe').addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //  let email = document.getElementById('new-email').value;
+  //  let password = document.getElementById('password-register').value;
+  //  let userName = document.getElementById('name').value;
+  //   subscribe(email, password, userName);
+  //   errorRegister ();
+  //   })
+   
+}
+  
