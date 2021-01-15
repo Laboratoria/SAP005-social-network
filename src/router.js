@@ -10,7 +10,6 @@ const routeRender = () => {
         "/cadastro": Register,
         "/home": Home,
     };
-
     if (!routes[window.location.pathname]) {
         window.location = '/'
     } else if (window.location.pathname !== "/" && window.location.pathname !== "/cadastro" && !myItem) {
@@ -19,7 +18,6 @@ const routeRender = () => {
         rootDiv.innerHTML = '';
         root.appendChild(routes[window.location.pathname]());
     }
-
 };
 
 window.addEventListener('popstate', routeRender);
