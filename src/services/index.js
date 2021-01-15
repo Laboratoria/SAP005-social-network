@@ -1,3 +1,15 @@
+// Deslogar o usuario
+export const logOut = () => {
+  if (firebase.auth().currentUser !== null) {
+    firebase.auth().signOut()
+      .then(() => {
+        window.location.href = '#home';
+      })
+      .catch(() => {
+        alert('Falha ao desconectar, por gentileza, tente novamente');
+      });
+  }
+};
 
 //   UID
 export const userId = () => {

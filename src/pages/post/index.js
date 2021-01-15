@@ -44,7 +44,6 @@ export const Post = () => {
             </div>
     `;
   };
-  const btnLike = post.querySelector('#like');
 
   const creatPost = () => {
     const infCreatUser = firebase.auth().currentUser;
