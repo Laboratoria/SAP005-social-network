@@ -26,45 +26,44 @@ export const Post = () => {
   // const userName = post.querySelector('#name');
   // const btnPost = post.querySelector('#btn');
   // const ref = firebase.database().ref('post/');
-  
-//   const firebase = require("firebase");
-// // Required for side-effects
-//   require("firebase/firestore");
+  //   const firebase = require("firebase");
+  // // Required for side-effects
+  //   require("firebase/firestore");
 
   const newPost = post.querySelector('#form-container');
   newPost.addEventListener('submit', (e) => {
     e.preventDefault();
-    const textPost = post.querySelector('#post').value;
-    const posts = {
-      uid: '',
-      text: textPost,
-      likes: 0,
-      time: '',
-    };
+    // const textPost = post.querySelector('#post').value;
+    // const posts = {
+    //   uid: '',
+    //   text: textPost,
+    //   likes: 0,
+    //   time: '',
+    // };
     // Criara uma coleção das postagens
-    const collectionOfPosts = firebase.firestore().collection('form-container');
-    // Adicionando as postagens
-    const addNewPost = collectionOfPosts.add('posts')
-      .then((res) => {
-        // Carregar post
-        function uploadNewPost() {
-          collectionOfPosts.get().then((snapshot) => {
-            post.querySelector('#post-content').innerHTML = '';
-            snapshot.forEach(() => {
-              // Publicar postagem
-              function publishPost() {
-                const postContent = `<p>${posts.data().text}</p>`;
-                post.querySelector('#post-content').innerHTML += postContent;
-              }
-              publishPost();
-            });
-          });
-        }
-        uploadNewPost();
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
+    // const collectionOfPosts = firebase.firestore().collection('form-container');
+    // // Adicionando as postagens
+    // const addNewPost = collectionOfPosts.add('posts')
+    //   .then((res) => {
+    //     // Carregar post
+    //     function uploadNewPost() {
+    //       collectionOfPosts.get().then((snapshot) => {
+    //         post.querySelector('#post-content').innerHTML = '';
+    //         snapshot.forEach(() => {
+    //           // Publicar postagem
+    //           function publishPost() {
+    //             const postContent = `<p>${posts.data().text}</p>`;
+    //             post.querySelector('#post-content').innerHTML += postContent;
+    //           }
+    //           publishPost();
+    //         });
+    //       });
+    //     }
+    //     uploadNewPost();
+    //   })
+    //   .catch((error) => {
+    //     alert(error.message);
+    //   });
   });
 
   // // Adicionar card na tela

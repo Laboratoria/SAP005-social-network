@@ -1,0 +1,405 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register shoul return registerPage 1`] = `
+<div
+  class="form-container"
+>
+  
+  
+  <div
+    class="form-login"
+  >
+    
+  
+    <div
+      class="header-container"
+    >
+      
+    
+      <figure
+        class="logo"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt="Logo Runners - Voltar"
+            id="logo"
+            src="./assets/logo/runners-360px.png"
+          />
+        </a>
+      </figure>
+      
+    
+      <h1>
+        Cadastre-se!
+      </h1>
+      
+    
+      <p
+        class="about"
+      >
+        Compartilhe suas corridas, metas e desafios!
+      </p>
+      
+    
+      <hr />
+      
+  
+    </div>
+    
+  
+    <div>
+      
+    
+      <p
+        class="register"
+      >
+        Não compartilhamos seus dados com terceiros ;)
+      </p>
+      
+  
+    </div>
+    
+  
+    <div
+      class="row clearfix"
+    >
+      
+    
+      <div
+        class="col_half"
+      >
+        
+      
+        <div
+          class="input_field"
+        >
+          <span>
+            <i
+              aria-hidden="true"
+              class="fas fa-running"
+            />
+          </span>
+          
+        
+          <input
+            id="displayName"
+            placeholder="Nome"
+            required=""
+            type="text"
+          />
+                
+      
+        </div>
+        
+      
+        <div
+          class="input_field"
+        >
+          <span>
+            <i
+              aria-hidden="true"
+              class="far fa-envelope"
+            />
+          </span>
+          
+        
+          <input
+            id="email"
+            name="email"
+            placeholder="Digite seu e-mail"
+            required=""
+            type="email"
+          />
+          
+      
+        </div>
+        
+    
+      </div>
+      
+    
+      <div
+        class="col_half last"
+      >
+        
+      
+        <form>
+          
+        
+          <h3
+            class="error"
+            id="msgError"
+          />
+          
+        
+          <div
+            class="input_field"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fa fa-lock"
+              />
+            </span>
+            
+          
+            <input
+              id="password"
+              placeholder="Senha"
+              type="password"
+            />
+            
+        
+          </div>
+          
+        
+          <div
+            class="input_field"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fa fa-lock"
+              />
+            </span>
+            
+          
+            <input
+              id="confirmPwd"
+              placeholder="Confirmar Senha"
+              type="password"
+            />
+            
+        
+          </div>
+          
+      
+        </form>
+        
+    
+      </div>
+      
+  
+    </div>
+    
+
+  </div>
+  
+
+  <div>
+    <input
+      class="button"
+      id="btnRegister"
+      type="submit"
+      value="Cadastre-se"
+    />
+    
+
+  </div>
+  
+  
+</div>
+`;
+
+exports[`Register shoul return registerpag 1`] = `
+<div
+  class="form-container"
+>
+  
+  
+  <div
+    class="form-login"
+  >
+    
+  
+    <div
+      class="header-container"
+    >
+      
+    
+      <figure
+        class="logo"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt="Logo Runners - Voltar"
+            id="logo"
+            src="./assets/logo/runners-360px.png"
+          />
+        </a>
+      </figure>
+      
+    
+      <h1>
+        Cadastre-se!
+      </h1>
+      
+    
+      <p
+        class="about"
+      >
+        Compartilhe suas corridas, metas e desafios!
+      </p>
+      
+    
+      <hr />
+      
+  
+    </div>
+    
+  
+    <div>
+      
+    
+      <p
+        class="register"
+      >
+        Não compartilhamos seus dados com terceiros ;)
+      </p>
+      
+  
+    </div>
+    
+  
+    <div
+      class="row clearfix"
+    >
+      
+    
+      <div
+        class="col_half"
+      >
+        
+      
+        <div
+          class="input_field"
+        >
+          <span>
+            <i
+              aria-hidden="true"
+              class="fas fa-running"
+            />
+          </span>
+          
+        
+          <input
+            id="displayName"
+            placeholder="Nome"
+            required=""
+            type="text"
+          />
+                
+      
+        </div>
+        
+      
+        <div
+          class="input_field"
+        >
+          <span>
+            <i
+              aria-hidden="true"
+              class="far fa-envelope"
+            />
+          </span>
+          
+        
+          <input
+            id="email"
+            name="email"
+            placeholder="Digite seu e-mail"
+            required=""
+            type="email"
+          />
+          
+      
+        </div>
+        
+    
+      </div>
+      
+    
+      <div
+        class="col_half last"
+      >
+        
+      
+        <form>
+          
+        
+          <h3
+            class="error"
+            id="msgError"
+          />
+          
+        
+          <div
+            class="input_field"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fa fa-lock"
+              />
+            </span>
+            
+          
+            <input
+              id="password"
+              placeholder="Senha"
+              type="password"
+            />
+            
+        
+          </div>
+          
+        
+          <div
+            class="input_field"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fa fa-lock"
+              />
+            </span>
+            
+          
+            <input
+              id="confirmPwd"
+              placeholder="Confirmar Senha"
+              type="password"
+            />
+            
+        
+          </div>
+          
+      
+        </form>
+        
+    
+      </div>
+      
+  
+    </div>
+    
+
+  </div>
+  
+
+  <div>
+    <input
+      class="button"
+      id="btnRegister"
+      type="submit"
+      value="Cadastre-se"
+    />
+  </div>
+  
+  
+</div>
+`;

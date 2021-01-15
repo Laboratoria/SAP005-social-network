@@ -1,4 +1,4 @@
-// import { createProfile } from '../../services/index.js';
+import { createProfile, confirmEmail } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
@@ -37,45 +37,44 @@ export const Register = () => {
     </div>
   </div>
 </div>
-<div><input class="button" id='btnRegister' type="submit" value="Cadastre-se"/></div>
+<div><input class="button" id='btnRegister' type="submit" value="Cadastre-se"/>
+</div>
   `;
 
   const btnRegister = register.querySelector('#btnRegister');
+  const msgError = register.querySelector('#msgError');
 
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
     const user = {
       displayName: register.querySelector('#displayName').value,
       email: register.querySelector('#email').value,
-      photoUrl: null,
+      photoURL: '../../assets/Photo_Default.png',
     };
 
     const password = register.querySelector('#password').value;
     const confPassword = register.querySelector('#confirmPwd').value;
 
     if (password !== confPassword) {
-      alert('Senha informada, esta divergente.');
+      const alert = 'Senha informada, esta divergente.';
+      msgError.innerHTML = alert;
     } else {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(user.email, password)
+      createProfile(user.email, password)
         .then(() => {
-          firebase
-            .auth()
-            .currentUser.sendEmailVerification()
+          const uid = firebase.auth().currentUser.uid;
+          firebase.firestore().collection('users').doc(uid).set({ user })
             .then(() => {
-              const uid = firebase.auth().currentUser.uid;
-              firebase.firestore().collection('users').doc(uid).set({ user });
+              confirmEmail();
             })
             .then(() => {
               alert('Cadastro realizado com sucesso!');
             })
             .then(() => {
-              // createProfile();
               onNavigate('/profile');
             })
             .catch((error) => {
-              alert(error.message);
+              const errormsg = error.message;
+              msgError.innerHTML = errormsg;
             });
         });
     }

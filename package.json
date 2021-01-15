@@ -11,11 +11,16 @@
   "license": "MIT",
   "scripts": {
     "htmlhint": "htmlhint dist/*.html ",
-    "eslint": "eslint --ext .js src/ test/",
+    "eslint": "eslint --ext .js src/",
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
     "start": "firebase serve --only hosting"
+  },
+  "jest": {
+    "setupFiles": [
+      "./jestSetup.js"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -48,3 +53,4 @@
   },
   "homepage": "https://github.com/crismantovani/SAP005-social-network#readme"
 }
+
