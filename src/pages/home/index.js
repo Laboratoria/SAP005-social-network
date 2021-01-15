@@ -79,7 +79,7 @@ export const Home = () => {
         createuser();
       })
       .then(() => {
-        onNavigate('/profile');
+        onNavigate('/post');
       })
       .catch((error) => {
         msgError.innerHTML = error.message;

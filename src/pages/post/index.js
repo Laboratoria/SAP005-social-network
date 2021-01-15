@@ -1,5 +1,3 @@
-// import { post,  } from './data.js';
-
 export const Post = () => {
   const post = document.createElement('div');
   post.classList.add('div-post');
@@ -11,237 +9,77 @@ export const Post = () => {
   <div class="container">
     <section>
       <form id='form-container'>
-        <input type='text' class='name' id='name'/>
-        <input type='textarea' class='post' id='post'/>
+        <input type='textarea' class='post' id='newPost'/>
         <button type='button' class='btn' id='btn'>Postar</button>
       </form>
     </section>  
   </div>
   <hr/>
-  <section class='' id='post-content'>
-  </section>
+  <div class='' id='post-content'></div>
     
 `;
-  // const postContainer = post.getElementsByClassName('#post-container');
-  // const userName = post.querySelector('#name');
-  // const btnPost = post.querySelector('#btn');
-  // const ref = firebase.database().ref('post/');
-  //   const firebase = require("firebase");
-  // // Required for side-effects
-  //   require("firebase/firestore");
 
-  const newPost = post.querySelector('#form-container');
-  newPost.addEventListener('submit', (e) => {
+  const btnPost = post.querySelector('#btn');
+  const textPost = post.querySelector('#newPost');
+  const postContent = post.querySelector('#post-content');
+
+  const addCardToScreen = () => {
+    const infUser = firebase.auth().currentUser;
+    const textSave = textPost.value;
+    postContent.innerHTML += `
+            <div class='post-card'>
+            <img src='${infUser.photoURL || '../../assets/Photo_Default.png'}' alt='Imagem do Usuario' id='photo'>
+              <h2>${infUser.displayName}</h2>
+              <p>${textSave}</p>
+              <div class=''>
+              <button id='like'>Curtir <p id='show-like'> ❤️</p></button>
+              <button id='delete'>Deletar</button>
+              <button id='editar'>Editar</button>
+              </div>
+              <div class='coment'>
+                <hr>
+                <textarea class'text-comment'></textarea>
+                <button>Enviar</button>
+              </div>
+            </div>
+    `;
+  };
+
+  const creatPost = () => {
+    const infCreatUser = firebase.auth().currentUser;
+    const textToSave = textPost.value;
+    const userPost = {
+      displayName: infCreatUser.displayName,
+      photo: infCreatUser.photoURL,
+      text: textToSave,
+    };
+    firebase.firestore().collection('posts').add(userPost).then(() => {
+      // console.log('dados salvo');
+      addCardToScreen(userPost);
+    });
+  };
+
+  const obtainPost = () => {
+    firebase.firestore().collection('posts').orderBy('date', 'desc').get()
+      .then((snapshot) => {
+        // para retornar tudo que tem dentro.
+        // data para puxar os dados
+        // console.log(snapshot);
+        snapshot.forEach((doc) => {
+          // console.log(doc.id, ' => ', doc.data());
+          addCardToScreen(doc);
+        });
+      })
+      .catch((error) => {
+        console.log('Error getting documents: ', error);
+      });
+  };
+
+  btnPost.addEventListener('click', (e) => {
     e.preventDefault();
-    // const textPost = post.querySelector('#post').value;
-    // const posts = {
-    //   uid: '',
-    //   text: textPost,
-    //   likes: 0,
-    //   time: '',
-    // };
-    // Criara uma coleção das postagens
-    // const collectionOfPosts = firebase.firestore().collection('form-container');
-    // // Adicionando as postagens
-    // const addNewPost = collectionOfPosts.add('posts')
-    //   .then((res) => {
-    //     // Carregar post
-    //     function uploadNewPost() {
-    //       collectionOfPosts.get().then((snapshot) => {
-    //         post.querySelector('#post-content').innerHTML = '';
-    //         snapshot.forEach(() => {
-    //           // Publicar postagem
-    //           function publishPost() {
-    //             const postContent = `<p>${posts.data().text}</p>`;
-    //             post.querySelector('#post-content').innerHTML += postContent;
-    //           }
-    //           publishPost();
-    //         });
-    //       });
-    //     }
-    //     uploadNewPost();
-    //   })
-    //   .catch((error) => {
-    //     alert(error.message);
-    //   });
+    creatPost();
+    obtainPost();
   });
-
-  // // Adicionar card na tela
-  // // information é o objeto contendo os dados do post
-  // function addScreenCard(post) {
-  //   // header do post
-  //   const header = container.createElement('h2');
-  //   header.innerHTML = information.name;
-  //   header.classList.add('post-title');
-
-  //   // content do post
-  //   const content = container.createElement('p');
-  //   content.classList.add('post-text');
-  //   content.innerText = information.text_post;
-
-  //   // button do post
-  //   const inner = container.createElement('div');
-  //   inner.classList.add('row');
-
-  //   // button adicionar
-  //   const buttonAdd = container.createElement('button');
-  //   buttonAdd.classList.add('btn');
-  //   buttonAdd.setAttribute('onclick', `curtir(${information.id})`);
-  //   buttonAdd.innerText = '+';
-  //   inner.appendChild(buttonAdd);
-
-  //   // Contador de curtidas
-  //   const counter = container.createElement('span');
-  //   counter.innerHTML = information.enjoy;
-  //   counter.classList.add('text-center');
-  //   inner.appendChild(counter);
-
-  //   // Botão de subtrair
-  //   const buttonSub = container.createElement('button');
-  //   buttonSub.classList.add('btn', 'btn_link');
-  //   buttonSub.setAttribute('onclick', `descurtir(${information.id})`);
-  //   buttonSub.innerText = '-';
-  //   inner.appendChild(buttonSub);
-
-  //   // botão excluir
-  //   const buttonDel = container.createElement('button');
-  //   buttonDel.classList.add('btn', 'btn_danger');
-  //   buttonDel.setAttribute('onclick', `deletar(${information.id})`);
-  //   buttonDel.innerText = 'X';
-  //   inner.appendChild(buttonDel);
-
-  //   // Post
-  //   const newPost = container.createElement('div');
-  //   newPost.classList.add('post');
-  //   newPost.id = information.id;
-  //   const postBody = container.createElement('div');
-  //   postBody.classList.add('post-body');
-
-  //   postBody.appendChild(header);
-  //   postBody.appendChild(content);
-  //   postBody.appendChild(inner);
-  //   newPost.appendChild(postBody);
-
-  //   // Iserir no container
-  //   post_container.appendChild(newPost);
-  // }
-
-  // function creatPost() {
-  //   // const post = {
-  //   //   name: user,
-  //   //   text: text_post,
-  //   //   enjoy: 0,
-  //   // };
-  //   // // Método é responsável pela criação e manipulação do relatório da tabela.
-  //   // // ref. referencia o banco de dados.
-  //   // // set. Para setar os dados na URL anterior, e o post se torna uma promisse.
-  //   // firebase.database().ref('post/' * post.name).set(post).then(() => {
-  //   //   addScreenCard(post);
-  //   // });
-  // }
-
-  // function deletPost(id) {
-
-  // }
-
-  // function enjoyPost(id) {
-
-  // }
-
-  // function unlikePost(id) {
-
-  // }
-
-  // // DOM
-  // container.addEventListener('', () => {
-
-  // });
-
-  // // // Adicionar card na tela
-  // // information é o objeto contendo os dados do post
-  // function addScreenCard(information){
-  //     // header do post
-  //     let header = document.createElement('h2');
-  //     header.innerHTML = information.name;
-  //     header.classList.add('post-title');
-
-  //     // content do post
-  //     let content = document.createElement('p');
-  //     content.classList.add('post-text');
-  //     content.innerText = information.text_post;
-
-  //     // button do post
-  //     let inner = document.createElement('div');
-  //     inner.classList.add('row');
-
-  //     // button adicionar
-  //     let button_add = document.createElement('button');
-  //     button_add.classList.add('btn');
-  //     button_add.setAttribute('onclick', 'curtir(' + information.id + ')');
-  //     button_add.innerText = '+';
-  //     inner.appendChild(button_add);
-
-  //     // Contador de curtidas
-  //     let counter = document.createElement('span');
-  //     counter.innerHTML = information.enjoy;
-  //     counter.classList.add('text-center');
-  //     inner.appendChild(counter);
-
-  //     // Botão de subtrair
-  //     let button_sub = document.createElement('button');
-  //     button_sub.classList.add('btn', 'btn_link');
-  //     button_sub.setAttribute('onclick', 'descurtir(' + information.id + ')');
-  //     button_sub.innerText = '-';
-  //     inner.appendChild(button_sub);
-
-  //     // botão excluir
-  //     let button_del = document.createElement('button');
-  //     button_del.classList.add('btn', 'btn_danger');
-  //     button_del.setAttribute('onclick', 'deletar(' + information.id + ')');
-  //     button_del.innerText = 'X';
-  //     inner.appendChild(button_del);
-
-  //     // Post
-  //     let post = document.createElement('div');
-  //     post.classList.add('post');
-  //     post.id = information.id
-  //     let post_body = document.createElement('div');
-  //     post_body.classList.add('post-body');
-
-  //     post_body.appendChild(header);
-  //     post_body.appendChild(content);
-  //     post_body.appendChild(inner);
-  //     post.appendChild(post_body);
-
-  //     // Iserir no container
-  //     post_container.appendChild(post);
-
-  // }
-
-  // function cleanField() {
-  //   post.querySelector('#post').value = '';
-  // }
-
-  // function creatPost() {
-  //   const name = post.querySelector('#name').value;
-  //   const newPost = post.querySelector('#post').value;
-
-  //   const newPosts = post.createElement('p');
-  //   newPosts.innerText = name;
-
-  //   if (name !== '' || newPost !== '') {
-  //     post.append(newPosts);
-  //     cleanField();
-  //   } else {
-  //     alert('Opa! Você esqueceu de preencher algum campo');
-  //   }
-  // }
-
-  // function deletePost() {
-  //   btnDelete.addEventListener('click', () => {
-
-  //   })
-  // }
 
   return post;
 };

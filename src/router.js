@@ -20,25 +20,5 @@ const routeRender = () => {
 
 window.addEventListener('popstate', routeRender);
 window.addEventListener('load', () => {
-  // document
-  //   .getElementById('post')
-  //   .addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     onNavigate('/post');
-  //   });
-  // document
-  //   .getElementById('profile')
-  //   .addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     onNavigate('/profile');
-  //   });
-  // document
-  //   .getElementById('logOut')
-  //   .addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     logOut();
-  //     onNavigate('/');
-  //   });
-
   routeRender();
 });
