@@ -1,3 +1,22 @@
+const updatelikePost = (postId) => {
+  firebase.firestore().collection('posts').doc(postId).get()
+    .then((doc) => {
+      if (doc.data().likes === 0) {
+        firebase.firestore().collection('posts').doc(postId).update({
+          likes: firebase.firestore.FieldValue.increment(1),
+        });
+      } else {
+        firebase.firestore().collection('posts').doc(postId).update({
+          likes: firebase.firestore.FieldValue.increment(-1),
+        });
+      }
+    });
+};
+const addLikeListener = (post) => {
+  document.getElementById(post.id).addEventListener('click', () => {
+    updatelikePost(post.id);
+  });
+};
 function renderPost(user) {
   const postDiv = document.querySelector('.posted-text');// div onde oS postS ficarão
   // FUNCÃO QUE TRÁS A COLEÇÃO DO USER LOGADO
@@ -20,6 +39,7 @@ function renderPost(user) {
           </li>
         </ul>`;
         postDiv.innerHTML += postElement;
+        addLikeListener(post);
       });
     })
     .catch(() => {
@@ -38,3 +58,7 @@ export const showPosts = () => firebase.auth().onAuthStateChanged((user) => {
   }
   return null;
 });
+  /* firebase.firestore().collection('posts').doc(postId).update({
+  likes: firebase.firestore.FieldValue === 0 ? firebase.firestore.FieldValue.increment(1) :
+  firebase.firestore.FieldValue.increment(-1),
+  }); // if ternário */

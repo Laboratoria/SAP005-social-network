@@ -23,7 +23,7 @@ export const Feed = () => {
   rootElement.innerHTML = postHtml;
 
   // const loadPosts = rootElement.querySelector('.load-posts');
-  const createPost = rootElement.querySelector('.form-post');
+  const createPost = rootElement.querySelector('.btn-submit');
   createPost.addEventListener('click', (e) => {
     e.preventDefault();
     const textPost = document.querySelector('.text-post').value;
