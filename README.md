@@ -76,7 +76,6 @@ _*Versão Desktop*_
   próxima sem completar a anterior. As histórias apenas são concluídas quando se
   completam **todos** os critérios de aceitação + **toda** sua definição de
   pronto.
-
 ## 5. Considerações finai
 
 ## 6. Criado por
