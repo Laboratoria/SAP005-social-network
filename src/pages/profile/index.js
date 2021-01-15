@@ -1,4 +1,4 @@
-import { currentUser, delUser } from '../../services/index.js';
+import { currentUser, delUser, logOut } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
 export const Profile = () => {
@@ -23,6 +23,7 @@ export const Profile = () => {
       <button id='deleteuser'>Deletar Perfil</button>
       <button id='cancelbtn'>Cancelar</button>
       </div>
+        <button id='logOut'>Sair</button>
       `;
 
   const del = profile.querySelector('#deleteuser');
@@ -43,6 +44,19 @@ export const Profile = () => {
 
   cancelBtn.addEventListener('click', () => {
     onNavigate('/post');
+  });
+
+  const btnLogout = profile.querySelector('#logOut');
+
+  btnLogout.addEventListener('click', () => {
+    logOut()
+      .then(() => {
+        onNavigate('/');
+      })
+      .catch(() => {
+        const error = 'Não conseguimos deslogar, por gentileza tentar novamente';
+        msgError.innerHTML = error;
+      });
   });
 
   return profile;

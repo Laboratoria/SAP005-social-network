@@ -20,4 +20,10 @@ describe('Profile', () => {
     delBtn.dispatchEvent(new Event('click'));
     expect(services.delUser).toHaveBeenCalled();
   });
+  it('should logout user', () => {
+    const profileTest = Profile();
+    const outBtn = profileTest.querySelector('#logOut');
+    outBtn.dispatchEvent(new Event('click'));
+    expect(services.logOut).toHaveBeenCalled();
+  });
 });

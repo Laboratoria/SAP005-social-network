@@ -37,7 +37,8 @@ export const Register = () => {
     </div>
   </div>
 </div>
-<div><input class="button" id='btnRegister' type="submit" value="Cadastre-se"/></div>
+<div><input class="button" id='btnRegister' type="submit" value="Cadastre-se"/>
+</div>
   `;
 
   const btnRegister = register.querySelector('#btnRegister');
