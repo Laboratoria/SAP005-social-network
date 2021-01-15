@@ -10,6 +10,10 @@ a {
   text-decoration: none;
   font-weight: bold;
 }
+a:hover {
+  text-decoration: underline;
+  color: #a11212;
+}
 hr {
   border: 0; 
   height: 1px; 
@@ -54,9 +58,9 @@ Limpando a row para ajustar a altura dos elementos filhos */
   position: relative;
   z-index: 1;
   border-top: 5px solid #06476d;
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 3px #0000001a;
+  -moz-box-shadow: 0 0 3px #0000001a;
+  box-shadow: 0 0 3px #0000001a;
 }
 .form-container h2 {
   font-size: 1.5em;
@@ -108,6 +112,7 @@ Limpando a row para ajustar a altura dos elementos filhos */
   width: 100%;
   padding: 8px 10px 9px 35px;
   height: 35px;
+  flex-wrap: wrap;
   border: 1px solid #ccc;
   box-sizing: border-box;
   outline: none;
@@ -126,6 +131,7 @@ Limpando a row para ajustar a altura dos elementos filhos */
   width: 100%;
   padding: 8px 10px 9px 35px;
   height: 35px;
+  flex-wrap: wrap;
   border: 1px solid #ccc;
   box-sizing: border-box;
   outline: none;
@@ -144,6 +150,7 @@ Limpando a row para ajustar a altura dos elementos filhos */
   width: 100%;
   padding: 8px 10px 9px 35px;
   height: 35px;
+  flex-wrap: wrap;
   border: 1px solid #ccc;
   box-sizing: border-box;
   outline: none;
@@ -163,6 +170,7 @@ Limpando a row para ajustar a altura dos elementos filhos */
   height: 35px;
   line-height: 35px;
   width: 100%;
+  flex-wrap: wrap;
   border: none;
   outline: none;
   cursor: pointer;
@@ -183,9 +191,7 @@ Limpando a row para ajustar a altura dos elementos filhos */
 .form-login .row .col_half.last {
   border-left: 1px solid #ccc;
 }
-.forgot_pw {
-  text-align: right;
-}
+
 .btn {
   width: 100%;
   margin-bottom: 20px;
@@ -229,6 +235,16 @@ Limpando a row para ajustar a altura dos elementos filhos */
   color: #ababab;
 }
 
+/* Register Page */
+p.register {
+text-align: center;
+color: #5e5e5e;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: x-small;
+}
+
+
+
 /* .footer {
   position: relative;
   z-index: 1;
@@ -240,7 +256,7 @@ Limpando a row para ajustar a altura dos elementos filhos */
   color: #e1a70a;
 } */
 
-@media (min-width:320px) and (max-width: 600px) {
+@media (min-width:320px) and (max-width:600px) {
   .form_login .col_half {
     width: 100%;
     float: none;
