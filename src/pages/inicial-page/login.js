@@ -3,7 +3,6 @@ import { emailLogin, googleLogin, subscribe } from '../../services/index.js';
 window.onload = () => {
 document.getElementById('main-page').innerHTML = `
 
-<button id="login-btn">Login</button> <button id="google-login"><img class='logo-google'src="./img/google-icon.png">Continuar com o Google</button>
 <div class="inicial-page" id="inicial-page">
     <h2>Ainda não tem uma conta? <br> Venha participar!</h2>
   </div>
@@ -14,7 +13,7 @@ document.getElementById('main-page').innerHTML = `
         <fieldset class="group">
           <div class="area">
             <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" style="width: 10em" value="">
+            <input type="text" id="name" name="name" style="width: 20em" value="">
           </div>
         </fieldset>
         <div class="area">
@@ -30,6 +29,8 @@ document.getElementById('main-page').innerHTML = `
       </fieldset>
     </form>
   </div>
+
+  <button id="login-btn">Login</button> <button id="google-login"><img class='logo-google'src="./img/google-icon.png">Continuar com o Google</button>
 
   <section id='login-button' class="half-screen">
     <div id="box-login" class="modal">
