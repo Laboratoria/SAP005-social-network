@@ -32,9 +32,3 @@ export const Home = () => {
 
 return rootElement;
 };
-export const About = () => {
-  document.getElementById('about').addEventListener('click',(e) => {
-  e.preventDefault();
-  document.getElementById('about-text').style.display = 'block';
-})
-}

@@ -71,20 +71,24 @@ const modalBox = document.getElementById('boxLogin');
     }
  }
 
-  document.getElementById('subscribe').addEventListener("click", (e) => {
-    e.preventDefault();
-   let email = document.getElementById('new-email').value;
-   let password = document.getElementById('password-register').value;
-   let userName = document.getElementById('name').value;
-    subscribe(email, password, userName);
-    })
+  document.getElementById('subscribe').addEventListener("click", register);
+  
+    export const register = function(e){
+      e.preventDefault();
+        let email = document.getElementById('new-email').value;
+         let password = document.getElementById('password-register').value;
+          let userName = document.getElementById('name').value;
+
+         subscribe(email, password, userName);
+     }
+
     const modal = document.getElementById('box-login') ;
     const goFeed = document.getElementById('feed-in');
 
     document.getElementById('login-btn').addEventListener("click", (e) => {
       e.preventDefault();
-      modal.style.display= 'block';
-      modal.style.width = 'auto';
+        modal.style.display= 'block';
+        modal.style.width = 'auto';
 
       goFeed.addEventListener("click", (e) => {
       e.preventDefault();
@@ -94,10 +98,13 @@ const modalBox = document.getElementById('boxLogin');
       })
     })
 
-    document.getElementById('google-login').addEventListener('click', (e) => {
+    document.getElementById('google-login').addEventListener('click', googleAccount)
+    
+    export const googleAccount = function(e){
       e.preventDefault();
       googleLogin();
-    })
-}
+    } 
+  }
+
 
    

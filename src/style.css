@@ -32,6 +32,7 @@ input[type=text], input[type=password] {
       width: 15%;
       color: black;
 
+      padding: 9px;
       background-color: rgb(255, 255, 255);
       border: 1px solid;
       border-width:medium;
@@ -151,6 +152,8 @@ fieldset.group .area {
 #google-login {
     background-color: white;
     color: black;
+
+    padding: 9px;
     border: 1px solid lightgrey;
     border-width:medium;
     border-color: rgb(43, 43, 48);
@@ -430,6 +433,9 @@ span.psw {
         display: block;
         width: 100%; 
         margin-right: 0;
+    }
+    #main-page {
+        width: 100%;
     }
     .button-confirm {
         width: 30%;

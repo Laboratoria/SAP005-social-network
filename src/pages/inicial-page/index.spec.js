@@ -1,11 +1,5 @@
-import { Login } from './index.js';
 import { Home } from './about.js';
-
-describe('Login', () => {
-  it('should be a function', () => {
-    expect(typeof Login).toBe('function');
-  });
-});
+import { register, googleAccount } from './login.js';
 
 describe('Home', () => {
   it('should be a function', () => {
@@ -13,3 +7,14 @@ describe('Home', () => {
   });
 });
 
+describe('register', () => {
+  it('should be a function', () => {
+    expect(typeof register).toBe('function');
+  });
+});
+
+describe('googleAccount', () => {
+  it('should be a function', () => {
+    expect(typeof googleAccount).toBe('function');
+  });
+});
