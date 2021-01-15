@@ -26,7 +26,8 @@ export const Home = () => {
           <div class="input_field"><span><i class="fa fa-lock" aria-hidden="true"></i></span>
             <input type="password" id='password-home' placeholder="Password" required=""/>
           </div>
-          <input class="button" id='submit-home' type="submit" value="Entrar"/> 
+          <div>
+          <input class="button" id='submit-home' type="submit" value="Entrar"/> </div>
           </div>
         </form>
       </div>

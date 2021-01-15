@@ -240,7 +240,7 @@ Limpando a row para ajustar a altura dos elementos filhos */
   color: #e1a70a;
 } */
 
-@media (max-width: 600px) {
+@media (min-width:320px) and (max-width: 600px) {
   .form_login .col_half {
     width: 100%;
     float: none;
@@ -253,5 +253,6 @@ Limpando a row para ajustar a altura dos elementos filhos */
 
   .form-login .row .col_half.last {
     border-left: none;
+    width: 50%;
   }
 }
