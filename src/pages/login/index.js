@@ -61,7 +61,11 @@ export const Login = () => {
 
     const eye = () => {
         const showPassword = rootElement.querySelector('#passwordSecond');
-        showPassword.type == "password" ? "text" : "password"
+        if (showPassword.type == 'password') {
+            showPassword.type = 'text';
+        } else {
+            showPassword.type = 'password';
+        }
     }
     return rootElement;
 };
