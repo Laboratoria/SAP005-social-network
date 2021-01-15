@@ -1,0 +1,459 @@
+body {
+    background-color:  rgb(253, 253, 253);
+    display: flex;
+    margin: 0 0 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2{
+    margin: 20px 0 0 12px;
+    color: mediumturquoise;;
+}
+
+#main-page {
+    width: 50%;
+    padding: 20px 0 0 20px;
+}
+
+.register {
+    margin-top: 15px;
+}
+
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+  #login-btn {
+      width: 15%;
+      color: black;
+
+      background-color: rgb(255, 255, 255);
+      border: 1px solid;
+      border-width:medium;
+      border-color: rgb(16, 15, 65);
+      transition: 1s;
+    }
+  
+button {
+    background-color: #323142;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+}
+  
+button:hover {
+    opacity: 0.8;
+}
+
+#feedIn {
+    width: 100%;
+}
+/*Inicio css cadastro */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.subscribe-box {
+    border: 1px solid lightgray;
+    padding: 10px;
+    width: 70%;
+    border-radius: 6px;
+}
+.subscribe-box fieldset{
+    border: none;
+}
+
+body, input, select, textarea, button {
+    font-family: sans-serif;
+    font-size: 1em;
+    border-radius: 7px;
+}
+
+.group:before, .group:after {
+    content: " ";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.area {
+    margin-bottom: 1em;
+}
+
+.area label {
+    margin-bottom: 0.2em;
+    color: #666;
+    display: block;
+}
+
+fieldset.group .area {
+    float:  left;
+    margin-right: 1em;
+}
+
+.area input[type="text"],
+.area input[type="email"],
+.area input[type="url"],
+.area input[type="tel"],
+.area select,
+.area textarea {
+    padding: 0.2em;
+    border: 1px solid #CCC;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+}
+
+.area select option {
+    padding-right: 1em;
+}
+
+.area input:focus, .area select:focus, .area textarea:focus {
+    background: #FFC;
+}
+
+.area label.checkbox {
+    color: #000;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.botao {
+    font-size: 1.5em;
+    background: #F90;
+    border: 0;
+    margin-bottom: 1em;
+    color: #FFF;
+    padding: 0.2em 0.6em;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.botao:hover {
+    background: #FB0;
+    box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: none;
+}
+
+.botao, select, label.checkbox {
+    cursor: pointer;
+}
+#google-login {
+    background-color: white;
+    color: black;
+    border: 1px solid lightgrey;
+    border-width:medium;
+    border-color: rgb(43, 43, 48);
+    
+}
+.logo-google {
+    padding-right: 5px;
+}
+/*Fim do css cadastro */
+  
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+  
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+  
+img.icone {
+    width: 20%;
+    border-radius: 50%;
+}
+  
+.container {
+    padding: 16px;
+}
+  
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+  
+  /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 50%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.inicial-page {
+    justify-content: center;
+    align-items: center
+}
+
+  /* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+
+}
+
+.half-screen {
+    width: 50%;
+}
+
+.root {
+    display: flex;
+    width: 40%;  
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center
+}
+  
+  /* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+  
+  /* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+
+.mae-carol {
+    border-radius: 10px;
+    width: 100%;
+}
+.tpm-name {
+    font-family: 'Limelight', cursive;
+    color: rgb(228, 234, 235);
+    font-size: 40px;
+}
+#subtitle-one{
+    font-family: monospace;
+    font-size: 20px;
+    color: cadetblue;
+}
+
+#about-text {
+    display: none;
+    font-size: 20px;
+    color: darkslategrey;
+}
+#about {
+    background-color: crimson;
+}
+
+/* Feed */
+
+#root div {
+    width: 100%;
+}
+.nav-bar ul {
+    display: flex;
+    justify-content: space-evenly;
+
+    list-style: none;
+}
+.nav-bar li {
+    width: 20%;
+    text-align: center;
+
+    padding: 2px;
+    padding-top: 10px;
+    border-radius: 10px;
+    transition: 1s;
+}
+.nav-bar li:hover {
+    background-color:  rgb(126, 124, 223);;
+}
+#logo-feed {
+    padding-top: 0;
+    font-family: 'Limelight', cursive;
+}
+#logo-feed:hover {
+    background-color: transparent;
+}
+.figure-profile {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin: 3px;
+    border-radius: 10px;
+    background-color: rgb(16, 15, 65);
+}
+.picture-profile {
+    width: 200px;
+    height: 200px;
+
+    margin: 4px 0 4px 0;
+    border-radius:50%;
+}
+.write-post {
+    width: 500px;
+    height: 100px;
+
+    border: none;
+    border-radius: 10px;
+    outline: aquamarine;
+}
+.button-feed {
+    display: block;
+    width: 80px;
+    height: 40px;
+
+    margin-top: 5px;
+    background-color: rgb(23, 30, 100);;
+
+    border-radius: 10px;
+    border: 1px solid rgb(7, 12, 58);
+    color: white;
+    font-size: 20px;
+    transition: 1s;
+}
+.button-feed:hover {
+    background-color:  rgb(102, 182, 247);
+}
+.another-user-post{
+    background-color: rgb(233, 233, 229);
+    display: flex;
+    border-radius: 10px 10px 0 0;
+}
+.another-user-photo{
+    height: 100px;
+    width: 100px;
+
+    padding: 10px;
+    border-radius: 50%;
+}
+#posts {
+    background-color: white;
+    margin-top: 7px;
+    border-radius: 10px;
+}
+#posts p {
+    padding-left: 20px;
+}
+.friends-post {
+    display: flex;
+    justify-content: space-evenly;
+
+    list-style: none;
+}
+#posts {
+    display: block;
+}
+#posts p {
+    padding: 30px;
+    font-size: 25px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+#posts ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+#posts li {
+    width: 50%;
+}
+.react-button {
+    width: 100%;
+    color: black;
+    background-color: rgb(252, 251, 247);
+    border-radius: 10px;
+}
+
+
+@media only screen and (max-device-width: 500px){
+
+    body {
+       display: block;
+       width: 500px;
+    }
+    .header-page {
+        display: block;
+        width: 100%;
+    }
+ 
+    #root {
+        display: block;
+        width: 100%; 
+        margin-right: 0;
+    }
+    .button-confirm {
+        width: 30%;
+        height: 40px;
+    
+        margin-top: 5px;
+        background-color: rgb(235, 173, 5);
+    
+        border-radius: 10px;
+        border: 1px solid rgb(223, 105, 144);
+
+        font-size: 20px;
+    }
+
+   /* Feed */
+
+   #profile {
+    width: 100%;
+   }
+   .nav-bar ul {
+    display: flex;
+    justify-content: space-evenly;
+
+    padding: 0;
+    list-style: none;
+}
+}

@@ -1,8 +1,12 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from './index';
+import { emailLogin } from './index';
+import * as service from'../../services/index.js';
 
-describe('myFunction', () => {
+service.SignIn = jest.fn(() => Promisse.resolve(true));
+service.signInGoogle = jest.fn(() => Promise.resolve(true));
+
+describe('emailLogin', () => {
   it('should be a function', () => {
-    expect(typeof myFunction).toBe('function');
+    expect(typeof emailLogin).toBe('function');
   });
 });
