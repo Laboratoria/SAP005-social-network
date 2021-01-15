@@ -59,7 +59,7 @@ export const Register = () => {
             })
             .then(() => {
               // createProfile();
-              onNavigate('/post');
+              onNavigate('/profile');
             })
             .catch((error) => {
               alert(error.message);
@@ -67,5 +67,6 @@ export const Register = () => {
         });
     }
   });
+
   return register;
 };
