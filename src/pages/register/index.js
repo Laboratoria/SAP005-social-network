@@ -1,11 +1,11 @@
-import { confirmEmail, createProfile } from '../../services/index.js';
+// import { createProfile } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
   const register = document.createElement('div');
   register.classList.add('div-register');
   register.innerHTML = `
-  <div class='head-register' alt='Runner|Cadastro'>Runner | Cadastro</div>
+  <div class='head-register' alt='Runner|Cadastro'>Runner|Cadastro</div>
   <figure class='container-logo'>
     <img src='./assets/logo_runners.png' class='logo-register' alt='Logo Runners'>
   </figure>
@@ -13,12 +13,11 @@ export const Register = () => {
   <form> 
     <div class="form-container">
     <h3 class='error' id='registerError'></h3>
-      <input type='text' id='name' placeholder='Nome'/>
+      <input type='text' id='displayName' placeholder='Nome'/>
       <input type='email' id='email' placeholder='E-mail'/>
-      <input type='date' id='date' placeholder='dd/mm/aaaa'/>
-      <input type="text" id="city" placeholder="Cidade"/>
-      <input type="password" id="password" placeholder="Senha"/>
-      <input type="password" id="confirmPwd" placeholder="Confirmar Senha"/>
+      <input type='number' id='phoneNumber' placeholder='()999999999'/>
+      <input type='password' id='password' placeholder='Senha'/>
+      <input type='password' id='confirmPwd' placeholder='Confirmar Senha'/>
       <button id="btnRegister">Registrar</button>
     <a href='/' class='link-exit'>Voltar</a> 
     </div>
@@ -26,39 +25,47 @@ export const Register = () => {
   `;
 
   const btnRegister = register.querySelector('#btnRegister');
-  const confPassword = register.querySelector('#confirmPwd').value;
-  const name = register.querySelector('#name').value;
-  const password = register.querySelector('#password');
-  const email = register.querySelector('#email');
-  const city = register.querySelector('#city').value;
-  const date = register.querySelector('#date').value;
-
-  const confirmPassword = () => {
-    if (password.value !== confPassword.value) {
-      alert('Senha informada, esta divergente.');
-    }
-  };
 
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email.value, password.value)
-      .then(() => {
-        confirmEmail()
-          .then(() => {
-            alert('Cadastro realizado com sucesso!');
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
-        createProfile();
-        onNavigate('/profile');
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  });
+    const user = {
+      displayName: register.querySelector('#displayName').value,
+      email: register.querySelector('#email').value,
+      phoneNumber: register.querySelector('#phoneNumber').value,
+      photoUrl: null,
+    };
 
+    const password = register.querySelector('#password').value;
+    const confPassword = register.querySelector('#confirmPwd').value;
+
+    if (password !== confPassword) {
+      alert('Senha informada, esta divergente.');
+    } else {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(user.email, password)
+        .then(() => {
+          firebase
+            .auth()
+            .currentUser
+            .sendEmailVerification()
+            .then(() => {
+              const uid = (firebase.auth().currentUser.uid);
+              firebase
+                .firestore().collection('users').doc(uid).set({ user });
+            })
+            .then(() => {
+              alert('Cadastro realizado com sucesso!');
+            })
+            .then(() => {
+              // createProfile();
+              onNavigate('/post');
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        });
+    }
+  });
   return register;
 };

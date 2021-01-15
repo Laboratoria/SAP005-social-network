@@ -83,7 +83,12 @@ button#submit-home{
   color: white;
   font-family: 'Architects Daughter', cursive;
 }
-
+#msgError {
+  color: red;
+}
+input#Photoprofile{
+  background-image: url(./assets/Photo_Default.png);
+}
 /* Plano de fundo da tela de Home e Login */
 /* div#fundo {
   background-image: url(./assets/sing_in_desktop.png);

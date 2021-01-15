@@ -2,6 +2,7 @@ import { Home } from './pages/home/index.js';
 import { Register } from './pages/register/index.js';
 import { Post } from './pages/post/index.js';
 import { Profile } from './pages/profile/index.js';
+// import { onNavigate } from './utils/history.js';
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');

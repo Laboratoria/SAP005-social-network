@@ -1,7 +1,3 @@
-import { userId } from '../../services/index.js';
-
-// import { auth } from 'firebase-admin';
-
 export const Post = () => {
   const post = document.createElement('div');
   post.classList.add('div-post');
@@ -19,106 +15,73 @@ export const Post = () => {
     </section>  
   </div>
   <hr/>
-  <section class='' id='post-content'>
-  </section>
+  <p class='' id='post-content'></p>
     
 `;
-  // const firestore = firebase.firestore();
-  // const users = firebase.collection('users');
 
-  const postContent = post.querySelector('#post-content');
-  // const userName = post.querySelector('#name');
   const btnPost = post.querySelector('#btn');
-  const textPost = post.querySelector('#newPost').value;
-  const db = firebase.firestore();
-  const user = {
-    img: '',
-    name: '',
-    text: textPost,
+  const textPost = post.querySelector('#newPost');
+  const postContent = post.querySelector('#post-content');
+  const firestore = firebase.firestore();
+
+  const addCardToScreen = () => {
+    const infUser = firebase.auth().currentUser;
+    const textSave = textPost.value;
+    postContent.innerHTML += `
+            <div class='post-card'>
+            <img src='${infUser.photoURL || '../../assets/Photo_Default.png'}' alt='Imagem do Usuario' id='photo'>
+              <h2>${infUser.displayName}</h2>
+              <p>${textSave}</p>
+              <div class=''>
+              <button id='like'>Curtir <p id='show-like'> ❤️</p></button>
+              <button id='delete'>Deletar</button>
+              <button id='editar'>Editar</button>
+              </div>
+              <div class='coment'>
+                <hr>
+                <textarea class'text-comment'></textarea>
+                <button>Enviar</button>
+              </div>
+            </div>
+    `;
+  };
+  const btnLike = post.querySelector('#like');
+
+  const creatPost = () => {
+    const infCreatUser = firebase.auth().currentUser;
+    const textToSave = textPost.value;
+    const userPost = {
+      displayName: infCreatUser.displayName,
+      photo: infCreatUser.photoURL,
+      text: textToSave,
+    };
+    firebase.firestore().collection('posts').add(userPost).then(() => {
+      console.log('dados salvo');
+      addCardToScreen(userPost);
+    });
+  };
+
+  const obtainPost = () => {
+    firebase.firestore().collection('posts').orderBy('date', 'desc').get()
+      .then((snapshot) => {
+        // para retornar tudo que tem dentro.
+        // data para puxar os dados
+        // console.log(snapshot);
+        snapshot.forEach((doc) => {
+          // console.log(doc.id, ' => ', doc.data());
+          addCardToScreen(doc);
+        });
+      })
+      .catch((error) => {
+        console.log('Error getting documents: ', error);
+      });
   };
 
   btnPost.addEventListener('click', (e) => {
     e.preventDefault();
-    const textPost = post.querySelector('#newPost').value;
-    db.collection('posts').add({ user })
-      .then((docRef) => {
-        console.log('Document written with ID: ', docRef.id);
-      })
-      .catch((error) => {
-        console.error('Error adding document: ', error);
-      });
+    creatPost();
+    obtainPost();
   });
-
-  // postContent.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   const textPost = post.querySelector('#newPost').value;
-  //   const newName = firebase.auth().currentUser.displayName;
-  //   const posts = {
-  //     text: textPost,
-  //     name: newName,
-  //     likes: 0,
-  //     comments: [],
-  //   };
-  //   const postCollection = firebase.firestore().collection('posts').add(posts);
-  //   return postCollection;
-  // });
-
-  // const createNewPost = (posts) => {
-  //   const addPost = `
-  //   <li>
-  //     ${posts.text} ${posts.data().likes}
-  //   </li>
-  //   `;
-  //   post.querySelector('#post-container').innerHTML += addPost;
-  // };
-
-  // firebase.firestore().collection('posts').onSnapshot((snapshot) => {
-  //   snapshot.docChanges().forEach((posts) => {
-  //     if (posts.type === 'added') {
-  //       createNewPost(posts.doc.data.doc);
-  //     }
-  //   });
-  // });
-
-  // const showNewPost = () => {
-  //   const postCollection = firebase.firestore().collection('posts');
-  //   post.querySelector('#post-container').innerHTML += 'Carregando';
-  //   postCollection.get().then((snap) => {
-  //     post.querySelector('#post-container').innerHTML = '';
-  //     snap.forEach((posts) => {
-  //       createNewPost(data);
-  //     });
-  //   });
-  //   return showNewPost();
-  // };
-
-  // tERMINA
-
-  // const createNewPost = (e) => {
-  //   e.preventDefault();
-  //   const newPost = post.querySelector('#post');
-  //   const user = auth.currentUser;
-  //   const date = new Date();
-  //   if (newPost === '' || newPost === undefined || newPost === null) {
-  //     alert('Por favor preencha o campo de postagem !');
-  //   } else {
-  //     postCollection.add({
-  //       name: user.displayName,
-  //       id: user.id,
-  //       img: user.photoURL,
-  //       textPost: newPost,
-  //       date: date.toLocaleString(),
-  //       like: 0,
-  //     })
-  //       .then(() => {
-  //         post.querySelector('#post');
-  //         alert('Post publicado com sucesso!');
-  //       })
-  //       .catch(() => {
-  //         alert('Ops, ocorreu um erro tente novamente.');
-  //       });
-  //   }
-  // };
 
   return post;
 };

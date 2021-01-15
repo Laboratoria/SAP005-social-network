@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 const firebaseConfig = {
   apiKey: 'AIzaSyDNMVcpnbjVDYMArJM5XabYX5spXB8ANuw',
   authDomain: 'rede-social-2c561.firebaseapp.com',

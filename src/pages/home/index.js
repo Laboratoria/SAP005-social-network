@@ -32,9 +32,8 @@ export const Home = () => {
   const autGoogle = home.querySelector('#authGoogle');
   const email = home.querySelector('#email-input');
   const password = home.querySelector('#password-home');
-  const msgError = home.querySelector('#msgError');
 
-  const user = firebase.auth().currentUser;
+  const userHome = firebase.auth().currentUser;
 
   // Conectar um usuário com endereço de e-mail e senha
   btn.addEventListener('click', (e) => {
@@ -43,14 +42,21 @@ export const Home = () => {
       .auth()
       .signInWithEmailAndPassword(email.value, password.value)
       .then(() => {
-        if (user !== null) {
+        if (userHome !== null) {
           onNavigate('/post');
         } else {
-          onNavigate('/post');
+          onNavigate('/profile');
         }
       })
       .catch((error) => {
-        alert(error.message);
+        let codeError = error.code;
+        if (codeError === 'auth/user-not-found') {
+          codeError = error.message;
+        } else if (codeError === 'auth/wrong-password') {
+          codeError = error.message;
+        }
+        const msgError = home.querySelector('#msgError');
+        msgError.innerHTML = codeError;
       });
   });
 
@@ -62,7 +68,18 @@ export const Home = () => {
       .auth()
       .signInWithPopup(provider)
       .then(() => {
-        onNavigate('/profile');
+        const uid = firebase.auth().currentUser.uid;
+         const user = {
+          displayName: firebase.auth().currentUser.displayName,
+          email: firebase.auth().currentUser.email,
+          phoneNumber: firebase.auth().currentUser.phoneNumber,
+          photoUrl: firebase.auth().currentUser.photoURL,
+        };
+        firebase
+          .firestore().collection('users').doc(uid).set({ user });
+      })
+      .then(() => {
+        onNavigate('/post');
       })
       .catch((error) => {
         alert(error.message);
