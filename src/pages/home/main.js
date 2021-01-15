@@ -23,8 +23,7 @@ export const Home = () => {
       <div class="barra-menu">
         <div class = "itensMenu">            
             <input type="file" id="upload" >  
-            <label for="upload" class = "labelPhoto"><img src="https://img.icons8.com/ios-filled/50/ffffff/photo-editor.png"/></label>            
-            <button class = "profilePhoto" id="profilePhoto" for = "upload"><img src="https://img.icons8.com/ios/50/ffffff/save--v1.png"/></button>    
+            <label for="upload" class = "labelPhoto"><img src="https://img.icons8.com/ios-filled/50/ffffff/photo-editor.png"/></label>               
             <button id = "exit" class = "exit"><img src="https://img.icons8.com/ios-filled/50/ffffff/logout-rounded-up.png"/></button>                              
         </div>
       </div>    
@@ -45,7 +44,7 @@ export const Home = () => {
     rootElement.classList.add("feed")
     const profile = rootElement.querySelector('#upload')
 
-    var docRef = db.collection("post").doc();
+    let docRef = db.collection("post").doc();
 
     loadUserProfile(userId).then((resolve) => {
         rootElement.querySelector("#imgProfile").setAttribute("src", resolve.data().image)
@@ -70,12 +69,12 @@ export const Home = () => {
                 like: [],
             }
 
-            createPost(newPost, docRef.id).then(() => { 
+            createPost(newPost, docRef.id).then(() => {
                 postFeed({
                     ...newPost,
                     displayName: firebase.auth().currentUser.displayName,
                     id: docRef.id
-                    
+
                 })
             })
             postValue.value = '';
@@ -101,6 +100,7 @@ export const Home = () => {
     })
 
     const postFeed = (post) => {
+
         rootElement.querySelector("#postedValue").innerHTML =
             feed +=
             `<div id =${post.id} class="containerFeed">
@@ -122,15 +122,12 @@ export const Home = () => {
                 </div>
                 </div>`
 
-        const edit = rootElement.querySelectorAll("#edit")
+        const edit = rootElement.querySelectorAll(".edit")
         edit.forEach((button) => {
             button.addEventListener("click", (e) => {
                 e.preventDefault()
-                
                 const containerFeed = e.target.parentNode.parentNode.parentNode
-                
                 showEdit(containerFeed)
-                
             })
         })
 
@@ -138,12 +135,10 @@ export const Home = () => {
         save.forEach((button) => {
             button.addEventListener("click", async(e) => {
                 e.preventDefault()
-                console.log('deu certo')
                 const newText = rootElement.querySelector(".editText").value
                 const containerFeed = e.target.parentNode.parentNode.parentNode.parentNode
-                console.log(containerFeed.id)
                 updatePost(newText, containerFeed.id).then(() => {
-                    showSave(containerFeed) 
+                    showSave(containerFeed)
                 })
             })
         })
@@ -153,7 +148,6 @@ export const Home = () => {
             button.addEventListener("click", async(e) => {
                 e.preventDefault()
                 const containerFeed = e.target.parentNode.parentNode.parentNode
-                
                 likePost(userId, containerFeed.id).then(() => {
                     const elementLike = containerFeed.querySelector('.spanLike')
                     elementLike.innerHTML = `${post.like.length +1}`
@@ -166,7 +160,6 @@ export const Home = () => {
             button.addEventListener("click", (e) => {
                 e.preventDefault()
                 const containerFeed = e.target.parentNode.parentNode.parentNode
-                //console.log(containerFeed.id)
                 deletePost(containerFeed.id).then(() => {
                     containerFeed.remove()
                 })
@@ -181,15 +174,9 @@ export const Home = () => {
 
     const showSave = (containerFeed) => {
 
-            containerFeed.querySelector(".save").style.display = "none";
-            containerFeed.querySelector(".editText").setAttribute("disabled", "disabled")
-        }
-        // const like = (containerFeed) => {
-        //     const postLike = containerFeed.querySelector("#containerButton")
-        //     const text = containerFeed.createElement("span").innerHTML = `${post.like.length}`
-        //     postLike.appendChild(text)
+        containerFeed.querySelector(".save").style.display = "none";
+        containerFeed.querySelector(".editText").setAttribute("disabled", "disabled")
+    }
 
-    //     console.log(text)
-    // }
     return rootElement;
 }

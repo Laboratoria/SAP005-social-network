@@ -56,9 +56,7 @@ export const Login = () => {
 
     rootElement.querySelector("#google").addEventListener("click", (e) => {
         e.preventDefault()
-        loginGoogle().then(() => {
-            onNavigate("/home")
-        })
+        loginGoogle()
     })
 
     const eye = () => {

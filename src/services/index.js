@@ -55,15 +55,20 @@ export const login = async(email, password) => {
 }
 
 export const loginGoogle = async() => {
-    var provider = new firebase.auth.GoogleAuthProvider();
+    let provider = new firebase.auth.GoogleAuthProvider();
     await firebase.auth().signInWithPopup(provider).then(function(result) {
         const userId = firebase.auth().currentUser.uid
         localStorage.setItem("uid", userId);
-        return db.collection("users").doc(userId).set({
-            email: `${firebase.auth().currentUser.email}`,
-            name: `${firebase.auth().currentUser.displayName}`,
-            image: `${firebase.auth().currentUser.photoURL}`
-        })
+        if (firebase.auth().currentUser.email != db.collection("users").doc(userId).email) {
+            onNavigate("/home")
+            return db.collection("users").doc(userId).set({
+                email: `${firebase.auth().currentUser.email}`,
+                name: `${firebase.auth().currentUser.displayName}`,
+                image: imageUser
+            })
+        } else {
+            onNavigate("/home")
+        }
 
     })
 }
