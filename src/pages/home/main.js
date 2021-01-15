@@ -131,6 +131,7 @@ export const Home = () => {
             })
         })
 
+
         const save = rootElement.querySelectorAll(".save")
         save.forEach((button) => {
             button.addEventListener("click", async(e) => {
