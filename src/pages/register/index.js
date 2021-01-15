@@ -3,25 +3,41 @@ import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
   const register = document.createElement('div');
-  register.classList.add('div-register');
+  register.classList.add('form-container');
   register.innerHTML = `
-  <div class='head-register' alt='Runner|Cadastro'>Runner|Cadastro</div>
-  <figure class='container-logo'>
-    <img src='./assets/logo_runners.png' class='logo-register' alt='Logo Runners'>
-  </figure>
-
-  <form> 
-    <div class="form-container">
-    <h3 class='error' id='registerError'></h3>
-      <input type='text' id='displayName' placeholder='Nome'/>
-      <input type='email' id='email' placeholder='E-mail'/>
-      <input type='number' id='phoneNumber' placeholder='()999999999'/>
-      <input type='password' id='password' placeholder='Senha'/>
-      <input type='password' id='confirmPwd' placeholder='Confirmar Senha'/>
-      <button id="btnRegister">Registrar</button>
-    <a href='/' class='link-exit'>Voltar</a> 
+  <div class='form-login'>
+  <div class='header-container'>
+    <figure class='logo'><a href='/'><img src='./assets/logo/runners-360px.png' alt='Logo Runners - Voltar' id='logo'></a></figure>
+    <h1>Cadastre-se!</h1>
+    <p class='about'>Compartilhe suas corridas, metas e desafios!</p>
+    <hr />
+  </div>
+  <div>
+    <p class='register'>Não compartilhamos seus dados com terceiros ;)</p>
+  </div>
+  <div class="row clearfix">
+    <div class="col_half">
+      <div class="input_field"><span><i class="fas fa-running" aria-hidden="true"></i></span>
+        <input type='text' id='displayName' placeholder='Nome'required/>      
+      </div>
+      <div class="input_field"><span><i class="far fa-envelope" aria-hidden="true"></i></span>
+        <input type="email" id='email' name="email" placeholder="Digite seu e-mail" required />
+      </div>
     </div>
-  </form>
+    <div class="col_half last">
+      <form>
+        <h3 class='error' id='msgError'></h3>
+        <div class="input_field"><span><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input type='password' id='password' placeholder='Senha'/>
+        </div>
+        <div class="input_field"><span><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input type='password' id='confirmPwd' placeholder='Confirmar Senha'/>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div><input class="button" id='btnRegister' type="submit" value="Cadastre-se"/></div>
   `;
 
   const btnRegister = register.querySelector('#btnRegister');
@@ -32,7 +48,7 @@ export const Register = () => {
       displayName: register.querySelector('#displayName').value,
       email: register.querySelector('#email').value,
       phoneNumber: register.querySelector('#phoneNumber').value,
-      photoUrl: '',
+      photoURL: '',
     };
 
     const password = register.querySelector('#password').value;
@@ -47,12 +63,10 @@ export const Register = () => {
         .then(() => {
           firebase
             .auth()
-            .currentUser
-            .sendEmailVerification()
+            .currentUser.sendEmailVerification()
             .then(() => {
-              const uid = (firebase.auth().currentUser.uid);
-              firebase
-                .firestore().collection('users').doc(uid).set({ user });
+              const uid = firebase.auth().currentUser.uid;
+              firebase.firestore().collection('users').doc(uid).set({ user });
             })
             .then(() => {
               alert('Cadastro realizado com sucesso!');
