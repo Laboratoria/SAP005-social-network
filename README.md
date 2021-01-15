@@ -2,7 +2,7 @@
 
 Para acessar a plataforma, [clique aqui.](https://rede-social-205ff.web.app)
 
-![image](src/img/learning.png)
+![image](src/img/learning1.png)
 
 ---
 ###  Introdução 
@@ -91,6 +91,8 @@ Essa aplicação foi desenvolvida por:
 - Responsivo 
 - SPA
 - Mobile First
+- Git 
+- Github
 
 
 
