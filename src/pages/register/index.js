@@ -70,7 +70,7 @@ export const Register = () => {
               alert('Cadastro realizado com sucesso!');
             })
             .then(() => {
-              onNavigate('/profile');
+              onNavigate('/post');
             })
             .catch((error) => {
               const errormsg = error.message;
