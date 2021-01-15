@@ -1,4 +1,5 @@
 import { Register } from './index.js';
+// import * as services from '../../services/index.js';
 
 describe('Register', () => {
   it('should be a function', () => {
