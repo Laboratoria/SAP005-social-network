@@ -10,6 +10,7 @@ export const identifyUser = () => {
       }
     });
 };
+
 // Deslogar o usuario
 export const logOut = () => {
   if (firebase.auth().currentUser !== null) {
@@ -22,10 +23,12 @@ export const logOut = () => {
       });
   }
 };
+
 // Logar com email e senha
 export const loginWithEmail = (email, password) => firebase
   .auth()
   .signInWithEmailAndPassword(email, password);
+
 // Logar com a conta Google
 export const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -33,11 +36,13 @@ export const loginGoogle = () => {
     .auth()
     .signInWithPopup(provider);
 };
+
 // Criar um usuario com Email diferente
 export const createProfile = (email, password) => firebase
   .auth()
   .createUserWithEmailAndPassword(email, password);
-  // Criar um usuario no Firestore
+
+// Criar um usuario no Firestore com Google
 export const createuser = () => {
   const uid = firebase.auth().currentUser.uid;
   const user = {
@@ -48,22 +53,33 @@ export const createuser = () => {
   return firebase
     .firestore().collection('users').doc(uid).set({ user });
 };
-  // Enviar um e-mail de verificação a um usuário
+
+// Enviar um e-mail de verificação a um usuário
 export const confirmEmail = () => {
   firebase
     .auth()
     .currentUser
     .sendEmailVerification();
 };
+
 export const currentUser = () => firebase.auth().currentUser;
+
 // Excluir um usuário
 export const delUser = () => firebase.firestore().user.delete();
-// Incluir no Firetore o usuario com email novo
+
+// Incluir no Firetore o usuario com email
 // export const createUserEmail = () => {
 //   const uid = firebase.auth().currentUser.uid;
 //   return firebase
 //     .firestore().collection('users').doc(uid).set({ });
 // };
+
+//   UID
+export const userId = () => {
+  const idUser = firebase.auth().currentUser.uid;
+  const id = idUser.id;
+  return id;
+};
 // Também é possível receber o usuário
 //  conectado usando a propriedade currentUser.
 // const name, email, photoUrl, uid, emailVerified;
@@ -78,14 +94,6 @@ export const delUser = () => firebase.firestore().user.delete();
 // } else {
 //   // No user is signed in.
 // }
-
-//   UID
-export const userId = () => {
-  const idUser = firebase.auth().currentUser.uid;
-  const id = idUser.id;
-  return id;
-};
-
 // Atualizar o perfil de um usuário
 // atualizar as informações básicas do perfil de um usuário,
 // como o nome de exibição e o URL da foto do perfil dele,

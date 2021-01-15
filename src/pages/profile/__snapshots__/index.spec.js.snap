@@ -58,14 +58,6 @@ exports[`Profile shoul return profilepag 1`] = `
       </p>
       
       
-      <p
-        class="number"
-        id="phoneNumber"
-      >
-        119999999999
-      </p>
-      
-      
     </div>
     
       
