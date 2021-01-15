@@ -90,7 +90,7 @@ export const Post = () => {
         
         dataBase.collection('Posts').add({
         post_text: postText,
-        date: new Date(),
+        date: new Date().toLocaleString('pt-BR'),
         id_user: userId,
         username: firebase.auth().currentUser.displayName,
         likes: [],
@@ -156,6 +156,16 @@ export const Post = () => {
         })
        }  
       }
+
+      export const DeletePost = (id) => {
+        dataBase.collection('Posts').doc(id).delete().then(() => {
+            console.log('Postagem Deletada');
+            onNavigate('/feed');
+          })
+          .catch((error) => {
+            console.error('Erro ao excluir o post: ', error);
+          });
+        }
 
       export function errorRegister(){
   

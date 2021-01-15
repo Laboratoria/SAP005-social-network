@@ -416,7 +416,10 @@ span.psw {
     background-color: rgb(252, 251, 247);
     border-radius: 10px;
 }
-
+.delete {
+    font-weight: bolder;
+    color: crimson;
+}
 
 @media only screen and (max-device-width: 500px){
 

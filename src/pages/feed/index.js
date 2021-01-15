@@ -1,6 +1,4 @@
-import { getPosts, Like, Dislike, Love, Unlove } from '../../services/index.js';
-import { onNavigate } from '../../utils/history.js';
-
+import { getPosts, Like, Dislike, Love, Unlove, DeletePost } from '../../services/index.js';
 
 export const Feed = () => {
     // Coloque sua página
@@ -11,9 +9,9 @@ export const Feed = () => {
    <nav>
      <ul>
         <li id='logo-feed'></><img src='./pages/feed/img/nav-bar/rocket-icon.png' alt'rocket-logo'>TPM</li>
-        <li id='profile-edit'>Meu perfil</li>
+       <!-- <li id='profile-edit'>Meu perfil</li>
         <li>Feed</li> 
-        <li>Comunidades</li> 
+        <li>Comunidades</li> -->
         <li id='log-out'>Sair</li>
      </ul>
    </nav>
@@ -44,7 +42,8 @@ export const Feed = () => {
       <ul>
         <li data-id='${post.data().likes}'><button id='like' title='Curti' class='like react-button'><img src='./pages/feed/img/reacts/like.png' alt='botao de curtir'>${post.data().likes.length}</button></li>
         <li data-id='${post.data().loveIt}'><button id='love' title='Amei' class='love react-button'><img src='./pages/feed/img/reacts/heart.png' alt='botao de amar'>${post.data().loveIt.length}</button></li>
-       </ul>
+        <li><button id='delete' title='Apagar' class='delete react-button'>X</button></li>
+       </ul> 
         </section>
      `
     )  }
@@ -72,49 +71,25 @@ allLike.forEach((button) => {
    allLove.forEach((button) => {
       button.addEventListener('click', (e) => {
         let container = e.target.parentNode.parentNode.parentNode;
-         let idLove = e.target.parentNode
-          Love(container.dataset.id);
-           console.log('Você amou isso');
+        let idLove = e.target.parentNode
+        Love(container.dataset.id);
+        console.log('Você amou isso');
         if(firebase.auth().currentUser.uid == idLove.dataset.id)
-          Unlove(container.dataset.id);
+           Unlove(container.dataset.id);
            console.log('Você descurtiu isso');    
-          
+        });
       });
-   });
 
-  });
+   const deleteBtn = document.querySelectorAll('.delete');
+      deleteBtn.forEach((button) => {
+        button.addEventListener('click', (e) => {
+        let container = e.target.parentNode.parentNode.parentNode;
+        const question = window.confirm('Você realmente deseja apagar?');
+        if (question === true) {
+          DeletePost(container.dataset.id);
+         }
+      });
+    });  
+ });
   return rootElement;
 };
-/*
-let user = firebase.auth().currentUser;
-  
-function getData(){
-  rootElement.innerHTML = `
-  <div class='nav-bar'> 
-  <nav>
-    <ul>
-       <li id='logo-feed'></><img src='./pages/feed/img/nav-bar/rocket-icon.png' alt'rocket-logo'>TPM</li>
-       <li id='profile-edit'>Meu perfil</li>
-       <li>Feed</li> 
-       <li>Comunidades</li> 
-       <li id='log-out'>Sair</li>
-    </ul>
-  </nav>
- </div>
- <div id="profile">
-  <figure class='edit'>
-    <input type='file' id="pic-edit" placeholder='Cole aqui o link de uma foto'>
-    <input type='text' id="name-edit" placeholder='Digite seu nome'>
-  </figure>
-</div>
- `
-let name, email, photoUrl, uid, emailVerified;
-
-  if (user != null) {
-    name = user.displayName;
-    email = user.email;
-    photoUrl = user.photoURL;
-    emailVerified = user.emailVerified;
-    uid = user.uid; 
-   }
-  */ 

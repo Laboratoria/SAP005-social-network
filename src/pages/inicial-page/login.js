@@ -100,21 +100,7 @@ document.getElementById('main-page').innerHTML = `
       let userName = document.getElementById('name').value;
 
    subscribe(email, password, userName);
-  });
-  
-   
-
-
- 
-
-  // document.getElementById('subscribe').addEventListener("click", (e) => {
-  //   e.preventDefault();
-  //  let email = document.getElementById('new-email').value;
-  //  let password = document.getElementById('password-register').value;
-  //  let userName = document.getElementById('name').value;
-  //   subscribe(email, password, userName);
-  //   errorRegister ();
-  //   })
-   
+   errorRegister ();
+  });  
 }
   
