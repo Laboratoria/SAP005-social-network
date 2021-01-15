@@ -1,6 +1,8 @@
-import { onNavigate } from "../../utils/history.js"
+import {
+  onNavigate
+} from "../../utils/history.js"
 
-const auth = firebase.auth();
+const auth = firebase.auth()
 
 export const loginPrincipal = (email, senha) => {
   auth.signInWithEmailAndPassword(email, senha)
@@ -26,7 +28,7 @@ export const loginGoogle = () => {
       firebase.firestore().doc(`/users/${uid}`).set({
         email: user.email,
         name: user.displayName,
-      })
+      });
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -61,7 +63,7 @@ export const newRegistry = (email, senha, nameUser) => {
 
 export const Navigation = () => {
   const navigation = document.createElement('nav');
-  navigation.classList.add('navigation');
+  navigation.classList.add('navigation')
   navigation.innerHTML = `
    <ul class="navMenu">
      <li><img src="images/fireHome.png"  id="feed" class="menu-icon"></li>
@@ -75,6 +77,7 @@ export const Navigation = () => {
   const bottunNotification = navigation.querySelector('#notification');
   bottunNotification.addEventListener('click', () => {
     onNavigate('/notification');
+
   });
 
   const bottunPorfile = navigation.querySelector('#profile');
@@ -102,7 +105,8 @@ export const Navigation = () => {
   });
 
   return navigation;
-}
+};
+
 export const newPost = (saveTextPost) => {
 
   const user = firebase.auth().currentUser;
@@ -113,48 +117,88 @@ export const newPost = (saveTextPost) => {
     text: saveTextPost,
     date: (new Date()).toLocaleString(),
     uid: user.uid,
+    like: [],
+    comment: [],
+
   }).catch(() => {
     alert("Não foi possível publicar, tente novamente.")
-  });
+  })
 };
 
-export const post = (name, date, text) => {
+export const post = (name, date, text, like, id) => {
   const post = document.createElement('div');
+  console.log(id)
   post.innerHTML = `
-  <div class="post">
-     <p id="nameUser">${name}</p>
-     <p id="textUser">${text}</p>
-     <p id="dateUser">${date}</p>
-
-     <button class="curtir">Curtir</button>
-        <button class="comentar">Comentar</button>
-    
+     <p class="nameUser">${name}</p>
+     <p class="textUser">${text}</p>
+     <p class="dateUser">${date}</p>
+     <p class="likeUser">${like}</p>
+     <button class="like">curtir</button>
+     <button class="edit">editar</button>
     `;
+  const editButton = post.querySelectorAll('.edit');
+  const likePost = post.querySelectorAll(".like");
+  likePost.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const boxPost = e.target.parentNode
+      const likeUsers = boxPost.querySelector(".likeUser")
+      const user = firebase.auth().currentUser.displayName;
+      const docs = firebase.firestore().collection("post").doc(id);
+
+      like.push(user)
+
+      docs.update({
+          like
+        })
+        .then(function () {
+          likeUsers.innerHTML = like
+        })
+    })
+  })
+  editButton.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const boxPost = e.target.parentNode
+      const texto = boxPost.querySelector(".textUser");
+      const data = boxPost.querySelector(".dateUser");
+      const paramText = text;
+      texto.innerHTML = `<textarea class="textPost">${paramText}</textarea>
+      <button class="editPost">Editar</button>`
+      const editSend = texto.querySelector(".editPost");
+      editSend.addEventListener('click', () => {
+        const textNew = texto.querySelector(".textPost");
+        const textValue = textNew.value;
+        const docsEditar = firebase.firestore().collection("post").doc(id);
+
+        docsEditar.update({
+          text: textValue,
+          date: (new Date()).toLocaleString(),
+        }).then(function () {
+          docsEditar.onSnapshot(function (doc) {
+            texto.innerHTML = doc.data().text,
+              data.innerHTML = doc.data().date
+          })
+        });
+      });
+    });
+  });
   return post;
 };
+
 export const getPosts = () => {
+
   firebase.firestore().collection("post").orderBy('date', 'desc')
     .get()
     .then(function (querySnapshot) {
       feedPost.innerHTML = ``
+      textPost.value = "";
       querySnapshot.forEach(function (doc) {
+        const id = doc.id
         const name = doc.data().name;
         const text = doc.data().text;
         const date = doc.data().date;
-        feedPost.appendChild(post(name, date, text));
+        const like = doc.data().like;
+        feedPost.appendChild(post(name, date, text, like, id));
+
       });
     });
 };
-
-//  const curtidasColecao = firebase.database().ref('likes');
-// export const likedPost = () => {
-//   return curtidasColecao.add({
-//     liked: true,
-//   })
-//   .then(() => {
-//     return Promise.resolve(true);
-//   })
-//   .catch((error) => { 
-//     return Promise.reject(error);
-//   })
-// };
