@@ -53,6 +53,10 @@ O Primeiro passo foi o desenvolvimento do prototipo do projeto;
 
 ---
 ### Conceito final
+
+![crud](src/img/learning.gif)
+
+
 ---
 ### Paleta de Cores
 
