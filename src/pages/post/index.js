@@ -1,103 +1,91 @@
-import { logOut } from '../../services/index.js';
+/* eslint-disable import/named */
 import { onNavigate } from '../../utils/history.js';
+import {
+  loginWithEmail, loginGoogle, createuser, currentUser,
+} from '../../services/index.js';
 
-export const Post = () => {
-  const post = document.createElement('div');
-  post.classList.add('div-post');
-  post.innerHTML = `
-<div class='container'>
-  <header class="header">
-    <img src='./assets/logo/runners-40px.png' alt='Logo Runners' id='logo' class="logo"></a>
-    <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-    <ul class="menu">
-      <li id='profile'><a href="#">Perfil</a></li>
-      <li id='logOut'><a href="#">Sair</a></li>
-    </ul>
-  </header>
-  <div class="form-login">
+export const Home = () => {
+  const home = document.createElement('div');
+  home.classList.add('container');
+  home.innerHTML = `
+  <div class='form-login'>
+  <div class='header-container'>
+    <figure class='logo'><img src='./assets/logo/runners-360px.png' alt='Logo Runners' id='logo'></figure>
+    <h1>Olá!</h1>
+    <p class='about'>Conecte-se e compartilhe seus desafios com outros corredores.</p>
     <hr />
-    <section>
+  </div>
+  <div>
+    <h2 class='about'>Login</h2>
+  </div>
+  <div class="row clearfix">
+    <div class="col_half">
+      <div class="btn google" id='authGoogle'><a href="#"><span><i class="fab fa-google" aria-hidden="true"></i></span>Entrar com Google</a></div>
+      <div class="btn rg"><a href="/register"><span><i class="fas fa-user-circle" aria-hidden="true"></i></span>Criar nova conta</a></div>
+    </div>
+    <div class="col_half last">
       <form>
-        <textarea class='post' id='newPost'></textarea>
-        <hr />
-        <button type='button' class='btnn' id='btn'>Postar</button>
-      </form>
-    </section>
+        <h3 class='error' id='msgError'></h3>
+        <div class="input_field"><span><i class="far fa-envelope" aria-hidden="true"></i></span>
+          <input type="email" id='email-input' name="email" placeholder="Digite seu e-mail" required />
+        </div>
+        <div class="input_field"><span><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input type="password" id='password-home' placeholder="Digite sua senha" required />
+        </div>
+        <div>
+          <input class="button" id='submit-home' type="submit" value="Entrar"/> 
+        </div>
+    </div>
+    </form>
   </div>
 </div>
-<div class='' id='post-content'></div>
-    
+</div>
 `;
 
-  const btnPost = post.querySelector('#btn');
-  const textPost = post.querySelector('#newPost');
-  const postContent = post.querySelector('#post-content');
+  const btn = home.querySelector('#submit-home');
+  const autGoogle = home.querySelector('#authGoogle');
+  const email = home.querySelector('#email-input');
+  const password = home.querySelector('#password-home');
+  const msgError = home.querySelector('#msgError');
+  const userHome = currentUser();
 
-  const addCardToScreen = () => {
-    const infUser = firebase.auth().currentUser;
-    const textSave = textPost.value;
-    postContent.innerHTML += `
-            <div class='post-card'>
-            <img src='${infUser.photoURL || '../../assets/Photo_Default.png'}' alt='Imagem do Usuario' id='photo'>
-              <h2 class='name'>${infUser.displayName}</h2>
-              <p class='text'>${textSave}</p>
-              <button id='like'><p id='show-like'>❤️</p></button>
-            </div>
-    `;
-  };
-
-  const creatPost = () => {
-    const infCreatUser = firebase.auth().currentUser;
-    const textToSave = textPost.value;
-    const userPost = {
-      displayName: infCreatUser.displayName,
-      photo: infCreatUser.photoURL,
-      text: textToSave,
-    };
-    firebase.firestore().collection('posts').add(userPost).then(() => {
-      // console.log('dados salvo');
-      addCardToScreen(userPost);
-    });
-  };
-
-  const obtainPost = () => {
-    firebase.firestore().collection('posts').orderBy('date', 'desc').get()
-      .then((snapshot) => {
-        // para retornar tudo que tem dentro.
-        // data para puxar os dados
-        // console.log(snapshot);
-        snapshot.forEach((doc) => {
-          // console.log(doc.id, ' => ', doc.data());
-          addCardToScreen(doc);
-        });
+  // Conectar um usuário com endereço de e-mail e senha
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginWithEmail(email.value, password.value)
+      .then(() => {
+        if (userHome !== null) {
+          onNavigate('/post');
+        } else {
+          const notLogin = ('Usuario não está logado');
+          msgError.innerHTML = notLogin;
+        }
       })
       .catch((error) => {
-        alert('Error getting documents: ', error);
+        let codeError = error.code;
+        if (codeError === 'auth/user-not-found') {
+          codeError = error.message;
+        } else if (codeError === 'auth/wrong-password') {
+          codeError = error.message;
+        }
+        msgError.innerHTML = codeError;
       });
-  };
+  });
 
-  btnPost.addEventListener('click', (e) => {
+  // Autenticação do Google
+  autGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    creatPost();
-    obtainPost();
-  });
-
-  const ppost = post.querySelector('#profile');
-  ppost.addEventListener('click', () => {
-    onNavigate('/profile');
-  });
-  const leave = post.querySelector('#logOut');
-  leave.addEventListener('click', () => {
-    logOut()
+    loginGoogle()
       .then(() => {
-        onNavigate('/');
+        createuser();
       })
-      .catch(() => {
-        const error = 'Não conseguimos deslogar, por gentileza tentar novamente';
-        alert(error);
+      .then(() => {
+        onNavigate('/post');
+      })
+      .catch((error) => {
+        msgError.innerHTML = error.message;
       });
   });
 
-  return post;
+  return home;
 };

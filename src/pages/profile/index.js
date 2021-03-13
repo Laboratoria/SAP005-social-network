@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 import { currentUser, delUser, logOut } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
