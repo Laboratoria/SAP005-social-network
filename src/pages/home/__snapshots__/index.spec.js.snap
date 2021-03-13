@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home shoul return homePage 1`] = `
+<div
+  class="form-container"
+>
+  
+  
+  <div
+    class="form-login"
+  >
+    
+  
+    <div
+      class="header-container"
+    >
+      
+    
+      <figure
+        class="logo"
+      >
+        <img
+          alt="Logo Runners"
+          id="logo"
+          src="./assets/logo/runners-360px.png"
+        />
+      </figure>
+      
+    
+      <h1>
+        Olá!
+      </h1>
+      
+    
+      <p
+        class="about"
+      >
+        Conecte-se e compartilhe seus desafios com outros corredores.
+      </p>
+      
+    
+      <hr />
+      
+  
+    </div>
+    
+  
+    <div>
+      
+    
+      <h2
+        class="about"
+      >
+        Login
+      </h2>
+      
+  
+    </div>
+    
+  
+    <div
+      class="row clearfix"
+    >
+      
+    
+      <div
+        class="col_half"
+      >
+        
+      
+        <div
+          class="btn google"
+          id="authGoogle"
+        >
+          <a
+            href="#"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fab fa-google"
+              />
+            </span>
+            Entrar com Google
+          </a>
+        </div>
+        
+      
+        <div
+          class="btn rg"
+        >
+          <a
+            href="/register"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fas fa-user-circle"
+              />
+            </span>
+            Criar nova conta
+          </a>
+        </div>
+        
+    
+      </div>
+      
+    
+      <div
+        class="col_half last"
+      >
+        
+      
+        <form>
+          
+        
+          <h3
+            class="error"
+            id="msgError"
+          />
+          
+        
+          <div
+            class="input_field"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="far fa-envelope"
+              />
+            </span>
+            
+          
+            <input
+              id="email-input"
+              name="email"
+              placeholder="Digite seu e-mail"
+              required=""
+              type="email"
+            />
+            
+        
+          </div>
+          
+        
+          <div
+            class="input_field"
+          >
+            <span>
+              <i
+                aria-hidden="true"
+                class="fa fa-lock"
+              />
+            </span>
+            
+          
+            <input
+              id="password-home"
+              placeholder="Digite sua senha"
+              required=""
+              type="password"
+            />
+            
+        
+          </div>
+          
+        
+          <div>
+            
+          
+            <input
+              class="button"
+              id="submit-home"
+              type="submit"
+              value="Entrar"
+            />
+             
+        
+          </div>
+          
+    
+        </form>
+      </div>
+      
+    
+  
+    </div>
+    
+
+  </div>
+  
+
+
+</div>
+`;

@@ -1,0 +1,14 @@
+/* eslint-disable no-unused-expressions */
+const firebaseConfig = {
+  apiKey: 'AIzaSyDNMVcpnbjVDYMArJM5XabYX5spXB8ANuw',
+  authDomain: 'rede-social-2c561.firebaseapp.com',
+  databaseURL: 'https://rede-social-2c561-default-rtdb.firebaseio.com',
+  projectId: 'rede-social-2c561',
+  storageBucket: 'rede-social-2c561.appspot.com',
+  messagingSenderId: '528570691002',
+  appId: '1:528570691002:web:cbf56b96746afcaf0e0183',
+};
+firebase.initializeApp(firebaseConfig);
+
+export const db = firebase.firestore();
+db.settings({ timestampsInSnapshots: true });
