@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 import { createProfile, confirmEmail } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
