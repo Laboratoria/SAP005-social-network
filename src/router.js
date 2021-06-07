@@ -1,4 +1,4 @@
-import { Home } from './pages/home/index';
+import { Home } from './pages/home/index.js';
 import { Register } from './pages/register/index.js';
 import { Post } from './pages/post/index.js';
 import { Profile } from './pages/profile/index.js';

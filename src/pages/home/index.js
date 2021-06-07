@@ -1,4 +1,3 @@
-/* eslint-disable import/named */
 import { onNavigate } from '../../utils/history.js';
 import {
   loginWithEmail, loginGoogle, createuser, currentUser,

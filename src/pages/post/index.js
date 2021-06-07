@@ -1,91 +1,119 @@
-/* eslint-disable import/named */
+import { logOut } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
-import {
-  loginWithEmail, loginGoogle, createuser, currentUser,
-} from '../../services/index.js';
 
-export const Home = () => {
-  const home = document.createElement('div');
-  home.classList.add('container');
-  home.innerHTML = `
-  <div class='form-login'>
-  <div class='header-container'>
-    <figure class='logo'><img src='./assets/logo/runners-360px.png' alt='Logo Runners' id='logo'></figure>
-    <h1>Olá!</h1>
-    <p class='about'>Conecte-se e compartilhe seus desafios com outros corredores.</p>
+export const Post = () => {
+  const post = document.createElement('div');
+  post.classList.add('div-post');
+  post.innerHTML = `
+<div class='container'>
+  <header class="header">
+    <img src='./assets/logo/runners-40px.png' alt='Logo Runners' id='logo' class="logo"></a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+      <li id='profile'><a href="#">Perfil</a></li>
+      <li id='logOut'><a href="#">Sair</a></li>
+    </ul>
+  </header>
+  <div class="form-login">
     <hr />
-  </div>
-  <div>
-    <h2 class='about'>Login</h2>
-  </div>
-  <div class="row clearfix">
-    <div class="col_half">
-      <div class="btn google" id='authGoogle'><a href="#"><span><i class="fab fa-google" aria-hidden="true"></i></span>Entrar com Google</a></div>
-      <div class="btn rg"><a href="/register"><span><i class="fas fa-user-circle" aria-hidden="true"></i></span>Criar nova conta</a></div>
-    </div>
-    <div class="col_half last">
-      <form>
-        <h3 class='error' id='msgError'></h3>
-        <div class="input_field"><span><i class="far fa-envelope" aria-hidden="true"></i></span>
-          <input type="email" id='email-input' name="email" placeholder="Digite seu e-mail" required />
-        </div>
-        <div class="input_field"><span><i class="fa fa-lock" aria-hidden="true"></i></span>
-          <input type="password" id='password-home' placeholder="Digite sua senha" required />
-        </div>
-        <div>
-          <input class="button" id='submit-home' type="submit" value="Entrar"/> 
-        </div>
-    </div>
-    </form>
+    <section>
+      <form class='form-review'>
+        <textarea class='post' id='newPost'></textarea>
+        <hr />
+        <button type='button' class='btnn' id='btn'>Postar</button>
+      </form>
+    </section>
   </div>
 </div>
-</div>
+<div class='' id='post-content'></div>
+    
 `;
 
-  const btn = home.querySelector('#submit-home');
-  const autGoogle = home.querySelector('#authGoogle');
-  const email = home.querySelector('#email-input');
-  const password = home.querySelector('#password-home');
-  const msgError = home.querySelector('#msgError');
-  const userHome = currentUser();
+  const btnPost = post.querySelector('#btn');
+  const textPost = post.querySelector('#newPost');
+  const postContent = post.querySelector('#post-content');
+  const formReview = post.querySelector('#form-review');
 
-  // Conectar um usuário com endereço de e-mail e senha
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    loginWithEmail(email.value, password.value)
-      .then(() => {
-        if (userHome !== null) {
-          onNavigate('/post');
-        } else {
-          const notLogin = ('Usuario não está logado');
-          msgError.innerHTML = notLogin;
-        }
+  const addCardToScreen = () => {
+    const infUser = firebase.auth().currentUser;
+    // const date = new Date();
+    const textSave = textPost.value;
+
+    postContent.innerHTML += `
+            <div class='post-card'>
+            <img src='${infUser.photoURL || '../../assets/Photo_Default.png'}' alt='Imagem do Usuario' id='photo'>
+              <h2 class='name'>${infUser.displayName}</h2>
+              <p class='text'>${textSave}</p>
+              <button id='like'><p id='show-like'>❤️</p></button>
+              <button type='button' id='btn'><p id='show-like'>Deletar</p></button>
+            </div>
+    `;
+  };
+
+  const creatPost = () => {
+    const infCreatUser = firebase.auth().currentUser;
+    const textToSave = textPost.value;
+    const date = new Date();
+
+    if (!textToSave) {
+      alert('Campo de postagem em branco');
+    } else {
+      const userPost = {
+        displayName: infCreatUser.displayName,
+        photo: infCreatUser.photoURL,
+        id: infCreatUser.uid,
+        text: textToSave,
+      };
+      firebase.firestore().collection('posts').add(userPost).then(() => {
+        addCardToScreen(userPost);
+      })
+        .catch(() => {
+          alert('Opa! Algo deu errado em sua publicação, tente novamente!');
+        });
+    }
+  };
+
+  const obtainPost = () => {
+    const user = firebase.auth().currentUser;
+    const id = firebase.auth().currentUser;
+    firebase.firestore().collection('posts').get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, ' => ', doc.data());
+          addCardToScreen(doc);
+        });
       })
       .catch((error) => {
-        let codeError = error.code;
-        if (codeError === 'auth/user-not-found') {
-          codeError = error.message;
-        } else if (codeError === 'auth/wrong-password') {
-          codeError = error.message;
-        }
-        msgError.innerHTML = codeError;
+        console.log('Error getting documents: ', error);
       });
-  });
 
-  // Autenticação do Google
-  autGoogle.addEventListener('click', (e) => {
+    // para retornar tudo que tem dentro.
+    // data para puxar os dados
+    // console.log(query);
+  };
+
+  btnPost.addEventListener('click', (e) => {
     e.preventDefault();
-    loginGoogle()
-      .then(() => {
-        createuser();
-      })
-      .then(() => {
-        onNavigate('/post');
-      })
-      .catch((error) => {
-        msgError.innerHTML = error.message;
-      });
+    // obtainPost();
+    creatPost();
   });
 
-  return home;
+  const ppost = post.querySelector('#profile');
+  ppost.addEventListener('click', () => {
+    onNavigate('/profile');
+  });
+  const leave = post.querySelector('#logOut');
+  leave.addEventListener('click', () => {
+    logOut()
+      .then(() => {
+        onNavigate('/');
+      })
+      .catch(() => {
+        const error = 'Não conseguimos deslogar, por gentileza tentar novamente';
+        alert(error);
+      });
+  });
+  obtainPost();
+  return post;
 };

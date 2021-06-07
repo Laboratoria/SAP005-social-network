@@ -52,3 +52,12 @@ export const userId = () => {
   const id = idUser.id;
   return id;
 };
+
+// export const getPost = (getAll) => {
+//   let collection = firebase.firestore().collection('reviews');
+//   const user = firebase.auth().currentUser;
+//   if (!getAll && user) {
+//     collection = firebase.firestore().collection('reviews').where('userInfo.id', '==', user.uid);
+//   }
+//   return collection.orderBy('date', 'desc').get().then((queryReview) => queryReview.docs);
+// };
