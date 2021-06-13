@@ -1,3 +1,19 @@
+// // Puxar postagem da database
+// export const getPosts = () => {
+//   firebase.firestore().collection('posts').get();
+// };
+
+// // Deletar postagem
+// export const deletePost = (id) => {
+//   firebase.firestore().collection('posts').doc(id).delete()
+//     .then(() => {
+//       console.log('Publicação deletada com sucesso!');
+//     })
+//     .catch((error) => {
+//       console.error('Erro ao excluir postagem: ', error);
+//     });
+// };
+
 // Deslogar o usuario
 export const logOut = () => firebase
   .auth()

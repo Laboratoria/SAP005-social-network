@@ -1,4 +1,6 @@
-import { logOut } from '../../services/index.js';
+import {
+  logOut,
+} from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
 export const Post = () => {
@@ -33,11 +35,9 @@ export const Post = () => {
   const btnPost = post.querySelector('#btn');
   const textPost = post.querySelector('#newPost');
   const postContent = post.querySelector('#post-content');
-  const formReview = post.querySelector('#form-review');
 
   const addCardToScreen = () => {
     const infUser = firebase.auth().currentUser;
-    // const date = new Date();
     const textSave = textPost.value;
 
     postContent.innerHTML += `
@@ -46,7 +46,7 @@ export const Post = () => {
               <h2 class='name'>${infUser.displayName}</h2>
               <p class='text'>${textSave}</p>
               <button id='like'><p id='show-like'>❤️</p></button>
-              <button type='button' id='btn'><p id='show-like'>Deletar</p></button>
+              <button type='button' id='btn' class='deletePost'><p id='show-like'>Deletar</p></button>
             </div>
     `;
   };
@@ -54,7 +54,6 @@ export const Post = () => {
   const creatPost = () => {
     const infCreatUser = firebase.auth().currentUser;
     const textToSave = textPost.value;
-    const date = new Date();
 
     if (!textToSave) {
       alert('Campo de postagem em branco');
@@ -75,27 +74,22 @@ export const Post = () => {
   };
 
   const obtainPost = () => {
-    const user = firebase.auth().currentUser;
-    const id = firebase.auth().currentUser;
-    firebase.firestore().collection('posts').get()
-      .then((querySnapshot) => {
+    firebase.firestore()
+      .collection('posts')
+      .get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          console.log(doc.id, ' => ', doc.data());
-          addCardToScreen(doc);
+          console.log(doc.data());
+          postContent.prepend(JSON.stringify(doc.data().displayName));
         });
       })
       .catch((error) => {
         console.log('Error getting documents: ', error);
       });
-
-    // para retornar tudo que tem dentro.
-    // data para puxar os dados
-    // console.log(query);
   };
 
   btnPost.addEventListener('click', (e) => {
     e.preventDefault();
-    // obtainPost();
+    obtainPost();
     creatPost();
   });
 
